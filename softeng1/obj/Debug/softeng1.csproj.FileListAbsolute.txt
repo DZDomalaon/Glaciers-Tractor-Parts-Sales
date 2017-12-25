@@ -1,0 +1,117 @@
+C:\drive d\Jusane\ADDU IT\Accounting\softeng1\softeng1\bin\Debug\softeng1.exe.config
+C:\drive d\Jusane\ADDU IT\Accounting\softeng1\softeng1\bin\Debug\softeng1.exe
+C:\drive d\Jusane\ADDU IT\Accounting\softeng1\softeng1\bin\Debug\softeng1.pdb
+C:\drive d\Jusane\ADDU IT\Accounting\softeng1\softeng1\obj\Debug\softeng1.csprojResolveAssemblyReference.cache
+C:\drive d\Jusane\ADDU IT\Accounting\softeng1\softeng1\obj\Debug\softeng1.Form1.resources
+C:\drive d\Jusane\ADDU IT\Accounting\softeng1\softeng1\obj\Debug\softeng1.Properties.Resources.resources
+C:\drive d\Jusane\ADDU IT\Accounting\softeng1\softeng1\obj\Debug\softeng1.csproj.GenerateResource.Cache
+C:\drive d\Jusane\ADDU IT\Accounting\softeng1\softeng1\obj\Debug\softeng1.exe
+C:\drive d\Jusane\ADDU IT\Accounting\softeng1\softeng1\obj\Debug\softeng1.pdb
+C:\drive d\Jusane\ADDU IT\Accounting\softeng1\softeng1\bin\Debug\MySql.Data.dll
+C:\drive d\Jusane\ADDU IT\Accounting\softeng1\softeng1\bin\Debug\MySql.Data.xml
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\softeng1\softeng1\bin\Debug\softeng1.exe.config
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\softeng1\softeng1\obj\Debug\softeng1.exe
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\softeng1\softeng1\obj\Debug\softeng1.pdb
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\softeng1\softeng1\bin\Debug\softeng1.exe
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\softeng1\softeng1\bin\Debug\softeng1.pdb
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\softeng1\softeng1\bin\Debug\MySql.Data.dll
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\softeng1\softeng1\bin\Debug\MySql.Data.xml
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\softeng1\softeng1\obj\Debug\softeng1.csprojResolveAssemblyReference.cache
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\softeng1\softeng1\obj\Debug\softeng1.Properties.Resources.resources
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\softeng1\softeng1\obj\Debug\softeng1.csproj.GenerateResource.Cache
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\softeng1\softeng1\obj\Debug\softeng1.loginForm.resources
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\softeng1\softeng1\obj\Debug\softeng1.homeForm.resources
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\softeng1\softeng1\obj\Debug\softeng1.orderForm.resources
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\bin\Debug\softeng1.exe.config
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\obj\Debug\softeng1.exe
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\obj\Debug\softeng1.pdb
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\bin\Debug\softeng1.exe
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\bin\Debug\softeng1.pdb
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\bin\Debug\MySql.Data.dll
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\bin\Debug\MySql.Data.xml
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\obj\Debug\softeng1.csprojResolveAssemblyReference.cache
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\obj\Debug\softeng1.loginForm.resources
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\obj\Debug\softeng1.homeForm.resources
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\obj\Debug\softeng1.orderForm.resources
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\obj\Debug\softeng1.Properties.Resources.resources
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\obj\Debug\softeng1.csproj.GenerateResource.Cache
+C:\Users\Tina\Desktop\SAD 2\softeng1\bin\Debug\softeng1.exe.config
+C:\Users\Tina\Desktop\SAD 2\softeng1\obj\Debug\softeng1.exe
+C:\Users\Tina\Desktop\SAD 2\softeng1\obj\Debug\softeng1.pdb
+C:\Users\Tina\Desktop\SAD 2\softeng1\bin\Debug\softeng1.exe
+C:\Users\Tina\Desktop\SAD 2\softeng1\bin\Debug\softeng1.pdb
+C:\Users\Tina\Desktop\SAD 2\softeng1\bin\Debug\MySql.Data.xml
+C:\Users\Tina\Desktop\SAD 2\softeng1\obj\Debug\softeng1.csprojResolveAssemblyReference.cache
+C:\Users\Tina\Desktop\SAD 2\softeng1\obj\Debug\softeng1.loginForm.resources
+C:\Users\Tina\Desktop\SAD 2\softeng1\obj\Debug\softeng1.homeForm.resources
+C:\Users\Tina\Desktop\SAD 2\softeng1\obj\Debug\softeng1.orderForm.resources
+C:\Users\Tina\Desktop\SAD 2\softeng1\obj\Debug\softeng1.Properties.Resources.resources
+C:\Users\Tina\Desktop\SAD 2\softeng1\obj\Debug\softeng1.csproj.GenerateResource.Cache
+M:\Software Engineering\SAD 2 (11_29)\SAD 2\softeng1\obj\Debug\softeng1.csprojResolveAssemblyReference.cache
+M:\Software Engineering\SAD 2 (11_29)\SAD 2\softeng1\obj\Debug\softeng1.loginForm.resources
+M:\Software Engineering\SAD 2 (11_29)\SAD 2\softeng1\obj\Debug\softeng1.homeForm.resources
+M:\Software Engineering\SAD 2 (11_29)\SAD 2\softeng1\obj\Debug\softeng1.orderForm.resources
+M:\Software Engineering\SAD 2 (11_29)\SAD 2\softeng1\obj\Debug\softeng1.Properties.Resources.resources
+M:\Software Engineering\SAD 2 (11_29)\SAD 2\softeng1\obj\Debug\softeng1.staffForm.resources
+M:\Software Engineering\SAD 2 (11_29)\SAD 2\softeng1\obj\Debug\softeng1.usersForm.resources
+M:\Software Engineering\SAD 2 (11_29)\SAD 2\softeng1\obj\Debug\softeng1.csproj.GenerateResource.Cache
+M:\Software Engineering\SAD 2 (11_29)\SAD 2\softeng1\obj\Debug\softeng1.csproj.CoreCompileInputs.cache
+M:\Software Engineering\SAD 2 (11_29)\SAD 2\softeng1\obj\Debug\softeng1.exe
+M:\Software Engineering\SAD 2 (11_29)\SAD 2\softeng1\obj\Debug\softeng1.pdb
+M:\Software Engineering\SAD 2 (11_29)\SAD 2\softeng1\bin\Debug\softeng1.exe.config
+M:\Software Engineering\SAD 2 (11_29)\SAD 2\softeng1\bin\Debug\softeng1.exe
+M:\Software Engineering\SAD 2 (11_29)\SAD 2\softeng1\bin\Debug\softeng1.pdb
+M:\Software Engineering\SAD 2 (11_29)\SAD 2\softeng1\bin\Debug\MySql.Data.xml
+M:\Software Engineering\SAD 2 (11_29)\SAD 2\softeng1\obj\Debug\softeng1.emailTxt.resources
+M:\Software Engineering\SAD 2 (11_29)\SAD 2\softeng1\obj\Debug\softeng1.productsForm.resources
+M:\Software Engineering\SAD 2 (11_29)\SAD 2\softeng1\obj\Debug\softeng1.salesForm.resources
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\bin\Debug\softeng1.exe.config
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\obj\Debug\softeng1.exe
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\obj\Debug\softeng1.pdb
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\obj\Debug\softeng1.csprojResolveAssemblyReference.cache
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\obj\Debug\softeng1.deliveryForm.resources
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\obj\Debug\softeng1.loginForm.resources
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\obj\Debug\softeng1.homeForm.resources
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\obj\Debug\softeng1.orderForm.resources
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\obj\Debug\softeng1.productsForm.resources
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\obj\Debug\softeng1.Properties.Resources.resources
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\obj\Debug\softeng1.salesForm.resources
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\obj\Debug\softeng1.supplierForm.resources
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\obj\Debug\softeng1.unpaidForm.resources
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\obj\Debug\softeng1.usersForm.resources
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\obj\Debug\softeng1.warrantyForm.resources
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\obj\Debug\softeng1.csproj.GenerateResource.Cache
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\obj\Debug\softeng1.customersForm.resources
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\obj\Debug\softeng1.deliveryForm.resources
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\obj\Debug\softeng1.productsForm.resources
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\obj\Debug\softeng1.salesForm.resources
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\obj\Debug\softeng1.supplierForm.resources
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\obj\Debug\softeng1.unpaidForm.resources
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\obj\Debug\softeng1.usersForm.resources
+C:\Users\Darell Domalaon\Desktop\SAD 2\softeng1\obj\Debug\softeng1.warrantyForm.resources
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\bin\Debug\softeng1.exe
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\bin\Debug\softeng1.pdb
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\bin\Debug\MySql.Data.dll
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\bin\Debug\MySql.Data.xml
+C:\drive d\Jusane\ADDU IT\Soft. Engineering\SAD 2\softeng1\obj\Debug\softeng1.customersForm.resources
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\bin\Debug\softeng1.exe.config
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\bin\Debug\softeng1.exe
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\bin\Debug\softeng1.pdb
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\bin\Debug\MySql.Data.xml
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.csprojResolveAssemblyReference.cache
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.customersForm.resources
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.deliveryForm.resources
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.loginForm.resources
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.homeForm.resources
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.orderForm.resources
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.productsForm.resources
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.Properties.Resources.resources
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.salesForm.resources
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.supplierForm.resources
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.unpaidForm.resources
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.usersForm.resources
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.warrantyForm.resources
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.csproj.GenerateResource.Cache
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.csproj.CoreCompileInputs.cache
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.exe
+C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.pdb
