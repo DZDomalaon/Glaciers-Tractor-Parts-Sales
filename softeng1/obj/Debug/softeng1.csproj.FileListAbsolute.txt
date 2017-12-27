@@ -115,3 +115,24 @@ C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.csp
 C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.csproj.CoreCompileInputs.cache
 C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.exe
 C:\Users\mkopitoy\Downloads\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.pdb
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\bin\Debug\softeng1.exe.config
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.exe
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.pdb
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\bin\Debug\softeng1.exe
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\bin\Debug\softeng1.pdb
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\bin\Debug\MySql.Data.dll
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\bin\Debug\MySql.Data.xml
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.csprojResolveAssemblyReference.cache
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.customersForm.resources
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.deliveryForm.resources
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.loginForm.resources
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.homeForm.resources
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.orderForm.resources
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.productsForm.resources
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.Properties.Resources.resources
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.salesForm.resources
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.supplierForm.resources
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.unpaidForm.resources
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.usersForm.resources
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.warrantyForm.resources
+C:\Users\Darell Domalaon\Documents\SAD\SAD dili final\SAD 2\softeng1\obj\Debug\softeng1.csproj.GenerateResource.Cache

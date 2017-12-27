@@ -38,7 +38,7 @@ namespace softeng1
         {
             String user = unameTxt.Text;
             String pass = passwdTxt.Text;
-            String query = "SELECT * FROM EMPLOYEE, PERSON WHERE USERNAME = '" + user + "' AND PASSWORD = '" + pass + "'";
+            String query = "SELECT * FROM EMPLOYEE, PERSON WHERE USERNAME = '" + user + "' AND PASSWORD = '" + pass + "' and employee.EMP_PERSON_ID = person.PERSON_ID";
             
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -48,7 +48,7 @@ namespace softeng1
             DataTable dt = new DataTable();
             adp.Fill(dt);
 
-            if(dt.Rows.Count  >= 1)
+            if(dt.Rows.Count  == 1)
             {
                 int id = int.Parse(dt.Rows[0][0].ToString());
                 string fname = dt.Rows[0][12].ToString();

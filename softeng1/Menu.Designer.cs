@@ -139,9 +139,8 @@
             this.nameTxt.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nameTxt.Location = new System.Drawing.Point(104, 5);
             this.nameTxt.Name = "nameTxt";
-            this.nameTxt.Size = new System.Drawing.Size(47, 17);
+            this.nameTxt.Size = new System.Drawing.Size(0, 17);
             this.nameTxt.TabIndex = 2;
-            this.nameTxt.Text = "label3";
             // 
             // loginAs
             // 

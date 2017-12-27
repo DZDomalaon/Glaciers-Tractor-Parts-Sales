@@ -27,7 +27,7 @@ namespace softeng1
         }
         public void loadEmployeeData()
         {
-            String query = "SELECT * FROM PERSON, EMPLOYEE";
+            String query = "SELECT * FROM PERSON, EMPLOYEE WHERE PERSON_TYPE = 'EMPLOYEE'";
 
 
             conn.Open();
@@ -122,8 +122,8 @@ namespace softeng1
                 lnameTxt.Text = usersData.Rows[e.RowIndex].Cells["lastname"].Value.ToString();
                 positionCmb.Text = usersData.Rows[e.RowIndex].Cells["position"].Value.ToString();
                 statusCmb.Text = usersData.Rows[e.RowIndex].Cells["status"].Value.ToString();
-                shiff.Text = usersData.Rows[e.RowIndex].Cells["shift"].Value.ToString();
-                salary.Text = usersData.Rows[e.RowIndex].Cells["salary"].Value.ToString();
+                shiftTxt.Text = usersData.Rows[e.RowIndex].Cells["shift"].Value.ToString();
+                salaryTxt.Text = usersData.Rows[e.RowIndex].Cells["salary"].Value.ToString();
                 emailTxt.Text = usersData.Rows[e.RowIndex].Cells["email"].Value.ToString();
                 addressTxt.Text = usersData.Rows[e.RowIndex].Cells["address"].Value.ToString();
                 numberTxt.Text = usersData.Rows[e.RowIndex].Cells["contact_num"].Value.ToString();

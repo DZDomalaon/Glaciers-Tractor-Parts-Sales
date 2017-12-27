@@ -39,7 +39,7 @@ namespace softeng1
             namepanel.Location = new Point(140, 56);
             namepanel.Size = new Size(681, 508);
             
-            String query = "SELECT * FROM customer where lastname like '%" + custfnameTxt.Text + "%' or firstname like '%" + custfnameTxt.Text + "%'";
+            String query = "SELECT * FROM person where lastname like '%" + custfnameTxt.Text + "%' or firstname like '%" + custfnameTxt.Text + "% and person_type = 'customer''";
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -144,7 +144,7 @@ namespace softeng1
             prodpanel.Location = new Point(140, 56);
             prodpanel.Size = new Size(681, 508);
 
-            String query = "SELECT * FROM product where name like '%" + pnameTxt.Text + "%'";
+            String query = "SELECT * FROM inventory where name like '%" + pnameTxt.Text + "%'";
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand(query, conn);
