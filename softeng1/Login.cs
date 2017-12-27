@@ -39,9 +39,14 @@ namespace softeng1
             String user = unameTxt.Text;
             String pass = passwdTxt.Text;
             String query = "SELECT * FROM EMPLOYEE, PERSON WHERE USERNAME = '" + user + "' AND PASSWORD = '" + pass + "' and employee.EMP_PERSON_ID = person.PERSON_ID";
-            
+            String timein_query = "UPDATE employee SET time_in = TIME(NOW()), log_date = DATE(NOW()) where USERNAME ='" + user + "'";
+
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
+            
+            MySqlCommand comm_TI = new MySqlCommand(timein_query, conn);
+            comm_TI.ExecuteNonQuery();
+
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
             conn.Close();
 
@@ -51,8 +56,8 @@ namespace softeng1
             if(dt.Rows.Count  == 1)
             {
                 int id = int.Parse(dt.Rows[0][0].ToString());
-                string fname = dt.Rows[0][12].ToString();
-                string lname = dt.Rows[0][13].ToString();
+                string fname = dt.Rows[0][13].ToString();
+                string lname = dt.Rows[0][14].ToString();
                 string username = dt.Rows[0][7].ToString();
                 string password = dt.Rows[0][8].ToString();
 
@@ -66,14 +71,12 @@ namespace softeng1
                 homeForm.previousForm = this;
                 this.Hide();
 
-                MessageBox.Show("Welcome! " + fname, "WELCOME!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Welcome, " + fname + "!", "WELCOME!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
                 MessageBox.Show("Incorrect username or password", "Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            unameTxt.Clear();
-            passwdTxt.Clear();
         }
 
         private void cancelBtn_Click(object sender, EventArgs e)

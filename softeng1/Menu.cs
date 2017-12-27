@@ -7,14 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace softeng1
 {
     public partial class homeForm : Form
     {
+        MySqlConnection conn;
         public homeForm()
         {
             InitializeComponent();
+            conn = new MySqlConnection("SERVER=localhost; DATABASE=glaciers; uid = root; pwd = root");
             loginAs.Text = loginForm.name;
         }
         public static loginForm previousForm { get; set; }
@@ -33,15 +36,20 @@ namespace softeng1
         private void homePanel_Paint(object sender, PaintEventArgs e)
         {
 
-        }
-
-        
+        }        
         private void exitBtn_Click(object sender, EventArgs e)
         {
+            String timeOut_query = "UPDATE employee SET time_OUT = TIME(NOW()) where emp_id ='" + loginForm.user_id + "'";
+
+
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(timeOut_query, conn);
+            comm.ExecuteNonQuery();
+            conn.Close();
+
             this.Hide();
             previousForm.Show();
         }
-
         private void homeForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             previousForm.Show();
