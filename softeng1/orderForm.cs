@@ -16,7 +16,7 @@ namespace softeng1
         MySqlConnection conn;
         public orderForm()
         {
-            conn = new MySqlConnection("SERVER=localhost; DATABASE=pos; uid = root; pwd = root");
+            conn = new MySqlConnection("SERVER=localhost; DATABASE=glaciers; uid = root; pwd = root");
             InitializeComponent();
         }
         public static homeForm fromOrder { get; set; }
@@ -39,7 +39,7 @@ namespace softeng1
             namepanel.Location = new Point(140, 56);
             namepanel.Size = new Size(681, 508);
             
-            String query = "SELECT * FROM person where lastname like '%" + custfnameTxt.Text + "%' or firstname like '%" + custfnameTxt.Text + "% and person_type = 'customer''";
+            String query = "SELECT firstname, lastname FROM person where lastname like '%" + custfnameTxt.Text + "%' or firstname like '%" + custfnameTxt.Text + "%' and person_type = 'customer'";
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -49,12 +49,9 @@ namespace softeng1
             adp.Fill(dt);
 
             dgsearchname.DataSource = dt;
-            dgsearchname.Columns["product_id"].Visible = false;
+
             dgsearchname.Columns["firstname"].HeaderText = "Given Name";
             dgsearchname.Columns["lastname"].HeaderText = "Last Name";
-            dgsearchname.Columns["contact_num"].Visible = false;
-            dgsearchname.Columns["address"].Visible = false;
-
         }
 
         private void namepanel_Paint(object sender, PaintEventArgs e)
