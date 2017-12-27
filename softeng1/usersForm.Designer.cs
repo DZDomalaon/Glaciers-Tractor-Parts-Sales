@@ -58,6 +58,9 @@
             this.Number = new System.Windows.Forms.Label();
             this.addressTxt = new System.Windows.Forms.TextBox();
             this.Address = new System.Windows.Forms.Label();
+            this.rbFemale = new System.Windows.Forms.RadioButton();
+            this.rbMale = new System.Windows.Forms.RadioButton();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersData)).BeginInit();
@@ -71,7 +74,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(318, 431);
+            this.backBtn.Location = new System.Drawing.Point(318, 499);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(92, 37);
             this.backBtn.TabIndex = 44;
@@ -85,12 +88,13 @@
             this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editBtn.ForeColor = System.Drawing.Color.White;
-            this.editBtn.Location = new System.Drawing.Point(220, 431);
+            this.editBtn.Location = new System.Drawing.Point(220, 499);
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(92, 37);
             this.editBtn.TabIndex = 43;
             this.editBtn.Text = "Edit";
             this.editBtn.UseVisualStyleBackColor = false;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // addBtn
             // 
@@ -98,7 +102,7 @@
             this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addBtn.ForeColor = System.Drawing.Color.White;
-            this.addBtn.Location = new System.Drawing.Point(24, 431);
+            this.addBtn.Location = new System.Drawing.Point(24, 499);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(92, 37);
             this.addBtn.TabIndex = 41;
@@ -109,7 +113,7 @@
             // salaryTxt
             // 
             this.salaryTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salaryTxt.Location = new System.Drawing.Point(104, 271);
+            this.salaryTxt.Location = new System.Drawing.Point(104, 311);
             this.salaryTxt.Name = "salaryTxt";
             this.salaryTxt.Size = new System.Drawing.Size(223, 27);
             this.salaryTxt.TabIndex = 40;
@@ -119,7 +123,7 @@
             this.salary.AutoSize = true;
             this.salary.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.salary.ForeColor = System.Drawing.Color.Black;
-            this.salary.Location = new System.Drawing.Point(12, 271);
+            this.salary.Location = new System.Drawing.Point(12, 311);
             this.salary.Name = "salary";
             this.salary.Size = new System.Drawing.Size(57, 23);
             this.salary.TabIndex = 39;
@@ -128,7 +132,7 @@
             // shiftTxt
             // 
             this.shiftTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.shiftTxt.Location = new System.Drawing.Point(105, 238);
+            this.shiftTxt.Location = new System.Drawing.Point(105, 278);
             this.shiftTxt.Name = "shiftTxt";
             this.shiftTxt.Size = new System.Drawing.Size(223, 27);
             this.shiftTxt.TabIndex = 38;
@@ -138,7 +142,7 @@
             this.shiff.AutoSize = true;
             this.shiff.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.shiff.ForeColor = System.Drawing.Color.Black;
-            this.shiff.Location = new System.Drawing.Point(12, 238);
+            this.shiff.Location = new System.Drawing.Point(12, 278);
             this.shiff.Name = "shiff";
             this.shiff.Size = new System.Drawing.Size(45, 23);
             this.shiff.TabIndex = 37;
@@ -237,7 +241,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(12, 205);
+            this.label9.Location = new System.Drawing.Point(12, 245);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(58, 23);
             this.label9.TabIndex = 45;
@@ -247,7 +251,7 @@
             // 
             this.statusCmb.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusCmb.FormattingEnabled = true;
-            this.statusCmb.Location = new System.Drawing.Point(105, 205);
+            this.statusCmb.Location = new System.Drawing.Point(105, 245);
             this.statusCmb.Name = "statusCmb";
             this.statusCmb.Size = new System.Drawing.Size(223, 27);
             this.statusCmb.TabIndex = 46;
@@ -276,7 +280,7 @@
             this.resetBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.resetBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resetBtn.ForeColor = System.Drawing.Color.White;
-            this.resetBtn.Location = new System.Drawing.Point(122, 431);
+            this.resetBtn.Location = new System.Drawing.Point(122, 499);
             this.resetBtn.Name = "resetBtn";
             this.resetBtn.Size = new System.Drawing.Size(92, 37);
             this.resetBtn.TabIndex = 42;
@@ -331,7 +335,7 @@
             // emailTxt
             // 
             this.emailTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailTxt.Location = new System.Drawing.Point(104, 337);
+            this.emailTxt.Location = new System.Drawing.Point(104, 377);
             this.emailTxt.Name = "emailTxt";
             this.emailTxt.Size = new System.Drawing.Size(223, 27);
             this.emailTxt.TabIndex = 50;
@@ -341,7 +345,7 @@
             this.Email.AutoSize = true;
             this.Email.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Email.ForeColor = System.Drawing.Color.Black;
-            this.Email.Location = new System.Drawing.Point(12, 337);
+            this.Email.Location = new System.Drawing.Point(12, 377);
             this.Email.Name = "Email";
             this.Email.Size = new System.Drawing.Size(51, 23);
             this.Email.TabIndex = 49;
@@ -350,7 +354,7 @@
             // numberTxt
             // 
             this.numberTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numberTxt.Location = new System.Drawing.Point(105, 304);
+            this.numberTxt.Location = new System.Drawing.Point(105, 344);
             this.numberTxt.Name = "numberTxt";
             this.numberTxt.Size = new System.Drawing.Size(223, 27);
             this.numberTxt.TabIndex = 48;
@@ -360,7 +364,7 @@
             this.Number.AutoSize = true;
             this.Number.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Number.ForeColor = System.Drawing.Color.Black;
-            this.Number.Location = new System.Drawing.Point(12, 304);
+            this.Number.Location = new System.Drawing.Point(12, 344);
             this.Number.Name = "Number";
             this.Number.Size = new System.Drawing.Size(73, 23);
             this.Number.TabIndex = 47;
@@ -369,7 +373,7 @@
             // addressTxt
             // 
             this.addressTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addressTxt.Location = new System.Drawing.Point(104, 370);
+            this.addressTxt.Location = new System.Drawing.Point(104, 410);
             this.addressTxt.Name = "addressTxt";
             this.addressTxt.Size = new System.Drawing.Size(223, 27);
             this.addressTxt.TabIndex = 52;
@@ -379,11 +383,48 @@
             this.Address.AutoSize = true;
             this.Address.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Address.ForeColor = System.Drawing.Color.Black;
-            this.Address.Location = new System.Drawing.Point(12, 370);
+            this.Address.Location = new System.Drawing.Point(12, 410);
             this.Address.Name = "Address";
             this.Address.Size = new System.Drawing.Size(73, 23);
             this.Address.TabIndex = 51;
             this.Address.Text = "Address";
+            // 
+            // rbFemale
+            // 
+            this.rbFemale.AutoSize = true;
+            this.rbFemale.Font = new System.Drawing.Font("Calibri", 14.25F);
+            this.rbFemale.ForeColor = System.Drawing.Color.Black;
+            this.rbFemale.Location = new System.Drawing.Point(229, 212);
+            this.rbFemale.Name = "rbFemale";
+            this.rbFemale.Size = new System.Drawing.Size(83, 27);
+            this.rbFemale.TabIndex = 5;
+            this.rbFemale.TabStop = true;
+            this.rbFemale.Text = "Female";
+            this.rbFemale.UseVisualStyleBackColor = true;
+            // 
+            // rbMale
+            // 
+            this.rbMale.AutoSize = true;
+            this.rbMale.BackColor = System.Drawing.Color.Transparent;
+            this.rbMale.Font = new System.Drawing.Font("Calibri", 14.25F);
+            this.rbMale.ForeColor = System.Drawing.Color.Black;
+            this.rbMale.Location = new System.Drawing.Point(122, 212);
+            this.rbMale.Name = "rbMale";
+            this.rbMale.Size = new System.Drawing.Size(66, 27);
+            this.rbMale.TabIndex = 4;
+            this.rbMale.TabStop = true;
+            this.rbMale.Text = "Male";
+            this.rbMale.UseVisualStyleBackColor = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 14.25F);
+            this.label7.Location = new System.Drawing.Point(12, 212);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 23);
+            this.label7.TabIndex = 53;
+            this.label7.Text = "Gender";
             // 
             // usersForm
             // 
@@ -391,6 +432,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.rbFemale);
+            this.Controls.Add(this.rbMale);
             this.Controls.Add(this.addressTxt);
             this.Controls.Add(this.Address);
             this.Controls.Add(this.emailTxt);
@@ -465,5 +509,8 @@
         private System.Windows.Forms.Label Number;
         private System.Windows.Forms.TextBox addressTxt;
         private System.Windows.Forms.Label Address;
+        private System.Windows.Forms.RadioButton rbFemale;
+        private System.Windows.Forms.RadioButton rbMale;
+        private System.Windows.Forms.Label label7;
     }
 }

@@ -27,7 +27,7 @@ namespace softeng1
         }
         public void loadEmployeeData()
         {
-            String query = "SELECT * FROM PERSON, EMPLOYEE WHERE PERSON_TYPE = 'EMPLOYEE'";
+            String query = "SELECT * FROM PERSON, EMPLOYEE WHERE PERSON.PERSON_TYPE = 'EMPLOYEE'";
 
 
             conn.Open();
@@ -81,14 +81,26 @@ namespace softeng1
             }
             else
             {
-                string query = "INSERT INTO PERSON(FIRSTNAME, LASTNAME, CONTACT_NUM, EMAIL, ADDRESS, PERSON_TYPE)" +
-                    "VALUES ('" + fnameTxt.Text + "','" + lnameTxt.Text + "','" + numberTxt.Text + "','" + emailTxt.Text + "','" + addressTxt.Text + "','Staff')";
+                int gen = 0;
+
+                if (rbMale.Checked == true)
+                {
+                    gen = 1;
+                }
+                else if (rbFemale.Checked == true)
+                {
+                    gen = 0;
+                }
+                string query = "INSERT INTO PERSON(FIRSTNAME, LASTNAME, CONTACT_NUM, EMAIL, ADDRESS, GENDER, PERSON_TYPE)" +
+                    "VALUES ('" + fnameTxt.Text + "','" + lnameTxt.Text + "','" + numberTxt.Text + "','" + emailTxt.Text + "','" + addressTxt.Text + "','"+ gen + "','Employee')";
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
                 comm.ExecuteNonQuery();
                 conn.Close();
+
                 loadEmployeeData();
+
                 fnameTxt.Text = "";
                 lnameTxt.Text = "";
                 positionCmb.Text = "";
@@ -141,6 +153,13 @@ namespace softeng1
             emailTxt.Text = "";
             numberTxt.Text = "";
             addressTxt.Text = "";
+            addBtn.Enabled = true;
+            editBtn.Enabled = false;
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
