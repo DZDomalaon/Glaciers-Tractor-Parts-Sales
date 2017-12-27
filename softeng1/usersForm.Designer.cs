@@ -270,9 +270,8 @@
             this.usersData.RowHeadersVisible = false;
             this.usersData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.usersData.Size = new System.Drawing.Size(521, 502);
-            this.usersData.TabIndex = 30;
-            this.usersData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersData_CellClick);
-            this.usersData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersData_CellContentClick_1);
+            this.usersData.TabIndex = 30;            
+            this.usersData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersData_CellContentClick);
             // 
             // resetBtn
             // 

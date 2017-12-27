@@ -67,12 +67,6 @@ namespace softeng1
         {
             fromUsers.Show();
         }
-
-        private int selected_user_id;
-        private void usersData_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            
-        }
         private void addBtn_Click(object sender, EventArgs e)
         {
             if (fnameTxt.Text == "" || lnameTxt.Text == "" || emailTxt.Text == "" || numberTxt.Text == "" || addressTxt.Text == "")
@@ -117,16 +111,16 @@ namespace softeng1
             fromUsers.Show();
             this.Hide();
         }
-
+        
         private void usersForm_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             fromUsers.Show();
         }
-
-        private void usersData_CellClick(object sender, DataGridViewCellEventArgs e)
+        private int selected_user_id;
+        private void usersData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             addBtn.Enabled = false;
-            editBtn.Enabled = false;
+            editBtn.Enabled = true;
             if (e.RowIndex > -1)
             {
                 selected_user_id = int.Parse(usersData.Rows[e.RowIndex].Cells["emp_id"].Value.ToString());
@@ -159,7 +153,17 @@ namespace softeng1
 
         private void editBtn_Click(object sender, EventArgs e)
         {
+            int gen = 0;
 
+            if (rbMale.Checked == true)
+            {
+                gen = 1;
+            }
+            else if (rbFemale.Checked == true)
+            {
+                gen = 0;
+            }
+            //String query = "Update EMPLOYEE SET FIRSTNAME = '"+ fnameTxt.Text + "', LASTNAME = '" + lnameTxt.Text +"','""'";
         }
     }
 }
