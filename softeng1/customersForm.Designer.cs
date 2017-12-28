@@ -296,7 +296,7 @@
             this.cnumTxt.Mask = "0000-000-0000";
             this.cnumTxt.Name = "cnumTxt";
             this.cnumTxt.PromptChar = '0';
-            this.cnumTxt.Size = new System.Drawing.Size(149, 27);
+            this.cnumTxt.Size = new System.Drawing.Size(223, 27);
             this.cnumTxt.TabIndex = 68;
             this.cnumTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 

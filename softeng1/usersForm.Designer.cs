@@ -54,13 +54,13 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.emailTxt = new System.Windows.Forms.TextBox();
             this.Email = new System.Windows.Forms.Label();
-            this.numberTxt = new System.Windows.Forms.TextBox();
             this.Number = new System.Windows.Forms.Label();
             this.addressTxt = new System.Windows.Forms.TextBox();
             this.Address = new System.Windows.Forms.Label();
             this.rbFemale = new System.Windows.Forms.RadioButton();
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
+            this.numberTxt = new System.Windows.Forms.MaskedTextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.usersData)).BeginInit();
@@ -356,14 +356,6 @@
             this.Email.TabIndex = 49;
             this.Email.Text = "Email";
             // 
-            // numberTxt
-            // 
-            this.numberTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numberTxt.Location = new System.Drawing.Point(105, 344);
-            this.numberTxt.Name = "numberTxt";
-            this.numberTxt.Size = new System.Drawing.Size(223, 27);
-            this.numberTxt.TabIndex = 48;
-            // 
             // Number
             // 
             this.Number.AutoSize = true;
@@ -399,7 +391,7 @@
             this.rbFemale.AutoSize = true;
             this.rbFemale.Font = new System.Drawing.Font("Calibri", 12F);
             this.rbFemale.ForeColor = System.Drawing.Color.Black;
-            this.rbFemale.Location = new System.Drawing.Point(229, 212);
+            this.rbFemale.Location = new System.Drawing.Point(220, 212);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(74, 23);
             this.rbFemale.TabIndex = 5;
@@ -413,7 +405,7 @@
             this.rbMale.BackColor = System.Drawing.Color.Transparent;
             this.rbMale.Font = new System.Drawing.Font("Calibri", 12F);
             this.rbMale.ForeColor = System.Drawing.Color.Black;
-            this.rbMale.Location = new System.Drawing.Point(122, 212);
+            this.rbMale.Location = new System.Drawing.Point(137, 212);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(60, 23);
             this.rbMale.TabIndex = 4;
@@ -431,12 +423,24 @@
             this.label7.TabIndex = 53;
             this.label7.Text = "Gender";
             // 
+            // numberTxt
+            // 
+            this.numberTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numberTxt.Location = new System.Drawing.Point(105, 344);
+            this.numberTxt.Mask = "0000-000-0000";
+            this.numberTxt.Name = "numberTxt";
+            this.numberTxt.PromptChar = '0';
+            this.numberTxt.Size = new System.Drawing.Size(222, 27);
+            this.numberTxt.TabIndex = 69;
+            this.numberTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // usersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.numberTxt);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.rbFemale);
             this.Controls.Add(this.rbMale);
@@ -444,7 +448,6 @@
             this.Controls.Add(this.Address);
             this.Controls.Add(this.emailTxt);
             this.Controls.Add(this.Email);
-            this.Controls.Add(this.numberTxt);
             this.Controls.Add(this.Number);
             this.Controls.Add(this.statusCmb);
             this.Controls.Add(this.label9);
@@ -510,12 +513,12 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TextBox emailTxt;
         private System.Windows.Forms.Label Email;
-        private System.Windows.Forms.TextBox numberTxt;
         private System.Windows.Forms.Label Number;
         private System.Windows.Forms.TextBox addressTxt;
         private System.Windows.Forms.Label Address;
         private System.Windows.Forms.RadioButton rbFemale;
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.MaskedTextBox numberTxt;
     }
 }
