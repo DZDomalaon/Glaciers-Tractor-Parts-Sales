@@ -152,6 +152,9 @@
             // 
             this.positionCmb.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.positionCmb.FormattingEnabled = true;
+            this.positionCmb.Items.AddRange(new object[] {
+            "Admin",
+            "Employee"});
             this.positionCmb.Location = new System.Drawing.Point(105, 172);
             this.positionCmb.Name = "positionCmb";
             this.positionCmb.Size = new System.Drawing.Size(223, 27);
@@ -251,6 +254,9 @@
             // 
             this.statusCmb.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.statusCmb.FormattingEnabled = true;
+            this.statusCmb.Items.AddRange(new object[] {
+            "Active",
+            "Inactive"});
             this.statusCmb.Location = new System.Drawing.Point(105, 245);
             this.statusCmb.Name = "statusCmb";
             this.statusCmb.Size = new System.Drawing.Size(223, 27);
