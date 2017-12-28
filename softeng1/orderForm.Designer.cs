@@ -546,6 +546,8 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.ptotal);
             this.Controls.Add(this.dtp);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "orderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Glacier Tractor Parts & Sales | Order";

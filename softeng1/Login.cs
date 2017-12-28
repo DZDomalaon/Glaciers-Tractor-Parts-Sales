@@ -32,6 +32,7 @@ namespace softeng1
         private void Form1_Load(object sender, EventArgs e)
         {
             time.Text = DateTime.Now.ToShortTimeString();
+            FormBorderStyle = FormBorderStyle.None;
         }
 
         private void loginBtn_Click(object sender, EventArgs e)

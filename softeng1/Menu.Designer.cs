@@ -312,6 +312,8 @@
             this.ClientSize = new System.Drawing.Size(955, 587);
             this.Controls.Add(this.homePanel);
             this.Controls.Add(this.panel3);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "homeForm";
             this.RightToLeftLayout = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

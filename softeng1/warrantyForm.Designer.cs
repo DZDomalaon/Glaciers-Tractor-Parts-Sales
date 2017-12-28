@@ -32,7 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.prodTxt = new System.Windows.Forms.TextBox();
+            this.nameTxt = new System.Windows.Forms.TextBox();
             this.searchBtn = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
@@ -85,19 +85,19 @@
             this.pictureBox1.BackColor = System.Drawing.Color.White;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Image = global::softeng1.Properties.Resources.magnifier;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 129);
+            this.pictureBox1.Location = new System.Drawing.Point(195, 129);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(20, 22);
             this.pictureBox1.TabIndex = 37;
             this.pictureBox1.TabStop = false;
             // 
-            // prodTxt
+            // nameTxt
             // 
-            this.prodTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prodTxt.Location = new System.Drawing.Point(5, 126);
-            this.prodTxt.Name = "prodTxt";
-            this.prodTxt.Size = new System.Drawing.Size(211, 26);
-            this.prodTxt.TabIndex = 34;
+            this.nameTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameTxt.Location = new System.Drawing.Point(5, 126);
+            this.nameTxt.Name = "nameTxt";
+            this.nameTxt.Size = new System.Drawing.Size(211, 26);
+            this.nameTxt.TabIndex = 34;
             // 
             // searchBtn
             // 
@@ -111,6 +111,7 @@
             this.searchBtn.TabIndex = 35;
             this.searchBtn.Text = "Search";
             this.searchBtn.UseVisualStyleBackColor = false;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
             // 
             // panel4
             // 
@@ -118,7 +119,7 @@
             this.panel4.Controls.Add(this.label7);
             this.panel4.Controls.Add(this.searchBtn);
             this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Controls.Add(this.prodTxt);
+            this.panel4.Controls.Add(this.nameTxt);
             this.panel4.ForeColor = System.Drawing.Color.White;
             this.panel4.Location = new System.Drawing.Point(0, 47);
             this.panel4.Name = "panel4";
@@ -132,9 +133,9 @@
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(4, 51);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(147, 44);
+            this.label7.Size = new System.Drawing.Size(157, 44);
             this.label7.TabIndex = 39;
-            this.label7.Text = "Search for a\r\nproduct here...";
+            this.label7.Text = "Search for a\r\ncustomer here...";
             // 
             // panel5
             // 
@@ -208,6 +209,8 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.warrantyData);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "warrantyForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Glacier Tractor Parts & Sales | Warranty";
@@ -230,7 +233,7 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox prodTxt;
+        private System.Windows.Forms.TextBox nameTxt;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
