@@ -157,3 +157,23 @@ C:\Users\Darell Domalaon\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.unpa
 C:\Users\Darell Domalaon\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.usersForm.resources
 C:\Users\Darell Domalaon\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.warrantyForm.resources
 C:\Users\Darell Domalaon\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.csproj.GenerateResource.Cache
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.exe.config
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.exe
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.pdb
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.exe
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.pdb
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\bin\Debug\MySql.Data.xml
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.csprojResolveAssemblyReference.cache
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.customersForm.resources
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.deliveryForm.resources
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.loginForm.resources
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.homeForm.resources
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.orderForm.resources
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.productsForm.resources
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.Properties.Resources.resources
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.salesForm.resources
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.supplierForm.resources
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.unpaidForm.resources
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.usersForm.resources
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.warrantyForm.resources
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.csproj.GenerateResource.Cache
