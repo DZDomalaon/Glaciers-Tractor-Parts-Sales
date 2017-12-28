@@ -1,4 +1,4 @@
-﻿namespace softeng1
+namespace softeng1
 {
     partial class orderForm
     {
@@ -66,6 +66,8 @@
             this.ptotal = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.dtp = new System.Windows.Forms.DateTimePicker();
+            this.closename = new System.Windows.Forms.Button();
+            this.closeprod = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -433,11 +435,12 @@
             // 
             // namepanel
             // 
+            this.namepanel.Controls.Add(this.closename);
             this.namepanel.Controls.Add(this.dgsearchname);
             this.namepanel.Enabled = false;
-            this.namepanel.Location = new System.Drawing.Point(434, 85);
+            this.namepanel.Location = new System.Drawing.Point(434, 91);
             this.namepanel.Name = "namepanel";
-            this.namepanel.Size = new System.Drawing.Size(521, 44);
+            this.namepanel.Size = new System.Drawing.Size(695, 70);
             this.namepanel.TabIndex = 26;
             this.namepanel.Visible = false;
             this.namepanel.Paint += new System.Windows.Forms.PaintEventHandler(this.namepanel_Paint);
@@ -445,7 +448,7 @@
             // dgsearchname
             // 
             this.dgsearchname.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgsearchname.Location = new System.Drawing.Point(12, 11);
+            this.dgsearchname.Location = new System.Drawing.Point(19, 36);
             this.dgsearchname.Name = "dgsearchname";
             this.dgsearchname.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgsearchname.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -456,20 +459,21 @@
             // 
             // prodpanel
             // 
+            this.prodpanel.Controls.Add(this.closeprod);
             this.prodpanel.Controls.Add(this.dgsearchprod);
             this.prodpanel.Enabled = false;
-            this.prodpanel.Location = new System.Drawing.Point(434, 152);
+            this.prodpanel.Location = new System.Drawing.Point(434, 186);
             this.prodpanel.Name = "prodpanel";
-            this.prodpanel.Size = new System.Drawing.Size(521, 44);
+            this.prodpanel.Size = new System.Drawing.Size(695, 68);
             this.prodpanel.TabIndex = 27;
             this.prodpanel.Visible = false;
             // 
             // dgsearchprod
             // 
             this.dgsearchprod.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgsearchprod.Location = new System.Drawing.Point(9, 9);
+            this.dgsearchprod.Location = new System.Drawing.Point(19, 37);
             this.dgsearchprod.Name = "dgsearchprod";
-            this.dgsearchprod.Size = new System.Drawing.Size(665, 491);
+            this.dgsearchprod.Size = new System.Drawing.Size(657, 496);
             this.dgsearchprod.TabIndex = 0;
             this.dgsearchprod.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchprod_CellClick);
             // 
@@ -485,9 +489,9 @@
             // ptotal
             // 
             this.ptotal.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ptotal.Location = new System.Drawing.Point(198, 322);
+            this.ptotal.Location = new System.Drawing.Point(205, 322);
             this.ptotal.Name = "ptotal";
-            this.ptotal.Size = new System.Drawing.Size(114, 27);
+            this.ptotal.Size = new System.Drawing.Size(107, 27);
             this.ptotal.TabIndex = 16;
             this.ptotal.TextChanged += new System.EventHandler(this.ppriceTxt_TextChanged);
             // 
@@ -511,6 +515,34 @@
             this.dtp.Size = new System.Drawing.Size(223, 20);
             this.dtp.TabIndex = 28;
             this.dtp.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // closename
+            // 
+            this.closename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
+            this.closename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closename.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closename.ForeColor = System.Drawing.Color.White;
+            this.closename.Location = new System.Drawing.Point(636, 3);
+            this.closename.Name = "closename";
+            this.closename.Size = new System.Drawing.Size(40, 32);
+            this.closename.TabIndex = 3;
+            this.closename.Text = "X";
+            this.closename.UseVisualStyleBackColor = false;
+            this.closename.Click += new System.EventHandler(this.close_Click);
+            // 
+            // closeprod
+            // 
+            this.closeprod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
+            this.closeprod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeprod.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeprod.ForeColor = System.Drawing.Color.White;
+            this.closeprod.Location = new System.Drawing.Point(636, 4);
+            this.closeprod.Name = "closeprod";
+            this.closeprod.Size = new System.Drawing.Size(40, 32);
+            this.closeprod.TabIndex = 4;
+            this.closeprod.Text = "X";
+            this.closeprod.UseVisualStyleBackColor = false;
+            this.closeprod.Click += new System.EventHandler(this.closeprod_Click);
             // 
             // orderForm
             // 
@@ -546,6 +578,8 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.ptotal);
             this.Controls.Add(this.dtp);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "orderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Glacier Tractor Parts & Sales | Order";
@@ -614,5 +648,7 @@
         private System.Windows.Forms.TextBox ptotal;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DateTimePicker dtp;
+        private System.Windows.Forms.Button closename;
+        private System.Windows.Forms.Button closeprod;
     }
 }
