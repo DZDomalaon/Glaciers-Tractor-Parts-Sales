@@ -397,11 +397,11 @@
             // rbFemale
             // 
             this.rbFemale.AutoSize = true;
-            this.rbFemale.Font = new System.Drawing.Font("Calibri", 14.25F);
+            this.rbFemale.Font = new System.Drawing.Font("Calibri", 12F);
             this.rbFemale.ForeColor = System.Drawing.Color.Black;
             this.rbFemale.Location = new System.Drawing.Point(229, 212);
             this.rbFemale.Name = "rbFemale";
-            this.rbFemale.Size = new System.Drawing.Size(83, 27);
+            this.rbFemale.Size = new System.Drawing.Size(74, 23);
             this.rbFemale.TabIndex = 5;
             this.rbFemale.TabStop = true;
             this.rbFemale.Text = "Female";
@@ -411,11 +411,11 @@
             // 
             this.rbMale.AutoSize = true;
             this.rbMale.BackColor = System.Drawing.Color.Transparent;
-            this.rbMale.Font = new System.Drawing.Font("Calibri", 14.25F);
+            this.rbMale.Font = new System.Drawing.Font("Calibri", 12F);
             this.rbMale.ForeColor = System.Drawing.Color.Black;
             this.rbMale.Location = new System.Drawing.Point(122, 212);
             this.rbMale.Name = "rbMale";
-            this.rbMale.Size = new System.Drawing.Size(66, 27);
+            this.rbMale.Size = new System.Drawing.Size(60, 23);
             this.rbMale.TabIndex = 4;
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
