@@ -116,14 +116,16 @@ namespace softeng1
         {
             fromUsers.Show();
         }
-        private int selected_user_id;
+        private int selected_emp_id;
+        private int selected_person_id;
         private void usersData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             addBtn.Enabled = false;
             editBtn.Enabled = true;
             if (e.RowIndex > -1)
             {
-                selected_user_id = int.Parse(usersData.Rows[e.RowIndex].Cells["emp_id"].Value.ToString());
+                selected_emp_id = int.Parse(usersData.Rows[e.RowIndex].Cells["emp_id"].Value.ToString());
+                selected_person_id = int.Parse(usersData.Rows[e.RowIndex].Cells["person_id"].Value.ToString());
                 fnameTxt.Text = usersData.Rows[e.RowIndex].Cells["firstname"].Value.ToString();
                 lnameTxt.Text = usersData.Rows[e.RowIndex].Cells["lastname"].Value.ToString();
                 positionCmb.Text = usersData.Rows[e.RowIndex].Cells["position"].Value.ToString();
@@ -153,6 +155,7 @@ namespace softeng1
 
         private void editBtn_Click(object sender, EventArgs e)
         {
+
             int gen = 0;
 
             if (rbMale.Checked == true)
@@ -163,12 +166,13 @@ namespace softeng1
             {
                 gen = 0;
             }
-            String query = "Update PERSON, EMPLOYEE SET PERSON.FIRSTNAME = '"+ fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text +"', POSITION = '" + positionCmb.Text + "', PERSON.GENDER = '" + gen + "', STATUS = '" + statusCmb.Text + "', SHIFT = '" + shiftTxt.Text +"', SALARY = '" + salaryTxt.Text +"', PERSON.CONTACT_NUM = '" + numberTxt.Text +"', PERSON.EMAIL = '" + emailTxt.Text +"', PERSON.ADDRESS ='" + addressTxt.Text + "'";
+            String query = "Update PERSON, EMPLOYEE SET PERSON.FIRSTNAME = '"+ fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text +"', POSITION = '" + positionCmb.Text + "', PERSON.GENDER = '" + gen + "', STATUS = '" + statusCmb.Text + "', SHIFT = '" + shiftTxt.Text +"', SALARY = '" + salaryTxt.Text +"', PERSON.CONTACT_NUM = '" + numberTxt.Text +"', PERSON.EMAIL = '" + emailTxt.Text +"', PERSON.ADDRESS ='" + addressTxt.Text + "' WHERE EMP_ID = '" + selected_emp_id + "' AND PERSON_ID = '" + selected_person_id + "'";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
             comm.ExecuteNonQuery();
             conn.Close();
+
             loadEmployeeData();
         }
     }
