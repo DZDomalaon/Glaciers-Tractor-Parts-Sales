@@ -519,9 +519,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
-            this.Controls.Add(this.dtp);
             this.Controls.Add(this.prodpanel);
-            this.Controls.Add(this.ptotal);
             this.Controls.Add(this.namepanel);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.backToMenu);
@@ -546,6 +544,8 @@
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.ptotal);
+            this.Controls.Add(this.dtp);
             this.Name = "orderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Glacier Tractor Parts & Sales | Order";
