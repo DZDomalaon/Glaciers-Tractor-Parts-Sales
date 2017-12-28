@@ -27,7 +27,7 @@ namespace softeng1
         }
         public void loadEmployeeData()
         {
-            String query = "SELECT * FROM PERSON, EMPLOYEE WHERE PERSON.PERSON_TYPE = 'EMPLOYEE'";
+            String query = "SELECT * FROM PERSON, EMPLOYEE WHERE PERSON.PERSON_TYPE = 'EMPLOYEE' AND EMP_PERSON_ID = PERSON_ID";
 
 
             conn.Open();
@@ -163,7 +163,13 @@ namespace softeng1
             {
                 gen = 0;
             }
-            //String query = "Update EMPLOYEE SET FIRSTNAME = '"+ fnameTxt.Text + "', LASTNAME = '" + lnameTxt.Text +"','""'";
+            String query = "Update PERSON, EMPLOYEE SET PERSON.FIRSTNAME = '"+ fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text +"', POSITION = '" + positionCmb.Text + "', PERSON.GENDER = '" + gen + "', STATUS = '" + statusCmb.Text + "', SHIFT = '" + shiftTxt.Text +"', SALARY = '" + salaryTxt.Text +"', PERSON.CONTACT_NUM = '" + numberTxt.Text +"', PERSON.EMAIL = '" + emailTxt.Text +"', PERSON.ADDRESS ='" + addressTxt.Text + "'";
+
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            comm.ExecuteNonQuery();
+            conn.Close();
+            loadEmployeeData();
         }
     }
 }
