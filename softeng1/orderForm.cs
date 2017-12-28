@@ -141,7 +141,7 @@ namespace softeng1
             prodpanel.Location = new Point(140, 56);
             prodpanel.Size = new Size(681, 508);
 
-            String query = "SELECT * FROM inventory where name like '%" + pnameTxt.Text + "%'";
+            String query = "SELECT * FROM inventory where product_name like '%" + pnameTxt.Text + "%'";
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -152,7 +152,7 @@ namespace softeng1
 
             dgsearchprod.DataSource = dt;
             dgsearchprod.Columns["product_id"].Visible = false;
-            dgsearchprod.Columns["name"].HeaderText = "Product Name";
+            dgsearchprod.Columns["product_name"].HeaderText = "Product Name";
             dgsearchprod.Columns["description"].HeaderText = "Product Description";
             dgsearchprod.Columns["price"].HeaderText = "Product Price";
         }
@@ -190,7 +190,7 @@ namespace softeng1
             if (e.RowIndex > -1)
             {
                 dgsearchprod.Rows[e.RowIndex].Cells["product_id"].Value.ToString();
-                prod = dgsearchprod.Rows[e.RowIndex].Cells["name"].Value.ToString();
+                prod = dgsearchprod.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
                 dgsearchprod.Rows[e.RowIndex].Cells["description"].Value.ToString();
                 price = dgsearchprod.Rows[e.RowIndex].Cells["price"].Value.ToString();
                 pnameTxt.Text = prod;
@@ -270,6 +270,16 @@ namespace softeng1
         private void orderForm_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             fromOrder.Show();
+        }
+
+        private void close_Click(object sender, EventArgs e)
+        {
+            namepanel.Hide();
+        }
+
+        private void closeprod_Click(object sender, EventArgs e)
+        {
+            prodpanel.Hide();
         }
 
         private void addOrder_Click(object sender, EventArgs e)
