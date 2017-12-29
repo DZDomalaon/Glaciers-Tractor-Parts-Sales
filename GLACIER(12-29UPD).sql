@@ -122,7 +122,6 @@ CREATE TABLE `inventory` (
   `WARRANTY` varchar(45) DEFAULT NULL,
   `DISCOUNT` int(11) DEFAULT NULL,
   `SERIAL` varchar(45) DEFAULT NULL,
-  `INVENTORY_CATALOGUE` int(11) DEFAULT NULL,
   PRIMARY KEY (`PRODUCT_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -133,7 +132,7 @@ CREATE TABLE `inventory` (
 
 LOCK TABLES `inventory` WRITE;
 /*!40000 ALTER TABLE `inventory` DISABLE KEYS */;
-INSERT INTO `inventory` VALUES (1,'Ligid','sa puno',300.00,NULL,NULL,NULL,NULL),(2,'Ligid','sa Glacier Tractor',100.00,NULL,NULL,NULL,1),(3,'Screw','gamay',50.00,NULL,NULL,NULL,NULL),(5,'Bearing','na dako',600.00,NULL,NULL,NULL,0),(6,'bearing','na gamay',300.00,NULL,NULL,NULL,NULL),(7,'Spinner','Blue',450.00,NULL,NULL,NULL,NULL),(8,'Spinner','Red',450.00,NULL,NULL,NULL,NULL);
+INSERT INTO `inventory` VALUES (1,'Ligid','sa puno',300.00,NULL,NULL,NULL),(2,'Ligid','sa Glacier Tractor',100.00,NULL,NULL,NULL),(3,'Screw','gamay',50.00,NULL,NULL,NULL),(5,'Bearing','na dako',600.00,NULL,NULL,NULL),(6,'bearing','na gamay',300.00,NULL,NULL,NULL),(7,'Spinner','Blue',450.00,NULL,NULL,NULL),(8,'Spinner','Red',450.00,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `inventory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -279,7 +278,6 @@ CREATE TABLE `product_catalogue` (
 
 LOCK TABLES `product_catalogue` WRITE;
 /*!40000 ALTER TABLE `product_catalogue` DISABLE KEYS */;
-INSERT INTO `product_catalogue` VALUES (0,'DAKO',NULL),(1,'DAKO','RUBBER');
 /*!40000 ALTER TABLE `product_catalogue` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -428,4 +426,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-29 15:29:58
+-- Dump completed on 2017-12-28 16:38:16
