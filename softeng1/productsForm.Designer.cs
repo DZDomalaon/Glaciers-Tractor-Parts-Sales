@@ -175,6 +175,7 @@
             this.editBtn.TabIndex = 81;
             this.editBtn.Text = "Edit";
             this.editBtn.UseVisualStyleBackColor = false;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // resetBtn
             // 
@@ -188,6 +189,7 @@
             this.resetBtn.TabIndex = 80;
             this.resetBtn.Text = "Reset";
             this.resetBtn.UseVisualStyleBackColor = false;
+            this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
             // 
             // addBtn
             // 
@@ -201,6 +203,7 @@
             this.addBtn.TabIndex = 79;
             this.addBtn.Text = "Add";
             this.addBtn.UseVisualStyleBackColor = false;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // pdescTxt
             // 
