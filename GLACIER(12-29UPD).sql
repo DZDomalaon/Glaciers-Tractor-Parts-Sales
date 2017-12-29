@@ -101,7 +101,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (3,NULL,NULL,'2017-12-29','ACTIVE',NULL,'dzdomalaon@addu.edu.ph','dzdomalaon@addu.edu.ph',6,NULL,NULL,NULL);
+INSERT INTO `employee` VALUES (0,NULL,NULL,'2017-12-29','ACTIVE',NULL,'dzdomalaon@addu.edu.ph','dzdomalaon@addu.edu.ph',0,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -253,7 +253,7 @@ CREATE TABLE `person` (
 
 LOCK TABLES `person` WRITE;
 /*!40000 ALTER TABLE `person` DISABLE KEYS */;
-INSERT INTO `person` VALUES (6,'Darell','Domalaon','09154843947','dzdomalaon@addu.edu.ph','SA PUSO MO NI CHYNNA',1,'EMPLOYEE'),(7,'Kristina','Pitoy','09154843947','mkopitoy@addu.edu.ph','SA PUSO MO NI RJ',0,'CUSTOMER'),(8,'Jusane','Bellezas','09154843947','jtsbellezas@addu.edu.ph','SA PUSO MO NI JJ',0,'SUPPLIER');
+INSERT INTO `person` VALUES (0,'Darell','Domalaon','09154843947','dzdomalaon@addu.edu.ph','SA PUSO MO NI CHYNNA',1,'EMPLOYEE'),(1,'Kristina','Pitoy','09154843947','mkopitoy@addu.edu.ph','SA PUSO MO NI RJ',0,'CUSTOMER'),(2,'Jusane','Bellezas','09154843947','jtsbellezas@addu.edu.ph','SA PUSO MO NI JJ',0,'SUPPLIER');
 /*!40000 ALTER TABLE `person` ENABLE KEYS */;
 UNLOCK TABLES;
 
