@@ -137,33 +137,6 @@ INSERT INTO `inventory` VALUES (1,'Ligid','sa puno',300.00,NULL,NULL,NULL),(2,'L
 UNLOCK TABLES;
 
 --
--- Table structure for table `inventory_has_product_catalogue`
---
-
-DROP TABLE IF EXISTS `inventory_has_product_catalogue`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `inventory_has_product_catalogue` (
-  `Inventory_PRODUCT_ID` int(11) NOT NULL,
-  `product_catalogue_PC_ID` int(11) NOT NULL,
-  PRIMARY KEY (`Inventory_PRODUCT_ID`,`product_catalogue_PC_ID`),
-  KEY `fk_Inventory_has_product_catalogue_product_catalogue1_idx` (`product_catalogue_PC_ID`),
-  KEY `fk_Inventory_has_product_catalogue_Inventory1_idx` (`Inventory_PRODUCT_ID`),
-  CONSTRAINT `fk_Inventory_has_product_catalogue_Inventory1` FOREIGN KEY (`Inventory_PRODUCT_ID`) REFERENCES `inventory` (`PRODUCT_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Inventory_has_product_catalogue_product_catalogue1` FOREIGN KEY (`product_catalogue_PC_ID`) REFERENCES `product_catalogue` (`PC_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `inventory_has_product_catalogue`
---
-
-LOCK TABLES `inventory_has_product_catalogue` WRITE;
-/*!40000 ALTER TABLE `inventory_has_product_catalogue` DISABLE KEYS */;
-/*!40000 ALTER TABLE `inventory_has_product_catalogue` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
 -- Table structure for table `order`
 --
 
