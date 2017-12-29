@@ -104,6 +104,7 @@ namespace softeng1
                 emailTxt.Text = "";
                 numberTxt.Text = "";
                 addressTxt.Text = "";
+                rbMale.Checked = true;
             }
         }
         private void backBtn_Click_1(object sender, EventArgs e)
@@ -116,9 +117,11 @@ namespace softeng1
         {
             fromUsers.Show();
         }
+
+
         private int selected_emp_id;
         private int selected_person_id;
-        private void usersData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void usersData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             addBtn.Enabled = false;
             editBtn.Enabled = true;
@@ -135,6 +138,15 @@ namespace softeng1
                 emailTxt.Text = usersData.Rows[e.RowIndex].Cells["email"].Value.ToString();
                 addressTxt.Text = usersData.Rows[e.RowIndex].Cells["address"].Value.ToString();
                 numberTxt.Text = usersData.Rows[e.RowIndex].Cells["contact_num"].Value.ToString();
+                int gen = int.Parse(usersData.Rows[e.RowIndex].Cells["gender"].Value.ToString());
+                if (gen == 1)
+                {
+                    rbMale.Checked = true;
+                }
+                else
+                {
+                    rbFemale.Checked = true;
+                }
             }
         }
 
