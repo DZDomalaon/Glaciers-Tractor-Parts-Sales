@@ -139,12 +139,17 @@
             // 
             // prodData
             // 
+            this.prodData.AllowUserToAddRows = false;
+            this.prodData.AllowUserToDeleteRows = false;
             this.prodData.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.prodData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.prodData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.prodData.Dock = System.Windows.Forms.DockStyle.Right;
             this.prodData.Location = new System.Drawing.Point(434, 85);
             this.prodData.Name = "prodData";
+            this.prodData.ReadOnly = true;
+            this.prodData.RowHeadersVisible = false;
+            this.prodData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.prodData.Size = new System.Drawing.Size(521, 502);
             this.prodData.TabIndex = 64;
             this.prodData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prodData_CellClick_1);
@@ -161,7 +166,7 @@
             this.backBtn.TabIndex = 82;
             this.backBtn.Text = "Back";
             this.backBtn.UseVisualStyleBackColor = false;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click_1);
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // editBtn
             // 

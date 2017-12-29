@@ -1,10 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `glaciers` /*!40100 DEFAULT CHARACTER SET utf8 */;
-USE `glaciers`;
--- MySQL dump 10.13  Distrib 5.7.12, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
 --
 -- Host: localhost    Database: glaciers
 -- ------------------------------------------------------
--- Server version	5.7.17-log
+-- Server version	5.7.19-log
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -94,7 +92,7 @@ CREATE TABLE `employee` (
   PRIMARY KEY (`EMP_ID`),
   KEY `fk_employee_person1_idx` (`EMP_PERSON_ID`),
   CONSTRAINT `fk_employee_person1` FOREIGN KEY (`EMP_PERSON_ID`) REFERENCES `person` (`PERSON_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,7 +101,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (1,NULL,NULL,'2017-12-28','ACTIVE',NULL,'dzdomalaon@addu.edu.ph','dzdomalaon@addu.edu.ph',1,NULL,NULL,NULL),(2,NULL,NULL,'2017-12-28','ACTIVE',NULL,'admin','admin',5,'16:26:12',NULL,'2017-12-28');
+INSERT INTO `employee` VALUES (1,NULL,NULL,'2017-12-29','ACTIVE',NULL,'dzdomalaon@addu.edu.ph','dzdomalaon@addu.edu.ph',1,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,7 +120,10 @@ CREATE TABLE `inventory` (
   `WARRANTY` varchar(45) DEFAULT NULL,
   `DISCOUNT` int(11) DEFAULT NULL,
   `SERIAL` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`PRODUCT_ID`)
+  `INVENTORY_PC_ID` int(11) NOT NULL,
+  PRIMARY KEY (`PRODUCT_ID`),
+  KEY `fk_inventory_product_catalogue1_idx` (`INVENTORY_PC_ID`),
+  CONSTRAINT `fk_inventory_product_catalogue1` FOREIGN KEY (`INVENTORY_PC_ID`) REFERENCES `product_catalogue` (`PC_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -132,8 +133,34 @@ CREATE TABLE `inventory` (
 
 LOCK TABLES `inventory` WRITE;
 /*!40000 ALTER TABLE `inventory` DISABLE KEYS */;
-INSERT INTO `inventory` VALUES (1,'Ligid','sa puno',300.00,NULL,NULL,NULL),(2,'Ligid','sa Glacier Tractor',100.00,NULL,NULL,NULL),(3,'Screw','gamay',50.00,NULL,NULL,NULL),(5,'Bearing','na dako',600.00,NULL,NULL,NULL),(6,'bearing','na gamay',300.00,NULL,NULL,NULL),(7,'Spinner','Blue',450.00,NULL,NULL,NULL),(8,'Spinner','Red',450.00,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `inventory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `inventory_has_product_catalogue`
+--
+
+DROP TABLE IF EXISTS `inventory_has_product_catalogue`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `inventory_has_product_catalogue` (
+  `Inventory_PRODUCT_ID` int(11) NOT NULL,
+  `product_catalogue_PC_ID` int(11) NOT NULL,
+  PRIMARY KEY (`Inventory_PRODUCT_ID`,`product_catalogue_PC_ID`),
+  KEY `fk_Inventory_has_product_catalogue_product_catalogue1_idx` (`product_catalogue_PC_ID`),
+  KEY `fk_Inventory_has_product_catalogue_Inventory1_idx` (`Inventory_PRODUCT_ID`),
+  CONSTRAINT `fk_Inventory_has_product_catalogue_Inventory1` FOREIGN KEY (`Inventory_PRODUCT_ID`) REFERENCES `inventory` (`PRODUCT_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Inventory_has_product_catalogue_product_catalogue1` FOREIGN KEY (`product_catalogue_PC_ID`) REFERENCES `product_catalogue` (`PC_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `inventory_has_product_catalogue`
+--
+
+LOCK TABLES `inventory_has_product_catalogue` WRITE;
+/*!40000 ALTER TABLE `inventory_has_product_catalogue` DISABLE KEYS */;
+/*!40000 ALTER TABLE `inventory_has_product_catalogue` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -244,7 +271,7 @@ CREATE TABLE `person` (
   `GENDER` int(11) DEFAULT NULL,
   `PERSON_TYPE` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`PERSON_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -253,7 +280,7 @@ CREATE TABLE `person` (
 
 LOCK TABLES `person` WRITE;
 /*!40000 ALTER TABLE `person` DISABLE KEYS */;
-INSERT INTO `person` VALUES (1,'Darell','Domalaon','09154843947','dzdomalaon@addu.edu.ph','SA PUSO NI CHYNNA',1,'EMPLOYEE'),(2,'Kristina','Pitoy','09154843947','mkopitoy@addu.edu.ph','SA PUSO NI RJ',0,'CUSTOMER'),(3,'Jusane','Bellezas','09154843947','jtsbellezas@addu.edu.ph','SA PUSO NI JJ',0,'SUPPLIER'),(4,'rj','mahinay','09474389111','admin','SA PUSO NI TINA',1,'ADMIN'),(5,'Kristina Tadesa','Domalaon','09154843947','admin','SA PUSO MO',1,'EMPLOYEE');
+INSERT INTO `person` VALUES (1,'Darell','Domalaon','09154843947','dzdomalaon@addu.edu.ph','SA PUSO MO NI CHYNNA',1,'EMPLOYEE'),(2,'Kristina','Pitoy','09154843947','mkopitoy@addu.edu.ph','SA PUSO MO NI RJ',0,'CUSTOMER'),(3,'Jusane','Bellezas','09154843947','jtsbellezas@addu.edu.ph','SA PUSO MO NI JJ',0,'SUPPLIER');
 /*!40000 ALTER TABLE `person` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -426,4 +453,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-28 16:38:16
+-- Dump completed on 2017-12-29 17:41:30

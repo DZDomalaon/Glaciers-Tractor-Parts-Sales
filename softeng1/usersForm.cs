@@ -99,8 +99,8 @@ namespace softeng1
                 lnameTxt.Text = "";
                 positionCmb.Text = "";
                 statusCmb.Text = "";
-                shiff.Text = "";
-                salary.Text = "";
+                shiftTxt.Text = "";
+                salaryTxt.Text = "";
                 emailTxt.Text = "";
                 numberTxt.Text = "";
                 addressTxt.Text = "";
@@ -156,8 +156,8 @@ namespace softeng1
             lnameTxt.Text = "";
             positionCmb.Text = "";
             statusCmb.Text = "";
-            shiff.Text = "";
-            salary.Text = "";
+            shiftTxt.Text = "";
+            salaryTxt.Text = "";
             emailTxt.Text = "";
             numberTxt.Text = "";
             addressTxt.Text = "";
