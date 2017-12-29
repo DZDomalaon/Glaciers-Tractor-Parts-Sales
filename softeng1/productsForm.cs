@@ -82,17 +82,6 @@ namespace softeng1
             fromProduct.Show();
         }
 
-        private void editBtn_Click(object sender, EventArgs e)
-        {
-            //String query = "Update inventory, product_catalogue SET inventory.product_name = '" + pnameTxt.Text + "', inventory.description = '" + pdescTxt.Text + "', inventory.serial = '" + serialTxt.Text + "', product_catalogue.pc_category = '" + categTxt.Text + "', inventory.price = '" + priceTxt.Text + "', inventory.warranty = '" + warrantyDate.Text + "', inventory.discount = '" + discountTxt.Text + "' WHERE product_id = '" + selected_prod_id + "'";
-
-            //conn.Open();
-            //MySqlCommand comm = new MySqlCommand(query, conn);
-            //comm.ExecuteNonQuery();
-            //conn.Close();
-
-            //loadprod();
-        }
 
         private int selected_prod_id;
 
@@ -105,13 +94,27 @@ namespace softeng1
                 selected_prod_id = int.Parse(prodData.Rows[e.RowIndex].Cells["product_id"].Value.ToString());
                 pnameTxt.Text = prodData.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
                 pdescTxt.Text = prodData.Rows[e.RowIndex].Cells["description"].Value.ToString();
-                serialTxt.Text = prodData.Rows[e.RowIndex].Cells["Serial"].Value.ToString();
-                categTxt.Text = prodData.Rows[e.RowIndex].Cells["Warranty"].Value.ToString();
+                discountTxt.Text = prodData.Rows[e.RowIndex].Cells["discount"].Value.ToString();
+                categTxt.Text = prodData.Rows[e.RowIndex].Cells["category"].Value.ToString();
                 priceTxt.Text = prodData.Rows[e.RowIndex].Cells["price"].Value.ToString();
                 warrantyDate.Text = prodData.Rows[e.RowIndex].Cells["warranty"].Value.ToString();
                 categTxt.Text = prodData.Rows[e.RowIndex].Cells["category"].Value.ToString();
                 variantTxt.Text = prodData.Rows[e.RowIndex].Cells["variant"].Value.ToString();
             }
         }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+
+            String query = "Update inventory, product_catalogue SET inventory.product_name = '" + pnameTxt.Text + "', inventory.description = '" + pdescTxt.Text + "', inventory.serial = '" + serialTxt.Text + "', product_catalogue.pc_category = '" + categTxt.Text + "', product_catalogue.pc_variant = '" + variantTxt.Text + "', inventory.price = '" + priceTxt.Text + "', inventory.warranty = '" + warrantyDate.Text + "', inventory.discount = '" + discountTxt.Text + "' WHERE product_id = '" + selected_prod_id + "'";
+
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            comm.ExecuteNonQuery();
+            conn.Close();
+
+            loadprod();
+        }
+        
     }
 }
