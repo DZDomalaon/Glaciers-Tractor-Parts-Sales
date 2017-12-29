@@ -169,12 +169,15 @@ namespace softeng1
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Right;
             this.dataGridView1.Location = new System.Drawing.Point(434, 85);
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(521, 502);
             this.dataGridView1.TabIndex = 7;
@@ -466,9 +469,12 @@ namespace softeng1
             // 
             // dgsearchname
             // 
+            this.dgsearchname.AllowUserToAddRows = false;
+            this.dgsearchname.AllowUserToDeleteRows = false;
             this.dgsearchname.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgsearchname.Location = new System.Drawing.Point(19, 36);
             this.dgsearchname.Name = "dgsearchname";
+            this.dgsearchname.ReadOnly = true;
             this.dgsearchname.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgsearchname.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgsearchname.Size = new System.Drawing.Size(657, 488);
@@ -503,9 +509,12 @@ namespace softeng1
             // 
             // dgsearchprod
             // 
+            this.dgsearchprod.AllowUserToAddRows = false;
+            this.dgsearchprod.AllowUserToDeleteRows = false;
             this.dgsearchprod.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgsearchprod.Location = new System.Drawing.Point(19, 37);
             this.dgsearchprod.Name = "dgsearchprod";
+            this.dgsearchprod.ReadOnly = true;
             this.dgsearchprod.Size = new System.Drawing.Size(657, 496);
             this.dgsearchprod.TabIndex = 0;
             this.dgsearchprod.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchprod_CellClick);

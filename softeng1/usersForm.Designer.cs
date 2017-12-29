@@ -471,6 +471,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "usersForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Glacier Tractor Parts & Sales | Users";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.usersForm_FormClosing_1);
             this.Load += new System.EventHandler(this.usersForm_Load);
