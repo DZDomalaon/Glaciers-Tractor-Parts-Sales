@@ -1,4 +1,4 @@
-﻿namespace softeng1
+namespace softeng1
 {
     partial class warrantyForm
     {

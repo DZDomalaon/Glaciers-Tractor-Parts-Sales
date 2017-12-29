@@ -40,21 +40,21 @@
             this.resetBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
-            this.ulnameTxt = new System.Windows.Forms.TextBox();
+            this.lnameTxt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.ufnameTxt = new System.Windows.Forms.TextBox();
+            this.fnameTxt = new System.Windows.Forms.TextBox();
             this.custData = new System.Windows.Forms.DataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.creditTxt = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.addressTxt = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.cnumTxt = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.emailTxt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.rbMale = new System.Windows.Forms.RadioButton();
+            this.rbFemale = new System.Windows.Forms.RadioButton();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -162,6 +162,7 @@
             this.editBtn.TabIndex = 59;
             this.editBtn.Text = "Edit";
             this.editBtn.UseVisualStyleBackColor = false;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // resetBtn
             // 
@@ -175,6 +176,7 @@
             this.resetBtn.TabIndex = 58;
             this.resetBtn.Text = "Reset";
             this.resetBtn.UseVisualStyleBackColor = false;
+            this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
             // 
             // addBtn
             // 
@@ -188,6 +190,7 @@
             this.addBtn.TabIndex = 57;
             this.addBtn.Text = "Add";
             this.addBtn.UseVisualStyleBackColor = false;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // label6
             // 
@@ -201,13 +204,13 @@
             this.label6.Text = "Credit\r\nLimit";
             this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
-            // ulnameTxt
+            // lnameTxt
             // 
-            this.ulnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ulnameTxt.Location = new System.Drawing.Point(105, 153);
-            this.ulnameTxt.Name = "ulnameTxt";
-            this.ulnameTxt.Size = new System.Drawing.Size(223, 27);
-            this.ulnameTxt.TabIndex = 50;
+            this.lnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lnameTxt.Location = new System.Drawing.Point(105, 153);
+            this.lnameTxt.Name = "lnameTxt";
+            this.lnameTxt.Size = new System.Drawing.Size(223, 27);
+            this.lnameTxt.TabIndex = 50;
             // 
             // label5
             // 
@@ -231,33 +234,39 @@
             this.label4.TabIndex = 47;
             this.label4.Text = "Firstname";
             // 
-            // ufnameTxt
+            // fnameTxt
             // 
-            this.ufnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ufnameTxt.Location = new System.Drawing.Point(105, 106);
-            this.ufnameTxt.Name = "ufnameTxt";
-            this.ufnameTxt.Size = new System.Drawing.Size(223, 27);
-            this.ufnameTxt.TabIndex = 48;
+            this.fnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fnameTxt.Location = new System.Drawing.Point(105, 106);
+            this.fnameTxt.Name = "fnameTxt";
+            this.fnameTxt.Size = new System.Drawing.Size(223, 27);
+            this.fnameTxt.TabIndex = 48;
             // 
             // custData
             // 
+            this.custData.AllowUserToAddRows = false;
+            this.custData.AllowUserToDeleteRows = false;
             this.custData.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.custData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.custData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.custData.Dock = System.Windows.Forms.DockStyle.Right;
             this.custData.Location = new System.Drawing.Point(434, 85);
             this.custData.Name = "custData";
+            this.custData.ReadOnly = true;
+            this.custData.RowHeadersVisible = false;
+            this.custData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.custData.Size = new System.Drawing.Size(521, 502);
             this.custData.TabIndex = 63;
+            this.custData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.custData_CellClick);
             // 
-            // textBox1
+            // creditTxt
             // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(105, 248);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(223, 27);
-            this.textBox1.TabIndex = 64;
+            this.creditTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creditTxt.Location = new System.Drawing.Point(105, 248);
+            this.creditTxt.Name = "creditTxt";
+            this.creditTxt.ReadOnly = true;
+            this.creditTxt.Size = new System.Drawing.Size(223, 27);
+            this.creditTxt.TabIndex = 64;
             // 
             // label7
             // 
@@ -270,13 +279,13 @@
             this.label7.TabIndex = 65;
             this.label7.Text = "Address";
             // 
-            // textBox2
+            // addressTxt
             // 
-            this.textBox2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(105, 301);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(223, 27);
-            this.textBox2.TabIndex = 66;
+            this.addressTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.addressTxt.Location = new System.Drawing.Point(105, 301);
+            this.addressTxt.Name = "addressTxt";
+            this.addressTxt.Size = new System.Drawing.Size(223, 27);
+            this.addressTxt.TabIndex = 66;
             // 
             // label8
             // 
@@ -296,7 +305,7 @@
             this.cnumTxt.Mask = "0000-000-0000";
             this.cnumTxt.Name = "cnumTxt";
             this.cnumTxt.PromptChar = '0';
-            this.cnumTxt.Size = new System.Drawing.Size(149, 27);
+            this.cnumTxt.Size = new System.Drawing.Size(223, 27);
             this.cnumTxt.TabIndex = 68;
             this.cnumTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -311,13 +320,13 @@
             this.label9.TabIndex = 69;
             this.label9.Text = "Email";
             // 
-            // textBox3
+            // emailTxt
             // 
-            this.textBox3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(105, 413);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(223, 27);
-            this.textBox3.TabIndex = 70;
+            this.emailTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailTxt.Location = new System.Drawing.Point(105, 413);
+            this.emailTxt.Name = "emailTxt";
+            this.emailTxt.Size = new System.Drawing.Size(223, 27);
+            this.emailTxt.TabIndex = 70;
             // 
             // label10
             // 
@@ -330,29 +339,29 @@
             this.label10.TabIndex = 71;
             this.label10.Text = "Gender";
             // 
-            // radioButton1
+            // rbMale
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton1.Location = new System.Drawing.Point(105, 200);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(60, 23);
-            this.radioButton1.TabIndex = 72;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Male";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rbMale.AutoSize = true;
+            this.rbMale.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbMale.Location = new System.Drawing.Point(137, 200);
+            this.rbMale.Name = "rbMale";
+            this.rbMale.Size = new System.Drawing.Size(60, 23);
+            this.rbMale.TabIndex = 72;
+            this.rbMale.TabStop = true;
+            this.rbMale.Text = "Male";
+            this.rbMale.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rbFemale
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radioButton2.Location = new System.Drawing.Point(180, 200);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(74, 23);
-            this.radioButton2.TabIndex = 73;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Female";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rbFemale.AutoSize = true;
+            this.rbFemale.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.rbFemale.Location = new System.Drawing.Point(213, 200);
+            this.rbFemale.Name = "rbFemale";
+            this.rbFemale.Size = new System.Drawing.Size(74, 23);
+            this.rbFemale.TabIndex = 73;
+            this.rbFemale.TabStop = true;
+            this.rbFemale.Text = "Female";
+            this.rbFemale.UseVisualStyleBackColor = true;
             // 
             // customersForm
             // 
@@ -360,26 +369,26 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.rbFemale);
+            this.Controls.Add(this.rbMale);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.emailTxt);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.cnumTxt);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.addressTxt);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.creditTxt);
             this.Controls.Add(this.custData);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.ulnameTxt);
+            this.Controls.Add(this.lnameTxt);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.ufnameTxt);
+            this.Controls.Add(this.fnameTxt);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.MaximizeBox = false;
@@ -388,7 +397,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "customersForm";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.customersForm_FormClosing_1);
-            this.Load += new System.EventHandler(this.customersForm_Load_1);
+            this.Load += new System.EventHandler(this.customersForm_Load);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -416,20 +425,20 @@
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox ulnameTxt;
+        private System.Windows.Forms.TextBox lnameTxt;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox ufnameTxt;
+        private System.Windows.Forms.TextBox fnameTxt;
         private System.Windows.Forms.DataGridView custData;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox creditTxt;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox addressTxt;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.MaskedTextBox cnumTxt;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox emailTxt;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton rbMale;
+        private System.Windows.Forms.RadioButton rbFemale;
     }
 }

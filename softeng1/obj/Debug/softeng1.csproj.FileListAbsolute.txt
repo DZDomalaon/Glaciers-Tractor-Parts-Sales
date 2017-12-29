@@ -158,6 +158,7 @@ C:\Users\Darell Domalaon\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.user
 C:\Users\Darell Domalaon\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.warrantyForm.resources
 C:\Users\Darell Domalaon\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.csproj.GenerateResource.Cache
 <<<<<<< HEAD
+<<<<<<< HEAD
 C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.exe.config
 C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.exe
 C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.pdb
@@ -180,6 +181,8 @@ C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.pdb
 C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\bin\Debug\MySql.Data.dll
 C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\bin\Debug\MySql.Data.xml
 =======
+=======
+>>>>>>> e4b3ab9fcfa649029e46d19025a3806a2bcb7327
 C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.exe.config
 C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.exe
 C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.pdb
@@ -200,4 +203,7 @@ C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.unpaidForm.reso
 C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.usersForm.resources
 C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.warrantyForm.resources
 C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.csproj.GenerateResource.Cache
+<<<<<<< HEAD
 >>>>>>> 3b76f10c3c8a1be447f5e31544633f4c7e669710
+=======
+>>>>>>> e4b3ab9fcfa649029e46d19025a3806a2bcb7327

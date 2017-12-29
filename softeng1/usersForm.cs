@@ -99,11 +99,12 @@ namespace softeng1
                 lnameTxt.Text = "";
                 positionCmb.Text = "";
                 statusCmb.Text = "";
-                shiff.Text = "";
-                salary.Text = "";
+                shiftTxt.Text = "";
+                salaryTxt.Text = "";
                 emailTxt.Text = "";
                 numberTxt.Text = "";
                 addressTxt.Text = "";
+                rbMale.Checked = true;
             }
         }
         private void backBtn_Click_1(object sender, EventArgs e)
@@ -116,14 +117,18 @@ namespace softeng1
         {
             fromUsers.Show();
         }
-        private int selected_user_id;
-        private void usersData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+
+
+        private int selected_emp_id;
+        private int selected_person_id;
+        private void usersData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             addBtn.Enabled = false;
             editBtn.Enabled = true;
             if (e.RowIndex > -1)
             {
-                selected_user_id = int.Parse(usersData.Rows[e.RowIndex].Cells["emp_id"].Value.ToString());
+                selected_emp_id = int.Parse(usersData.Rows[e.RowIndex].Cells["emp_id"].Value.ToString());
+                selected_person_id = int.Parse(usersData.Rows[e.RowIndex].Cells["person_id"].Value.ToString());
                 fnameTxt.Text = usersData.Rows[e.RowIndex].Cells["firstname"].Value.ToString();
                 lnameTxt.Text = usersData.Rows[e.RowIndex].Cells["lastname"].Value.ToString();
                 positionCmb.Text = usersData.Rows[e.RowIndex].Cells["position"].Value.ToString();
@@ -133,6 +138,15 @@ namespace softeng1
                 emailTxt.Text = usersData.Rows[e.RowIndex].Cells["email"].Value.ToString();
                 addressTxt.Text = usersData.Rows[e.RowIndex].Cells["address"].Value.ToString();
                 numberTxt.Text = usersData.Rows[e.RowIndex].Cells["contact_num"].Value.ToString();
+                int gen = int.Parse(usersData.Rows[e.RowIndex].Cells["gender"].Value.ToString());
+                if (gen == 1)
+                {
+                    rbMale.Checked = true;
+                }
+                else
+                {
+                    rbFemale.Checked = true;
+                }
             }
         }
 
@@ -142,8 +156,8 @@ namespace softeng1
             lnameTxt.Text = "";
             positionCmb.Text = "";
             statusCmb.Text = "";
-            shiff.Text = "";
-            salary.Text = "";
+            shiftTxt.Text = "";
+            salaryTxt.Text = "";
             emailTxt.Text = "";
             numberTxt.Text = "";
             addressTxt.Text = "";
@@ -153,6 +167,7 @@ namespace softeng1
 
         private void editBtn_Click(object sender, EventArgs e)
         {
+
             int gen = 0;
 
             if (rbMale.Checked == true)
@@ -163,12 +178,20 @@ namespace softeng1
             {
                 gen = 0;
             }
+<<<<<<< HEAD
             String query = "Update PERSON, EMPLOYEE SET PERSON.FIRSTNAME = '"+ fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text +"', POSITION = '" + positionCmb.Text + "', PERSON.GENDER = '" + gen + "', STATUS = '" + statusCmb.Text + "', SHIFT = '" + shiftTxt.Text +"', SALARY = '" + salaryTxt.Text +"', PERSON.CONTACT_NUM = '" + numberTxt.Text +"', PERSON.EMAIL = '" + emailTxt.Text +"', PERSON.ADDRESS ='" + addressTxt.Text + "'";
+=======
+            String query = "Update PERSON, EMPLOYEE SET PERSON.FIRSTNAME = '"+ fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text +"', POSITION = '" + positionCmb.Text + "', PERSON.GENDER = '" + gen + "', STATUS = '" + statusCmb.Text + "', SHIFT = '" + shiftTxt.Text +"', SALARY = '" + salaryTxt.Text +"', PERSON.CONTACT_NUM = '" + numberTxt.Text +"', PERSON.EMAIL = '" + emailTxt.Text +"', PERSON.ADDRESS ='" + addressTxt.Text + "' WHERE EMP_ID = '" + selected_emp_id + "' AND PERSON_ID = '" + selected_person_id + "'";
+>>>>>>> e4b3ab9fcfa649029e46d19025a3806a2bcb7327
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
             comm.ExecuteNonQuery();
             conn.Close();
+<<<<<<< HEAD
+=======
+
+>>>>>>> e4b3ab9fcfa649029e46d19025a3806a2bcb7327
             loadEmployeeData();
         }
     }

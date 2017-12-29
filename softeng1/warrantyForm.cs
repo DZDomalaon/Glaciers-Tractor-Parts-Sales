@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -58,6 +58,10 @@ namespace softeng1
             warrantyData.Columns["product_name"].HeaderText = "Product";
             warrantyData.Columns["warranty"].HeaderText = "Date";
         }
+<<<<<<< HEAD
 		///
+=======
+		
+>>>>>>> e4b3ab9fcfa649029e46d19025a3806a2bcb7327
     }
 }
