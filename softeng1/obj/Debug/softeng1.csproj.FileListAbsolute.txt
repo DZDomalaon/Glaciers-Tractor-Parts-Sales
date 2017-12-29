@@ -157,32 +157,6 @@ C:\Users\Darell Domalaon\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.unpa
 C:\Users\Darell Domalaon\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.usersForm.resources
 C:\Users\Darell Domalaon\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.warrantyForm.resources
 C:\Users\Darell Domalaon\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.csproj.GenerateResource.Cache
-<<<<<<< HEAD
-<<<<<<< HEAD
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.exe.config
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.exe
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.pdb
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.csprojResolveAssemblyReference.cache
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.customersForm.resources
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.deliveryForm.resources
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.loginForm.resources
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.homeForm.resources
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.orderForm.resources
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.productsForm.resources
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.Properties.Resources.resources
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.salesForm.resources
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.supplierForm.resources
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.unpaidForm.resources
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.usersForm.resources
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.warrantyForm.resources
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.csproj.GenerateResource.Cache
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.exe
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.pdb
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\bin\Debug\MySql.Data.dll
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\bin\Debug\MySql.Data.xml
-=======
-=======
->>>>>>> e4b3ab9fcfa649029e46d19025a3806a2bcb7327
 C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.exe.config
 C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.exe
 C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.pdb
@@ -203,7 +177,30 @@ C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.unpaidForm.reso
 C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.usersForm.resources
 C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.warrantyForm.resources
 C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.csproj.GenerateResource.Cache
-<<<<<<< HEAD
->>>>>>> 3b76f10c3c8a1be447f5e31544633f4c7e669710
-=======
->>>>>>> e4b3ab9fcfa649029e46d19025a3806a2bcb7327
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\bin\Debug\softeng1.exe.config
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\obj\Debug\softeng1.exe
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\obj\Debug\softeng1.pdb
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\bin\Debug\softeng1.exe
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\bin\Debug\softeng1.pdb
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\bin\Debug\MySql.Data.dll
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\bin\Debug\MySql.Data.xml
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\obj\Debug\softeng1.csprojResolveAssemblyReference.cache
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\obj\Debug\softeng1.customersForm.resources
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\obj\Debug\softeng1.deliveryForm.resources
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\obj\Debug\softeng1.loginForm.resources
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\obj\Debug\softeng1.homeForm.resources
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\obj\Debug\softeng1.orderForm.resources
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\obj\Debug\softeng1.productsForm.resources
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\obj\Debug\softeng1.Properties.Resources.resources
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\obj\Debug\softeng1.salesForm.resources
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\obj\Debug\softeng1.supplierForm.resources
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\obj\Debug\softeng1.unpaidForm.resources
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\obj\Debug\softeng1.usersForm.resources
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\obj\Debug\softeng1.warrantyForm.resources
+C:\Users\msilveo\Desktop\12-29\SAD-2-master\softeng1\obj\Debug\softeng1.csproj.GenerateResource.Cache
+C:\Users\msilveo\Documents\GitHub\SAD-2-master\softeng1\bin\Debug\softeng1.exe.config
+C:\Users\msilveo\Documents\GitHub\SAD-2-master\softeng1\obj\Debug\softeng1.exe
+C:\Users\msilveo\Documents\GitHub\SAD-2-master\softeng1\obj\Debug\softeng1.pdb
+C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.exe.config
+C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.exe
+C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.pdb

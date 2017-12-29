@@ -178,20 +178,13 @@ namespace softeng1
             {
                 gen = 0;
             }
-<<<<<<< HEAD
-            String query = "Update PERSON, EMPLOYEE SET PERSON.FIRSTNAME = '"+ fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text +"', POSITION = '" + positionCmb.Text + "', PERSON.GENDER = '" + gen + "', STATUS = '" + statusCmb.Text + "', SHIFT = '" + shiftTxt.Text +"', SALARY = '" + salaryTxt.Text +"', PERSON.CONTACT_NUM = '" + numberTxt.Text +"', PERSON.EMAIL = '" + emailTxt.Text +"', PERSON.ADDRESS ='" + addressTxt.Text + "'";
-=======
             String query = "Update PERSON, EMPLOYEE SET PERSON.FIRSTNAME = '"+ fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text +"', POSITION = '" + positionCmb.Text + "', PERSON.GENDER = '" + gen + "', STATUS = '" + statusCmb.Text + "', SHIFT = '" + shiftTxt.Text +"', SALARY = '" + salaryTxt.Text +"', PERSON.CONTACT_NUM = '" + numberTxt.Text +"', PERSON.EMAIL = '" + emailTxt.Text +"', PERSON.ADDRESS ='" + addressTxt.Text + "' WHERE EMP_ID = '" + selected_emp_id + "' AND PERSON_ID = '" + selected_person_id + "'";
->>>>>>> e4b3ab9fcfa649029e46d19025a3806a2bcb7327
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
             comm.ExecuteNonQuery();
             conn.Close();
-<<<<<<< HEAD
-=======
 
->>>>>>> e4b3ab9fcfa649029e46d19025a3806a2bcb7327
             loadEmployeeData();
         }
     }

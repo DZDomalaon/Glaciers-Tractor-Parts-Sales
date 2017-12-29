@@ -42,11 +42,15 @@ namespace softeng1
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.backBtn = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.wDate = new System.Windows.Forms.DateTimePicker();
+            this.sDate = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.warrantyData)).BeginInit();
+            this.panel2.SuspendLayout();
             this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -159,9 +163,12 @@ namespace softeng1
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
+            this.panel2.Controls.Add(this.sDate);
+            this.panel2.Controls.Add(this.wDate);
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(0, 272);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(222, 119);
+            this.panel2.Size = new System.Drawing.Size(222, 134);
             this.panel2.TabIndex = 39;
             // 
             // panel6
@@ -169,7 +176,7 @@ namespace softeng1
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(77)))), ((int)(((byte)(86)))));
             this.panel6.Location = new System.Drawing.Point(0, 387);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(222, 120);
+            this.panel6.Size = new System.Drawing.Size(222, 125);
             this.panel6.TabIndex = 40;
             // 
             // panel7
@@ -195,18 +202,57 @@ namespace softeng1
             this.backBtn.UseVisualStyleBackColor = false;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(4, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 22);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "Date Filters";
+            // 
+            // wDate
+            // 
+            this.wDate.CalendarFont = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wDate.CustomFormat = "";
+            this.wDate.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.wDate.Location = new System.Drawing.Point(5, 41);
+            this.wDate.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
+            this.wDate.MinDate = new System.DateTime(1960, 1, 1, 0, 0, 0, 0);
+            this.wDate.Name = "wDate";
+            this.wDate.Size = new System.Drawing.Size(211, 26);
+            this.wDate.TabIndex = 41;
+            this.wDate.Value = new System.DateTime(2017, 12, 29, 0, 0, 0, 0);
+            // 
+            // sDate
+            // 
+            this.sDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
+            this.sDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sDate.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sDate.ForeColor = System.Drawing.Color.White;
+            this.sDate.Location = new System.Drawing.Point(5, 86);
+            this.sDate.Name = "sDate";
+            this.sDate.Size = new System.Drawing.Size(78, 30);
+            this.sDate.TabIndex = 40;
+            this.sDate.Text = "Search";
+            this.sDate.UseVisualStyleBackColor = false;
+            this.sDate.Click += new System.EventHandler(this.sDate_Click);
+            // 
             // warrantyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
-            this.Controls.Add(this.panel7);
-            this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel7);
             this.Controls.Add(this.warrantyData);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -223,6 +269,8 @@ namespace softeng1
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.warrantyData)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel7.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -244,5 +292,8 @@ namespace softeng1
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.Button sDate;
+        private System.Windows.Forms.DateTimePicker wDate;
+        private System.Windows.Forms.Label label2;
     }
 }

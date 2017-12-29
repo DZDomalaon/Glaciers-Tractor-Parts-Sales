@@ -23,7 +23,7 @@ namespace softeng1
         private void warrantyForm_Load(object sender, EventArgs e)
         {
             conn.Open();
-            MySqlCommand comm = new MySqlCommand("SELECT firstname, lastname, warranty, product_name FROM person, inventory WHERE firstname LIKE '%" + nameTxt.Text + "%' or lastname LIKE '%" + nameTxt.Text + "%' AND  person_type = 'CUSTOMER'", conn);
+            MySqlCommand comm = new MySqlCommand("SELECT firstname, lastname, warranty, product_name FROM person, inventory WHERE firstname LIKE '%" + nameTxt.Text + "%' or lastname LIKE '%" + nameTxt.Text + "%' AND person_type = 'CUSTOMER'", conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
             conn.Close();
             DataTable dt = new DataTable();
@@ -58,10 +58,24 @@ namespace softeng1
             warrantyData.Columns["product_name"].HeaderText = "Product";
             warrantyData.Columns["warranty"].HeaderText = "Date";
         }
-<<<<<<< HEAD
-		///
-=======
-		
->>>>>>> e4b3ab9fcfa649029e46d19025a3806a2bcb7327
+        private void sDate_Click(object sender, EventArgs e)
+        {
+            String date = wDate.Text;
+            String query = "SELECT firstname, lastname, warranty, product_name FROM person, inventory WHERE person_type = 'CUSTOMER' AND warranty LIKE '%" + date + "%'";
+
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            warrantyData.DataSource = dt;
+
+            warrantyData.Columns["firstname"].HeaderText = "Firstname";
+            warrantyData.Columns["lastname"].HeaderText = "Lastname";
+            warrantyData.Columns["product_name"].HeaderText = "Product";
+            warrantyData.Columns["warranty"].HeaderText = "Date";
+        }
     }
 }

@@ -180,6 +180,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="5.png" />
+    <None Include="Resources\shopping-cart.png" />
     <None Include="Resources\magnifier.png" />
     <None Include="Resources\businessman1.png" />
     <None Include="Resources\user-avatar-main-picture.png" />

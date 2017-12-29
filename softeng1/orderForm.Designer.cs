@@ -59,15 +59,17 @@ namespace softeng1
             this.totalpriceTxt = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.namepanel = new System.Windows.Forms.Panel();
+            this.closename = new System.Windows.Forms.Button();
             this.dgsearchname = new System.Windows.Forms.DataGridView();
             this.prodpanel = new System.Windows.Forms.Panel();
+            this.closeprod = new System.Windows.Forms.Button();
             this.dgsearchprod = new System.Windows.Forms.DataGridView();
             this.pquant = new System.Windows.Forms.TextBox();
             this.ptotal = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.dtp = new System.Windows.Forms.DateTimePicker();
-            this.closename = new System.Windows.Forms.Button();
-            this.closeprod = new System.Windows.Forms.Button();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.buyBtn = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -80,6 +82,7 @@ namespace softeng1
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchname)).BeginInit();
             this.prodpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchprod)).BeginInit();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -407,7 +410,7 @@ namespace softeng1
             this.panel7.ForeColor = System.Drawing.Color.White;
             this.panel7.Location = new System.Drawing.Point(434, 551);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(521, 38);
+            this.panel7.Size = new System.Drawing.Size(431, 38);
             this.panel7.TabIndex = 7;
             this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
@@ -415,7 +418,7 @@ namespace softeng1
             // 
             this.totalpriceTxt.AutoSize = true;
             this.totalpriceTxt.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalpriceTxt.Location = new System.Drawing.Point(258, 8);
+            this.totalpriceTxt.Location = new System.Drawing.Point(359, 7);
             this.totalpriceTxt.Name = "totalpriceTxt";
             this.totalpriceTxt.Size = new System.Drawing.Size(48, 22);
             this.totalpriceTxt.TabIndex = 1;
@@ -426,7 +429,7 @@ namespace softeng1
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(189, 8);
+            this.label11.Location = new System.Drawing.Point(290, 7);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 22);
             this.label11.TabIndex = 0;
@@ -444,6 +447,20 @@ namespace softeng1
             this.namepanel.TabIndex = 26;
             this.namepanel.Visible = false;
             this.namepanel.Paint += new System.Windows.Forms.PaintEventHandler(this.namepanel_Paint);
+            // 
+            // closename
+            // 
+            this.closename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
+            this.closename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closename.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closename.ForeColor = System.Drawing.Color.White;
+            this.closename.Location = new System.Drawing.Point(636, 3);
+            this.closename.Name = "closename";
+            this.closename.Size = new System.Drawing.Size(40, 32);
+            this.closename.TabIndex = 3;
+            this.closename.Text = "X";
+            this.closename.UseVisualStyleBackColor = false;
+            this.closename.Click += new System.EventHandler(this.close_Click);
             // 
             // dgsearchname
             // 
@@ -467,6 +484,20 @@ namespace softeng1
             this.prodpanel.Size = new System.Drawing.Size(695, 68);
             this.prodpanel.TabIndex = 27;
             this.prodpanel.Visible = false;
+            // 
+            // closeprod
+            // 
+            this.closeprod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
+            this.closeprod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeprod.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeprod.ForeColor = System.Drawing.Color.White;
+            this.closeprod.Location = new System.Drawing.Point(636, 4);
+            this.closeprod.Name = "closeprod";
+            this.closeprod.Size = new System.Drawing.Size(40, 32);
+            this.closeprod.TabIndex = 4;
+            this.closeprod.Text = "X";
+            this.closeprod.UseVisualStyleBackColor = false;
+            this.closeprod.Click += new System.EventHandler(this.closeprod_Click);
             // 
             // dgsearchprod
             // 
@@ -516,33 +547,28 @@ namespace softeng1
             this.dtp.TabIndex = 28;
             this.dtp.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // closename
+            // panel8
             // 
-            this.closename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
-            this.closename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closename.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closename.ForeColor = System.Drawing.Color.White;
-            this.closename.Location = new System.Drawing.Point(636, 3);
-            this.closename.Name = "closename";
-            this.closename.Size = new System.Drawing.Size(40, 32);
-            this.closename.TabIndex = 3;
-            this.closename.Text = "X";
-            this.closename.UseVisualStyleBackColor = false;
-            this.closename.Click += new System.EventHandler(this.close_Click);
+            this.panel8.Controls.Add(this.buyBtn);
+            this.panel8.Location = new System.Drawing.Point(863, 551);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(92, 36);
+            this.panel8.TabIndex = 29;
             // 
-            // closeprod
+            // buyBtn
             // 
-            this.closeprod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
-            this.closeprod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeprod.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeprod.ForeColor = System.Drawing.Color.White;
-            this.closeprod.Location = new System.Drawing.Point(636, 4);
-            this.closeprod.Name = "closeprod";
-            this.closeprod.Size = new System.Drawing.Size(40, 32);
-            this.closeprod.TabIndex = 4;
-            this.closeprod.Text = "X";
-            this.closeprod.UseVisualStyleBackColor = false;
-            this.closeprod.Click += new System.EventHandler(this.closeprod_Click);
+            this.buyBtn.BackColor = System.Drawing.Color.White;
+            this.buyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buyBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buyBtn.Image = global::softeng1.Properties.Resources.shopping_cart;
+            this.buyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buyBtn.Location = new System.Drawing.Point(0, 0);
+            this.buyBtn.Name = "buyBtn";
+            this.buyBtn.Size = new System.Drawing.Size(92, 36);
+            this.buyBtn.TabIndex = 0;
+            this.buyBtn.Text = "Buy";
+            this.buyBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buyBtn.UseVisualStyleBackColor = false;
             // 
             // orderForm
             // 
@@ -551,6 +577,7 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.panel8);
             this.Controls.Add(this.prodpanel);
             this.Controls.Add(this.namepanel);
             this.Controls.Add(this.panel7);
@@ -603,6 +630,7 @@ namespace softeng1
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchname)).EndInit();
             this.prodpanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchprod)).EndInit();
+            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -650,5 +678,7 @@ namespace softeng1
         private System.Windows.Forms.DateTimePicker dtp;
         private System.Windows.Forms.Button closename;
         private System.Windows.Forms.Button closeprod;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Button buyBtn;
     }
 }
