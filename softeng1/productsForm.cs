@@ -115,6 +115,37 @@ namespace softeng1
 
             loadprod();
         }
-        
+
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            string query = "INSERT INTO inventory(product_name, description, discount, price, warranty)" +
+                    "VALUES ('" + pnameTxt.Text + "','" + pdescTxt.Text + "','" + discountTxt.Text + "','" + priceTxt.Text + "','" + warrantyDate.Text + "')";
+
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            comm.ExecuteNonQuery();
+            conn.Close();
+
+            loadprod();
+
+            pnameTxt.Text = "";
+            pdescTxt.Text = "";
+            discountTxt.Text = "";
+            categTxt.Text = "";
+            priceTxt.Text = "";
+            warrantyDate.Text = "";
+        }
+
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+            pnameTxt.Text = "";
+            pdescTxt.Text = "";
+            discountTxt.Text = "";
+            categTxt.Text = "";
+            priceTxt.Text = "";
+            warrantyDate.Text = "";
+            categTxt.Text = "";
+            variantTxt.Text = "";
+        }
     }
 }
