@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,16 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace softeng1
 {
     public partial class productsForm : Form
     {
+        MySqlConnection conn;
         public productsForm()
         {
+            conn = new MySqlConnection("SERVER=localhost; DATABASE=glaciers; uid = root; pwd = root");
             InitializeComponent();
         }
         public static homeForm fromProduct { get; set; }
+
         private void productsForm_Load(object sender, EventArgs e)
         {
 
@@ -45,12 +49,65 @@ namespace softeng1
 
         private void productsForm_Load_1(object sender, EventArgs e)
         {
+            loadprod();
+        }
+
+        public void loadprod()
+        {
+            String query = "SELECT * FROM inventory, product_catalogue";
+
+
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            prodData.DataSource = dt;
+            prodData.Columns["product_id"].Visible = false;
+            prodData.Columns["product_name"].HeaderText = "Product Name";
+            prodData.Columns["description"].HeaderText = "Description";
+            prodData.Columns["price"].HeaderText = "Price";
+            prodData.Columns["warranty"].HeaderText = "Warranty";
+            prodData.Columns["discount"].HeaderText = "Discount";
+            prodData.Columns["serial"].HeaderText = "Serial";
+            prodData.Columns["pc_category"].HeaderText = "Category";
 
         }
 
         private void productsForm_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             fromProduct.Show();
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            String query = "Update inventory, product_catalogue SET inventory.product_name = '" + pnameTxt.Text + "', inventory.description = '" + pdescTxt.Text + "', inventory.serial = '" + serialTxt.Text + "', product_catalogue.pc_category = '" + categTxt.Text + "', inventory.price = '" + priceTxt.Text + "', inventory.warranty = '" + warrantyDate.Text + "', inventory.discount = '" + discountTxt.Text + "' WHERE product_id = '" + selected_prod_id + "'";
+
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            comm.ExecuteNonQuery();
+            conn.Close();
+
+            loadprod();
+        }
+
+        private int selected_prod_id;
+        private void prodData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            addBtn.Enabled = false;
+            editBtn.Enabled = true;
+            if (e.RowIndex > -1)
+            {
+                selected_prod_id = int.Parse(prodData.Rows[e.RowIndex].Cells["product_id"].Value.ToString());
+                pnameTxt.Text = prodData.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
+                pdescTxt.Text = prodData.Rows[e.RowIndex].Cells["description"].Value.ToString();
+                serialTxt.Text = prodData.Rows[e.RowIndex].Cells["Serial"].Value.ToString();
+                categTxt.Text = prodData.Rows[e.RowIndex].Cells["Warranty"].Value.ToString();
+                priceTxt.Text = prodData.Rows[e.RowIndex].Cells["price"].Value.ToString();
+                warrantyDate.Text = prodData.Rows[e.RowIndex].Cells["warranty"].Value.ToString();
+            }
         }
     }
 }

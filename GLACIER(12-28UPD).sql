@@ -80,7 +80,7 @@ DROP TABLE IF EXISTS `employee`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `employee` (
   `EMP_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `SHIFT` time DEFAULT NULL,
+  `SHIFT` varchar(45) DEFAULT NULL,
   `SALARY` varchar(45) DEFAULT NULL,
   `DATE_HIRED` date DEFAULT NULL,
   `STATUS` varchar(20) DEFAULT NULL,
