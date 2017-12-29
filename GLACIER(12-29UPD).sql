@@ -78,8 +78,8 @@ DROP TABLE IF EXISTS `employee`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `employee` (
   `EMP_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `SHIFT` time DEFAULT NULL,
-  `SALARY` int(11) DEFAULT NULL,
+  `SHIFT` varchar(45) DEFAULT NULL,
+  `SALARY` varchar(45) DEFAULT NULL,
   `DATE_HIRED` date DEFAULT NULL,
   `STATUS` varchar(20) DEFAULT NULL,
   `POSITION` varchar(20) DEFAULT NULL,
@@ -120,8 +120,11 @@ CREATE TABLE `inventory` (
   `WARRANTY` varchar(45) DEFAULT NULL,
   `DISCOUNT` int(11) DEFAULT NULL,
   `SERIAL` varchar(45) DEFAULT NULL,
-  PRIMARY KEY (`PRODUCT_ID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+  `INVENTORY_PC_ID` int(11) NOT NULL,
+  PRIMARY KEY (`PRODUCT_ID`),
+  KEY `fk_inventory_product_catalogue1_idx` (`INVENTORY_PC_ID`),
+  CONSTRAINT `fk_inventory_product_catalogue1` FOREIGN KEY (`INVENTORY_PC_ID`) REFERENCES `product_catalogue` (`PC_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -450,4 +453,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-29 17:24:44
+-- Dump completed on 2017-12-29 17:41:30
