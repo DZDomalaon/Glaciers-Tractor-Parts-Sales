@@ -40,13 +40,6 @@ namespace softeng1
         {
 
         }
-
-        private void backBtn_Click_1(object sender, EventArgs e)
-        {
-            fromProduct.Show();
-            this.Show();
-        }
-
         private void productsForm_Load_1(object sender, EventArgs e)
         {
             loadprod();
@@ -54,7 +47,7 @@ namespace softeng1
 
         public void loadprod()
         {
-            String query = "SELECT product_id, product_name, description, price, warranty, discount, serial, (select pc_category from product_catalogue WHERE INVENTORY_CATALOGUE = pc_id)as category, (select pc_variant from product_catalogue WHERE INVENTORY_CATALOGUE = pc_id)as variant FROM inventory";
+            String query = "SELECT product_id, product_name, description, price, warranty, discount, serial, (select pc_category from product_catalogue WHERE INVENTORY_PC_ID = pc_id)as category, (select pc_variant from product_catalogue WHERE INVENTORY_PC_ID = pc_id)as variant FROM inventory";
 
 
             conn.Open();
