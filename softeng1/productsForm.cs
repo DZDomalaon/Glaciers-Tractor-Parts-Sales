@@ -54,7 +54,7 @@ namespace softeng1
 
         public void loadprod()
         {
-            String query = "SELECT * FROM inventory, product_catalogue";
+            String query = "SELECT product_id, product_name, description, price, warranty, discount, serial, (select pc_category from product_catalogue WHERE INVENTORY_CATALOGUE = pc_id)as category, (select pc_variant from product_catalogue WHERE INVENTORY_CATALOGUE = pc_id)as variant FROM inventory";
 
 
             conn.Open();
@@ -72,7 +72,8 @@ namespace softeng1
             prodData.Columns["warranty"].HeaderText = "Warranty";
             prodData.Columns["discount"].HeaderText = "Discount";
             prodData.Columns["serial"].HeaderText = "Serial";
-            prodData.Columns["pc_category"].HeaderText = "Category";
+            prodData.Columns["category"].HeaderText = "Category";
+            prodData.Columns["variant"].HeaderText = "Variant";
 
         }
 
@@ -83,18 +84,19 @@ namespace softeng1
 
         private void editBtn_Click(object sender, EventArgs e)
         {
-            String query = "Update inventory, product_catalogue SET inventory.product_name = '" + pnameTxt.Text + "', inventory.description = '" + pdescTxt.Text + "', inventory.serial = '" + serialTxt.Text + "', product_catalogue.pc_category = '" + categTxt.Text + "', inventory.price = '" + priceTxt.Text + "', inventory.warranty = '" + warrantyDate.Text + "', inventory.discount = '" + discountTxt.Text + "' WHERE product_id = '" + selected_prod_id + "'";
+            //String query = "Update inventory, product_catalogue SET inventory.product_name = '" + pnameTxt.Text + "', inventory.description = '" + pdescTxt.Text + "', inventory.serial = '" + serialTxt.Text + "', product_catalogue.pc_category = '" + categTxt.Text + "', inventory.price = '" + priceTxt.Text + "', inventory.warranty = '" + warrantyDate.Text + "', inventory.discount = '" + discountTxt.Text + "' WHERE product_id = '" + selected_prod_id + "'";
 
-            conn.Open();
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            comm.ExecuteNonQuery();
-            conn.Close();
+            //conn.Open();
+            //MySqlCommand comm = new MySqlCommand(query, conn);
+            //comm.ExecuteNonQuery();
+            //conn.Close();
 
-            loadprod();
+            //loadprod();
         }
 
         private int selected_prod_id;
-        private void prodData_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        private void prodData_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             addBtn.Enabled = false;
             editBtn.Enabled = true;
@@ -107,6 +109,8 @@ namespace softeng1
                 categTxt.Text = prodData.Rows[e.RowIndex].Cells["Warranty"].Value.ToString();
                 priceTxt.Text = prodData.Rows[e.RowIndex].Cells["price"].Value.ToString();
                 warrantyDate.Text = prodData.Rows[e.RowIndex].Cells["warranty"].Value.ToString();
+                categTxt.Text = prodData.Rows[e.RowIndex].Cells["category"].Value.ToString();
+                variantTxt.Text = prodData.Rows[e.RowIndex].Cells["variant"].Value.ToString();
             }
         }
     }
