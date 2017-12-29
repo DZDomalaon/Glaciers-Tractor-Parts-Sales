@@ -149,6 +149,7 @@
             this.prodData.Name = "prodData";
             this.prodData.ReadOnly = true;
             this.prodData.RowHeadersVisible = false;
+            this.prodData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.prodData.Size = new System.Drawing.Size(521, 502);
             this.prodData.TabIndex = 64;
             this.prodData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prodData_CellClick_1);
