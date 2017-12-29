@@ -148,7 +148,8 @@ namespace softeng1
             emailTxt.Text = "";
             cnumTxt.Text = "";
             addressTxt.Text = "";
-            rbMale.Checked = true;
+            rbMale.Checked = false;
+            rbFemale.Checked = false;
         }
 
         private void editBtn_Click(object sender, EventArgs e)
