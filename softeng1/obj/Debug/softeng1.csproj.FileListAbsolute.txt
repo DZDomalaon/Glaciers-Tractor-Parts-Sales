@@ -223,3 +223,4 @@ C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.usersForm.re
 C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.warrantyForm.resources
 C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.csproj.GenerateResource.Cache
 C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.purchasingForm.resources
+C:\Users\Darell Domalaon\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.purchasingForm.resources
