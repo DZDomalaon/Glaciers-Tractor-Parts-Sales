@@ -156,12 +156,13 @@ namespace softeng1
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Transparent;
             this.warrantyData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.warrantyData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.warrantyData.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.warrantyData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.warrantyData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.warrantyData.Location = new System.Drawing.Point(220, 95);
             this.warrantyData.Name = "warrantyData";
-            this.warrantyData.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.warrantyData.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.warrantyData.RowHeadersVisible = false;
             this.warrantyData.RowHeadersWidth = 50;
             this.warrantyData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
