@@ -73,6 +73,26 @@ namespace softeng1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_to_cart {
+            get {
+                object obj = ResourceManager.GetObject("add-to-cart", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap add_to_cart1 {
+            get {
+                object obj = ResourceManager.GetObject("add-to-cart1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap avatar {
             get {
                 object obj = ResourceManager.GetObject("avatar", resourceCulture);
@@ -166,6 +186,16 @@ namespace softeng1.Properties {
         internal static System.Drawing.Bitmap financial_document {
             get {
                 object obj = ResourceManager.GetObject("financial-document", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap full_shopping_cart {
+            get {
+                object obj = ResourceManager.GetObject("full-shopping-cart", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

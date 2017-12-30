@@ -69,9 +69,9 @@ namespace softeng1
             this.label12 = new System.Windows.Forms.Label();
             this.dtp = new System.Windows.Forms.DateTimePicker();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.buyBtn = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.paymentCmb = new System.Windows.Forms.ComboBox();
+            this.buyBtn = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -552,9 +552,10 @@ namespace softeng1
             // dtp
             // 
             this.dtp.Enabled = false;
-            this.dtp.Location = new System.Drawing.Point(89, 484);
+            this.dtp.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtp.Location = new System.Drawing.Point(89, 478);
             this.dtp.Name = "dtp";
-            this.dtp.Size = new System.Drawing.Size(223, 20);
+            this.dtp.Size = new System.Drawing.Size(223, 27);
             this.dtp.TabIndex = 28;
             this.dtp.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -565,21 +566,6 @@ namespace softeng1
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(190, 36);
             this.panel8.TabIndex = 29;
-            // 
-            // buyBtn
-            // 
-            this.buyBtn.BackColor = System.Drawing.Color.White;
-            this.buyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buyBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buyBtn.Image = global::softeng1.Properties.Resources.shopping_cart;
-            this.buyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buyBtn.Location = new System.Drawing.Point(0, 0);
-            this.buyBtn.Name = "buyBtn";
-            this.buyBtn.Size = new System.Drawing.Size(182, 36);
-            this.buyBtn.TabIndex = 0;
-            this.buyBtn.Text = "Add Transaction";
-            this.buyBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buyBtn.UseVisualStyleBackColor = false;
             // 
             // label13
             // 
@@ -603,6 +589,21 @@ namespace softeng1
             this.paymentCmb.Name = "paymentCmb";
             this.paymentCmb.Size = new System.Drawing.Size(183, 27);
             this.paymentCmb.TabIndex = 47;
+            // 
+            // buyBtn
+            // 
+            this.buyBtn.BackColor = System.Drawing.Color.White;
+            this.buyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buyBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buyBtn.Image = global::softeng1.Properties.Resources.shopping_cart;
+            this.buyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buyBtn.Location = new System.Drawing.Point(0, 0);
+            this.buyBtn.Name = "buyBtn";
+            this.buyBtn.Size = new System.Drawing.Size(182, 36);
+            this.buyBtn.TabIndex = 0;
+            this.buyBtn.Text = "Add Transaction";
+            this.buyBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buyBtn.UseVisualStyleBackColor = false;
             // 
             // orderForm
             // 

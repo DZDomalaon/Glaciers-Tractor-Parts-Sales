@@ -222,3 +222,4 @@ C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.unpaidForm.r
 C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.usersForm.resources
 C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.warrantyForm.resources
 C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.csproj.GenerateResource.Cache
+C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.purchasingForm.resources
