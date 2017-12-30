@@ -28,6 +28,7 @@ namespace softeng1
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(orderForm));
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -68,7 +69,6 @@ namespace softeng1
             this.ptotal = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.dtp = new System.Windows.Forms.DateTimePicker();
-            this.panel8 = new System.Windows.Forms.Panel();
             this.buyBtn = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.paymentCmb = new System.Windows.Forms.ComboBox();
@@ -84,7 +84,6 @@ namespace softeng1
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchname)).BeginInit();
             this.prodpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchprod)).BeginInit();
-            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -174,21 +173,21 @@ namespace softeng1
             this.orderDG.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.orderDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.orderDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.orderDG.Dock = System.Windows.Forms.DockStyle.Right;
             this.orderDG.Location = new System.Drawing.Point(434, 85);
             this.orderDG.Name = "orderDG";
             this.orderDG.ReadOnly = true;
             this.orderDG.RowHeadersVisible = false;
-            this.orderDG.Size = new System.Drawing.Size(521, 502);
+            this.orderDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.orderDG.Size = new System.Drawing.Size(521, 468);
             this.orderDG.TabIndex = 7;
             this.orderDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // custfnameTxt
             // 
             this.custfnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.custfnameTxt.Location = new System.Drawing.Point(89, 99);
+            this.custfnameTxt.Location = new System.Drawing.Point(139, 96);
             this.custfnameTxt.Name = "custfnameTxt";
-            this.custfnameTxt.Size = new System.Drawing.Size(223, 27);
+            this.custfnameTxt.Size = new System.Drawing.Size(183, 27);
             this.custfnameTxt.TabIndex = 8;
             this.custfnameTxt.TextChanged += new System.EventHandler(this.custfnameTxt_TextChanged);
             // 
@@ -199,9 +198,9 @@ namespace softeng1
             this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(12, 99);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 23);
+            this.label4.Size = new System.Drawing.Size(85, 23);
             this.label4.TabIndex = 9;
-            this.label4.Text = "Name";
+            this.label4.Text = "Customer";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // panel5
@@ -435,9 +434,9 @@ namespace softeng1
             this.namepanel.Controls.Add(this.closename);
             this.namepanel.Controls.Add(this.dgsearchname);
             this.namepanel.Enabled = false;
-            this.namepanel.Location = new System.Drawing.Point(434, 91);
+            this.namepanel.Location = new System.Drawing.Point(125, 229);
             this.namepanel.Name = "namepanel";
-            this.namepanel.Size = new System.Drawing.Size(695, 70);
+            this.namepanel.Size = new System.Drawing.Size(687, 103);
             this.namepanel.TabIndex = 26;
             this.namepanel.Visible = false;
             this.namepanel.Paint += new System.Windows.Forms.PaintEventHandler(this.namepanel_Paint);
@@ -460,14 +459,15 @@ namespace softeng1
             // 
             this.dgsearchname.AllowUserToAddRows = false;
             this.dgsearchname.AllowUserToDeleteRows = false;
+            this.dgsearchname.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgsearchname.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgsearchname.Location = new System.Drawing.Point(19, 36);
+            this.dgsearchname.Location = new System.Drawing.Point(9, 38);
             this.dgsearchname.Name = "dgsearchname";
             this.dgsearchname.ReadOnly = true;
             this.dgsearchname.RowHeadersVisible = false;
             this.dgsearchname.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgsearchname.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgsearchname.Size = new System.Drawing.Size(657, 488);
+            this.dgsearchname.Size = new System.Drawing.Size(667, 249);
             this.dgsearchname.TabIndex = 0;
             this.dgsearchname.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchname_CellClick);
             this.dgsearchname.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchname_CellContentClick);
@@ -477,9 +477,9 @@ namespace softeng1
             this.prodpanel.Controls.Add(this.closeprod);
             this.prodpanel.Controls.Add(this.dgsearchprod);
             this.prodpanel.Enabled = false;
-            this.prodpanel.Location = new System.Drawing.Point(434, 186);
+            this.prodpanel.Location = new System.Drawing.Point(125, 129);
             this.prodpanel.Name = "prodpanel";
-            this.prodpanel.Size = new System.Drawing.Size(695, 68);
+            this.prodpanel.Size = new System.Drawing.Size(687, 98);
             this.prodpanel.TabIndex = 27;
             this.prodpanel.Visible = false;
             // 
@@ -501,12 +501,13 @@ namespace softeng1
             // 
             this.dgsearchprod.AllowUserToAddRows = false;
             this.dgsearchprod.AllowUserToDeleteRows = false;
+            this.dgsearchprod.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgsearchprod.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgsearchprod.Location = new System.Drawing.Point(19, 37);
+            this.dgsearchprod.Location = new System.Drawing.Point(9, 39);
             this.dgsearchprod.Name = "dgsearchprod";
             this.dgsearchprod.ReadOnly = true;
             this.dgsearchprod.RowHeadersVisible = false;
-            this.dgsearchprod.Size = new System.Drawing.Size(657, 496);
+            this.dgsearchprod.Size = new System.Drawing.Size(667, 248);
             this.dgsearchprod.TabIndex = 0;
             this.dgsearchprod.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchprod_CellClick);
             // 
@@ -547,22 +548,14 @@ namespace softeng1
             this.dtp.TabIndex = 28;
             this.dtp.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.buyBtn);
-            this.panel8.Location = new System.Drawing.Point(773, 551);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(190, 36);
-            this.panel8.TabIndex = 29;
-            // 
             // buyBtn
             // 
             this.buyBtn.BackColor = System.Drawing.Color.White;
             this.buyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buyBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buyBtn.Image = global::softeng1.Properties.Resources.shopping_cart;
+            this.buyBtn.Image = ((System.Drawing.Image)(resources.GetObject("buyBtn.Image")));
             this.buyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buyBtn.Location = new System.Drawing.Point(0, 0);
+            this.buyBtn.Location = new System.Drawing.Point(773, 551);
             this.buyBtn.Name = "buyBtn";
             this.buyBtn.Size = new System.Drawing.Size(182, 36);
             this.buyBtn.TabIndex = 0;
@@ -600,11 +593,14 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
-            this.Controls.Add(this.label13);
-            this.Controls.Add(this.panel8);
-            this.Controls.Add(this.prodpanel);
             this.Controls.Add(this.namepanel);
             this.Controls.Add(this.panel7);
+            this.Controls.Add(this.prodpanel);
+            this.Controls.Add(this.buyBtn);
+            this.Controls.Add(this.orderDG);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.backToMenu);
             this.Controls.Add(this.removeOrder);
             this.Controls.Add(this.addOrder);
@@ -624,9 +620,6 @@ namespace softeng1
             this.Controls.Add(this.snameTxt);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.custfnameTxt);
-            this.Controls.Add(this.orderDG);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.ptotal);
             this.Controls.Add(this.dtp);
             this.Controls.Add(this.paymentCmb);
@@ -656,7 +649,6 @@ namespace softeng1
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchname)).EndInit();
             this.prodpanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchprod)).EndInit();
-            this.panel8.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -704,7 +696,6 @@ namespace softeng1
         private System.Windows.Forms.DateTimePicker dtp;
         private System.Windows.Forms.Button closename;
         private System.Windows.Forms.Button closeprod;
-        private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Button buyBtn;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox paymentCmb;

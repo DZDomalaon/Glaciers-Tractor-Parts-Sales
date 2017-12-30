@@ -16,7 +16,7 @@ namespace softeng1
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new warrantyForm());
+            Application.Run(new orderForm());
         }
     }
 }

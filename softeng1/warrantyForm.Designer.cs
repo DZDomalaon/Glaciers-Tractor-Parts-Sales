@@ -28,6 +28,7 @@ namespace softeng1
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -152,15 +153,17 @@ namespace softeng1
             // 
             // warrantyData
             // 
-            this.warrantyData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Transparent;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Transparent;
+            this.warrantyData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.warrantyData.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.warrantyData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.warrantyData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.warrantyData.Location = new System.Drawing.Point(220, 95);
             this.warrantyData.Name = "warrantyData";
-            this.warrantyData.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.warrantyData.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.warrantyData.RowHeadersVisible = false;
-            this.warrantyData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.warrantyData.RowHeadersWidth = 50;
             this.warrantyData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.warrantyData.Size = new System.Drawing.Size(735, 507);
             this.warrantyData.TabIndex = 36;
@@ -259,7 +262,7 @@ namespace softeng1
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.warrantyData);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "warrantyForm";

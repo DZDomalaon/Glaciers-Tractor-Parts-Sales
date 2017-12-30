@@ -31,16 +31,6 @@ namespace softeng1
             userTxt.Text = loginForm.name;
             dtp.Value = DateTime.Now;
 
-            /*
-            orderDG.Columns[0].Name = "Customer";
-            orderDG.Columns[1].Name = "Product Name";
-            orderDG.Columns[2].Name = "Price";
-            orderDG.Columns[3].Name = "Quantity";
-            orderDG.Columns[4].Name = "Sub Total";
-            orderDG.Columns[5].Name = "Payment ";
-            orderDG.Columns[6].Name = "Employee";
-            orderDG.Columns[7].Name = "Date";     
-            */
             orderDG.Columns.Add("Customer", "Customer");
             orderDG.Columns.Add("Product Name", "Product Name");
             orderDG.Columns.Add("Price", "Price");
@@ -56,7 +46,7 @@ namespace softeng1
             namepanel.Enabled = true;
             namepanel.Visible = true;
             namepanel.Location = new Point(140, 56);
-            namepanel.Size = new Size(681, 508);
+            namepanel.Size = new Size(681, 297);
             
             String query = "SELECT customer_id, firstname, lastname FROM person, customer where lastname like '%" + custfnameTxt.Text + "%' or firstname like '%" + custfnameTxt.Text + "%' and person_type = 'customer'";
             conn.Open();
@@ -159,7 +149,7 @@ namespace softeng1
             prodpanel.Enabled = true;
             prodpanel.Visible = true;
             prodpanel.Location = new Point(140, 56);
-            prodpanel.Size = new Size(681, 508);
+            prodpanel.Size = new Size(681, 297);
 
             String query = "SELECT * FROM inventory where product_name like '%" + pnameTxt.Text + "%'";
             conn.Open();
@@ -172,6 +162,7 @@ namespace softeng1
 
             dgsearchprod.DataSource = dt;
             dgsearchprod.Columns["product_id"].Visible = false;
+            dgsearchprod.Columns["inventory_pc_id"].Visible = false;
             dgsearchprod.Columns["product_name"].HeaderText = "Product Name";
             dgsearchprod.Columns["description"].HeaderText = "Product Description";
             dgsearchprod.Columns["price"].HeaderText = "Product Price";
