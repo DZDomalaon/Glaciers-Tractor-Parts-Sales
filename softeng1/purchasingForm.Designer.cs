@@ -151,6 +151,7 @@
             this.purchaseData.Name = "purchaseData";
             this.purchaseData.ReadOnly = true;
             this.purchaseData.RowHeadersVisible = false;
+            this.purchaseData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.purchaseData.Size = new System.Drawing.Size(521, 502);
             this.purchaseData.TabIndex = 8;
             // 

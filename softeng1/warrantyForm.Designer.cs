@@ -39,12 +39,12 @@ namespace softeng1
             this.panel5 = new System.Windows.Forms.Panel();
             this.warrantyData = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.sDate = new System.Windows.Forms.Button();
+            this.wDate = new System.Windows.Forms.DateTimePicker();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.backBtn = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.wDate = new System.Windows.Forms.DateTimePicker();
-            this.sDate = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -152,11 +152,16 @@ namespace softeng1
             // 
             // warrantyData
             // 
+            this.warrantyData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.warrantyData.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.warrantyData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.warrantyData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.warrantyData.Location = new System.Drawing.Point(220, 95);
             this.warrantyData.Name = "warrantyData";
+            this.warrantyData.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.warrantyData.RowHeadersVisible = false;
+            this.warrantyData.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.warrantyData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.warrantyData.Size = new System.Drawing.Size(735, 507);
             this.warrantyData.TabIndex = 36;
             // 
@@ -170,6 +175,45 @@ namespace softeng1
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(222, 134);
             this.panel2.TabIndex = 39;
+            // 
+            // sDate
+            // 
+            this.sDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
+            this.sDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sDate.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sDate.ForeColor = System.Drawing.Color.White;
+            this.sDate.Location = new System.Drawing.Point(5, 86);
+            this.sDate.Name = "sDate";
+            this.sDate.Size = new System.Drawing.Size(78, 30);
+            this.sDate.TabIndex = 40;
+            this.sDate.Text = "Search";
+            this.sDate.UseVisualStyleBackColor = false;
+            this.sDate.Click += new System.EventHandler(this.sDate_Click);
+            // 
+            // wDate
+            // 
+            this.wDate.CalendarFont = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wDate.CustomFormat = "";
+            this.wDate.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.wDate.Location = new System.Drawing.Point(5, 41);
+            this.wDate.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
+            this.wDate.MinDate = new System.DateTime(1960, 1, 1, 0, 0, 0, 0);
+            this.wDate.Name = "wDate";
+            this.wDate.Size = new System.Drawing.Size(211, 26);
+            this.wDate.TabIndex = 41;
+            this.wDate.Value = new System.DateTime(2017, 12, 29, 0, 0, 0, 0);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(4, 6);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 22);
+            this.label2.TabIndex = 40;
+            this.label2.Text = "Date Filters";
             // 
             // panel6
             // 
@@ -202,45 +246,6 @@ namespace softeng1
             this.backBtn.UseVisualStyleBackColor = false;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(4, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 22);
-            this.label2.TabIndex = 40;
-            this.label2.Text = "Date Filters";
-            // 
-            // wDate
-            // 
-            this.wDate.CalendarFont = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wDate.CustomFormat = "";
-            this.wDate.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.wDate.Location = new System.Drawing.Point(5, 41);
-            this.wDate.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
-            this.wDate.MinDate = new System.DateTime(1960, 1, 1, 0, 0, 0, 0);
-            this.wDate.Name = "wDate";
-            this.wDate.Size = new System.Drawing.Size(211, 26);
-            this.wDate.TabIndex = 41;
-            this.wDate.Value = new System.DateTime(2017, 12, 29, 0, 0, 0, 0);
-            // 
-            // sDate
-            // 
-            this.sDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
-            this.sDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sDate.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sDate.ForeColor = System.Drawing.Color.White;
-            this.sDate.Location = new System.Drawing.Point(5, 86);
-            this.sDate.Name = "sDate";
-            this.sDate.Size = new System.Drawing.Size(78, 30);
-            this.sDate.TabIndex = 40;
-            this.sDate.Text = "Search";
-            this.sDate.UseVisualStyleBackColor = false;
-            this.sDate.Click += new System.EventHandler(this.sDate_Click);
-            // 
             // warrantyForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -254,7 +259,7 @@ namespace softeng1
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.warrantyData);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "warrantyForm";
