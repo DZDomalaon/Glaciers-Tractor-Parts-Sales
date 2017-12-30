@@ -35,7 +35,7 @@ namespace softeng1
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.orderDG = new System.Windows.Forms.DataGridView();
             this.custfnameTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -76,7 +76,7 @@ namespace softeng1
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderDG)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -167,21 +167,21 @@ namespace softeng1
             this.label3.Text = "Products Ordered";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // dataGridView1
+            // orderDG
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dataGridView1.Location = new System.Drawing.Point(434, 85);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(521, 502);
-            this.dataGridView1.TabIndex = 7;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.orderDG.AllowUserToAddRows = false;
+            this.orderDG.AllowUserToDeleteRows = false;
+            this.orderDG.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.orderDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.orderDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.orderDG.Dock = System.Windows.Forms.DockStyle.Right;
+            this.orderDG.Location = new System.Drawing.Point(434, 85);
+            this.orderDG.Name = "orderDG";
+            this.orderDG.ReadOnly = true;
+            this.orderDG.RowHeadersVisible = false;
+            this.orderDG.Size = new System.Drawing.Size(521, 502);
+            this.orderDG.TabIndex = 7;
+            this.orderDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // custfnameTxt
             // 
@@ -271,7 +271,6 @@ namespace softeng1
             this.label7.Size = new System.Drawing.Size(113, 23);
             this.label7.TabIndex = 15;
             this.label7.Text = "Product Price";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // ppriceTxt
             // 
@@ -280,7 +279,6 @@ namespace softeng1
             this.ppriceTxt.Name = "ppriceTxt";
             this.ppriceTxt.Size = new System.Drawing.Size(183, 27);
             this.ppriceTxt.TabIndex = 16;
-            this.ppriceTxt.TextChanged += new System.EventHandler(this.ppriceTxt_TextChanged);
             // 
             // panel6
             // 
@@ -290,7 +288,6 @@ namespace softeng1
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(435, 38);
             this.panel6.TabIndex = 12;
-            this.panel6.Paint += new System.Windows.Forms.PaintEventHandler(this.panel6_Paint);
             // 
             // label8
             // 
@@ -302,7 +299,6 @@ namespace softeng1
             this.label8.Size = new System.Drawing.Size(131, 21);
             this.label8.TabIndex = 7;
             this.label8.Text = "Encoder Details";
-            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // label9
             // 
@@ -314,7 +310,6 @@ namespace softeng1
             this.label9.Size = new System.Drawing.Size(55, 46);
             this.label9.TabIndex = 17;
             this.label9.Text = "User\r\nName";
-            this.label9.Click += new System.EventHandler(this.label9_Click);
             // 
             // userTxt
             // 
@@ -324,7 +319,6 @@ namespace softeng1
             this.userTxt.Name = "userTxt";
             this.userTxt.Size = new System.Drawing.Size(223, 27);
             this.userTxt.TabIndex = 18;
-            this.userTxt.TextChanged += new System.EventHandler(this.userTxt_TextChanged);
             // 
             // dateTxt
             // 
@@ -336,7 +330,6 @@ namespace softeng1
             this.dateTxt.Size = new System.Drawing.Size(46, 23);
             this.dateTxt.TabIndex = 19;
             this.dateTxt.Text = "Date";
-            this.dateTxt.Click += new System.EventHandler(this.dateTxt_Click);
             // 
             // label10
             // 
@@ -348,7 +341,6 @@ namespace softeng1
             this.label10.Size = new System.Drawing.Size(78, 23);
             this.label10.TabIndex = 21;
             this.label10.Text = "Quantity";
-            this.label10.Click += new System.EventHandler(this.label10_Click);
             // 
             // addOrder
             // 
@@ -417,29 +409,26 @@ namespace softeng1
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(340, 38);
             this.panel7.TabIndex = 7;
-            this.panel7.Paint += new System.Windows.Forms.PaintEventHandler(this.panel7_Paint);
             // 
             // totalpriceTxt
             // 
             this.totalpriceTxt.AutoSize = true;
             this.totalpriceTxt.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalpriceTxt.Location = new System.Drawing.Point(189, 7);
+            this.totalpriceTxt.Location = new System.Drawing.Point(259, 7);
             this.totalpriceTxt.Name = "totalpriceTxt";
             this.totalpriceTxt.Size = new System.Drawing.Size(48, 22);
             this.totalpriceTxt.TabIndex = 1;
             this.totalpriceTxt.Text = "0.00";
-            this.totalpriceTxt.Click += new System.EventHandler(this.totalpriceTxt_Click);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(120, 7);
+            this.label11.Location = new System.Drawing.Point(190, 7);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 22);
             this.label11.TabIndex = 0;
             this.label11.Text = "Total: ";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // namepanel
             // 
@@ -475,6 +464,7 @@ namespace softeng1
             this.dgsearchname.Location = new System.Drawing.Point(19, 36);
             this.dgsearchname.Name = "dgsearchname";
             this.dgsearchname.ReadOnly = true;
+            this.dgsearchname.RowHeadersVisible = false;
             this.dgsearchname.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
             this.dgsearchname.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgsearchname.Size = new System.Drawing.Size(657, 488);
@@ -515,6 +505,7 @@ namespace softeng1
             this.dgsearchprod.Location = new System.Drawing.Point(19, 37);
             this.dgsearchprod.Name = "dgsearchprod";
             this.dgsearchprod.ReadOnly = true;
+            this.dgsearchprod.RowHeadersVisible = false;
             this.dgsearchprod.Size = new System.Drawing.Size(657, 496);
             this.dgsearchprod.TabIndex = 0;
             this.dgsearchprod.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchprod_CellClick);
@@ -535,7 +526,6 @@ namespace softeng1
             this.ptotal.Name = "ptotal";
             this.ptotal.Size = new System.Drawing.Size(72, 27);
             this.ptotal.TabIndex = 16;
-            this.ptotal.TextChanged += new System.EventHandler(this.ppriceTxt_TextChanged);
             // 
             // label12
             // 
@@ -547,15 +537,13 @@ namespace softeng1
             this.label12.Size = new System.Drawing.Size(46, 23);
             this.label12.TabIndex = 21;
             this.label12.Text = "Total";
-            this.label12.Click += new System.EventHandler(this.label10_Click);
             // 
             // dtp
             // 
             this.dtp.Enabled = false;
-            this.dtp.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtp.Location = new System.Drawing.Point(89, 478);
+            this.dtp.Location = new System.Drawing.Point(89, 484);
             this.dtp.Name = "dtp";
-            this.dtp.Size = new System.Drawing.Size(223, 27);
+            this.dtp.Size = new System.Drawing.Size(223, 20);
             this.dtp.TabIndex = 28;
             this.dtp.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
@@ -612,7 +600,6 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
-            this.Controls.Add(this.paymentCmb);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.panel8);
             this.Controls.Add(this.prodpanel);
@@ -637,11 +624,12 @@ namespace softeng1
             this.Controls.Add(this.snameTxt);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.custfnameTxt);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.orderDG);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.ptotal);
             this.Controls.Add(this.dtp);
+            this.Controls.Add(this.paymentCmb);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -657,7 +645,7 @@ namespace softeng1
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.orderDG)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -683,7 +671,7 @@ namespace softeng1
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView orderDG;
         private System.Windows.Forms.TextBox custfnameTxt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;

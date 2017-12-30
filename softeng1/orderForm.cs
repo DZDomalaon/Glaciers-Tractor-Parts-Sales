@@ -30,6 +30,25 @@ namespace softeng1
         {
             userTxt.Text = loginForm.name;
             dtp.Value = DateTime.Now;
+
+            /*
+            orderDG.Columns[0].Name = "Customer";
+            orderDG.Columns[1].Name = "Product Name";
+            orderDG.Columns[2].Name = "Price";
+            orderDG.Columns[3].Name = "Quantity";
+            orderDG.Columns[4].Name = "Sub Total";
+            orderDG.Columns[5].Name = "Payment ";
+            orderDG.Columns[6].Name = "Employee";
+            orderDG.Columns[7].Name = "Date";     
+            */
+            orderDG.Columns.Add("Customer", "Customer");
+            orderDG.Columns.Add("Product Name", "Product Name");
+            orderDG.Columns.Add("Price", "Price");
+            orderDG.Columns.Add("Quantity", "Quantity");
+            orderDG.Columns.Add("Sub Total", "Sub Total");
+            orderDG.Columns.Add("Payment", "Payment");
+            orderDG.Columns.Add("Employee", "Employee");
+            orderDG.Columns.Add("Date", "Date");
         }
         public static string searchn;
         private void snameTxt_Click(object sender, EventArgs e)
@@ -39,7 +58,7 @@ namespace softeng1
             namepanel.Location = new Point(140, 56);
             namepanel.Size = new Size(681, 508);
             
-            String query = "SELECT firstname, lastname FROM person where lastname like '%" + custfnameTxt.Text + "%' or firstname like '%" + custfnameTxt.Text + "%' and person_type = 'customer'";
+            String query = "SELECT customer_id, firstname, lastname FROM person, customer where lastname like '%" + custfnameTxt.Text + "%' or firstname like '%" + custfnameTxt.Text + "%' and person_type = 'customer'";
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -50,6 +69,7 @@ namespace softeng1
 
             dgsearchname.DataSource = dt;
 
+            dgsearchname.Columns["customer_id"].Visible = false;
             dgsearchname.Columns["firstname"].HeaderText = "Given Name";
             dgsearchname.Columns["lastname"].HeaderText = "Last Name";
         }
@@ -157,7 +177,12 @@ namespace softeng1
             dgsearchprod.Columns["price"].HeaderText = "Product Price";
         }
 
-        
+        private void dgsearchprod_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+
         public static String prod, price, ln, fn;
         public static double tot, p, q;
 
@@ -181,6 +206,10 @@ namespace softeng1
                 q = quant;
                 tot = q * p;
                 ptotal.Text = tot.ToString();
+            }
+            else if(pquant.Text == "")
+            {
+                ptotal.Text = "";
             }
            
         }
@@ -207,7 +236,7 @@ namespace softeng1
         {
             if (e.RowIndex > -1)
             {
-                dgsearchname.Rows[e.RowIndex].Cells["product_id"].Value.ToString();
+                dgsearchname.Rows[e.RowIndex].Cells["customer_id"].Value.ToString();
                 fn = dgsearchname.Rows[e.RowIndex].Cells["firstname"].Value.ToString();
                 ln = dgsearchname.Rows[e.RowIndex].Cells["lastname"].Value.ToString();
                 custfnameTxt.Text = fn + ' ' + ln;
@@ -217,66 +246,15 @@ namespace softeng1
                 namepanel.Size = new Size(521, 44);
             }
         }
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ppriceTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void userTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTxt_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void orderForm_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             fromOrder.Show();
         }
-
         private void close_Click(object sender, EventArgs e)
         {
             namepanel.Hide();
         }
-
         private void closeprod_Click(object sender, EventArgs e)
         {
             prodpanel.Hide();
@@ -284,25 +262,19 @@ namespace softeng1
 
         private void addOrder_Click(object sender, EventArgs e)
         {
+            string firstColumn = custfnameTxt.Text;
+            string secondColumn = pnameTxt.Text;
+            string thirdColumn = ppriceTxt.Text;
+            string fourthColumn = pquant.Text;
+            string fifthColumn = ptotal.Text;
+            string sixthColumn = paymentCmb.Text;
+            string seventhColumn = userTxt.Text;
+            string eigthColumn = dtp.Text;
+            string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn, sixthColumn, seventhColumn, eigthColumn};
 
+            orderDG.Rows.Add(row);
         }
-
         private void removeOrder_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void totalpriceTxt_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
         {
 
         }
