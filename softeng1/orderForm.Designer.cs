@@ -72,6 +72,7 @@ namespace softeng1
             this.buyBtn = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.paymentCmb = new System.Windows.Forms.ComboBox();
+            this.editBtn = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -180,6 +181,7 @@ namespace softeng1
             this.orderDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.orderDG.Size = new System.Drawing.Size(521, 468);
             this.orderDG.TabIndex = 7;
+            this.orderDG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderDG_CellClick);
             this.orderDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // custfnameTxt
@@ -347,7 +349,7 @@ namespace softeng1
             this.addOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addOrder.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addOrder.ForeColor = System.Drawing.Color.White;
-            this.addOrder.Location = new System.Drawing.Point(54, 527);
+            this.addOrder.Location = new System.Drawing.Point(22, 527);
             this.addOrder.Name = "addOrder";
             this.addOrder.Size = new System.Drawing.Size(92, 37);
             this.addOrder.TabIndex = 23;
@@ -361,7 +363,7 @@ namespace softeng1
             this.removeOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.removeOrder.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeOrder.ForeColor = System.Drawing.Color.White;
-            this.removeOrder.Location = new System.Drawing.Point(152, 527);
+            this.removeOrder.Location = new System.Drawing.Point(120, 527);
             this.removeOrder.Name = "removeOrder";
             this.removeOrder.Size = new System.Drawing.Size(92, 37);
             this.removeOrder.TabIndex = 24;
@@ -375,7 +377,7 @@ namespace softeng1
             this.backToMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backToMenu.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backToMenu.ForeColor = System.Drawing.Color.White;
-            this.backToMenu.Location = new System.Drawing.Point(250, 527);
+            this.backToMenu.Location = new System.Drawing.Point(316, 527);
             this.backToMenu.Name = "backToMenu";
             this.backToMenu.Size = new System.Drawing.Size(92, 37);
             this.backToMenu.TabIndex = 25;
@@ -586,6 +588,19 @@ namespace softeng1
             this.paymentCmb.Size = new System.Drawing.Size(183, 27);
             this.paymentCmb.TabIndex = 47;
             // 
+            // editBtn
+            // 
+            this.editBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
+            this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editBtn.ForeColor = System.Drawing.Color.White;
+            this.editBtn.Location = new System.Drawing.Point(218, 527);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(92, 37);
+            this.editBtn.TabIndex = 49;
+            this.editBtn.Text = "Edit";
+            this.editBtn.UseVisualStyleBackColor = false;
+            // 
             // orderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -593,6 +608,7 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.editBtn);
             this.Controls.Add(this.namepanel);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.prodpanel);
@@ -699,5 +715,6 @@ namespace softeng1
         private System.Windows.Forms.Button buyBtn;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox paymentCmb;
+        private System.Windows.Forms.Button editBtn;
     }
 }

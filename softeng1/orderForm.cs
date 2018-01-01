@@ -48,7 +48,7 @@ namespace softeng1
             namepanel.Location = new Point(140, 56);
             namepanel.Size = new Size(681, 297);
             
-            String query = "SELECT customer_id, firstname, lastname FROM person, customer where lastname like '%" + custfnameTxt.Text + "%' or firstname like '%" + custfnameTxt.Text + "%' and person_type = 'customer'";
+            String query = "SELECT customer_id, firstname, lastname FROM person, customer where lastname like '%" + custfnameTxt.Text + "%' or firstname like '%" + custfnameTxt.Text + "%' and person_type = 'customer' and person_id = customer_person_id ";
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -238,6 +238,18 @@ namespace softeng1
             }
         }
 
+        private void orderDG_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int i;
+            i = orderDG.SelectedCells[0].RowIndex;
+            custfnameTxt.Text = orderDG.Rows[i].Cells[0].Value.ToString();
+            pnameTxt.Text = orderDG.Rows[i].Cells[1].Value.ToString();
+            ppriceTxt.Text = orderDG.Rows[i].Cells[2].Value.ToString();
+            pquant.Text = orderDG.Rows[i].Cells[3].Value.ToString();
+            ptotal.Text = orderDG.Rows[i].Cells[4].Value.ToString();
+            paymentCmb.Text = orderDG.Rows[i].Cells[5].Value.ToString();
+        }
+
         private void orderForm_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             fromOrder.Show();
@@ -253,21 +265,38 @@ namespace softeng1
 
         private void addOrder_Click(object sender, EventArgs e)
         {
-            string firstColumn = custfnameTxt.Text;
-            string secondColumn = pnameTxt.Text;
-            string thirdColumn = ppriceTxt.Text;
-            string fourthColumn = pquant.Text;
-            string fifthColumn = ptotal.Text;
-            string sixthColumn = paymentCmb.Text;
-            string seventhColumn = userTxt.Text;
-            string eigthColumn = dtp.Text;
-            string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn, sixthColumn, seventhColumn, eigthColumn};
+            if (custfnameTxt.Text == "" || pnameTxt.Text == "" || ppriceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "" || paymentCmb.Text == "")
+            {
+                MessageBox.Show("Please fill up all the data", "Add Customer Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string firstColumn = custfnameTxt.Text;
+                string secondColumn = pnameTxt.Text;
+                string thirdColumn = ppriceTxt.Text;
+                string fourthColumn = pquant.Text;
+                string fifthColumn = ptotal.Text;
+                string sixthColumn = paymentCmb.Text;
+                string seventhColumn = userTxt.Text;
+                string eigthColumn = dtp.Text;
+                string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn, sixthColumn, seventhColumn, eigthColumn };
 
-            orderDG.Rows.Add(row);
+                orderDG.Rows.Add(row);
+
+                custfnameTxt.Clear();
+                pnameTxt.Clear();
+                ppriceTxt.Clear();
+                pquant.Clear();
+                ptotal.Clear();
+                paymentCmb.Text = "";
+            }
         }
         private void removeOrder_Click(object sender, EventArgs e)
         {
-
+            foreach (DataGridViewRow item in this.orderDG.SelectedRows)
+            {
+                orderDG.Rows.RemoveAt(item.Index);
+            }
         }
     }
 }
