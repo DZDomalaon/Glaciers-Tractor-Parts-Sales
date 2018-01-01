@@ -43,7 +43,7 @@ namespace softeng1
 
         private void searchBtn_Click(object sender, EventArgs e)
         {
-            String query = "SELECT firstname, lastname, warranty, product_name FROM person, inventory WHERE person_type = 'CUSTOMER'";
+            String query = "SELECT firstname, lastname, warranty, product_name FROM person, inventory, customer WHERE person_type = 'CUSTOMER' and person_id = customer_person_id";
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand(query, conn);
