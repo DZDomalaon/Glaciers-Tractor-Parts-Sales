@@ -48,7 +48,11 @@ namespace softeng1
             namepanel.Location = new Point(140, 56);
             namepanel.Size = new Size(681, 297);
             
+<<<<<<< HEAD
             String query = "SELECT customer_id, firstname, lastname FROM person, customer where lastname like '%" + custfnameTxt.Text + "%' or firstname like '%" + custfnameTxt.Text + "%' and person_type = 'customer' and person_id = customer_person_id ";
+=======
+            SELECT customer_id, firstname, lastname FROM person, customer where (lastname like '%%' or firstname like '%%') and person_type = 'customer';
+>>>>>>> c28c548eb75c6251a36c6ed6bacc4a03913bb36a
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand(query, conn);
