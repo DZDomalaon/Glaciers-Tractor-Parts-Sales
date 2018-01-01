@@ -96,7 +96,6 @@ namespace softeng1
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(955, 47);
             this.panel3.TabIndex = 4;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // panel1
             // 
@@ -106,7 +105,6 @@ namespace softeng1
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(197, 47);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // label1
             // 
@@ -118,7 +116,6 @@ namespace softeng1
             this.label1.Size = new System.Drawing.Size(112, 48);
             this.label1.TabIndex = 0;
             this.label1.Text = "GLACIER TRACTOR\r\nPARTS AND SALES";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -129,7 +126,6 @@ namespace softeng1
             this.label2.Size = new System.Drawing.Size(142, 21);
             this.label2.TabIndex = 5;
             this.label2.Text = "Customer Details";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel2
             // 
@@ -142,7 +138,6 @@ namespace softeng1
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(955, 38);
             this.panel2.TabIndex = 6;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // panel4
             // 
@@ -154,7 +149,6 @@ namespace softeng1
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(521, 38);
             this.panel4.TabIndex = 6;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // label3
             // 
@@ -165,7 +159,6 @@ namespace softeng1
             this.label3.Size = new System.Drawing.Size(174, 22);
             this.label3.TabIndex = 0;
             this.label3.Text = "Products Ordered";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // orderDG
             // 
@@ -182,7 +175,6 @@ namespace softeng1
             this.orderDG.Size = new System.Drawing.Size(521, 468);
             this.orderDG.TabIndex = 7;
             this.orderDG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderDG_CellClick);
-            this.orderDG.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // custfnameTxt
             // 
@@ -191,7 +183,6 @@ namespace softeng1
             this.custfnameTxt.Name = "custfnameTxt";
             this.custfnameTxt.Size = new System.Drawing.Size(183, 27);
             this.custfnameTxt.TabIndex = 8;
-            this.custfnameTxt.TextChanged += new System.EventHandler(this.custfnameTxt_TextChanged);
             // 
             // label4
             // 
@@ -203,7 +194,6 @@ namespace softeng1
             this.label4.Size = new System.Drawing.Size(85, 23);
             this.label4.TabIndex = 9;
             this.label4.Text = "Customer";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // panel5
             // 
@@ -213,7 +203,6 @@ namespace softeng1
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(435, 38);
             this.panel5.TabIndex = 11;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // label5
             // 
@@ -225,7 +214,6 @@ namespace softeng1
             this.label5.Size = new System.Drawing.Size(128, 21);
             this.label5.TabIndex = 7;
             this.label5.Text = "Product Details";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
@@ -237,7 +225,6 @@ namespace softeng1
             this.label6.Size = new System.Drawing.Size(120, 23);
             this.label6.TabIndex = 12;
             this.label6.Text = "Product Name";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // pnameTxt
             // 
@@ -246,7 +233,6 @@ namespace softeng1
             this.pnameTxt.Name = "pnameTxt";
             this.pnameTxt.Size = new System.Drawing.Size(183, 27);
             this.pnameTxt.TabIndex = 13;
-            this.pnameTxt.TextChanged += new System.EventHandler(this.pnameTxt_TextChanged);
             // 
             // sprodTxt
             // 
@@ -441,7 +427,6 @@ namespace softeng1
             this.namepanel.Size = new System.Drawing.Size(687, 103);
             this.namepanel.TabIndex = 26;
             this.namepanel.Visible = false;
-            this.namepanel.Paint += new System.Windows.Forms.PaintEventHandler(this.namepanel_Paint);
             // 
             // closename
             // 
@@ -472,7 +457,6 @@ namespace softeng1
             this.dgsearchname.Size = new System.Drawing.Size(667, 249);
             this.dgsearchname.TabIndex = 0;
             this.dgsearchname.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchname_CellClick);
-            this.dgsearchname.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchname_CellContentClick);
             // 
             // prodpanel
             // 
@@ -548,7 +532,6 @@ namespace softeng1
             this.dtp.Name = "dtp";
             this.dtp.Size = new System.Drawing.Size(223, 20);
             this.dtp.TabIndex = 28;
-            this.dtp.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // buyBtn
             // 
