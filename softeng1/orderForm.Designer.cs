@@ -72,7 +72,7 @@ namespace softeng1
             this.buyBtn = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.paymentCmb = new System.Windows.Forms.ComboBox();
-            this.editBtn = new System.Windows.Forms.Button();
+            this.editOrderBtn = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -571,18 +571,19 @@ namespace softeng1
             this.paymentCmb.Size = new System.Drawing.Size(183, 27);
             this.paymentCmb.TabIndex = 47;
             // 
-            // editBtn
+            // editOrderBtn
             // 
-            this.editBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
-            this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editBtn.ForeColor = System.Drawing.Color.White;
-            this.editBtn.Location = new System.Drawing.Point(218, 527);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(92, 37);
-            this.editBtn.TabIndex = 49;
-            this.editBtn.Text = "Edit";
-            this.editBtn.UseVisualStyleBackColor = false;
+            this.editOrderBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
+            this.editOrderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editOrderBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editOrderBtn.ForeColor = System.Drawing.Color.White;
+            this.editOrderBtn.Location = new System.Drawing.Point(218, 527);
+            this.editOrderBtn.Name = "editOrderBtn";
+            this.editOrderBtn.Size = new System.Drawing.Size(92, 37);
+            this.editOrderBtn.TabIndex = 49;
+            this.editOrderBtn.Text = "Edit";
+            this.editOrderBtn.UseVisualStyleBackColor = false;
+            this.editOrderBtn.Click += new System.EventHandler(this.editOrderBtn_Click);
             // 
             // orderForm
             // 
@@ -591,7 +592,7 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
-            this.Controls.Add(this.editBtn);
+            this.Controls.Add(this.editOrderBtn);
             this.Controls.Add(this.namepanel);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.prodpanel);
@@ -698,6 +699,6 @@ namespace softeng1
         private System.Windows.Forms.Button buyBtn;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox paymentCmb;
-        private System.Windows.Forms.Button editBtn;
+        private System.Windows.Forms.Button editOrderBtn;
     }
 }

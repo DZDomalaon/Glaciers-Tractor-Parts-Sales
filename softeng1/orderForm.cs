@@ -19,6 +19,8 @@ namespace softeng1
             conn = new MySqlConnection("SERVER=localhost; DATABASE=glaciers; uid = root; pwd = root");
             InitializeComponent();
         }
+        int rowIndex;
+
         public static homeForm fromOrder { get; set; }
         private void backBtn_Click(object sender, EventArgs e)
         {
@@ -48,7 +50,7 @@ namespace softeng1
             namepanel.Location = new Point(140, 56);
             namepanel.Size = new Size(681, 297);
             
-            String query = "SELECT customer_id, firstname, lastname FROM person, customer where lastname like '%" + custfnameTxt.Text + "%' or firstname like '%" + custfnameTxt.Text + "%' and person_type = 'customer' and person_id = customer_person_id ";            
+            String query = "SELECT customer_id, firstname, lastname FROM person, customer where (lastname like '%" + custfnameTxt.Text + "%' or firstname like '%" + custfnameTxt.Text + "%') and person_type = 'customer' and person_id = customer_person_id ";            
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -153,18 +155,6 @@ namespace softeng1
             }
         }
 
-        private void orderDG_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int i;
-            i = orderDG.SelectedCells[0].RowIndex;
-            custfnameTxt.Text = orderDG.Rows[i].Cells[0].Value.ToString();
-            pnameTxt.Text = orderDG.Rows[i].Cells[1].Value.ToString();
-            ppriceTxt.Text = orderDG.Rows[i].Cells[2].Value.ToString();
-            pquant.Text = orderDG.Rows[i].Cells[3].Value.ToString();
-            ptotal.Text = orderDG.Rows[i].Cells[4].Value.ToString();
-            paymentCmb.Text = orderDG.Rows[i].Cells[5].Value.ToString();
-        }
-
         private void orderForm_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             fromOrder.Show();
@@ -176,6 +166,32 @@ namespace softeng1
         private void closeprod_Click(object sender, EventArgs e)
         {
             prodpanel.Hide();
+        }
+
+        private void orderDG_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            rowIndex = e.RowIndex; 
+            DataGridViewRow row = orderDG.Rows[rowIndex];
+
+            custfnameTxt.Text = row.Cells[0].Value.ToString();
+            pnameTxt.Text = row.Cells[1].Value.ToString();
+            ppriceTxt.Text = row.Cells[2].Value.ToString();
+            pquant.Text = row.Cells[3].Value.ToString();
+            ptotal.Text = row.Cells[4].Value.ToString();
+            paymentCmb.Text = row.Cells[5].Value.ToString();
+        }
+
+        private void editOrderBtn_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow updRow = orderDG.Rows[rowIndex];
+
+            updRow.Cells[0].Value = custfnameTxt.Text;
+            updRow.Cells[1].Value = pnameTxt.Text;
+            updRow.Cells[2].Value = ppriceTxt.Text;
+            updRow.Cells[3].Value = pquant.Text;
+            updRow.Cells[4].Value = ptotal.Text;
+            updRow.Cells[5].Value = paymentCmb.Text;
         }
 
         private void addOrder_Click(object sender, EventArgs e)
@@ -206,6 +222,7 @@ namespace softeng1
                 paymentCmb.Text = "";
             }
         }
+
         private void removeOrder_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow item in this.orderDG.SelectedRows)
