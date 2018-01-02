@@ -184,28 +184,6 @@ AUTO_INCREMENT = 16
 DEFAULT CHARACTER SET = utf8;
 
 
--- -----------------------------------------------------
--- Table `glaciers`.`inventory_has_product_catalogue`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `glaciers`.`inventory_has_product_catalogue` (
-  `Inventory_PRODUCT_ID` INT(11) NOT NULL,
-  `product_catalogue_PC_ID` INT(11) NOT NULL,
-  PRIMARY KEY (`Inventory_PRODUCT_ID`, `product_catalogue_PC_ID`),
-  INDEX `fk_Inventory_has_product_catalogue_product_catalogue1_idx` (`product_catalogue_PC_ID` ASC),
-  INDEX `fk_Inventory_has_product_catalogue_Inventory1_idx` (`Inventory_PRODUCT_ID` ASC),
-  CONSTRAINT `fk_Inventory_has_product_catalogue_Inventory1`
-    FOREIGN KEY (`Inventory_PRODUCT_ID`)
-    REFERENCES `glaciers`.`inventory` (`PRODUCT_ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Inventory_has_product_catalogue_product_catalogue1`
-    FOREIGN KEY (`product_catalogue_PC_ID`)
-    REFERENCES `glaciers`.`product_catalogue` (`PC_ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
 
 -- -----------------------------------------------------
 -- Table `glaciers`.`payment`
