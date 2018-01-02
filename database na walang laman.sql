@@ -223,7 +223,7 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 -- Table `glaciers`.`order`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `glaciers`.`order` (
+CREATE TABLE IF NOT EXISTS `glaciers`.`sales_order` (
   `ORDER_ID` INT(11) NOT NULL AUTO_INCREMENT,
   `ORDER_DATE` VARCHAR(20) NULL DEFAULT NULL,
   `ORDER_STATUS` VARCHAR(45) NULL DEFAULT NULL,
