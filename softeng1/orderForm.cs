@@ -118,8 +118,7 @@ namespace softeng1
             else if(pquant.Text == "")
             {
                 ptotal.Text = "";
-            }
-           
+            }          
         }
 
         private void dgsearchprod_CellClick(object sender, DataGridViewCellEventArgs e)

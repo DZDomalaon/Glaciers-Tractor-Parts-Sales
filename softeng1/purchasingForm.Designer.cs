@@ -33,13 +33,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.purchaseData = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pquant = new System.Windows.Forms.TextBox();
-            this.ppriceTxt = new System.Windows.Forms.TextBox();
+            this.priceTxt = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.pnameTxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -119,16 +119,6 @@
             this.panel4.Size = new System.Drawing.Size(521, 38);
             this.panel4.TabIndex = 6;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(134, 21);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Products Details";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -138,6 +128,16 @@
             this.label3.Size = new System.Drawing.Size(193, 22);
             this.label3.TabIndex = 0;
             this.label3.Text = "Products Purchased";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(128, 21);
+            this.label2.TabIndex = 5;
+            this.label2.Text = "Product Details";
             // 
             // purchaseData
             // 
@@ -184,14 +184,15 @@
             this.pquant.Name = "pquant";
             this.pquant.Size = new System.Drawing.Size(53, 27);
             this.pquant.TabIndex = 25;
+            this.pquant.TextChanged += new System.EventHandler(this.pquant_TextChanged);
             // 
-            // ppriceTxt
+            // priceTxt
             // 
-            this.ppriceTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ppriceTxt.Location = new System.Drawing.Point(130, 146);
-            this.ppriceTxt.Name = "ppriceTxt";
-            this.ppriceTxt.Size = new System.Drawing.Size(183, 27);
-            this.ppriceTxt.TabIndex = 26;
+            this.priceTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.priceTxt.Location = new System.Drawing.Point(130, 146);
+            this.priceTxt.Name = "priceTxt";
+            this.priceTxt.Size = new System.Drawing.Size(183, 27);
+            this.priceTxt.TabIndex = 26;
             // 
             // label7
             // 
@@ -356,6 +357,7 @@
             this.removeBtn.TabIndex = 39;
             this.removeBtn.Text = "Remove";
             this.removeBtn.UseVisualStyleBackColor = false;
+            this.removeBtn.Click += new System.EventHandler(this.removeBtn_Click);
             // 
             // addBtn
             // 
@@ -369,6 +371,7 @@
             this.addBtn.TabIndex = 38;
             this.addBtn.Text = "Add";
             this.addBtn.UseVisualStyleBackColor = false;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // purchasingForm
             // 
@@ -390,7 +393,7 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pquant);
-            this.Controls.Add(this.ppriceTxt);
+            this.Controls.Add(this.priceTxt);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.pnameTxt);
             this.Controls.Add(this.label6);
@@ -436,7 +439,7 @@
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox pquant;
-        private System.Windows.Forms.TextBox ppriceTxt;
+        private System.Windows.Forms.TextBox priceTxt;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox pnameTxt;
         private System.Windows.Forms.Label label6;
