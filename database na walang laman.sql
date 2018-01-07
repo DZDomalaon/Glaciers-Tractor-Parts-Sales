@@ -83,7 +83,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `glaciers`.`payment`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `glaciers`.`payment` (
-  `PAYMENT_ID` INT NOT NULL,
+  `PAYMENT_ID` INT NOT NULL AUTO_INCREMENT,
   `AMOUNT` VARCHAR(45) NULL,
   `PAYMENT_DATE` INT NULL,
   `TYPE` VARCHAR(45) NULL,
@@ -97,7 +97,7 @@ ENGINE = InnoDB;
 -- Table `glaciers`.`product_catalogue`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `glaciers`.`product_catalogue` (
-  `PC_ID` INT NOT NULL,
+  `PC_ID` INT NOT NULL AUTO_INCREMENT,
   `PC_CATEGORY` VARCHAR(45) NULL,
   `PC_VARIANT` VARCHAR(45) NULL,
   PRIMARY KEY (`PC_ID`))
@@ -108,7 +108,7 @@ ENGINE = InnoDB;
 -- Table `glaciers`.`Product`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `glaciers`.`Product` (
-  `PRODUCT_ID` INT(11) NOT NULL,
+  `PRODUCT_ID` INT(11) NOT NULL AUTO_INCREMENT,
   `PRODUCT_NAME` VARCHAR(45) NULL DEFAULT NULL,
   `DESCRIPTION` VARCHAR(45) NULL DEFAULT NULL,
   `PRICE` DECIMAL(5,2) NULL DEFAULT NULL,
@@ -127,10 +127,10 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
--- Table `glaciers`.`order`
+-- Table `glaciers`.`sales_order`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `glaciers`.`order` (
-  `ORDER_ID` INT(11) NOT NULL,
+CREATE TABLE IF NOT EXISTS `glaciers`.`sales_order` (
+  `ORDER_ID` INT(11) NOT NULL AUTO_INCREMENT,
   `ORDER_PRICE` DOUBLE NULL,
   `ORDER_SUBTOTAL` INT NULL,
   `ORDER_TQUANTITY` INT NULL,
@@ -174,7 +174,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `glaciers`.`supplier`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `glaciers`.`supplier` (
-  `SUPPLIER_ID` INT(11) NOT NULL,
+  `SUPPLIER_ID` INT(11) NOT NULL AUTO_INCREMENT,
   `CONTACT_PERSON` VARCHAR(45) NULL DEFAULT NULL,
   `ORGANIZATION` VARCHAR(45) NULL DEFAULT NULL,
   `SUPPLIER_PERSON_ID` INT(11) NOT NULL,
@@ -215,7 +215,7 @@ DEFAULT CHARACTER SET = utf8;
 -- Table `glaciers`.`purchase`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `glaciers`.`purchase` (
-  `PURCHASE_ID` INT(11) NOT NULL,
+  `PURCHASE_ID` INT(11) NOT NULL AUTO_INCREMENT,
   `PURCHASE_DATE` DATE NULL DEFAULT NULL,
   `PRODUCT_NAME` VARCHAR(45) NULL,
   `QUANTITY` VARCHAR(45) NULL,
@@ -260,7 +260,7 @@ ENGINE = InnoDB;
 -- Table `glaciers`.`stock_in`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `glaciers`.`stock_in` (
-  `SI_ID` INT NOT NULL,
+  `SI_ID` INT NOT NULL AUTO_INCREMENT,
   `SI_QUANTITY` INT NULL,
   `SI_PRODUCT_ID` INT(11) NOT NULL,
   `SI_INVENTORY_ID` INT NOT NULL,
@@ -284,7 +284,7 @@ ENGINE = InnoDB;
 -- Table `glaciers`.`delivery`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `glaciers`.`delivery` (
-  `DELIVER_ID` INT NOT NULL,
+  `DELIVER_ID` INT NOT NULL AUTO_INCREMENT,
   `DELIVER_STATUS` VARCHAR(45) NULL,
   `DELIVER_PURCHASE_ID` INT(11) NOT NULL,
   PRIMARY KEY (`DELIVER_ID`),
@@ -306,8 +306,8 @@ TRIGGER `glaciers`.`insertToProfile`
 AFTER INSERT ON `glaciers`.`person`
 FOR EACH ROW
 BEGIN
-	IF new.PERSON_TYPE = 'STAFF' then
-		INSERT INTO STAFF(DATE_HIRED, STATUS, USERNAME, PASSWORD, STAFF_PERSON_ID) 
+	IF new.PERSON_TYPE = 'EMPLOYEE' then
+		INSERT INTO EMPLOYEE(DATE_HIRED, STATUS, USERNAME, PASSWORD, STAFF_PERSON_ID) 
         VALUES (CONCAT(YEAR(NOW()),'-',MONTH(NOW()),'-',DAY(NOW())), 'ACTIVE',NEW.EMAIL, NEW.EMAIL, NEW.PERSON_ID);
 	ELSEIF new.PERSON_TYPE = 'CUSTOMER' then
 		INSERT INTO CUSTOMER(CUSTOMER_PERSON_ID) VALUES (NEW.PERSON_ID);
