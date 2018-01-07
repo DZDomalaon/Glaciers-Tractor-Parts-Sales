@@ -19,6 +19,8 @@ namespace softeng1
             conn = new MySqlConnection("SERVER=localhost; DATABASE=glaciers; uid = root; pwd = root");
             InitializeComponent();
         }
+        int rowIndex;
+
         public static homeForm fromOrder { get; set; }
         private void backBtn_Click(object sender, EventArgs e)
         {
@@ -30,6 +32,15 @@ namespace softeng1
         {
             userTxt.Text = loginForm.name;
             dtp.Value = DateTime.Now;
+
+            orderDG.Columns.Add("Customer", "Customer");
+            orderDG.Columns.Add("Product Name", "Product Name");
+            orderDG.Columns.Add("Price", "Price");
+            orderDG.Columns.Add("Quantity", "Quantity");
+            orderDG.Columns.Add("Sub Total", "Sub Total");
+            orderDG.Columns.Add("Payment", "Payment");
+            orderDG.Columns.Add("Employee", "Employee");
+            orderDG.Columns.Add("Date", "Date");
         }
         public static string searchn;
         private void snameTxt_Click(object sender, EventArgs e)
@@ -37,9 +48,9 @@ namespace softeng1
             namepanel.Enabled = true;
             namepanel.Visible = true;
             namepanel.Location = new Point(140, 56);
-            namepanel.Size = new Size(681, 508);
+            namepanel.Size = new Size(681, 297);
             
-            String query = "SELECT firstname, lastname FROM person where lastname like '%" + custfnameTxt.Text + "%' or firstname like '%" + custfnameTxt.Text + "%' and person_type = 'customer'";
+            String query = "SELECT customer_id, firstname, lastname FROM person, customer where (lastname like '%" + custfnameTxt.Text + "%' or firstname like '%" + custfnameTxt.Text + "%') and person_type = 'customer' and person_id = customer_person_id ";            
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -50,88 +61,9 @@ namespace softeng1
 
             dgsearchname.DataSource = dt;
 
+            dgsearchname.Columns["customer_id"].Visible = false;
             dgsearchname.Columns["firstname"].HeaderText = "Given Name";
             dgsearchname.Columns["lastname"].HeaderText = "Last Name";
-        }
-
-        private void namepanel_Paint(object sender, PaintEventArgs e)
-        {
-            
-        }
-
-        private void dgsearchname_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void custfnameTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pnameTxt_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void sprodTxt_Click(object sender, EventArgs e)
@@ -139,7 +71,7 @@ namespace softeng1
             prodpanel.Enabled = true;
             prodpanel.Visible = true;
             prodpanel.Location = new Point(140, 56);
-            prodpanel.Size = new Size(681, 508);
+            prodpanel.Size = new Size(681, 297);
 
             String query = "SELECT * FROM inventory where product_name like '%" + pnameTxt.Text + "%'";
             conn.Open();
@@ -152,23 +84,24 @@ namespace softeng1
 
             dgsearchprod.DataSource = dt;
             dgsearchprod.Columns["product_id"].Visible = false;
+            dgsearchprod.Columns["inventory_pc_id"].Visible = false;
             dgsearchprod.Columns["product_name"].HeaderText = "Product Name";
             dgsearchprod.Columns["description"].HeaderText = "Product Description";
             dgsearchprod.Columns["price"].HeaderText = "Product Price";
         }
 
-        
+        private void dgsearchprod_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+
         public static String prod, price, ln, fn;
         public static double tot, p, q;
 
         private void orderForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             fromOrder.Show();
-        }
-
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
-
         }
 
         public static int quant;
@@ -182,7 +115,10 @@ namespace softeng1
                 tot = q * p;
                 ptotal.Text = tot.ToString();
             }
-           
+            else if(pquant.Text == "")
+            {
+                ptotal.Text = "";
+            }          
         }
 
         private void dgsearchprod_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -207,7 +143,7 @@ namespace softeng1
         {
             if (e.RowIndex > -1)
             {
-                dgsearchname.Rows[e.RowIndex].Cells["product_id"].Value.ToString();
+                dgsearchname.Rows[e.RowIndex].Cells["customer_id"].Value.ToString();
                 fn = dgsearchname.Rows[e.RowIndex].Cells["firstname"].Value.ToString();
                 ln = dgsearchname.Rows[e.RowIndex].Cells["lastname"].Value.ToString();
                 custfnameTxt.Text = fn + ' ' + ln;
@@ -217,94 +153,81 @@ namespace softeng1
                 namepanel.Size = new Size(521, 44);
             }
         }
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ppriceTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void userTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dateTxt_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label10_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void orderForm_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             fromOrder.Show();
         }
-
         private void close_Click(object sender, EventArgs e)
         {
             namepanel.Hide();
         }
-
         private void closeprod_Click(object sender, EventArgs e)
         {
             prodpanel.Hide();
         }
 
-        private void addOrder_Click(object sender, EventArgs e)
+        private void orderDG_CellClick(object sender, DataGridViewCellEventArgs e)
         {
 
+            rowIndex = e.RowIndex; 
+            DataGridViewRow row = orderDG.Rows[rowIndex];
+
+            custfnameTxt.Text = row.Cells[0].Value.ToString();
+            pnameTxt.Text = row.Cells[1].Value.ToString();
+            ppriceTxt.Text = row.Cells[2].Value.ToString();
+            pquant.Text = row.Cells[3].Value.ToString();
+            ptotal.Text = row.Cells[4].Value.ToString();
+            paymentCmb.Text = row.Cells[5].Value.ToString();
+        }
+
+        private void editOrderBtn_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow updRow = orderDG.Rows[rowIndex];
+
+            updRow.Cells[0].Value = custfnameTxt.Text;
+            updRow.Cells[1].Value = pnameTxt.Text;
+            updRow.Cells[2].Value = ppriceTxt.Text;
+            updRow.Cells[3].Value = pquant.Text;
+            updRow.Cells[4].Value = ptotal.Text;
+            updRow.Cells[5].Value = paymentCmb.Text;
+        }
+
+        private void addOrder_Click(object sender, EventArgs e)
+        {
+            if (custfnameTxt.Text == "" || pnameTxt.Text == "" || ppriceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "" || paymentCmb.Text == "")
+            {
+                MessageBox.Show("Please fill up all the data", "Add Customer Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string firstColumn = custfnameTxt.Text;
+                string secondColumn = pnameTxt.Text;
+                string thirdColumn = ppriceTxt.Text;
+                string fourthColumn = pquant.Text;
+                string fifthColumn = ptotal.Text;
+                string sixthColumn = paymentCmb.Text;
+                string seventhColumn = userTxt.Text;
+                string eigthColumn = dtp.Text;
+                string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn, sixthColumn, seventhColumn, eigthColumn };
+
+                orderDG.Rows.Add(row);
+
+                custfnameTxt.Clear();
+                pnameTxt.Clear();
+                ppriceTxt.Clear();
+                pquant.Clear();
+                ptotal.Clear();
+                paymentCmb.Text = "";
+            }
         }
 
         private void removeOrder_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void panel7_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void totalpriceTxt_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
+            foreach (DataGridViewRow item in this.orderDG.SelectedRows)
+            {
+                orderDG.Rows.RemoveAt(item.Index);
+            }
         }
     }
 }

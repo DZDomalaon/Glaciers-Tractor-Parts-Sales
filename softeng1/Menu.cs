@@ -167,6 +167,12 @@ namespace softeng1
             usersBtn.ForeColor = Color.White;
         }
 
-       
+        private void purchasingBtn_Click(object sender, EventArgs e)
+        {
+            purchasingForm purchase = new purchasingForm();
+            purchase.Show();
+            purchasingForm.fromPurchasing = this;
+            this.Hide();
+        }
     }
 }

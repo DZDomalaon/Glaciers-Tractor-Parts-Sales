@@ -80,8 +80,8 @@ DROP TABLE IF EXISTS `employee`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `employee` (
   `EMP_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `SHIFT` varchar(45) DEFAULT NULL,
-  `SALARY` varchar(45) DEFAULT NULL,
+  `SHIFT` time DEFAULT NULL,
+  `SALARY` int(11) DEFAULT NULL,
   `DATE_HIRED` date DEFAULT NULL,
   `STATUS` varchar(20) DEFAULT NULL,
   `POSITION` varchar(20) DEFAULT NULL,
@@ -122,7 +122,6 @@ CREATE TABLE `inventory` (
   `WARRANTY` varchar(45) DEFAULT NULL,
   `DISCOUNT` int(11) DEFAULT NULL,
   `SERIAL` varchar(45) DEFAULT NULL,
-  `INVENTORY_CATALOGUE` int(11) DEFAULT NULL,
   PRIMARY KEY (`PRODUCT_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -133,8 +132,35 @@ CREATE TABLE `inventory` (
 
 LOCK TABLES `inventory` WRITE;
 /*!40000 ALTER TABLE `inventory` DISABLE KEYS */;
-INSERT INTO `inventory` VALUES (1,'Ligid','sa puno',300.00,NULL,NULL,NULL,NULL),(2,'Ligid','sa Glacier Tractor',100.00,NULL,NULL,NULL,1),(3,'Screw','gamay',50.00,NULL,NULL,NULL,NULL),(5,'Bearing','na dako',600.00,NULL,NULL,NULL,0),(6,'bearing','na gamay',300.00,NULL,NULL,NULL,NULL),(7,'Spinner','Blue',450.00,NULL,NULL,NULL,NULL),(8,'Spinner','Red',450.00,NULL,NULL,NULL,NULL);
+INSERT INTO `inventory` VALUES (1,'Ligid','sa puno',300.00,NULL,NULL,NULL),(2,'Ligid','sa Glacier Tractor',100.00,NULL,NULL,NULL),(3,'Screw','gamay',50.00,NULL,NULL,NULL),(5,'Bearing','na dako',600.00,NULL,NULL,NULL),(6,'bearing','na gamay',300.00,NULL,NULL,NULL),(7,'Spinner','Blue',450.00,NULL,NULL,NULL),(8,'Spinner','Red',450.00,NULL,NULL,NULL);
 /*!40000 ALTER TABLE `inventory` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `inventory_has_product_catalogue`
+--
+
+DROP TABLE IF EXISTS `inventory_has_product_catalogue`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `inventory_has_product_catalogue` (
+  `Inventory_PRODUCT_ID` int(11) NOT NULL,
+  `product_catalogue_PC_ID` int(11) NOT NULL,
+  PRIMARY KEY (`Inventory_PRODUCT_ID`,`product_catalogue_PC_ID`),
+  KEY `fk_Inventory_has_product_catalogue_product_catalogue1_idx` (`product_catalogue_PC_ID`),
+  KEY `fk_Inventory_has_product_catalogue_Inventory1_idx` (`Inventory_PRODUCT_ID`),
+  CONSTRAINT `fk_Inventory_has_product_catalogue_Inventory1` FOREIGN KEY (`Inventory_PRODUCT_ID`) REFERENCES `inventory` (`PRODUCT_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Inventory_has_product_catalogue_product_catalogue1` FOREIGN KEY (`product_catalogue_PC_ID`) REFERENCES `product_catalogue` (`PC_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `inventory_has_product_catalogue`
+--
+
+LOCK TABLES `inventory_has_product_catalogue` WRITE;
+/*!40000 ALTER TABLE `inventory_has_product_catalogue` DISABLE KEYS */;
+/*!40000 ALTER TABLE `inventory_has_product_catalogue` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -279,7 +305,6 @@ CREATE TABLE `product_catalogue` (
 
 LOCK TABLES `product_catalogue` WRITE;
 /*!40000 ALTER TABLE `product_catalogue` DISABLE KEYS */;
-INSERT INTO `product_catalogue` VALUES (0,'DAKO',NULL),(1,'DAKO','RUBBER');
 /*!40000 ALTER TABLE `product_catalogue` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -428,4 +453,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-12-29 15:29:58
+-- Dump completed on 2017-12-28 16:38:16

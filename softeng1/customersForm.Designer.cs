@@ -391,6 +391,8 @@
             this.Controls.Add(this.fnameTxt);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "customersForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "customersForm";

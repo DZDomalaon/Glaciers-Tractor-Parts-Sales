@@ -413,6 +413,8 @@
             this.Controls.Add(this.emailTxt);
             this.Controls.Add(this.cnumTxt);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "supplierForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Glacier Tractor Parts & Sales | Suppliers";

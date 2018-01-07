@@ -58,21 +58,20 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `glaciers`.`Employee` (
   `EMP_ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `SHIFT` VARCHAR(45) NULL DEFAULT NULL,
-  `SALARY` VARCHAR(45) NULL DEFAULT NULL,
+  `SHIFT` TIME NULL DEFAULT NULL,
+  `SALARY` INT(11) NULL DEFAULT NULL,
   `DATE_HIRED` DATE NULL DEFAULT NULL,
   `STATUS` VARCHAR(20) NULL DEFAULT NULL,
-  `POSITION` VARCHAR(20) NULL DEFAULT NULL,
   `USERNAME` VARCHAR(45) NULL DEFAULT NULL,
   `PASSWORD` VARCHAR(45) NULL DEFAULT NULL,
-  `EMP_PERSON_ID` INT(11) NOT NULL,
   `TIME_IN` VARCHAR(45) NULL,
   `TIME_OUT` VARCHAR(45) NULL,
   `LOG_DATE` VARCHAR(45) NULL,
+  `STAFF_PERSON_ID` INT(11) NOT NULL,
   PRIMARY KEY (`EMP_ID`),
-  INDEX `fk_employee_person1_idx` (`EMP_PERSON_ID` ASC),
-  CONSTRAINT `fk_employee_person1`
-    FOREIGN KEY (`EMP_PERSON_ID`)
+  INDEX `fk_staff_person1_idx` (`STAFF_PERSON_ID` ASC),
+  CONSTRAINT `fk_staff_person1`
+    FOREIGN KEY (`STAFF_PERSON_ID`)
     REFERENCES `glaciers`.`person` (`PERSON_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -85,35 +84,74 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `glaciers`.`payment` (
   `PAYMENT_ID` INT NOT NULL AUTO_INCREMENT,
-  `AMOUNT` VARCHAR(45) NULL,
-  `PAYMENT_DATE` VARCHAR(45) NULL,
+  `AMOUNT` DOUBLE NULL,
+  `PAYMENT_DATE` DATE NULL,
   `TYPE` VARCHAR(45) NULL,
-  `INTEREST` VARCHAR(4) NULL,
+  `INTEREST` DOUBLE NULL,
   `TERM` INT NULL,
   PRIMARY KEY (`PAYMENT_ID`))
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `glaciers`.`order`
+-- Table `glaciers`.`product_catalogue`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `glaciers`.`order` (
+CREATE TABLE IF NOT EXISTS `glaciers`.`product_catalogue` (
+  `PC_ID` INT NOT NULL AUTO_INCREMENT,
+  `PC_CATEGORY` VARCHAR(45) NULL,
+  `PC_VARIANT` VARCHAR(45) NULL,
+  PRIMARY KEY (`PC_ID`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `glaciers`.`Product`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `glaciers`.`Product` (
+  `PRODUCT_ID` INT(11) NOT NULL AUTO_INCREMENT,
+  `PRODUCT_NAME` VARCHAR(45) NULL DEFAULT NULL,
+  `DESCRIPTION` VARCHAR(45) NULL DEFAULT NULL,
+  `PRICE` DECIMAL(5,2) NULL DEFAULT NULL,
+  `WARRANTY` VARCHAR(45) NULL DEFAULT NULL,
+  `SERIAL` VARCHAR(45) NULL,
+  `INVENTORY_PC_ID` INT NOT NULL,
+  PRIMARY KEY (`PRODUCT_ID`),
+  INDEX `fk_Inventory_product_catalogue1_idx` (`INVENTORY_PC_ID` ASC),
+  CONSTRAINT `fk_Inventory_product_catalogue1`
+    FOREIGN KEY (`INVENTORY_PC_ID`)
+    REFERENCES `glaciers`.`product_catalogue` (`PC_ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
+
+
+-- -----------------------------------------------------
+-- Table `glaciers`.`sales_order`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `glaciers`.`sales_order` (
   `ORDER_ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `ORDER_DATE` VARCHAR(20) NULL DEFAULT NULL,
+  `ORDER_PRICE` DOUBLE NULL,
+  `ORDER_SUBTOTAL` INT NULL,
+  `ORDER_TQUANTITY` INT NULL,
+  `ORDER_DISCOUNT` DOUBLE NULL,
+  `ORDER_DATE` DATE NULL DEFAULT NULL,
+  `ORDER_STATUS` VARCHAR(45) NULL DEFAULT NULL,
   `ORDER_CUSTOMER_ID` INT(11) NOT NULL,
   `ORDER_EMP_ID` INT(11) NOT NULL,
-  `ORDER_STATUS` VARCHAR(45) NULL DEFAULT NULL,
   `ORDER_PAYMENT_ID` INT NOT NULL,
+  `ORDER_PRODUCT_ID` INT(11) NOT NULL,
   PRIMARY KEY (`ORDER_ID`),
   INDEX `fk_order_customer1_idx` (`ORDER_CUSTOMER_ID` ASC),
-  INDEX `fk_order_employee1_idx` (`ORDER_EMP_ID` ASC),
+  INDEX `fk_order_staff1_idx` (`ORDER_EMP_ID` ASC),
   INDEX `fk_order_payment1_idx` (`ORDER_PAYMENT_ID` ASC),
+  INDEX `fk_order_Product1_idx` (`ORDER_PRODUCT_ID` ASC),
   CONSTRAINT `fk_order_customer1`
     FOREIGN KEY (`ORDER_CUSTOMER_ID`)
     REFERENCES `glaciers`.`customer` (`CUSTOMER_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_order_employee1`
+  CONSTRAINT `fk_order_staff1`
     FOREIGN KEY (`ORDER_EMP_ID`)
     REFERENCES `glaciers`.`Employee` (`EMP_ID`)
     ON DELETE NO ACTION
@@ -122,56 +160,10 @@ CREATE TABLE IF NOT EXISTS `glaciers`.`order` (
     FOREIGN KEY (`ORDER_PAYMENT_ID`)
     REFERENCES `glaciers`.`payment` (`PAYMENT_ID`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `glaciers`.`inventory`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `glaciers`.`inventory` (
-  `PRODUCT_ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `PRODUCT_NAME` VARCHAR(45) NULL DEFAULT NULL,
-  `DESCRIPTION` VARCHAR(45) NULL DEFAULT NULL,
-  `PRICE` DECIMAL(5,2) NULL DEFAULT NULL,
-  `WARRANTY` VARCHAR(45) NULL DEFAULT NULL,
-  `DISCOUNT` INT(11) NULL DEFAULT NULL,
-  `SERIAL` VARCHAR(45) NULL DEFAULT NULL,
-  `INVENTORY_PC_ID` INT(11) NOT NULL,
-  PRIMARY KEY (`PRODUCT_ID`),
-  INDEX `fk_inventory_product_catalogue1_idx` (`INVENTORY_PC_ID` ASC),
-  CONSTRAINT `fk_inventory_product_catalogue1`
-    FOREIGN KEY (`INVENTORY_PC_ID`)
-    REFERENCES `glaciers`.`product_catalogue` (`PC_ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-AUTO_INCREMENT = 9
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `glaciers`.`order_line`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `glaciers`.`order_line` (
-  `ORDERLINE_ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `OL_TOTAL_PRICE` INT(11) NULL DEFAULT NULL,
-  `OL_SUBTOTAL` INT(11) NULL DEFAULT NULL,
-  `OL_TOTAL_QUANTITY` INT(11) NULL DEFAULT NULL,
-  `OL_ORDER_ID` INT(11) NULL DEFAULT NULL,
-  `OL_PRODUCT_ID` INT(11) NOT NULL,
-  PRIMARY KEY (`ORDERLINE_ID`),
-  INDEX `fk_order_line_order1_idx` (`OL_ORDER_ID` ASC),
-  INDEX `fk_order_line_product1_idx` (`OL_PRODUCT_ID` ASC),
-  CONSTRAINT `fk_order_line_order1`
-    FOREIGN KEY (`OL_ORDER_ID`)
-    REFERENCES `glaciers`.`order` (`ORDER_ID`)
-    ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_order_line_product1`
-    FOREIGN KEY (`OL_PRODUCT_ID`)
-    REFERENCES `glaciers`.`Inventory` (`PRODUCT_ID`)
+  CONSTRAINT `fk_order_Product1`
+    FOREIGN KEY (`ORDER_PRODUCT_ID`)
+    REFERENCES `glaciers`.`Product` (`PRODUCT_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB
@@ -207,7 +199,7 @@ CREATE TABLE IF NOT EXISTS `glaciers`.`product_has_supplier` (
   INDEX `fk_product_has_supplier_product1_idx` (`product_PRODUCT_ID` ASC),
   CONSTRAINT `fk_product_has_supplier_product1`
     FOREIGN KEY (`product_PRODUCT_ID`)
-    REFERENCES `glaciers`.`Inventory` (`PRODUCT_ID`)
+    REFERENCES `glaciers`.`Product` (`PRODUCT_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_product_has_supplier_supplier1`
@@ -224,15 +216,16 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `glaciers`.`purchase` (
   `PURCHASE_ID` INT(11) NOT NULL AUTO_INCREMENT,
-  `PURCHASE_SUPPLIER_ID` INT(11) NOT NULL,
-  `PURCHASE_EMP_ID` INT(11) NOT NULL,
-  `PURCHASE_DATE` DATE NULL DEFAULT NULL,
+  `PURCHASE_DATE` VARCHAR(45) NULL DEFAULT NULL,
   `PRODUCT_NAME` VARCHAR(45) NULL,
   `QUANTITY` VARCHAR(45) NULL,
+  `PRICE` DOUBLE NULL,
+  `PURCHASE_EMP_ID` INT(11) NOT NULL,
+  `PURCHASE_SUPPLIER_ID` INT(11) NOT NULL,
   PRIMARY KEY (`PURCHASE_ID`),
   INDEX `fk_purchase_supplier1_idx` (`PURCHASE_SUPPLIER_ID` ASC),
-  INDEX `fk_purchase_employee1_idx` (`PURCHASE_EMP_ID` ASC),
-  CONSTRAINT `fk_purchase_employee1`
+  INDEX `fk_purchase_staff1_idx` (`PURCHASE_EMP_ID` ASC),
+  CONSTRAINT `fk_purchase_staff1`
     FOREIGN KEY (`PURCHASE_EMP_ID`)
     REFERENCES `glaciers`.`Employee` (`EMP_ID`)
     ON DELETE NO ACTION
@@ -247,13 +240,43 @@ DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
+-- Table `glaciers`.`Inventory`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `glaciers`.`Inventory` (
+  `INVENTORY_ID` INT NOT NULL AUTO_INCREMENT,
+  `QUANTITY` INT(11) NULL,
+  `INV_PRODUCT_ID` INT(11) NOT NULL,
+  PRIMARY KEY (`INVENTORY_ID`),
+  INDEX `fk_Inventory_Product1_idx` (`INV_PRODUCT_ID` ASC),
+  CONSTRAINT `fk_Inventory_Product1`
+    FOREIGN KEY (`INV_PRODUCT_ID`)
+    REFERENCES `glaciers`.`Product` (`PRODUCT_ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
 -- Table `glaciers`.`stock_in`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `glaciers`.`stock_in` (
   `SI_ID` INT NOT NULL AUTO_INCREMENT,
-  `SI_PRDUCT` VARCHAR(45) NULL,
   `SI_QUANTITY` INT NULL,
-  PRIMARY KEY (`SI_ID`))
+  `SI_PRODUCT_ID` INT(11) NOT NULL,
+  `SI_INVENTORY_ID` INT NOT NULL,
+  PRIMARY KEY (`SI_ID`),
+  INDEX `fk_stock_in_Product1_idx` (`SI_PRODUCT_ID` ASC),
+  INDEX `fk_stock_in_Inventory1_idx` (`SI_INVENTORY_ID` ASC),
+  CONSTRAINT `fk_stock_in_Product1`
+    FOREIGN KEY (`SI_PRODUCT_ID`)
+    REFERENCES `glaciers`.`Product` (`PRODUCT_ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_stock_in_Inventory1`
+    FOREIGN KEY (`SI_INVENTORY_ID`)
+    REFERENCES `glaciers`.`Inventory` (`INVENTORY_ID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
@@ -273,62 +296,6 @@ CREATE TABLE IF NOT EXISTS `glaciers`.`delivery` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
--- -----------------------------------------------------
--- Table `glaciers`.`product_catalogue`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `glaciers`.`product_catalogue` (
-  `PC_ID` INT NOT NULL,
-  `PC_CATEGORY` VARCHAR(45) NULL,
-  `PC_VARIANT` VARCHAR(45) NULL,
-  PRIMARY KEY (`PC_ID`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `glaciers`.`Inventory_has_product_catalogue`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `glaciers`.`Inventory_has_product_catalogue` (
-  `Inventory_PRODUCT_ID` INT(11) NOT NULL,
-  `product_catalogue_PC_ID` INT NOT NULL,
-  INDEX `fk_Inventory_has_product_catalogue_product_catalogue1_idx` (`product_catalogue_PC_ID` ASC),
-  INDEX `fk_Inventory_has_product_catalogue_Inventory1_idx` (`Inventory_PRODUCT_ID` ASC),
-  PRIMARY KEY (`Inventory_PRODUCT_ID`, `product_catalogue_PC_ID`),
-  CONSTRAINT `fk_Inventory_has_product_catalogue_Inventory1`
-    FOREIGN KEY (`Inventory_PRODUCT_ID`)
-    REFERENCES `glaciers`.`Inventory` (`PRODUCT_ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_Inventory_has_product_catalogue_product_catalogue1`
-    FOREIGN KEY (`product_catalogue_PC_ID`)
-    REFERENCES `glaciers`.`product_catalogue` (`PC_ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
-
-
--- -----------------------------------------------------
--- Table `glaciers`.`stock_in_has_Inventory`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `glaciers`.`stock_in_has_Inventory` (
-  `stock_in_SI_ID` INT NOT NULL,
-  `Inventory_PRODUCT_ID` INT(11) NOT NULL,
-  INDEX `fk_stock_in_has_Inventory_Inventory1_idx` (`Inventory_PRODUCT_ID` ASC),
-  INDEX `fk_stock_in_has_Inventory_stock_in1_idx` (`stock_in_SI_ID` ASC),
-  PRIMARY KEY (`stock_in_SI_ID`, `Inventory_PRODUCT_ID`),
-  CONSTRAINT `fk_stock_in_has_Inventory_stock_in1`
-    FOREIGN KEY (`stock_in_SI_ID`)
-    REFERENCES `glaciers`.`stock_in` (`SI_ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_stock_in_has_Inventory_Inventory1`
-    FOREIGN KEY (`Inventory_PRODUCT_ID`)
-    REFERENCES `glaciers`.`Inventory` (`PRODUCT_ID`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
 USE `glaciers`;
 
 DELIMITER $$
@@ -340,12 +307,12 @@ AFTER INSERT ON `glaciers`.`person`
 FOR EACH ROW
 BEGIN
 	IF new.PERSON_TYPE = 'EMPLOYEE' then
-		INSERT INTO EMPLOYEE(DATE_HIRED, STATUS, USERNAME, PASSWORD, EMP_PERSON_ID) 
+		INSERT INTO EMPLOYEE(DATE_HIRED, STATUS, USERNAME, PASSWORD, STAFF_PERSON_ID) 
         VALUES (CONCAT(YEAR(NOW()),'-',MONTH(NOW()),'-',DAY(NOW())), 'ACTIVE',NEW.EMAIL, NEW.EMAIL, NEW.PERSON_ID);
 	ELSEIF new.PERSON_TYPE = 'CUSTOMER' then
 		INSERT INTO CUSTOMER(CUSTOMER_PERSON_ID) VALUES (NEW.PERSON_ID);
 	ELSEIF new.PERSON_TYPE = 'SUPPLIER' then
-		INSERT INTO SUPPLIER(SUPPLIER_PERSON_ID, CONTACT_PERSON) VALUES (NEW.PERSON_ID, CONCAT(NEW.FIRSTNAME, ' ', NEW.LASTNAME));
+		INSERT INTO SUPPLIER(SUPPLIER_PERSON_ID) VALUES (NEW.PERSON_ID);
 	END IF;
 END$$
 
