@@ -46,8 +46,8 @@ namespace softeng1
         }
         public void loadPurchase()
         {
-            String query = "SELECT purchase_date, product_name, total_price, quantity FROM purchase";
-
+            String query = 
+                "SELECT purchase_id, purchase_supplier_id, purchase_emp_id, purchase_date, product_name, total_price, quantity FROM purchase";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -58,6 +58,8 @@ namespace softeng1
 
             purchaseData.DataSource = dt;
             purchaseData.Columns["purchase_id"].Visible = false;
+            purchaseData.Columns["purchase_supplier_id"].Visible = false;
+            purchaseData.Columns["purchase_emp_id"].Visible = false;
             purchaseData.Columns["purchase_date"].HeaderText = "Purchase Date";
             purchaseData.Columns["product_name"].HeaderText = "Product Name";
             purchaseData.Columns["quantity"].HeaderText = "Quantity";
