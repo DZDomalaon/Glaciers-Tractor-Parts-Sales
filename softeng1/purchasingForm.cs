@@ -47,7 +47,7 @@ namespace softeng1
         public void loadPurchase()
         {
             String query = 
-                "SELECT purchase_id, purchase_supplier_id, purchase_emp_id, purchase_date, product_name, total_price, quantity FROM purchase";
+                "SELECT purchase_id, purchase_supplier_id, purchase_emp_id, purchase_date, product_name, price, quantity FROM purchase";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -63,7 +63,7 @@ namespace softeng1
             purchaseData.Columns["purchase_date"].HeaderText = "Purchase Date";
             purchaseData.Columns["product_name"].HeaderText = "Product Name";
             purchaseData.Columns["quantity"].HeaderText = "Quantity";
-            purchaseData.Columns["total_price"].HeaderText = "Price";
+            purchaseData.Columns["price"].HeaderText = "Price";
 
         }
         private void addBtn_Click(object sender, EventArgs e)
@@ -74,7 +74,7 @@ namespace softeng1
             }
             else
             {
-                string query = "INSERT INTO purchase(product_name, total_price, quantity, purchase_date)" +
+                string query = "INSERT INTO purchase(product_name, price, quantity, purchase_date)" +
                     "VALUES ('" + pnameTxt.Text + "','" + ptotal.Text + "','" + pquant.Text + "','" + dtpTxt.Text + "')";
 
                 conn.Open();
