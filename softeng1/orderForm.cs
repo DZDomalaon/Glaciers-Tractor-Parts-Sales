@@ -27,13 +27,13 @@ namespace softeng1
         private void backBtn_Click(object sender, EventArgs e)
         {
             fromOrder.Show();
-            this.Hide();            
+            this.Hide();      
         }
 
         private void orderForm_Load(object sender, EventArgs e)
         {
             usernameLbl.Text = loginForm.name;
-            dateLbl.Text = DateTime.Now.Date.ToShortDateString();
+            dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
 
             orderDG.Columns.Add("Customer", "Customer");
             orderDG.Columns.Add("Product Name", "Product Name");
