@@ -19,7 +19,9 @@ namespace softeng1
             conn = new MySqlConnection("SERVER=localhost; DATABASE=glaciers; uid = root; pwd = root");
             InitializeComponent();
         }
-        int rowIndex;
+        public static int customer_id;
+        public static int product_id;
+        public static int rowIndex;
 
         public static homeForm fromOrder { get; set; }
         private void backBtn_Click(object sender, EventArgs e)
@@ -30,8 +32,8 @@ namespace softeng1
 
         private void orderForm_Load(object sender, EventArgs e)
         {
-            userTxt.Text = loginForm.name;
-            dtp.Value = DateTime.Now;
+            usernameLbl.Text = loginForm.name;
+            dateLbl.Text = DateTime.Now.Date.ToShortDateString();
 
             orderDG.Columns.Add("Customer", "Customer");
             orderDG.Columns.Add("Product Name", "Product Name");
@@ -72,12 +74,17 @@ namespace softeng1
             prodpanel.Visible = true;
             prodpanel.Location = new Point(140, 56);
             prodpanel.Size = new Size(681, 297);
+            int maxID;
 
-            String query = "SELECT * FROM inventory where product_name like '%" + pnameTxt.Text + "%'";
+            String query = "SELECT product_id, inventory_pc_id, product_name, description, price FROM product where product_name like '%" + pnameTxt.Text + "%'";
+            string mID = "SELECT max(order_id) from sales_order";
             conn.Open();
 
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+
+            MySqlCommand comm = new MySqlCommand(mID, conn);
+
+            MySqlCommand comm2 = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm2);
             conn.Close();
             DataTable dt = new DataTable();
             adp.Fill(dt);
@@ -89,12 +96,6 @@ namespace softeng1
             dgsearchprod.Columns["description"].HeaderText = "Product Description";
             dgsearchprod.Columns["price"].HeaderText = "Product Price";
         }
-
-        private void dgsearchprod_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-           
-        }
-
 
         public static String prod, price, ln, fn;
         public static double tot, p, q;
@@ -125,7 +126,7 @@ namespace softeng1
         {
             if (e.RowIndex > -1)
             {
-                dgsearchprod.Rows[e.RowIndex].Cells["product_id"].Value.ToString();
+                product_id = int.Parse(dgsearchprod.Rows[e.RowIndex].Cells["product_id"].Value.ToString());
                 prod = dgsearchprod.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
                 dgsearchprod.Rows[e.RowIndex].Cells["description"].Value.ToString();
                 price = dgsearchprod.Rows[e.RowIndex].Cells["price"].Value.ToString();
@@ -143,7 +144,7 @@ namespace softeng1
         {
             if (e.RowIndex > -1)
             {
-                dgsearchname.Rows[e.RowIndex].Cells["customer_id"].Value.ToString();
+                customer_id = int.Parse(dgsearchname.Rows[e.RowIndex].Cells["customer_id"].Value.ToString());
                 fn = dgsearchname.Rows[e.RowIndex].Cells["firstname"].Value.ToString();
                 ln = dgsearchname.Rows[e.RowIndex].Cells["lastname"].Value.ToString();
                 custfnameTxt.Text = fn + ' ' + ln;
@@ -162,6 +163,12 @@ namespace softeng1
         {
             namepanel.Hide();
         }
+
+        private void buyBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void closeprod_Click(object sender, EventArgs e)
         {
             prodpanel.Hide();
@@ -201,14 +208,15 @@ namespace softeng1
             }
             else
             {
+
                 string firstColumn = custfnameTxt.Text;
                 string secondColumn = pnameTxt.Text;
                 string thirdColumn = ppriceTxt.Text;
                 string fourthColumn = pquant.Text;
                 string fifthColumn = ptotal.Text;
                 string sixthColumn = paymentCmb.Text;
-                string seventhColumn = userTxt.Text;
-                string eigthColumn = dtp.Text;
+                string seventhColumn = usernameLbl.Text;
+                string eigthColumn = dateLbl.Text;
                 string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn, sixthColumn, seventhColumn, eigthColumn };
 
                 orderDG.Rows.Add(row);

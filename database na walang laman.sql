@@ -114,11 +114,11 @@ CREATE TABLE IF NOT EXISTS `glaciers`.`Product` (
   `PRICE` DECIMAL(5,2) NULL DEFAULT NULL,
   `WARRANTY` VARCHAR(45) NULL DEFAULT NULL,
   `SERIAL` VARCHAR(45) NULL,
-  `INVENTORY_PC_ID` INT NOT NULL,
+  `PRODUCT_PC_ID` INT NOT NULL,
   PRIMARY KEY (`PRODUCT_ID`),
-  INDEX `fk_Inventory_product_catalogue1_idx` (`INVENTORY_PC_ID` ASC),
-  CONSTRAINT `fk_Inventory_product_catalogue1`
-    FOREIGN KEY (`INVENTORY_PC_ID`)
+  INDEX `fk_product_product_catalogue1_idx` (`PRODUCT_PC_ID` ASC),
+  CONSTRAINT `fk_product_product_catalogue1`
+    FOREIGN KEY (`PRODUCT_PC_ID`)
     REFERENCES `glaciers`.`product_catalogue` (`PC_ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
