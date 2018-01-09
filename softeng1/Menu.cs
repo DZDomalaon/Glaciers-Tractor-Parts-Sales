@@ -24,19 +24,7 @@ namespace softeng1
         private void Form2_Load(object sender, EventArgs e)
         {
 
-        }
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void homeBtn_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void homePanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }        
+        }      
         private void exitBtn_Click(object sender, EventArgs e)
         {
             String timeOut_query = "UPDATE employee SET time_OUT = TIME(NOW()) where emp_id ='" + loginForm.user_id + "'";

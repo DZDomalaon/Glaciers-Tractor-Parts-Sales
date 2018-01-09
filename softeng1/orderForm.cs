@@ -42,7 +42,7 @@ namespace softeng1
             orderDG.Columns.Add("Sub Total", "Sub Total");
             orderDG.Columns.Add("Payment", "Payment");
             orderDG.Columns.Add("Employee", "Employee");
-            orderDG.Columns.Add("Date", "Date");
+            orderDG.Columns.Add("Date", "Date");            
         }
         public static string searchn;
         private void snameTxt_Click(object sender, EventArgs e)
@@ -52,7 +52,7 @@ namespace softeng1
             namepanel.Location = new Point(140, 56);
             namepanel.Size = new Size(681, 297);
             
-            String query = "SELECT customer_id, firstname, lastname FROM person, customer where (lastname like '%" + custfnameTxt.Text + "%' or firstname like '%" + custfnameTxt.Text + "%') and person_type = 'customer' and person_id = customer_person_id ";
+            String query = "SELECT customer_id, firstname, lastname FROM person, customer where (lastname like '%" + custfnameTxt.Text + "%' or firstname like '%" + custfnameTxt.Text + "%') and person_type = 'customer' and person_id = customer_person_id ";            
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -137,9 +137,7 @@ namespace softeng1
                 prodpanel.Location = new Point(434, 152);
                 prodpanel.Size = new Size(521, 44);
             }
-        }
-        
-
+        }        
         private void dgsearchname_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -166,7 +164,21 @@ namespace softeng1
 
         private void buyBtn_Click(object sender, EventArgs e)
         {
-
+            if (custfnameTxt.Text == "" || pnameTxt.Text == "" || pquant.Text == "" || ptotal.Text == "" || paymentCmb.Text == "")
+            {
+                MessageBox.Show("Please fill up all the data", "Add Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+        private void paymentCmb_TextChanged(object sender, EventArgs e)
+        {
+            if (paymentCmb.Text == "Cash")
+            {
+                cashTxt.Enabled = true;
+            }
+            else
+            {
+                cashTxt.Enabled = false;
+            }
         }
 
         private void closeprod_Click(object sender, EventArgs e)
@@ -226,6 +238,7 @@ namespace softeng1
                 ppriceTxt.Clear();
                 pquant.Clear();
                 ptotal.Clear();
+                cashTxt.Clear();
                 paymentCmb.Text = "";
             }
         }

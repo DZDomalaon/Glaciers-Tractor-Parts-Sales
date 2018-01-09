@@ -105,7 +105,6 @@
             this.homePanel.Name = "homePanel";
             this.homePanel.Size = new System.Drawing.Size(955, 540);
             this.homePanel.TabIndex = 4;
-            this.homePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.homePanel_Paint);
             // 
             // panel2
             // 
