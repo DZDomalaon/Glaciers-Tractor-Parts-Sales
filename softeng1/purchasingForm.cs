@@ -22,8 +22,8 @@ namespace softeng1
         public static homeForm fromPurchasing { get; set; }
         private void purchasingForm_Load(object sender, EventArgs e)
         {
-            userTxt.Text = loginForm.name;
-            dtpTxt.Value = DateTime.Now;
+            usernameLbl.Text = loginForm.name;
+            dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
 
             purchaseData.Columns.Add("Product Name", "Product Name");
             purchaseData.Columns.Add("Price", "Price");
@@ -67,8 +67,19 @@ namespace softeng1
         }
         private void addBtn_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
                 string query = "INSERT INTO purchase(purchase_date, product_name, quantity, price)" +
                     "VALUES ('" + dtpTxt.Text + "','" + pnameTxt.Text + "','" + pquant.Text + "','" + ptotal.Text + "')";
+=======
+            if (pnameTxt.Text == "" || priceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "" || snameTxt.Text == "")
+            {
+                MessageBox.Show("Please fill up all the data", "Add Purchased Product", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                string query = "INSERT INTO purchase(product_name, price, quantity, purchase_date)" +
+                    "VALUES ('" + pnameTxt.Text + "','" + ptotal.Text + "','" + pquant.Text + "','" + dateLbl.Text + "')";
+>>>>>>> bd06a8b1c3202b6ca89ef8e2a4c1060115c406ba
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
@@ -80,7 +91,12 @@ namespace softeng1
                 dtpTxt.Text = "";
                 pnameTxt.Text = "";
                 pquant.Text = "";
+<<<<<<< HEAD
                 ptotal.Text = "";
+=======
+                dateLbl.Text = "";
+            }
+>>>>>>> bd06a8b1c3202b6ca89ef8e2a4c1060115c406ba
         }
         public static int quant;
         public static double tot, p, q;

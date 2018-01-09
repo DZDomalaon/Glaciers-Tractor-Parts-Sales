@@ -51,12 +51,12 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.dateTxt = new System.Windows.Forms.Label();
-            this.userTxt = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.dtpTxt = new System.Windows.Forms.DateTimePicker();
             this.backBtn = new System.Windows.Forms.Button();
             this.removeBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
+            this.usernameLbl = new System.Windows.Forms.Label();
+            this.dateLbl = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -302,15 +302,6 @@
             this.dateTxt.TabIndex = 36;
             this.dateTxt.Text = "Date";
             // 
-            // userTxt
-            // 
-            this.userTxt.Enabled = false;
-            this.userTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userTxt.Location = new System.Drawing.Point(130, 400);
-            this.userTxt.Name = "userTxt";
-            this.userTxt.Size = new System.Drawing.Size(183, 27);
-            this.userTxt.TabIndex = 35;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -321,15 +312,6 @@
             this.label9.Size = new System.Drawing.Size(89, 23);
             this.label9.TabIndex = 34;
             this.label9.Text = "Username";
-            // 
-            // dtpTxt
-            // 
-            this.dtpTxt.Enabled = false;
-            this.dtpTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpTxt.Location = new System.Drawing.Point(130, 446);
-            this.dtpTxt.Name = "dtpTxt";
-            this.dtpTxt.Size = new System.Drawing.Size(183, 27);
-            this.dtpTxt.TabIndex = 37;
             // 
             // backBtn
             // 
@@ -373,19 +355,39 @@
             this.addBtn.UseVisualStyleBackColor = false;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
+            // usernameLbl
+            // 
+            this.usernameLbl.AutoSize = true;
+            this.usernameLbl.Font = new System.Drawing.Font("Calibri", 14.25F);
+            this.usernameLbl.Location = new System.Drawing.Point(126, 400);
+            this.usernameLbl.Name = "usernameLbl";
+            this.usernameLbl.Size = new System.Drawing.Size(40, 23);
+            this.usernameLbl.TabIndex = 52;
+            this.usernameLbl.Text = "-----";
+            // 
+            // dateLbl
+            // 
+            this.dateLbl.AutoSize = true;
+            this.dateLbl.Font = new System.Drawing.Font("Calibri", 14.25F);
+            this.dateLbl.Location = new System.Drawing.Point(126, 450);
+            this.dateLbl.Name = "dateLbl";
+            this.dateLbl.Size = new System.Drawing.Size(40, 23);
+            this.dateLbl.TabIndex = 53;
+            this.dateLbl.Text = "-----";
+            // 
             // purchasingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.dateLbl);
+            this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.removeBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.dateTxt);
-            this.Controls.Add(this.userTxt);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.dtpTxt);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.snameTxt);
             this.Controls.Add(this.label4);
@@ -451,11 +453,11 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label dateTxt;
-        private System.Windows.Forms.TextBox userTxt;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker dtpTxt;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button removeBtn;
         private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.Label usernameLbl;
+        private System.Windows.Forms.Label dateLbl;
     }
 }
