@@ -22,8 +22,8 @@ namespace softeng1
         public static homeForm fromPurchasing { get; set; }
         private void purchasingForm_Load(object sender, EventArgs e)
         {
-            userTxt.Text = loginForm.name;
-            dtpTxt.Value = DateTime.Now;
+            usernameLbl.Text = loginForm.name;
+            dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
 
             purchaseData.Columns.Add("Product Name", "Product Name");
             purchaseData.Columns.Add("Price", "Price");
@@ -75,7 +75,7 @@ namespace softeng1
             else
             {
                 string query = "INSERT INTO purchase(product_name, price, quantity, purchase_date)" +
-                    "VALUES ('" + pnameTxt.Text + "','" + ptotal.Text + "','" + pquant.Text + "','" + dtpTxt.Text + "')";
+                    "VALUES ('" + pnameTxt.Text + "','" + ptotal.Text + "','" + pquant.Text + "','" + dateLbl.Text + "')";
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
@@ -87,7 +87,7 @@ namespace softeng1
                 pnameTxt.Text = "";
                 ptotal.Text = "";
                 pquant.Text = "";
-                dtpTxt.Text = "";
+                dateLbl.Text = "";
             }
         }
         public static int quant;

@@ -49,7 +49,6 @@ namespace softeng1
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.userTxt = new System.Windows.Forms.TextBox();
             this.dateTxt = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.addOrder = new System.Windows.Forms.Button();
@@ -68,11 +67,12 @@ namespace softeng1
             this.pquant = new System.Windows.Forms.TextBox();
             this.ptotal = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.dtp = new System.Windows.Forms.DateTimePicker();
             this.buyBtn = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.paymentCmb = new System.Windows.Forms.ComboBox();
             this.editOrderBtn = new System.Windows.Forms.Button();
+            this.dateLbl = new System.Windows.Forms.Label();
+            this.usernameLbl = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -292,27 +292,18 @@ namespace softeng1
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(12, 424);
+            this.label9.Location = new System.Drawing.Point(18, 423);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(55, 46);
+            this.label9.Size = new System.Drawing.Size(46, 23);
             this.label9.TabIndex = 17;
-            this.label9.Text = "User\r\nName";
-            // 
-            // userTxt
-            // 
-            this.userTxt.Enabled = false;
-            this.userTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userTxt.Location = new System.Drawing.Point(89, 424);
-            this.userTxt.Name = "userTxt";
-            this.userTxt.Size = new System.Drawing.Size(223, 27);
-            this.userTxt.TabIndex = 18;
+            this.label9.Text = "User";
             // 
             // dateTxt
             // 
             this.dateTxt.AutoSize = true;
             this.dateTxt.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTxt.ForeColor = System.Drawing.Color.Black;
-            this.dateTxt.Location = new System.Drawing.Point(12, 482);
+            this.dateTxt.Location = new System.Drawing.Point(18, 479);
             this.dateTxt.Name = "dateTxt";
             this.dateTxt.Size = new System.Drawing.Size(46, 23);
             this.dateTxt.TabIndex = 19;
@@ -525,14 +516,6 @@ namespace softeng1
             this.label12.TabIndex = 21;
             this.label12.Text = "Total";
             // 
-            // dtp
-            // 
-            this.dtp.Enabled = false;
-            this.dtp.Location = new System.Drawing.Point(89, 484);
-            this.dtp.Name = "dtp";
-            this.dtp.Size = new System.Drawing.Size(223, 20);
-            this.dtp.TabIndex = 28;
-            // 
             // buyBtn
             // 
             this.buyBtn.BackColor = System.Drawing.Color.White;
@@ -547,6 +530,7 @@ namespace softeng1
             this.buyBtn.Text = "Add Transaction";
             this.buyBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buyBtn.UseVisualStyleBackColor = false;
+            this.buyBtn.Click += new System.EventHandler(this.buyBtn_Click);
             // 
             // label13
             // 
@@ -585,6 +569,26 @@ namespace softeng1
             this.editOrderBtn.UseVisualStyleBackColor = false;
             this.editOrderBtn.Click += new System.EventHandler(this.editOrderBtn_Click);
             // 
+            // dateLbl
+            // 
+            this.dateLbl.AutoSize = true;
+            this.dateLbl.Font = new System.Drawing.Font("Calibri", 14.25F);
+            this.dateLbl.Location = new System.Drawing.Point(136, 479);
+            this.dateLbl.Name = "dateLbl";
+            this.dateLbl.Size = new System.Drawing.Size(40, 23);
+            this.dateLbl.TabIndex = 50;
+            this.dateLbl.Text = "-----";
+            // 
+            // usernameLbl
+            // 
+            this.usernameLbl.AutoSize = true;
+            this.usernameLbl.Font = new System.Drawing.Font("Calibri", 14.25F);
+            this.usernameLbl.Location = new System.Drawing.Point(136, 423);
+            this.usernameLbl.Name = "usernameLbl";
+            this.usernameLbl.Size = new System.Drawing.Size(40, 23);
+            this.usernameLbl.TabIndex = 51;
+            this.usernameLbl.Text = "-----";
+            // 
             // orderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -592,6 +596,8 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.usernameLbl);
+            this.Controls.Add(this.dateLbl);
             this.Controls.Add(this.editOrderBtn);
             this.Controls.Add(this.namepanel);
             this.Controls.Add(this.panel7);
@@ -607,7 +613,6 @@ namespace softeng1
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dateTxt);
-            this.Controls.Add(this.userTxt);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.pquant);
@@ -621,7 +626,6 @@ namespace softeng1
             this.Controls.Add(this.label4);
             this.Controls.Add(this.custfnameTxt);
             this.Controls.Add(this.ptotal);
-            this.Controls.Add(this.dtp);
             this.Controls.Add(this.paymentCmb);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -676,7 +680,6 @@ namespace softeng1
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox userTxt;
         private System.Windows.Forms.Label dateTxt;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button addOrder;
@@ -693,12 +696,13 @@ namespace softeng1
         private System.Windows.Forms.TextBox pquant;
         private System.Windows.Forms.TextBox ptotal;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.DateTimePicker dtp;
         private System.Windows.Forms.Button closename;
         private System.Windows.Forms.Button closeprod;
         private System.Windows.Forms.Button buyBtn;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox paymentCmb;
         private System.Windows.Forms.Button editOrderBtn;
+        private System.Windows.Forms.Label dateLbl;
+        private System.Windows.Forms.Label usernameLbl;
     }
 }
