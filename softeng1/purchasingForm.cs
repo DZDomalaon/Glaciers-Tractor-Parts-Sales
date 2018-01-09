@@ -46,8 +46,8 @@ namespace softeng1
         }
         public void loadPurchase()
         {
-            String query = 
-                "SELECT purchase_id, purchase_supplier_id, purchase_emp_id, purchase_date, product_name, price, quantity FROM purchase";
+            String query =
+                "SELECT * FROM purchase, supplier, employee WHERE purchase.purchase_supplier_id = supplier.supplier_id AND purchase.purchase_emp_id = employee.emp_id";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -64,18 +64,11 @@ namespace softeng1
             purchaseData.Columns["product_name"].HeaderText = "Product Name";
             purchaseData.Columns["quantity"].HeaderText = "Quantity";
             purchaseData.Columns["price"].HeaderText = "Price";
-
         }
         private void addBtn_Click(object sender, EventArgs e)
         {
-            if (pnameTxt.Text == "" || priceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "" || snameTxt.Text == "")
-            {
-                MessageBox.Show("Please fill up all the data", "Add Purchased Product", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                string query = "INSERT INTO purchase(product_name, price, quantity, purchase_date)" +
-                    "VALUES ('" + pnameTxt.Text + "','" + ptotal.Text + "','" + pquant.Text + "','" + dtpTxt.Text + "')";
+                string query = "INSERT INTO purchase(purchase_date, product_name, quantity, price)" +
+                    "VALUES ('" + dtpTxt.Text + "','" + pnameTxt.Text + "','" + pquant.Text + "','" + ptotal.Text + "')";
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
@@ -84,15 +77,13 @@ namespace softeng1
 
                 loadPurchase();
 
-                pnameTxt.Text = "";
-                ptotal.Text = "";
-                pquant.Text = "";
                 dtpTxt.Text = "";
-            }
+                pnameTxt.Text = "";
+                pquant.Text = "";
+                ptotal.Text = "";
         }
         public static int quant;
         public static double tot, p, q;
-
         private void removeBtn_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow item in this.purchaseData.SelectedRows)
@@ -100,7 +91,6 @@ namespace softeng1
                 purchaseData.Rows.RemoveAt(item.Index);
             }
         }
-
         private void pquant_TextChanged(object sender, EventArgs e)
         {
             if (pquant.Text != "")
