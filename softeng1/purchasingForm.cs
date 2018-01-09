@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
 
 namespace softeng1
 {
@@ -20,17 +21,19 @@ namespace softeng1
             InitializeComponent();
         }
         public static homeForm fromPurchasing { get; set; }
+        public string ConnString { get; private set; }
+
         private void purchasingForm_Load(object sender, EventArgs e)
         {
             usernameLbl.Text = loginForm.name;
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
 
+            purchaseData.Columns.Add("Employee", "Employee");
+            purchaseData.Columns.Add("Supplier Name", "Supplier Name");
             purchaseData.Columns.Add("Product Name", "Product Name");
             purchaseData.Columns.Add("Price", "Price");
             purchaseData.Columns.Add("Quantity", "Quantity");
             purchaseData.Columns.Add("Sub Total", "Sub Total");
-            purchaseData.Columns.Add("Supplier Name", "Supplier Name");
-            purchaseData.Columns.Add("Employee", "Employee");
             purchaseData.Columns.Add("Date", "Date");
         }
 
@@ -44,10 +47,20 @@ namespace softeng1
         {
             fromPurchasing.Show();
         }
+        private SqlDataAdapter adapt;
         public void loadPurchase()
         {
-            String query = 
-                "SELECT purchase_id, purchase_supplier_id, purchase_emp_id, purchase_date, product_name, price, quantity FROM purchase";
+            conn.Open();
+            DataTable dt = new DataTable();
+
+            string query = "select * from purchase";
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            adapt.Fill(dt);
+            purchaseData.DataSource = dt;
+            conn.Close();
+            /*String query =
+                "SELECT * FROM purchase, supplier, employee WHERE purchase.purchase_supplier_id = supplier.supplier_id AND purchase.purchase_emp_id = employee.emp_id";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -63,9 +76,9 @@ namespace softeng1
             purchaseData.Columns["purchase_date"].HeaderText = "Purchase Date";
             purchaseData.Columns["product_name"].HeaderText = "Product Name";
             purchaseData.Columns["quantity"].HeaderText = "Quantity";
-            purchaseData.Columns["price"].HeaderText = "Price";
-
+            purchaseData.Columns["price"].HeaderText = "Price";*/
         }
+
         private void addBtn_Click(object sender, EventArgs e)
         {
             if (pnameTxt.Text == "" || priceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "" || snameTxt.Text == "")
@@ -74,20 +87,26 @@ namespace softeng1
             }
             else
             {
-                string query = "INSERT INTO purchase(product_name, price, quantity, purchase_date)" +
-                    "VALUES ('" + pnameTxt.Text + "','" + ptotal.Text + "','" + pquant.Text + "','" + dateLbl.Text + "')";
+                string query =
+                    "INSERT INTO purchase(purchase_emp_id, purchase_supplier_id, product_name, price, quantity, purchase_date) VALUES" +
+                    "('" + usernameLbl.Text + "','" + (snameTxt.Text) + "','" + pnameTxt.Text + "','" + ptotal.Text + "','" + pquant.Text + "','" + dateLbl.Text + "')";
 
-                conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
+                conn.Open();
+
+                /*comm.Parameters.AddWithValue("purchase_emp_id", int.Parse(usernameLbl.Text));
+                comm.Parameters.AddWithValue("purchase_supplier_id", int.Parse(snameTxt.Text));
+                comm.Parameters.AddWithValue("product_name", pnameTxt.Text);
+                comm.Parameters.AddWithValue("price", ptotal.Text);
+                comm.Parameters.AddWithValue("quantity", pquant.Text);
+                comm.Parameters.AddWithValue("purchase_date", dateLbl.Text);*/
+
                 comm.ExecuteNonQuery();
                 conn.Close();
 
-                loadPurchase();
+                MessageBox.Show("Record Inserted Successfully");
 
-                pnameTxt.Text = "";
-                ptotal.Text = "";
-                pquant.Text = "";
-                dateLbl.Text = "";
+                loadPurchase();
             }
         }
         public static int quant;
@@ -100,7 +119,6 @@ namespace softeng1
                 purchaseData.Rows.RemoveAt(item.Index);
             }
         }
-
         private void pquant_TextChanged(object sender, EventArgs e)
         {
             if (pquant.Text != "")
