@@ -188,7 +188,6 @@ namespace softeng1
 
         private void orderDG_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             rowIndex = e.RowIndex; 
             DataGridViewRow row = orderDG.Rows[rowIndex];
 
@@ -220,7 +219,6 @@ namespace softeng1
             }
             else
             {
-
                 string firstColumn = custfnameTxt.Text;
                 string secondColumn = pnameTxt.Text;
                 string thirdColumn = ppriceTxt.Text;
