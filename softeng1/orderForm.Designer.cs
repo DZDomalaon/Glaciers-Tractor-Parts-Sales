@@ -73,6 +73,8 @@ namespace softeng1
             this.editOrderBtn = new System.Windows.Forms.Button();
             this.dateLbl = new System.Windows.Forms.Label();
             this.usernameLbl = new System.Windows.Forms.Label();
+            this.cashTxt = new System.Windows.Forms.TextBox();
+            this.cashLbl = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -94,7 +96,7 @@ namespace softeng1
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(955, 47);
+            this.panel3.Size = new System.Drawing.Size(1252, 47);
             this.panel3.TabIndex = 4;
             // 
             // panel1
@@ -136,7 +138,7 @@ namespace softeng1
             this.panel2.ForeColor = System.Drawing.Color.White;
             this.panel2.Location = new System.Drawing.Point(0, 47);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(955, 38);
+            this.panel2.Size = new System.Drawing.Size(1252, 38);
             this.panel2.TabIndex = 6;
             // 
             // panel4
@@ -147,14 +149,14 @@ namespace softeng1
             this.panel4.ForeColor = System.Drawing.Color.White;
             this.panel4.Location = new System.Drawing.Point(434, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(521, 38);
+            this.panel4.Size = new System.Drawing.Size(818, 38);
             this.panel4.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(189, 8);
+            this.label3.Location = new System.Drawing.Point(323, 8);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(174, 22);
             this.label3.TabIndex = 0;
@@ -164,6 +166,7 @@ namespace softeng1
             // 
             this.orderDG.AllowUserToAddRows = false;
             this.orderDG.AllowUserToDeleteRows = false;
+            this.orderDG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.orderDG.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.orderDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.orderDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -172,7 +175,7 @@ namespace softeng1
             this.orderDG.ReadOnly = true;
             this.orderDG.RowHeadersVisible = false;
             this.orderDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.orderDG.Size = new System.Drawing.Size(521, 468);
+            this.orderDG.Size = new System.Drawing.Size(818, 468);
             this.orderDG.TabIndex = 7;
             this.orderDG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderDG_CellClick);
             // 
@@ -212,16 +215,16 @@ namespace softeng1
             this.label5.ForeColor = System.Drawing.Color.White;
             this.label5.Location = new System.Drawing.Point(3, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 21);
+            this.label5.Size = new System.Drawing.Size(111, 21);
             this.label5.TabIndex = 7;
-            this.label5.Text = "Product Details";
+            this.label5.Text = "Order Details";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(12, 199);
+            this.label6.Location = new System.Drawing.Point(12, 201);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(120, 23);
             this.label6.TabIndex = 12;
@@ -230,7 +233,7 @@ namespace softeng1
             // pnameTxt
             // 
             this.pnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnameTxt.Location = new System.Drawing.Point(139, 195);
+            this.pnameTxt.Location = new System.Drawing.Point(139, 197);
             this.pnameTxt.Name = "pnameTxt";
             this.pnameTxt.Size = new System.Drawing.Size(183, 27);
             this.pnameTxt.TabIndex = 13;
@@ -254,7 +257,7 @@ namespace softeng1
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(12, 244);
+            this.label7.Location = new System.Drawing.Point(12, 246);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(113, 23);
             this.label7.TabIndex = 15;
@@ -263,7 +266,7 @@ namespace softeng1
             // ppriceTxt
             // 
             this.ppriceTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ppriceTxt.Location = new System.Drawing.Point(139, 240);
+            this.ppriceTxt.Location = new System.Drawing.Point(139, 242);
             this.ppriceTxt.Name = "ppriceTxt";
             this.ppriceTxt.Size = new System.Drawing.Size(183, 27);
             this.ppriceTxt.TabIndex = 16;
@@ -272,7 +275,7 @@ namespace softeng1
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
             this.panel6.Controls.Add(this.label8);
-            this.panel6.Location = new System.Drawing.Point(0, 373);
+            this.panel6.Location = new System.Drawing.Point(0, 407);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(435, 38);
             this.panel6.TabIndex = 12;
@@ -293,7 +296,7 @@ namespace softeng1
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(18, 423);
+            this.label9.Location = new System.Drawing.Point(18, 458);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(46, 23);
             this.label9.TabIndex = 17;
@@ -304,7 +307,7 @@ namespace softeng1
             this.dateTxt.AutoSize = true;
             this.dateTxt.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTxt.ForeColor = System.Drawing.Color.Black;
-            this.dateTxt.Location = new System.Drawing.Point(18, 479);
+            this.dateTxt.Location = new System.Drawing.Point(18, 495);
             this.dateTxt.Name = "dateTxt";
             this.dateTxt.Size = new System.Drawing.Size(46, 23);
             this.dateTxt.TabIndex = 19;
@@ -315,7 +318,7 @@ namespace softeng1
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(12, 289);
+            this.label10.Location = new System.Drawing.Point(12, 285);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 23);
             this.label10.TabIndex = 21;
@@ -327,7 +330,7 @@ namespace softeng1
             this.addOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addOrder.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addOrder.ForeColor = System.Drawing.Color.White;
-            this.addOrder.Location = new System.Drawing.Point(22, 527);
+            this.addOrder.Location = new System.Drawing.Point(22, 537);
             this.addOrder.Name = "addOrder";
             this.addOrder.Size = new System.Drawing.Size(92, 37);
             this.addOrder.TabIndex = 23;
@@ -341,7 +344,7 @@ namespace softeng1
             this.removeOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.removeOrder.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeOrder.ForeColor = System.Drawing.Color.White;
-            this.removeOrder.Location = new System.Drawing.Point(120, 527);
+            this.removeOrder.Location = new System.Drawing.Point(120, 537);
             this.removeOrder.Name = "removeOrder";
             this.removeOrder.Size = new System.Drawing.Size(92, 37);
             this.removeOrder.TabIndex = 24;
@@ -355,7 +358,7 @@ namespace softeng1
             this.backToMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backToMenu.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backToMenu.ForeColor = System.Drawing.Color.White;
-            this.backToMenu.Location = new System.Drawing.Point(316, 527);
+            this.backToMenu.Location = new System.Drawing.Point(316, 537);
             this.backToMenu.Name = "backToMenu";
             this.backToMenu.Size = new System.Drawing.Size(92, 37);
             this.backToMenu.TabIndex = 25;
@@ -386,14 +389,14 @@ namespace softeng1
             this.panel7.ForeColor = System.Drawing.Color.White;
             this.panel7.Location = new System.Drawing.Point(434, 551);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(340, 38);
+            this.panel7.Size = new System.Drawing.Size(630, 38);
             this.panel7.TabIndex = 7;
             // 
             // totalpriceTxt
             // 
             this.totalpriceTxt.AutoSize = true;
             this.totalpriceTxt.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalpriceTxt.Location = new System.Drawing.Point(182, 7);
+            this.totalpriceTxt.Location = new System.Drawing.Point(327, 5);
             this.totalpriceTxt.Name = "totalpriceTxt";
             this.totalpriceTxt.Size = new System.Drawing.Size(48, 22);
             this.totalpriceTxt.TabIndex = 1;
@@ -403,7 +406,7 @@ namespace softeng1
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(113, 7);
+            this.label11.Location = new System.Drawing.Point(258, 5);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 22);
             this.label11.TabIndex = 0;
@@ -493,7 +496,7 @@ namespace softeng1
             // pquant
             // 
             this.pquant.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pquant.Location = new System.Drawing.Point(139, 285);
+            this.pquant.Location = new System.Drawing.Point(139, 281);
             this.pquant.Name = "pquant";
             this.pquant.Size = new System.Drawing.Size(53, 27);
             this.pquant.TabIndex = 16;
@@ -502,7 +505,7 @@ namespace softeng1
             // ptotal
             // 
             this.ptotal.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ptotal.Location = new System.Drawing.Point(250, 285);
+            this.ptotal.Location = new System.Drawing.Point(250, 281);
             this.ptotal.Name = "ptotal";
             this.ptotal.Size = new System.Drawing.Size(72, 27);
             this.ptotal.TabIndex = 16;
@@ -512,7 +515,7 @@ namespace softeng1
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(198, 289);
+            this.label12.Location = new System.Drawing.Point(198, 285);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(46, 23);
             this.label12.TabIndex = 21;
@@ -525,9 +528,9 @@ namespace softeng1
             this.buyBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buyBtn.Image = ((System.Drawing.Image)(resources.GetObject("buyBtn.Image")));
             this.buyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buyBtn.Location = new System.Drawing.Point(773, 551);
+            this.buyBtn.Location = new System.Drawing.Point(1063, 551);
             this.buyBtn.Name = "buyBtn";
-            this.buyBtn.Size = new System.Drawing.Size(182, 36);
+            this.buyBtn.Size = new System.Drawing.Size(189, 36);
             this.buyBtn.TabIndex = 0;
             this.buyBtn.Text = "Add Transaction";
             this.buyBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -539,7 +542,7 @@ namespace softeng1
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(12, 330);
+            this.label13.Location = new System.Drawing.Point(12, 326);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(118, 23);
             this.label13.TabIndex = 30;
@@ -552,10 +555,11 @@ namespace softeng1
             this.paymentCmb.Items.AddRange(new object[] {
             "Cash",
             "Credit"});
-            this.paymentCmb.Location = new System.Drawing.Point(139, 330);
+            this.paymentCmb.Location = new System.Drawing.Point(139, 326);
             this.paymentCmb.Name = "paymentCmb";
             this.paymentCmb.Size = new System.Drawing.Size(183, 27);
             this.paymentCmb.TabIndex = 47;
+            this.paymentCmb.TextChanged += new System.EventHandler(this.paymentCmb_TextChanged);
             // 
             // editOrderBtn
             // 
@@ -563,7 +567,7 @@ namespace softeng1
             this.editOrderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editOrderBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editOrderBtn.ForeColor = System.Drawing.Color.White;
-            this.editOrderBtn.Location = new System.Drawing.Point(218, 527);
+            this.editOrderBtn.Location = new System.Drawing.Point(218, 537);
             this.editOrderBtn.Name = "editOrderBtn";
             this.editOrderBtn.Size = new System.Drawing.Size(92, 37);
             this.editOrderBtn.TabIndex = 49;
@@ -575,7 +579,7 @@ namespace softeng1
             // 
             this.dateLbl.AutoSize = true;
             this.dateLbl.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.dateLbl.Location = new System.Drawing.Point(136, 479);
+            this.dateLbl.Location = new System.Drawing.Point(136, 495);
             this.dateLbl.Name = "dateLbl";
             this.dateLbl.Size = new System.Drawing.Size(40, 23);
             this.dateLbl.TabIndex = 50;
@@ -585,11 +589,30 @@ namespace softeng1
             // 
             this.usernameLbl.AutoSize = true;
             this.usernameLbl.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.usernameLbl.Location = new System.Drawing.Point(136, 423);
+            this.usernameLbl.Location = new System.Drawing.Point(136, 458);
             this.usernameLbl.Name = "usernameLbl";
             this.usernameLbl.Size = new System.Drawing.Size(40, 23);
             this.usernameLbl.TabIndex = 51;
             this.usernameLbl.Text = "-----";
+            // 
+            // cashTxt
+            // 
+            this.cashTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cashTxt.Location = new System.Drawing.Point(139, 368);
+            this.cashTxt.Name = "cashTxt";
+            this.cashTxt.Size = new System.Drawing.Size(183, 27);
+            this.cashTxt.TabIndex = 53;
+            // 
+            // cashLbl
+            // 
+            this.cashLbl.AutoSize = true;
+            this.cashLbl.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cashLbl.ForeColor = System.Drawing.Color.Black;
+            this.cashLbl.Location = new System.Drawing.Point(12, 368);
+            this.cashLbl.Name = "cashLbl";
+            this.cashLbl.Size = new System.Drawing.Size(47, 23);
+            this.cashLbl.TabIndex = 52;
+            this.cashLbl.Text = "Cash";
             // 
             // orderForm
             // 
@@ -597,7 +620,9 @@ namespace softeng1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(955, 587);
+            this.ClientSize = new System.Drawing.Size(1252, 587);
+            this.Controls.Add(this.cashTxt);
+            this.Controls.Add(this.cashLbl);
             this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.dateLbl);
             this.Controls.Add(this.editOrderBtn);
@@ -706,5 +731,7 @@ namespace softeng1
         private System.Windows.Forms.Button editOrderBtn;
         private System.Windows.Forms.Label dateLbl;
         private System.Windows.Forms.Label usernameLbl;
+        private System.Windows.Forms.TextBox cashTxt;
+        private System.Windows.Forms.Label cashLbl;
     }
 }

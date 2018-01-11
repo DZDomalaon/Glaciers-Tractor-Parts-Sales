@@ -47,7 +47,7 @@ namespace softeng1
 
         public void loadprod()
         {
-            String query = "SELECT product_id, product_name, description, price, warranty, discount, serial, (select pc_category from product_catalogue WHERE INVENTORY_PC_ID = pc_id)as category, (select pc_variant from product_catalogue WHERE INVENTORY_PC_ID = pc_id)as variant FROM inventory";
+            String query = "SELECT product_id, product_name, description, (select quantity from inventory where , price, warranty, discount, serial, (select pc_category from product_catalogue WHERE PRODUCT_PC_ID = pc_id)as category, (select pc_variant from product_catalogue WHERE PRODUCT_PC_ID = pc_id)as variant FROM product, inventory";
 
 
             conn.Open();
@@ -62,7 +62,6 @@ namespace softeng1
             prodData.Columns["product_name"].HeaderText = "Product Name";
             prodData.Columns["description"].HeaderText = "Description";
             prodData.Columns["price"].HeaderText = "Price";
-            prodData.Columns["warranty"].HeaderText = "Warranty";
             prodData.Columns["discount"].HeaderText = "Discount";
             prodData.Columns["serial"].HeaderText = "Serial";
             prodData.Columns["category"].HeaderText = "Category";
@@ -86,11 +85,9 @@ namespace softeng1
             {
                 selected_prod_id = int.Parse(prodData.Rows[e.RowIndex].Cells["product_id"].Value.ToString());
                 pnameTxt.Text = prodData.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
-                pdescTxt.Text = prodData.Rows[e.RowIndex].Cells["description"].Value.ToString();
-                discountTxt.Text = prodData.Rows[e.RowIndex].Cells["discount"].Value.ToString();
+                pdescTxt.Text = prodData.Rows[e.RowIndex].Cells["description"].Value.ToString();                
                 categTxt.Text = prodData.Rows[e.RowIndex].Cells["category"].Value.ToString();
-                priceTxt.Text = prodData.Rows[e.RowIndex].Cells["price"].Value.ToString();
-                warrantyDate.Text = prodData.Rows[e.RowIndex].Cells["warranty"].Value.ToString();
+                priceTxt.Text = prodData.Rows[e.RowIndex].Cells["price"].Value.ToString();              
                 categTxt.Text = prodData.Rows[e.RowIndex].Cells["category"].Value.ToString();
                 variantTxt.Text = prodData.Rows[e.RowIndex].Cells["variant"].Value.ToString();
             }
@@ -98,21 +95,23 @@ namespace softeng1
 
         private void editBtn_Click(object sender, EventArgs e)
         {
+            if (MessageBox.Show("Do you want to update the data ?", "Confirm ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                String query = "Update product, product_catalogue SET product_name = '" + pnameTxt.Text + "', description = '" + pdescTxt.Text + "', serial = '" + serialTxt.Text + "', product_catalogue.pc_category = '" + categTxt.Text + "', product_catalogue.pc_variant = '" + variantTxt.Text + "', price = '" + priceTxt.Text +"' WHERE product_id = '" + selected_prod_id + "'";
 
-            String query = "Update inventory, product_catalogue SET inventory.product_name = '" + pnameTxt.Text + "', inventory.description = '" + pdescTxt.Text + "', inventory.serial = '" + serialTxt.Text + "', product_catalogue.pc_category = '" + categTxt.Text + "', product_catalogue.pc_variant = '" + variantTxt.Text + "', inventory.price = '" + priceTxt.Text + "', inventory.warranty = '" + warrantyDate.Text + "', inventory.discount = '" + discountTxt.Text + "' WHERE product_id = '" + selected_prod_id + "'";
-
-            conn.Open();
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            comm.ExecuteNonQuery();
-            conn.Close();
-
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
+            }
+            MessageBox.Show("Your data has been updated successfully", "Updated Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             loadprod();
         }
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            string query = "INSERT INTO inventory(product_name, description, discount, price, warranty)" +
-                    "VALUES ('" + pnameTxt.Text + "','" + pdescTxt.Text + "','" + discountTxt.Text + "','" + priceTxt.Text + "','" + warrantyDate.Text + "')";
+            string query = "INSERT INTO product(product_name, description, price, warranty)" +
+                    "VALUES ('" + pnameTxt.Text + "','" + pdescTxt.Text + "','" + priceTxt.Text + "')";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -123,20 +122,17 @@ namespace softeng1
 
             pnameTxt.Text = "";
             pdescTxt.Text = "";
-            discountTxt.Text = "";
             categTxt.Text = "";
             priceTxt.Text = "";
-            warrantyDate.Text = "";
+           
         }
 
         private void resetBtn_Click(object sender, EventArgs e)
         {
             pnameTxt.Text = "";
             pdescTxt.Text = "";
-            discountTxt.Text = "";
             categTxt.Text = "";
             priceTxt.Text = "";
-            warrantyDate.Text = "";
             categTxt.Text = "";
             variantTxt.Text = "";
         }

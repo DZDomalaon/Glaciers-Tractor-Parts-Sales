@@ -137,12 +137,18 @@
             // 
             // unpaidData
             // 
+            this.unpaidData.AllowUserToAddRows = false;
+            this.unpaidData.AllowUserToDeleteRows = false;
+            this.unpaidData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.unpaidData.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.unpaidData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.unpaidData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.unpaidData.Dock = System.Windows.Forms.DockStyle.Right;
             this.unpaidData.Location = new System.Drawing.Point(434, 85);
             this.unpaidData.Name = "unpaidData";
+            this.unpaidData.ReadOnly = true;
+            this.unpaidData.RowHeadersVisible = false;
+            this.unpaidData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.unpaidData.Size = new System.Drawing.Size(521, 502);
             this.unpaidData.TabIndex = 33;
             // 

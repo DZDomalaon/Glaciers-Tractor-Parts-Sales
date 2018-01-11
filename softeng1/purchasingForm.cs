@@ -39,6 +39,11 @@ namespace softeng1
         {
             fromPurchasing.Show();
         }
+<<<<<<< HEAD
+=======
+        private SqlDataAdapter adapt;
+
+>>>>>>> b8a9eb52d14d46f93646d91cd666a0de0185a729
         public void loadPurchase()
         {
             String query = "select * from purchase";
