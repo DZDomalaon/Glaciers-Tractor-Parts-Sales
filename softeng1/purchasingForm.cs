@@ -134,7 +134,7 @@ namespace softeng1
                 dateLbl.Text = purchaseData.Rows[e.RowIndex].Cells["purchase_date"].Value.ToString();
             }
         }
-
+        //
         private void dgsearchname_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
