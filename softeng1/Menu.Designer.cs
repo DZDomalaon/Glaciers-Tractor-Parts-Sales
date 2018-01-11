@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.homePanel = new System.Windows.Forms.Panel();
+            this.invoiceBtn = new System.Windows.Forms.Button();
             this.purchasingBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -46,7 +47,6 @@
             this.unpaidBtn = new System.Windows.Forms.Button();
             this.supplierBtn = new System.Windows.Forms.Button();
             this.usersBtn = new System.Windows.Forms.Button();
-            this.invoiceBtn = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.homePanel.SuspendLayout();
@@ -105,6 +105,22 @@
             this.homePanel.Name = "homePanel";
             this.homePanel.Size = new System.Drawing.Size(955, 540);
             this.homePanel.TabIndex = 4;
+            // 
+            // invoiceBtn
+            // 
+            this.invoiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
+            this.invoiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.invoiceBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.invoiceBtn.Image = global::softeng1.Properties.Resources.financial_document;
+            this.invoiceBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.invoiceBtn.Location = new System.Drawing.Point(202, 61);
+            this.invoiceBtn.Name = "invoiceBtn";
+            this.invoiceBtn.Size = new System.Drawing.Size(199, 162);
+            this.invoiceBtn.TabIndex = 0;
+            this.invoiceBtn.Text = "Create New\r\nInvoice";
+            this.invoiceBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.invoiceBtn.UseVisualStyleBackColor = false;
+            this.invoiceBtn.Click += new System.EventHandler(this.invoiceBtn_Click);
             // 
             // purchasingBtn
             // 
@@ -305,22 +321,6 @@
             this.usersBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.usersBtn.UseVisualStyleBackColor = false;
             this.usersBtn.Click += new System.EventHandler(this.staffBtn_Click);
-            // 
-            // invoiceBtn
-            // 
-            this.invoiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
-            this.invoiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.invoiceBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.invoiceBtn.Image = global::softeng1.Properties.Resources.financial_document;
-            this.invoiceBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.invoiceBtn.Location = new System.Drawing.Point(202, 61);
-            this.invoiceBtn.Name = "invoiceBtn";
-            this.invoiceBtn.Size = new System.Drawing.Size(199, 162);
-            this.invoiceBtn.TabIndex = 0;
-            this.invoiceBtn.Text = "Create New\r\nInvoice";
-            this.invoiceBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.invoiceBtn.UseVisualStyleBackColor = false;
-            this.invoiceBtn.Click += new System.EventHandler(this.invoiceBtn_Click);
             // 
             // homeForm
             // 
