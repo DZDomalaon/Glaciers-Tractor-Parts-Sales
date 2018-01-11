@@ -183,6 +183,7 @@ namespace softeng1
             this.custfnameTxt.Name = "custfnameTxt";
             this.custfnameTxt.Size = new System.Drawing.Size(183, 27);
             this.custfnameTxt.TabIndex = 8;
+            this.custfnameTxt.TextChanged += new System.EventHandler(this.custfnameTxt_TextChanged);
             // 
             // label4
             // 
@@ -448,6 +449,7 @@ namespace softeng1
             this.dgsearchname.Size = new System.Drawing.Size(667, 249);
             this.dgsearchname.TabIndex = 0;
             this.dgsearchname.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchname_CellClick);
+            this.dgsearchname.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchname_CellContentClick);
             // 
             // prodpanel
             // 

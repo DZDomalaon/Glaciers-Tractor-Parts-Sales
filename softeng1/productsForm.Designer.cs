@@ -155,6 +155,7 @@
             this.prodData.Size = new System.Drawing.Size(521, 502);
             this.prodData.TabIndex = 64;
             this.prodData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prodData_CellClick_1);
+            this.prodData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prodData_CellContentClick);
             // 
             // backBtn
             // 

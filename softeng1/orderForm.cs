@@ -169,6 +169,16 @@ namespace softeng1
 
         }
 
+        private void dgsearchname_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void custfnameTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void closeprod_Click(object sender, EventArgs e)
         {
             prodpanel.Hide();

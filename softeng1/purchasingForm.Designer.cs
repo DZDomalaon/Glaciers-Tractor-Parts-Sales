@@ -57,6 +57,10 @@
             this.addBtn = new System.Windows.Forms.Button();
             this.usernameLbl = new System.Windows.Forms.Label();
             this.dateLbl = new System.Windows.Forms.Label();
+            this.searchBtn = new System.Windows.Forms.Button();
+            this.spanel = new System.Windows.Forms.Panel();
+            this.closename = new System.Windows.Forms.Button();
+            this.dgsname = new System.Windows.Forms.DataGridView();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -64,6 +68,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.purchaseData)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.spanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgsname)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -154,6 +160,7 @@
             this.purchaseData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.purchaseData.Size = new System.Drawing.Size(521, 502);
             this.purchaseData.TabIndex = 8;
+            this.purchaseData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.purchaseData_CellClick);
             // 
             // label12
             // 
@@ -375,12 +382,68 @@
             this.dateLbl.TabIndex = 53;
             this.dateLbl.Text = "-----";
             // 
+            // searchBtn
+            // 
+            this.searchBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
+            this.searchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBtn.ForeColor = System.Drawing.Color.White;
+            this.searchBtn.Location = new System.Drawing.Point(332, 295);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(78, 30);
+            this.searchBtn.TabIndex = 54;
+            this.searchBtn.Text = "Search";
+            this.searchBtn.UseVisualStyleBackColor = false;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
+            // 
+            // spanel
+            // 
+            this.spanel.Controls.Add(this.closename);
+            this.spanel.Controls.Add(this.dgsname);
+            this.spanel.Enabled = false;
+            this.spanel.Location = new System.Drawing.Point(349, 101);
+            this.spanel.Name = "spanel";
+            this.spanel.Size = new System.Drawing.Size(687, 103);
+            this.spanel.TabIndex = 55;
+            this.spanel.Visible = false;
+            // 
+            // closename
+            // 
+            this.closename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
+            this.closename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closename.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closename.ForeColor = System.Drawing.Color.White;
+            this.closename.Location = new System.Drawing.Point(636, 3);
+            this.closename.Name = "closename";
+            this.closename.Size = new System.Drawing.Size(40, 32);
+            this.closename.TabIndex = 3;
+            this.closename.Text = "X";
+            this.closename.UseVisualStyleBackColor = false;
+            // 
+            // dgsname
+            // 
+            this.dgsname.AllowUserToAddRows = false;
+            this.dgsname.AllowUserToDeleteRows = false;
+            this.dgsname.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgsname.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgsname.Location = new System.Drawing.Point(9, 38);
+            this.dgsname.Name = "dgsname";
+            this.dgsname.ReadOnly = true;
+            this.dgsname.RowHeadersVisible = false;
+            this.dgsname.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgsname.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgsname.Size = new System.Drawing.Size(667, 249);
+            this.dgsname.TabIndex = 0;
+            this.dgsname.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchname_CellClick);
+            // 
             // purchasingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.spanel);
+            this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.dateLbl);
             this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.backBtn);
@@ -423,6 +486,8 @@
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.spanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgsname)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,5 +524,9 @@
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Label usernameLbl;
         private System.Windows.Forms.Label dateLbl;
+        private System.Windows.Forms.Button searchBtn;
+        private System.Windows.Forms.Panel spanel;
+        private System.Windows.Forms.Button closename;
+        private System.Windows.Forms.DataGridView dgsname;
     }
 }

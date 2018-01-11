@@ -140,5 +140,10 @@ namespace softeng1
             categTxt.Text = "";
             variantTxt.Text = "";
         }
+
+        private void prodData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
