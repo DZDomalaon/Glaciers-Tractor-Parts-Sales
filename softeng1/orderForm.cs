@@ -74,17 +74,13 @@ namespace softeng1
             prodpanel.Visible = true;
             prodpanel.Location = new Point(140, 56);
             prodpanel.Size = new Size(681, 297);
-            int maxID;
 
             String query = "SELECT product_id, inventory_pc_id, product_name, description, price FROM product where product_name like '%" + pnameTxt.Text + "%'";
-            string mID = "SELECT max(order_id) from sales_order";
             conn.Open();
 
 
-            MySqlCommand comm = new MySqlCommand(mID, conn);
-
-            MySqlCommand comm2 = new MySqlCommand(query, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm2);
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
             conn.Close();
             DataTable dt = new DataTable();
             adp.Fill(dt);
@@ -223,7 +219,7 @@ namespace softeng1
 
         private void addOrder_Click(object sender, EventArgs e)
         {
-            if (custfnameTxt.Text == "" || pnameTxt.Text == "" || ppriceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "" || paymentCmb.Text == "")
+             if (custfnameTxt.Text == "" || pnameTxt.Text == "" || ppriceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "" || paymentCmb.Text == "")
             {
                 MessageBox.Show("Please fill up all the data", "Add Customer Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }

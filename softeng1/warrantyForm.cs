@@ -28,8 +28,8 @@ namespace softeng1
             conn.Open();
             MySqlCommand comm =
                 new MySqlCommand(
-                    "SELECT firstname, lastname, warranty, product_name, status FROM person, inventory WHERE firstname LIKE '%" +
-                    nameTxt.Text + "%' or lastname LIKE '%" + nameTxt.Text + "%' AND person_type = 'CUSTOMER'", conn);
+                    "SELECT firstname, lastname, order_warranty, product_name FROM person, sales_order, product, customer WHERE (firstname LIKE '%" +
+                    nameTxt.Text + "%' or lastname LIKE '%" + nameTxt.Text + "%') AND person_type = 'CUSTOMER' and customer_person_id = person_id and product_id = order_product_id and customer_id = order_customer_id", conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
             conn.Close();
             DataTable dt = new DataTable();
@@ -54,7 +54,7 @@ namespace softeng1
             IsExpired();
 
             String query =
-                "SELECT firstname, lastname, warranty, product_name, status FROM person, inventory, customer WHERE person_type = 'CUSTOMER' and person_id = customer_person_id";
+                "SELECT CONCAT(firstname,' ',lastname), INTEREST, TERM ,PRODUCT_NAME, ORDER_DATE, order_WARRANTY FROM PERSON, CUSTOMER, PAYMENT, SALES_ORDER, PRODUCT WHERE ORDER_CUSTOMER_ID = CUSTOMER_ID AND CUSTOMER_PERSON_ID = PERSON_ID AND ORDER_PRODUCT_ID = PRODUCT_ID AND ORDER_PAYMENT_ID = PAYMENT_ID AND ORDER_STATUS = 'Paid'";
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -64,11 +64,10 @@ namespace softeng1
             adp.Fill(dt);
 
             warrantyData.DataSource = dt;
-            warrantyData.Columns["firstname"].HeaderText = "Firstname";
-            warrantyData.Columns["lastname"].HeaderText = "Lastname";
-            warrantyData.Columns["product_name"].HeaderText = "Product";
-            warrantyData.Columns["warranty"].HeaderText = "Date";
-            warrantyData.Columns["status"].HeaderText = "Status";
+            warrantyData.Columns["CONCAT(firstname,' ',lastname)"].HeaderText = "Customer Name";
+            warrantyData.Columns["PRODUCT_NAME"].HeaderText = "Product Name";
+            warrantyData.Columns["ORDER_DATE"].HeaderText = "Order Date";
+            warrantyData.Columns["ORDER_WARRANTY"].HeaderText = "Warranty";
         }
 
         private void sDate_Click(object sender, EventArgs e)
@@ -76,7 +75,7 @@ namespace softeng1
             IsExpired();
             String date = wDate.Text;
             String query =
-                "SELECT firstname, lastname, warranty, product_name, status FROM person, inventory WHERE person_type = 'CUSTOMER' AND warranty LIKE '%" +
+                "SELECT firstname, lastname, ORDER_warranty, product_name FROM person, product, sales_order WHERE person_type = 'CUSTOMER' AND ORDER_warranty LIKE '%" +
                 date + "%'";
 
             conn.Open();
@@ -92,14 +91,14 @@ namespace softeng1
             warrantyData.Columns["firstname"].HeaderText = "Firstname";
             warrantyData.Columns["lastname"].HeaderText = "Lastname";
             warrantyData.Columns["product_name"].HeaderText = "Product";
-            warrantyData.Columns["warranty"].HeaderText = "Date";
-            warrantyData.Columns["status"].HeaderText = "Status";
+            warrantyData.Columns["ORDER_warranty"].HeaderText = "Date";
         }
         public void IsExpired()
         {
             //DataTable dt = new DataTable();
             //foreach (DataRow row in dt.Rows)
             //{
+            /*
                 var now = DateTime.Now;
                 DateTime warrDate = DateTime.Parse(wDate.Text);
                 if (now > warrDate)
@@ -126,6 +125,7 @@ namespace softeng1
                     DataTable dtTable = new DataTable();
                     adp.Fill(dtTable);
                 }
+                */
             //}
         }
     }
