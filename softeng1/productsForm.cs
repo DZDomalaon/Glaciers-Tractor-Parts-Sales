@@ -130,12 +130,9 @@ namespace softeng1
             pnameTxt.Text = "";
             pdescTxt.Text = "";
             categTxt.Text = "";
-<<<<<<< HEAD
             priceTxt.Text = ""; 
             warrantyDate.Text = "";
-=======
             priceTxt.Text = "";
->>>>>>> e97d509a82dc939c3f84cf3cc120dbea1184dba0
             categTxt.Text = "";
             variantTxt.Text = "";
         }
