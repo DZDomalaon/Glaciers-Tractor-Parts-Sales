@@ -34,7 +34,6 @@ namespace softeng1
         {
             usernameLbl.Text = loginForm.name;
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
-            calcSum();
 
             orderDG.Columns.Add("Customer", "Customer");
             orderDG.Columns.Add("Product Name", "Product Name");
@@ -252,8 +251,7 @@ namespace softeng1
                 a = Convert.ToDouble(row.Cells[4].Value);
                 b = b + a;
             }
-            totalpriceTxt.Text = b.ToString();
-            
+            totalpriceTxt.Text = b.ToString();            
         }
     }
 }
