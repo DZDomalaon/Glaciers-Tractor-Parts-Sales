@@ -401,7 +401,7 @@
             this.spanel.Controls.Add(this.closename);
             this.spanel.Controls.Add(this.dgsname);
             this.spanel.Enabled = false;
-            this.spanel.Location = new System.Drawing.Point(349, 101);
+            this.spanel.Location = new System.Drawing.Point(302, 101);
             this.spanel.Name = "spanel";
             this.spanel.Size = new System.Drawing.Size(687, 103);
             this.spanel.TabIndex = 55;
@@ -419,6 +419,7 @@
             this.closename.TabIndex = 3;
             this.closename.Text = "X";
             this.closename.UseVisualStyleBackColor = false;
+            this.closename.Click += new System.EventHandler(this.closename_Click);
             // 
             // dgsname
             // 

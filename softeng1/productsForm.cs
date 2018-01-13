@@ -47,7 +47,7 @@ namespace softeng1
 
         public void loadprod()
         {
-            String query = "SELECT product_id, product_name, description, (select quantity from inventory where , price, warranty, discount, serial, (select pc_category from product_catalogue WHERE PRODUCT_PC_ID = pc_id)as category, (select pc_variant from product_catalogue WHERE PRODUCT_PC_ID = pc_id)as variant FROM product, inventory";
+            String query = "SELECT product_id, product_name, description, (select quantity from inventory) as Quantity, price, (select pc_category from product_catalogue WHERE PRODUCT_PC_ID = pc_id)as category, (select pc_variant from product_catalogue WHERE PRODUCT_PC_ID = pc_id)as variant FROM product, inventory where product_inv_id = inventory_id";
 
 
             conn.Open();
@@ -62,8 +62,6 @@ namespace softeng1
             prodData.Columns["product_name"].HeaderText = "Product Name";
             prodData.Columns["description"].HeaderText = "Description";
             prodData.Columns["price"].HeaderText = "Price";
-            prodData.Columns["discount"].HeaderText = "Discount";
-            prodData.Columns["serial"].HeaderText = "Serial";
             prodData.Columns["category"].HeaderText = "Category";
             prodData.Columns["variant"].HeaderText = "Variant";
 

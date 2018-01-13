@@ -53,6 +53,7 @@ namespace softeng1
             unpaidData.Columns["order_emp_id"].Visible = false;
             unpaidData.Columns["order_product_id"].Visible = false;
             unpaidData.Columns["order_payment_id"].Visible = false;
+            unpaidData.Columns["order_warranty"].Visible = false;
             unpaidData.Columns["order_date"].Visible = false;
             unpaidData.Columns["order_status"].Visible = false;
             unpaidData.Columns["order_price"].HeaderText = "Price";

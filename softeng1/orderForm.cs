@@ -75,7 +75,7 @@ namespace softeng1
             prodpanel.Location = new Point(140, 56);
             prodpanel.Size = new Size(681, 297);
 
-            String query = "SELECT product_id, inventory_pc_id, product_name, description, price FROM product where product_name like '%" + pnameTxt.Text + "%'";
+            String query = "SELECT product_id, product_pc_id, product_name, description, price FROM product where product_name like '%" + pnameTxt.Text + "%'";
             conn.Open();
 
 
@@ -87,7 +87,7 @@ namespace softeng1
 
             dgsearchprod.DataSource = dt;
             dgsearchprod.Columns["product_id"].Visible = false;
-            dgsearchprod.Columns["inventory_pc_id"].Visible = false;
+            dgsearchprod.Columns["product_pc_id"].Visible = false;
             dgsearchprod.Columns["product_name"].HeaderText = "Product Name";
             dgsearchprod.Columns["description"].HeaderText = "Product Description";
             dgsearchprod.Columns["price"].HeaderText = "Product Price";

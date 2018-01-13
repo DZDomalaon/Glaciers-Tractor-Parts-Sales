@@ -39,11 +39,9 @@ namespace softeng1
         {
             fromPurchasing.Show();
         }
-<<<<<<< HEAD
+
 
         private SqlDataAdapter adapt;
-=======
->>>>>>> 1d1dc936624358000b8642be9c097ca064f962c4
 
         public void loadPurchase()
         {
@@ -77,7 +75,7 @@ namespace softeng1
             {
                 string query =
                     "INSERT INTO purchase(purchase_emp_id, purchase_supplier_id, product_name, price, quantity, purchase_date) VALUES" +
-                    "('" + loginForm.user_id + "', '" + supplier_id + "','" + pnameTxt.Text + "','" + ptotal.Text + "','" + pquant.Text + "','" + dateLbl.Text + "')";
+                    "('" + loginForm.user_id + "', '2', '"/*+ supplier_id + "','"*/ + pnameTxt.Text + "','" + ptotal.Text + "','" + pquant.Text + "','" + dateLbl.Text + "')";
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
@@ -123,6 +121,7 @@ namespace softeng1
         public static int supplier_id;
         public static String name;
         private int selected_supplier_id;
+
         private void purchaseData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -134,7 +133,6 @@ namespace softeng1
                 dateLbl.Text = dgsname.Rows[e.RowIndex].Cells["purchase_date"].Value.ToString();
             }
         }
-
         private void dgsearchname_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -148,6 +146,11 @@ namespace softeng1
                 spanel.Location = new Point(434, 85);
                 spanel.Size = new Size(521, 44);
             }
+        }
+
+        private void closename_Click(object sender, EventArgs e)
+        {
+            spanel.Hide();
         }
 
         private void removeBtn_Click(object sender, EventArgs e)
