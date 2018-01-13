@@ -211,6 +211,7 @@
             this.lnameTxt.Name = "lnameTxt";
             this.lnameTxt.Size = new System.Drawing.Size(223, 27);
             this.lnameTxt.TabIndex = 50;
+            this.lnameTxt.TextChanged += new System.EventHandler(this.lnameTxt_TextChanged);
             // 
             // label5
             // 
@@ -241,6 +242,7 @@
             this.fnameTxt.Name = "fnameTxt";
             this.fnameTxt.Size = new System.Drawing.Size(223, 27);
             this.fnameTxt.TabIndex = 48;
+            this.fnameTxt.TextChanged += new System.EventHandler(this.fnameTxt_TextChanged);
             // 
             // custData
             // 
@@ -308,6 +310,7 @@
             this.cnumTxt.Size = new System.Drawing.Size(223, 27);
             this.cnumTxt.TabIndex = 68;
             this.cnumTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.cnumTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cnumTxt_KeyPress);
             // 
             // label9
             // 
