@@ -50,12 +50,12 @@
             this.label10 = new System.Windows.Forms.Label();
             this.categTxt = new System.Windows.Forms.ComboBox();
             this.asd = new System.Windows.Forms.Label();
-            this.variantTxt = new System.Windows.Forms.TextBox();
             this.quantityTxt = new System.Windows.Forms.TextBox();
             this.quantityLbl = new System.Windows.Forms.Label();
             this.serialTxt = new System.Windows.Forms.TextBox();
             this.SupplierCmb = new System.Windows.Forms.ComboBox();
             this.SupplierLbl = new System.Windows.Forms.Label();
+            this.variantTxt = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -249,6 +249,7 @@
             this.pnameTxt.Name = "pnameTxt";
             this.pnameTxt.Size = new System.Drawing.Size(223, 27);
             this.pnameTxt.TabIndex = 75;
+            this.pnameTxt.TextChanged += new System.EventHandler(this.pnameTxt_TextChanged);
             // 
             // label6
             // 
@@ -268,6 +269,7 @@
             this.priceTxt.Name = "priceTxt";
             this.priceTxt.Size = new System.Drawing.Size(223, 27);
             this.priceTxt.TabIndex = 84;
+            this.priceTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceTxt_KeyPress);
             // 
             // label9
             // 
@@ -311,14 +313,6 @@
             this.asd.TabIndex = 76;
             this.asd.Text = "Variant";
             // 
-            // variantTxt
-            // 
-            this.variantTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.variantTxt.Location = new System.Drawing.Point(174, 351);
-            this.variantTxt.Name = "variantTxt";
-            this.variantTxt.Size = new System.Drawing.Size(223, 27);
-            this.variantTxt.TabIndex = 77;
-            // 
             // quantityTxt
             // 
             this.quantityTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -326,6 +320,7 @@
             this.quantityTxt.Name = "quantityTxt";
             this.quantityTxt.Size = new System.Drawing.Size(223, 27);
             this.quantityTxt.TabIndex = 94;
+            this.quantityTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantityTxt_KeyPress);
             // 
             // quantityLbl
             // 
@@ -366,12 +361,22 @@
             this.SupplierLbl.TabIndex = 96;
             this.SupplierLbl.Text = "Supplier";
             // 
+            // variantTxt
+            // 
+            this.variantTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.variantTxt.FormattingEnabled = true;
+            this.variantTxt.Location = new System.Drawing.Point(173, 351);
+            this.variantTxt.Name = "variantTxt";
+            this.variantTxt.Size = new System.Drawing.Size(223, 27);
+            this.variantTxt.TabIndex = 98;
+            // 
             // productsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.variantTxt);
             this.Controls.Add(this.SupplierCmb);
             this.Controls.Add(this.SupplierLbl);
             this.Controls.Add(this.serialTxt);
@@ -389,7 +394,6 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.priceTxt);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.variantTxt);
             this.Controls.Add(this.asd);
             this.Controls.Add(this.pdescTxt);
             this.Controls.Add(this.label5);
@@ -440,11 +444,11 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox categTxt;
         private System.Windows.Forms.Label asd;
-        private System.Windows.Forms.TextBox variantTxt;
         private System.Windows.Forms.TextBox quantityTxt;
         private System.Windows.Forms.Label quantityLbl;
         private System.Windows.Forms.TextBox serialTxt;
         private System.Windows.Forms.ComboBox SupplierCmb;
         private System.Windows.Forms.Label SupplierLbl;
+        private System.Windows.Forms.ComboBox variantTxt;
     }
 }

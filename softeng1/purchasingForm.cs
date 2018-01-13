@@ -75,7 +75,7 @@ namespace softeng1
             {
                 string query =
                     "INSERT INTO purchase(purchase_emp_id, purchase_supplier_id, product_name, price, quantity, purchase_date) VALUES" +
-                    "('" + loginForm.user_id + "', '2', '"/*+ supplier_id + "','"*/ + pnameTxt.Text + "','" + ptotal.Text + "','" + pquant.Text + "','" + dateLbl.Text + "')";
+                    "('" + loginForm.user_id + "','"+ supplier_id + "','" + pnameTxt.Text + "','" + ptotal.Text + "','" + pquant.Text + "','" + dateLbl.Text + "')";
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);

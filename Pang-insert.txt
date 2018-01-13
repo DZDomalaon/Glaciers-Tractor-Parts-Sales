@@ -1,7 +1,7 @@
 INSERT INTO PERSON(FIRSTNAME, LASTNAME, CONTACT_NUM, EMAIL, ADDRESS, GENDER, PERSON_TYPE) VALUES
 ('Darell', 'Domalaon', '09154843947', 'admin', 'SA PUSO NI CHYNNA', '1', 'EMPLOYEE'),
 ('Kristina', 'Pitoy', '09154843947', 'mkopitoy@addu.edu.ph', 'SA PUSO NI RJ', '0', 'CUSTOMER'),
-('Jusane', 'Bellezas', '09154843947', 'jtsbellezas@addu.edu.ph', 'SA PUSO NI JJ', '0', 'SUPPLIER');
+('Jusane', 'Bellezas', '09154843947', 'jtsbellezas@addu.edu.ph', 'SA PUSO NG JOLLIBEE', '0', 'SUPPLIER');
 
 INSERT INTO inventory(product_name,description,price,warranty,discount,serial) VALUES 
 

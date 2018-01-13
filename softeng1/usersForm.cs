@@ -191,5 +191,40 @@ namespace softeng1
             MessageBox.Show("Your data has been updated successfully", "Updated Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
         }
+
+        private void fnameTxt_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(fnameTxt.Text, "^[a-zA-Z]"))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
+                fnameTxt.Text.Remove(fnameTxt.Text.Length - 1);
+            }
+        }
+
+        private void lnameTxt_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(lnameTxt.Text, "^[a-zA-Z]"))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
+                fnameTxt.Text.Remove(lnameTxt.Text.Length - 1);
+            }
+        }
+
+        private void salaryTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void numberTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
