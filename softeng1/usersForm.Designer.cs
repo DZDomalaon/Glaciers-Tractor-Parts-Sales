@@ -117,6 +117,7 @@
             this.salaryTxt.Name = "salaryTxt";
             this.salaryTxt.Size = new System.Drawing.Size(223, 27);
             this.salaryTxt.TabIndex = 40;
+            this.salaryTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.salaryTxt_KeyPress);
             // 
             // salary
             // 
@@ -178,6 +179,7 @@
             this.lnameTxt.Name = "lnameTxt";
             this.lnameTxt.Size = new System.Drawing.Size(223, 27);
             this.lnameTxt.TabIndex = 34;
+            this.lnameTxt.TextChanged += new System.EventHandler(this.lnameTxt_TextChanged);
             // 
             // label5
             // 
@@ -228,6 +230,7 @@
             this.fnameTxt.Name = "fnameTxt";
             this.fnameTxt.Size = new System.Drawing.Size(223, 27);
             this.fnameTxt.TabIndex = 32;
+            this.fnameTxt.TextChanged += new System.EventHandler(this.fnameTxt_TextChanged);
             // 
             // panel3
             // 
@@ -433,6 +436,7 @@
             this.numberTxt.Size = new System.Drawing.Size(222, 27);
             this.numberTxt.TabIndex = 69;
             this.numberTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numberTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberTxt_KeyPress);
             // 
             // usersForm
             // 
