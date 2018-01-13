@@ -39,8 +39,11 @@ namespace softeng1
         {
             fromPurchasing.Show();
         }
+<<<<<<< HEAD
 
         private SqlDataAdapter adapt;
+=======
+>>>>>>> 1d1dc936624358000b8642be9c097ca064f962c4
 
         public void loadPurchase()
         {
@@ -74,7 +77,7 @@ namespace softeng1
             {
                 string query =
                     "INSERT INTO purchase(purchase_emp_id, purchase_supplier_id, product_name, price, quantity, purchase_date) VALUES" +
-                    "('" + selected_emp_id + "', '" + selected_supplier_id + "','" + pnameTxt.Text + "','" + ptotal.Text + "','" + pquant.Text + "','" + dateLbl.Text + "')";
+                    "('" + loginForm.user_id + "', '" + supplier_id + "','" + pnameTxt.Text + "','" + ptotal.Text + "','" + pquant.Text + "','" + dateLbl.Text + "')";
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
@@ -101,7 +104,7 @@ namespace softeng1
             spanel.Location = new Point(140, 56);
             spanel.Size = new Size(681, 297);
 
-            String query = "SELECT supplier_id, contact_person, organization FROM supplier where (contact_person like '%" + snameTxt.Text + "%' or contact_person like '%" + snameTxt.Text + "%')";
+            String query = "SELECT supplier_id, contact_person, organization FROM supplier, person where (contact_person like '%" + snameTxt.Text + "%' or contact_person like '%" + snameTxt.Text + "%') and person_type = 'Supplier' and supplier_person_id = person_id";
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -119,20 +122,19 @@ namespace softeng1
 
         public static int supplier_id;
         public static String name;
-        private int selected_emp_id, selected_supplier_id;
+        private int selected_supplier_id;
         private void purchaseData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
             {
-                selected_emp_id = int.Parse(purchaseData.Rows[e.RowIndex].Cells["purchase_emp_id"].Value.ToString());
-                selected_supplier_id = int.Parse(purchaseData.Rows[e.RowIndex].Cells["purchase_supplier_id"].Value.ToString());
-                pnameTxt.Text = purchaseData.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
-                ptotal.Text = purchaseData.Rows[e.RowIndex].Cells["price"].Value.ToString();
-                pquant.Text = purchaseData.Rows[e.RowIndex].Cells["quantity"].Value.ToString();
-                dateLbl.Text = purchaseData.Rows[e.RowIndex].Cells["purchase_date"].Value.ToString();
+                selected_supplier_id = int.Parse(dgsname.Rows[e.RowIndex].Cells["supplier_id"].Value.ToString());
+                pnameTxt.Text = dgsname.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
+                ptotal.Text = dgsname.Rows[e.RowIndex].Cells["price"].Value.ToString();
+                pquant.Text = dgsname.Rows[e.RowIndex].Cells["quantity"].Value.ToString();
+                dateLbl.Text = dgsname.Rows[e.RowIndex].Cells["purchase_date"].Value.ToString();
             }
         }
-        //
+
         private void dgsearchname_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
