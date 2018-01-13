@@ -34,6 +34,7 @@ namespace softeng1
         {
             usernameLbl.Text = loginForm.name;
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
+            calcSum();
 
             orderDG.Columns.Add("Customer", "Customer");
             orderDG.Columns.Add("Product Name", "Product Name");
@@ -165,17 +166,6 @@ namespace softeng1
                 MessageBox.Show("Please fill up all the data", "Add Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
-        private void paymentCmb_TextChanged(object sender, EventArgs e)
-        {
-            if (paymentCmb.Text == "Cash")
-            {
-                cashTxt.Enabled = true;
-            }
-            else
-            {
-                cashTxt.Enabled = false;
-            }
-        }
 
         private void dgsearchname_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -242,8 +232,8 @@ namespace softeng1
                 ppriceTxt.Clear();
                 pquant.Clear();
                 ptotal.Clear();
-                cashTxt.Clear();
                 paymentCmb.Text = "";
+                calcSum();
             }
         }
 
@@ -253,6 +243,17 @@ namespace softeng1
             {
                 orderDG.Rows.RemoveAt(item.Index);
             }
+        }
+        private void calcSum()
+        {
+            double a = 0, b = 0;
+            foreach (DataGridViewRow row in orderDG.Rows)
+            {
+                a = Convert.ToDouble(row.Cells[4].Value);
+                b = b + a;
+            }
+            totalpriceTxt.Text = b.ToString();
+            
         }
     }
 }

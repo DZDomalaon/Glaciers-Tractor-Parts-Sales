@@ -73,8 +73,6 @@ namespace softeng1
             this.editOrderBtn = new System.Windows.Forms.Button();
             this.dateLbl = new System.Windows.Forms.Label();
             this.usernameLbl = new System.Windows.Forms.Label();
-            this.cashTxt = new System.Windows.Forms.TextBox();
-            this.cashLbl = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -96,7 +94,7 @@ namespace softeng1
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1252, 47);
+            this.panel3.Size = new System.Drawing.Size(955, 47);
             this.panel3.TabIndex = 4;
             // 
             // panel1
@@ -138,7 +136,7 @@ namespace softeng1
             this.panel2.ForeColor = System.Drawing.Color.White;
             this.panel2.Location = new System.Drawing.Point(0, 47);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1252, 38);
+            this.panel2.Size = new System.Drawing.Size(955, 38);
             this.panel2.TabIndex = 6;
             // 
             // panel4
@@ -149,14 +147,14 @@ namespace softeng1
             this.panel4.ForeColor = System.Drawing.Color.White;
             this.panel4.Location = new System.Drawing.Point(434, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(818, 38);
+            this.panel4.Size = new System.Drawing.Size(521, 38);
             this.panel4.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(323, 8);
+            this.label3.Location = new System.Drawing.Point(166, 8);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(174, 22);
             this.label3.TabIndex = 0;
@@ -175,7 +173,7 @@ namespace softeng1
             this.orderDG.ReadOnly = true;
             this.orderDG.RowHeadersVisible = false;
             this.orderDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.orderDG.Size = new System.Drawing.Size(818, 468);
+            this.orderDG.Size = new System.Drawing.Size(818, 465);
             this.orderDG.TabIndex = 7;
             this.orderDG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderDG_CellClick);
             // 
@@ -389,14 +387,14 @@ namespace softeng1
             this.panel7.ForeColor = System.Drawing.Color.White;
             this.panel7.Location = new System.Drawing.Point(434, 551);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(630, 38);
+            this.panel7.Size = new System.Drawing.Size(332, 38);
             this.panel7.TabIndex = 7;
             // 
             // totalpriceTxt
             // 
             this.totalpriceTxt.AutoSize = true;
             this.totalpriceTxt.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalpriceTxt.Location = new System.Drawing.Point(327, 5);
+            this.totalpriceTxt.Location = new System.Drawing.Point(198, 7);
             this.totalpriceTxt.Name = "totalpriceTxt";
             this.totalpriceTxt.Size = new System.Drawing.Size(48, 22);
             this.totalpriceTxt.TabIndex = 1;
@@ -406,7 +404,7 @@ namespace softeng1
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(258, 5);
+            this.label11.Location = new System.Drawing.Point(129, 7);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 22);
             this.label11.TabIndex = 0;
@@ -414,8 +412,8 @@ namespace softeng1
             // 
             // namepanel
             // 
-            this.namepanel.Controls.Add(this.closename);
             this.namepanel.Controls.Add(this.dgsearchname);
+            this.namepanel.Controls.Add(this.closename);
             this.namepanel.Enabled = false;
             this.namepanel.Location = new System.Drawing.Point(125, 229);
             this.namepanel.Name = "namepanel";
@@ -456,8 +454,8 @@ namespace softeng1
             // 
             // prodpanel
             // 
-            this.prodpanel.Controls.Add(this.closeprod);
             this.prodpanel.Controls.Add(this.dgsearchprod);
+            this.prodpanel.Controls.Add(this.closeprod);
             this.prodpanel.Enabled = false;
             this.prodpanel.Location = new System.Drawing.Point(125, 129);
             this.prodpanel.Name = "prodpanel";
@@ -528,7 +526,7 @@ namespace softeng1
             this.buyBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buyBtn.Image = ((System.Drawing.Image)(resources.GetObject("buyBtn.Image")));
             this.buyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buyBtn.Location = new System.Drawing.Point(1063, 551);
+            this.buyBtn.Location = new System.Drawing.Point(766, 551);
             this.buyBtn.Name = "buyBtn";
             this.buyBtn.Size = new System.Drawing.Size(189, 36);
             this.buyBtn.TabIndex = 0;
@@ -559,7 +557,6 @@ namespace softeng1
             this.paymentCmb.Name = "paymentCmb";
             this.paymentCmb.Size = new System.Drawing.Size(183, 27);
             this.paymentCmb.TabIndex = 47;
-            this.paymentCmb.TextChanged += new System.EventHandler(this.paymentCmb_TextChanged);
             // 
             // editOrderBtn
             // 
@@ -595,42 +592,21 @@ namespace softeng1
             this.usernameLbl.TabIndex = 51;
             this.usernameLbl.Text = "-----";
             // 
-            // cashTxt
-            // 
-            this.cashTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cashTxt.Location = new System.Drawing.Point(139, 368);
-            this.cashTxt.Name = "cashTxt";
-            this.cashTxt.Size = new System.Drawing.Size(183, 27);
-            this.cashTxt.TabIndex = 53;
-            // 
-            // cashLbl
-            // 
-            this.cashLbl.AutoSize = true;
-            this.cashLbl.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cashLbl.ForeColor = System.Drawing.Color.Black;
-            this.cashLbl.Location = new System.Drawing.Point(12, 368);
-            this.cashLbl.Name = "cashLbl";
-            this.cashLbl.Size = new System.Drawing.Size(47, 23);
-            this.cashLbl.TabIndex = 52;
-            this.cashLbl.Text = "Cash";
-            // 
             // orderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1252, 587);
-            this.Controls.Add(this.cashTxt);
-            this.Controls.Add(this.cashLbl);
+            this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.orderDG);
+            this.Controls.Add(this.namepanel);
+            this.Controls.Add(this.prodpanel);
             this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.dateLbl);
             this.Controls.Add(this.editOrderBtn);
-            this.Controls.Add(this.namepanel);
             this.Controls.Add(this.panel7);
-            this.Controls.Add(this.prodpanel);
             this.Controls.Add(this.buyBtn);
-            this.Controls.Add(this.orderDG);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label13);
@@ -731,7 +707,5 @@ namespace softeng1
         private System.Windows.Forms.Button editOrderBtn;
         private System.Windows.Forms.Label dateLbl;
         private System.Windows.Forms.Label usernameLbl;
-        private System.Windows.Forms.TextBox cashTxt;
-        private System.Windows.Forms.Label cashLbl;
     }
 }
