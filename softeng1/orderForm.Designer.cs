@@ -173,7 +173,7 @@ namespace softeng1
             this.orderDG.ReadOnly = true;
             this.orderDG.RowHeadersVisible = false;
             this.orderDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.orderDG.Size = new System.Drawing.Size(818, 465);
+            this.orderDG.Size = new System.Drawing.Size(818, 464);
             this.orderDG.TabIndex = 7;
             this.orderDG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderDG_CellClick);
             // 
@@ -387,7 +387,7 @@ namespace softeng1
             this.panel7.ForeColor = System.Drawing.Color.White;
             this.panel7.Location = new System.Drawing.Point(434, 551);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(332, 38);
+            this.panel7.Size = new System.Drawing.Size(380, 38);
             this.panel7.TabIndex = 7;
             // 
             // totalpriceTxt
@@ -526,11 +526,11 @@ namespace softeng1
             this.buyBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buyBtn.Image = ((System.Drawing.Image)(resources.GetObject("buyBtn.Image")));
             this.buyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buyBtn.Location = new System.Drawing.Point(766, 551);
+            this.buyBtn.Location = new System.Drawing.Point(814, 551);
             this.buyBtn.Name = "buyBtn";
-            this.buyBtn.Size = new System.Drawing.Size(189, 36);
+            this.buyBtn.Size = new System.Drawing.Size(141, 36);
             this.buyBtn.TabIndex = 0;
-            this.buyBtn.Text = "Add Transaction";
+            this.buyBtn.Text = "Check Out";
             this.buyBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buyBtn.UseVisualStyleBackColor = false;
             this.buyBtn.Click += new System.EventHandler(this.buyBtn_Click);
