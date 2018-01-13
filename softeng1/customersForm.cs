@@ -192,7 +192,7 @@ namespace softeng1
             if (!System.Text.RegularExpressions.Regex.IsMatch(lnameTxt.Text, "^[a-zA-Z]"))
             {
                 MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
-                lnameTxt.Text.Remove(fnameTxt.Text.Length - 1);
+                lnameTxt.Text.Remove(lnameTxt.Text.Length - 1);
             }
         }
         private void cnumTxt_KeyPress(object sender, KeyPressEventArgs e)

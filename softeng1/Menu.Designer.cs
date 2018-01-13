@@ -329,6 +329,7 @@
             this.ClientSize = new System.Drawing.Size(955, 587);
             this.Controls.Add(this.homePanel);
             this.Controls.Add(this.panel3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "homeForm";
