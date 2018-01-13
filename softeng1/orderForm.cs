@@ -42,7 +42,7 @@ namespace softeng1
             orderDG.Columns.Add("Sub Total", "Sub Total");
             orderDG.Columns.Add("Payment", "Payment");
             orderDG.Columns.Add("Employee", "Employee");
-            orderDG.Columns.Add("Date", "Date");
+            orderDG.Columns.Add("Date", "Date");            
         }
         public static string searchn;
         private void snameTxt_Click(object sender, EventArgs e)
@@ -74,24 +74,20 @@ namespace softeng1
             prodpanel.Visible = true;
             prodpanel.Location = new Point(140, 56);
             prodpanel.Size = new Size(681, 297);
-            int maxID;
 
-            String query = "SELECT product_id, inventory_pc_id, product_name, description, price FROM product where product_name like '%" + pnameTxt.Text + "%'";
-            string mID = "SELECT max(order_id) from sales_order";
+            String query = "SELECT product_id, product_pc_id, product_name, description, price FROM product where product_name like '%" + pnameTxt.Text + "%'";
             conn.Open();
 
 
-            MySqlCommand comm = new MySqlCommand(mID, conn);
-
-            MySqlCommand comm2 = new MySqlCommand(query, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm2);
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
             conn.Close();
             DataTable dt = new DataTable();
             adp.Fill(dt);
 
             dgsearchprod.DataSource = dt;
             dgsearchprod.Columns["product_id"].Visible = false;
-            dgsearchprod.Columns["inventory_pc_id"].Visible = false;
+            dgsearchprod.Columns["product_pc_id"].Visible = false;
             dgsearchprod.Columns["product_name"].HeaderText = "Product Name";
             dgsearchprod.Columns["description"].HeaderText = "Product Description";
             dgsearchprod.Columns["price"].HeaderText = "Product Price";
@@ -137,9 +133,7 @@ namespace softeng1
                 prodpanel.Location = new Point(434, 152);
                 prodpanel.Size = new Size(521, 44);
             }
-        }
-        
-
+        }        
         private void dgsearchname_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -166,6 +160,19 @@ namespace softeng1
 
         private void buyBtn_Click(object sender, EventArgs e)
         {
+            if (custfnameTxt.Text == "" || pnameTxt.Text == "" || pquant.Text == "" || ptotal.Text == "" || paymentCmb.Text == "")
+            {
+                MessageBox.Show("Please fill up all the data", "Add Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void dgsearchname_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void custfnameTxt_TextChanged(object sender, EventArgs e)
+        {
 
         }
 
@@ -176,7 +183,6 @@ namespace softeng1
 
         private void orderDG_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
             rowIndex = e.RowIndex; 
             DataGridViewRow row = orderDG.Rows[rowIndex];
 
@@ -202,13 +208,12 @@ namespace softeng1
 
         private void addOrder_Click(object sender, EventArgs e)
         {
-            if (custfnameTxt.Text == "" || pnameTxt.Text == "" || ppriceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "" || paymentCmb.Text == "")
+             if (custfnameTxt.Text == "" || pnameTxt.Text == "" || ppriceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "" || paymentCmb.Text == "")
             {
                 MessageBox.Show("Please fill up all the data", "Add Customer Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-
                 string firstColumn = custfnameTxt.Text;
                 string secondColumn = pnameTxt.Text;
                 string thirdColumn = ppriceTxt.Text;
@@ -227,6 +232,7 @@ namespace softeng1
                 pquant.Clear();
                 ptotal.Clear();
                 paymentCmb.Text = "";
+                calcSum();
             }
         }
 
@@ -236,6 +242,16 @@ namespace softeng1
             {
                 orderDG.Rows.RemoveAt(item.Index);
             }
+        }
+        private void calcSum()
+        {
+            double a = 0, b = 0;
+            foreach (DataGridViewRow row in orderDG.Rows)
+            {
+                a = Convert.ToDouble(row.Cells[4].Value);
+                b = b + a;
+            }
+            totalpriceTxt.Text = b.ToString();            
         }
     }
 }

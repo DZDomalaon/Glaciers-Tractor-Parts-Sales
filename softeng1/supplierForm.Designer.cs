@@ -37,7 +37,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.emailTxt = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.cnumTxt = new System.Windows.Forms.MaskedTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.addressTxt = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -57,6 +56,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.organizationTxt = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
+            this.cnumTxt = new System.Windows.Forms.MaskedTextBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -156,17 +156,6 @@
             this.label9.Size = new System.Drawing.Size(51, 23);
             this.label9.TabIndex = 88;
             this.label9.Text = "Email";
-            // 
-            // cnumTxt
-            // 
-            this.cnumTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cnumTxt.Location = new System.Drawing.Point(137, 256);
-            this.cnumTxt.Mask = "0000-000-0000";
-            this.cnumTxt.Name = "cnumTxt";
-            this.cnumTxt.PromptChar = '#';
-            this.cnumTxt.Size = new System.Drawing.Size(223, 27);
-            this.cnumTxt.TabIndex = 87;
-            this.cnumTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // label8
             // 
@@ -382,12 +371,24 @@
             this.label11.TabIndex = 101;
             this.label11.Text = "Organization";
             // 
+            // cnumTxt
+            // 
+            this.cnumTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cnumTxt.Location = new System.Drawing.Point(137, 255);
+            this.cnumTxt.Mask = "0000-000-0000";
+            this.cnumTxt.Name = "cnumTxt";
+            this.cnumTxt.PromptChar = '0';
+            this.cnumTxt.Size = new System.Drawing.Size(223, 27);
+            this.cnumTxt.TabIndex = 103;
+            this.cnumTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // supplierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.cnumTxt);
             this.Controls.Add(this.supplierData);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.editBtn);
@@ -411,7 +412,6 @@
             this.Controls.Add(this.contactTxt);
             this.Controls.Add(this.addressTxt);
             this.Controls.Add(this.emailTxt);
-            this.Controls.Add(this.cnumTxt);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -444,7 +444,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox emailTxt;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.MaskedTextBox cnumTxt;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox addressTxt;
         private System.Windows.Forms.Label label7;
@@ -464,5 +463,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox organizationTxt;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.MaskedTextBox cnumTxt;
     }
 }

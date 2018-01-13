@@ -208,7 +208,6 @@ C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.exe
 C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.pdb
 C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\bin\Debug\MySql.Data.dll
 C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\bin\Debug\MySql.Data.xml
-C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.csprojResolveAssemblyReference.cache
 C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.customersForm.resources
 C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.deliveryForm.resources
 C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.loginForm.resources
@@ -246,3 +245,4 @@ C:\Users\jtsbellezas\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.exe.conf
 C:\Users\jtsbellezas\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.exe
 C:\Users\jtsbellezas\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.pdb
 C:\Users\jtsbellezas\Documents\GitHub\SAD-2\softeng1\bin\Debug\MySql.Data.xml
+C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.csprojResolveAssemblyReference.cache

@@ -32,12 +32,13 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.homePanel = new System.Windows.Forms.Panel();
+            this.invoiceBtn = new System.Windows.Forms.Button();
+            this.purchasingBtn = new System.Windows.Forms.Button();
+            this.exitBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.nameTxt = new System.Windows.Forms.Label();
             this.loginAs = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.purchasingBtn = new System.Windows.Forms.Button();
-            this.exitBtn = new System.Windows.Forms.Button();
             this.delivBtn = new System.Windows.Forms.Button();
             this.custBtn = new System.Windows.Forms.Button();
             this.warrBtn = new System.Windows.Forms.Button();
@@ -46,7 +47,6 @@
             this.unpaidBtn = new System.Windows.Forms.Button();
             this.supplierBtn = new System.Windows.Forms.Button();
             this.usersBtn = new System.Windows.Forms.Button();
-            this.invoiceBtn = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.homePanel.SuspendLayout();
@@ -86,6 +86,7 @@
             // homePanel
             // 
             this.homePanel.BackColor = System.Drawing.Color.White;
+            this.homePanel.Controls.Add(this.invoiceBtn);
             this.homePanel.Controls.Add(this.purchasingBtn);
             this.homePanel.Controls.Add(this.exitBtn);
             this.homePanel.Controls.Add(this.panel2);
@@ -97,7 +98,6 @@
             this.homePanel.Controls.Add(this.unpaidBtn);
             this.homePanel.Controls.Add(this.supplierBtn);
             this.homePanel.Controls.Add(this.usersBtn);
-            this.homePanel.Controls.Add(this.invoiceBtn);
             this.homePanel.Dock = System.Windows.Forms.DockStyle.Right;
             this.homePanel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homePanel.ForeColor = System.Drawing.Color.White;
@@ -105,7 +105,54 @@
             this.homePanel.Name = "homePanel";
             this.homePanel.Size = new System.Drawing.Size(955, 540);
             this.homePanel.TabIndex = 4;
-            this.homePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.homePanel_Paint);
+            // 
+            // invoiceBtn
+            // 
+            this.invoiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
+            this.invoiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.invoiceBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.invoiceBtn.Image = global::softeng1.Properties.Resources.financial_document;
+            this.invoiceBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.invoiceBtn.Location = new System.Drawing.Point(202, 61);
+            this.invoiceBtn.Name = "invoiceBtn";
+            this.invoiceBtn.Size = new System.Drawing.Size(199, 162);
+            this.invoiceBtn.TabIndex = 0;
+            this.invoiceBtn.Text = "Create New\r\nInvoice";
+            this.invoiceBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.invoiceBtn.UseVisualStyleBackColor = false;
+            this.invoiceBtn.Click += new System.EventHandler(this.invoiceBtn_Click);
+            // 
+            // purchasingBtn
+            // 
+            this.purchasingBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(131)))), ((int)(((byte)(135)))));
+            this.purchasingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.purchasingBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.purchasingBtn.Image = global::softeng1.Properties.Resources.add_to_cart1;
+            this.purchasingBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.purchasingBtn.Location = new System.Drawing.Point(588, 149);
+            this.purchasingBtn.Name = "purchasingBtn";
+            this.purchasingBtn.Size = new System.Drawing.Size(174, 74);
+            this.purchasingBtn.TabIndex = 12;
+            this.purchasingBtn.Text = "Purchasing";
+            this.purchasingBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.purchasingBtn.UseVisualStyleBackColor = false;
+            this.purchasingBtn.Click += new System.EventHandler(this.purchasingBtn_Click);
+            // 
+            // exitBtn
+            // 
+            this.exitBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(125)))), ((int)(((byte)(154)))));
+            this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.exitBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exitBtn.Image = global::softeng1.Properties.Resources.exit1;
+            this.exitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.exitBtn.Location = new System.Drawing.Point(588, 380);
+            this.exitBtn.Name = "exitBtn";
+            this.exitBtn.Size = new System.Drawing.Size(174, 52);
+            this.exitBtn.TabIndex = 11;
+            this.exitBtn.Text = "Exit";
+            this.exitBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.exitBtn.UseVisualStyleBackColor = false;
+            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // panel2
             // 
@@ -146,38 +193,6 @@
             this.label2.Size = new System.Drawing.Size(104, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "Logged In As |";
-            // 
-            // purchasingBtn
-            // 
-            this.purchasingBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(131)))), ((int)(((byte)(135)))));
-            this.purchasingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.purchasingBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.purchasingBtn.Image = global::softeng1.Properties.Resources.add_to_cart1;
-            this.purchasingBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.purchasingBtn.Location = new System.Drawing.Point(588, 149);
-            this.purchasingBtn.Name = "purchasingBtn";
-            this.purchasingBtn.Size = new System.Drawing.Size(174, 74);
-            this.purchasingBtn.TabIndex = 12;
-            this.purchasingBtn.Text = "Purchasing";
-            this.purchasingBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.purchasingBtn.UseVisualStyleBackColor = false;
-            this.purchasingBtn.Click += new System.EventHandler(this.purchasingBtn_Click);
-            // 
-            // exitBtn
-            // 
-            this.exitBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(125)))), ((int)(((byte)(154)))));
-            this.exitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.exitBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exitBtn.Image = global::softeng1.Properties.Resources.exit1;
-            this.exitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.exitBtn.Location = new System.Drawing.Point(588, 380);
-            this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(174, 52);
-            this.exitBtn.TabIndex = 11;
-            this.exitBtn.Text = "Exit";
-            this.exitBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.exitBtn.UseVisualStyleBackColor = false;
-            this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
             // delivBtn
             // 
@@ -307,22 +322,6 @@
             this.usersBtn.UseVisualStyleBackColor = false;
             this.usersBtn.Click += new System.EventHandler(this.staffBtn_Click);
             // 
-            // invoiceBtn
-            // 
-            this.invoiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
-            this.invoiceBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.invoiceBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.invoiceBtn.Image = global::softeng1.Properties.Resources.financial_document;
-            this.invoiceBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.invoiceBtn.Location = new System.Drawing.Point(202, 61);
-            this.invoiceBtn.Name = "invoiceBtn";
-            this.invoiceBtn.Size = new System.Drawing.Size(199, 162);
-            this.invoiceBtn.TabIndex = 0;
-            this.invoiceBtn.Text = "Create New\r\nInvoice";
-            this.invoiceBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.invoiceBtn.UseVisualStyleBackColor = false;
-            this.invoiceBtn.Click += new System.EventHandler(this.invoiceBtn_Click);
-            // 
             // homeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -330,6 +329,7 @@
             this.ClientSize = new System.Drawing.Size(955, 587);
             this.Controls.Add(this.homePanel);
             this.Controls.Add(this.panel3);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "homeForm";
