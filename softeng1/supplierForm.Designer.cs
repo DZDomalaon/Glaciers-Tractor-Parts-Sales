@@ -412,7 +412,7 @@
             this.Controls.Add(this.contactTxt);
             this.Controls.Add(this.addressTxt);
             this.Controls.Add(this.emailTxt);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "supplierForm";
