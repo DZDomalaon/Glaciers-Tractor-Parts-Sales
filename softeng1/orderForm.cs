@@ -36,6 +36,7 @@ namespace softeng1
             usernameLbl.Text = loginForm.name;
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
 
+            //Column Header for Datagridview
             orderDG.Columns.Add("Customer", "Customer");
             orderDG.Columns.Add("Product Name", "Product Name");
             orderDG.Columns.Add("Price", "Price");
@@ -119,7 +120,7 @@ namespace softeng1
                 ptotal.Text = "";
             }
         }
-
+        //Search for product
         private void dgsearchprod_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -136,6 +137,7 @@ namespace softeng1
                 prodpanel.Size = new Size(521, 44);
             }
         }
+        //Search for customer
         private void dgsearchname_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -191,6 +193,7 @@ namespace softeng1
             foreach (DataGridViewRow row in orderDG.Rows)
             {
                 conn.Open();
+                //Get all product id
                 MySqlCommand getProduct_id = new MySqlCommand("SELECT PRODUCT_ID FROM PRODUCT WHERE (PRODUCT_NAME LIKE'%" + row.Cells[1].Value +"%' AND PRICE LIKE '%"+ row.Cells[2].Value +"%')", conn);
                 product_id = Convert.ToInt32(getProduct_id.ExecuteScalar());
                 using (conn)
@@ -232,7 +235,7 @@ namespace softeng1
                 cashTxt.Enabled = false;
             }
         }
-
+        //pass all data from Datagridview to textboxes
         private void orderDG_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             rowIndex = e.RowIndex; 
@@ -244,7 +247,7 @@ namespace softeng1
             ptotal.Text = row.Cells[4].Value.ToString();
             paymentCmb.Text = row.Cells[5].Value.ToString();
         }
-
+        //update the values of data from Datagrid
         private void editOrderBtn_Click(object sender, EventArgs e)
         {
             DataGridViewRow updRow = orderDG.Rows[rowIndex];
@@ -256,7 +259,7 @@ namespace softeng1
             updRow.Cells[4].Value = ptotal.Text;
             updRow.Cells[5].Value = paymentCmb.Text;
         }
-
+        //Add order to Datagrid
         private void addOrder_Click(object sender, EventArgs e)
         {
              if (custfnameTxt.Text == "" || pnameTxt.Text == "" || ppriceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "" || paymentCmb.Text == "")
@@ -285,6 +288,7 @@ namespace softeng1
                 calcSum();
             }
         }
+        //Remove the selected row
         private void removeOrder_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow item in this.orderDG.SelectedRows)
@@ -292,6 +296,7 @@ namespace softeng1
                 orderDG.Rows.RemoveAt(item.Index);
             }
         }
+        //Calculate the total price
         private void calcSum()
         {
             double a = 0, b = 0;
@@ -302,6 +307,7 @@ namespace softeng1
             }
             totalpriceTxt.Text = b.ToString("#,0.00");
         }
+        //Calculate the total quantity
         private int totalQuanatity()
         {
             int a = 0, b = 0;
