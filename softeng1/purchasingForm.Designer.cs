@@ -200,6 +200,7 @@
             this.priceTxt.Name = "priceTxt";
             this.priceTxt.Size = new System.Drawing.Size(183, 27);
             this.priceTxt.TabIndex = 26;
+            this.priceTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceTxt_KeyPress);
             // 
             // label7
             // 
@@ -219,6 +220,7 @@
             this.pnameTxt.Name = "pnameTxt";
             this.pnameTxt.Size = new System.Drawing.Size(183, 27);
             this.pnameTxt.TabIndex = 23;
+            this.pnameTxt.TextChanged += new System.EventHandler(this.pnameTxt_TextChanged);
             // 
             // label6
             // 
