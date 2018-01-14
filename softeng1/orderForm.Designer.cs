@@ -77,6 +77,9 @@ namespace softeng1
             this.cashTxt = new System.Windows.Forms.TextBox();
             this.discountTxt = new System.Windows.Forms.TextBox();
             this.discountLbl = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -89,6 +92,8 @@ namespace softeng1
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchname)).BeginInit();
             this.prodpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchprod)).BeginInit();
+            this.panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -134,8 +139,8 @@ namespace softeng1
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
-            this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.panel4);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.ForeColor = System.Drawing.Color.White;
             this.panel2.Location = new System.Drawing.Point(0, 47);
@@ -635,6 +640,44 @@ namespace softeng1
             this.discountLbl.TabIndex = 54;
             this.discountLbl.Text = "Discount";
             // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.dataGridView1);
+            this.panel8.Controls.Add(this.button1);
+            this.panel8.Enabled = false;
+            this.panel8.Location = new System.Drawing.Point(120, 344);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(687, 98);
+            this.panel8.TabIndex = 28;
+            this.panel8.Visible = false;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(9, 39);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(667, 248);
+            this.dataGridView1.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(636, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 32);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // orderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -642,18 +685,17 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.orderDG);
+            this.Controls.Add(this.panel8);
             this.Controls.Add(this.discountTxt);
             this.Controls.Add(this.discountLbl);
             this.Controls.Add(this.cashTxt);
             this.Controls.Add(this.cashLbl);
             this.Controls.Add(this.namepanel);
             this.Controls.Add(this.prodpanel);
-            this.Controls.Add(this.orderDG);
             this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.dateLbl);
             this.Controls.Add(this.editOrderBtn);
-            this.Controls.Add(this.panel7);
-            this.Controls.Add(this.buyBtn);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label13);
@@ -677,6 +719,8 @@ namespace softeng1
             this.Controls.Add(this.custfnameTxt);
             this.Controls.Add(this.ptotal);
             this.Controls.Add(this.paymentCmb);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.buyBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -703,6 +747,8 @@ namespace softeng1
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchname)).EndInit();
             this.prodpanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchprod)).EndInit();
+            this.panel8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -758,5 +804,8 @@ namespace softeng1
         private System.Windows.Forms.TextBox cashTxt;
         private System.Windows.Forms.TextBox discountTxt;
         private System.Windows.Forms.Label discountLbl;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button button1;
     }
 }
