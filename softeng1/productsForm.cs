@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
 
 namespace softeng1
 {
@@ -156,7 +157,6 @@ namespace softeng1
                 e.Handled = true;
             }
         }
-
         private void priceTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -164,6 +164,10 @@ namespace softeng1
                 e.Handled = true;
             }
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+            if (Regex.IsMatch(priceTxt.Text, @"\.\d\d") && e.KeyChar != 8)
             {
                 e.Handled = true;
             }
