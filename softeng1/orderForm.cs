@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using Microsoft.VisualBasic;
 
 namespace softeng1
 {
@@ -27,7 +28,7 @@ namespace softeng1
         private void backBtn_Click(object sender, EventArgs e)
         {
             fromOrder.Show();
-            this.Hide();      
+            this.Hide();
         }
 
         private void orderForm_Load(object sender, EventArgs e)
@@ -42,7 +43,8 @@ namespace softeng1
             orderDG.Columns.Add("Sub Total", "Sub Total");
             orderDG.Columns.Add("Payment", "Payment");
             orderDG.Columns.Add("Employee", "Employee");
-            orderDG.Columns.Add("Date", "Date");            
+            orderDG.Columns.Add("Date", "Date");
+
         }
         public static string searchn;
         private void snameTxt_Click(object sender, EventArgs e)
@@ -51,8 +53,8 @@ namespace softeng1
             namepanel.Visible = true;
             namepanel.Location = new Point(140, 56);
             namepanel.Size = new Size(681, 297);
-            
-            String query = "SELECT customer_id, firstname, lastname FROM person, customer where (lastname like '%" + custfnameTxt.Text + "%' or firstname like '%" + custfnameTxt.Text + "%') and person_type = 'customer' and person_id = customer_person_id ";            
+
+            String query = "SELECT customer_id, firstname, lastname FROM person, customer where (lastname like '%" + custfnameTxt.Text + "%' or firstname like '%" + custfnameTxt.Text + "%') and person_type = 'customer' and person_id = customer_person_id ";
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -110,12 +112,12 @@ namespace softeng1
                 p = double.Parse(ppriceTxt.Text);
                 q = quant;
                 tot = q * p;
-                ptotal.Text = tot.ToString();
+                ptotal.Text = tot.ToString("#,0.00");
             }
-            else if(pquant.Text == "")
+            else if (pquant.Text == "")
             {
                 ptotal.Text = "";
-            }          
+            }
         }
 
         private void dgsearchprod_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -133,7 +135,7 @@ namespace softeng1
                 prodpanel.Location = new Point(434, 152);
                 prodpanel.Size = new Size(521, 44);
             }
-        }        
+        }
         private void dgsearchname_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -159,26 +161,54 @@ namespace softeng1
         }
 
         private void buyBtn_Click(object sender, EventArgs e)
-        {
-            if (custfnameTxt.Text == "" || pnameTxt.Text == "" || pquant.Text == "" || ptotal.Text == "" || paymentCmb.Text == "")
-            {
-                MessageBox.Show("Please fill up all the data", "Add Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
+        { 
+
+            int maxOrderId = 0;
+            int increment = 0;
+            int maxPaymentId = 0;
+            int PaymentInc = 0;
+
+            conn.Open();
+            //Select max id from sale_order
+            MySqlCommand query = new MySqlCommand("SELECT MAX(order_id) FROM SALES_ORDER", conn);
+            maxOrderId = Convert.ToInt16(query.ExecuteScalar());
+            increment = maxOrderId + 1;
+
+            //insert payment amount
+            String insertToPayment = "INSERT INTO PAYMENT(AMOUNT) VALUES('" + cashTxt.Text + "'";
+            MySqlCommand comm = new MySqlCommand(insertToPayment, conn);
+            comm.ExecuteNonQuery();
+
+            //
+            MySqlCommand query2 = new MySqlCommand("SELECT MAX(payment_id) FROM payment", conn);
+            maxPaymentId = Convert.ToInt16(query2.ExecuteScalar());
+            PaymentInc = maxOrderId + 1;
+
+
+            conn.Close();                
+
+            
         }
 
         private void dgsearchname_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-
-        private void custfnameTxt_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void closeprod_Click(object sender, EventArgs e)
         {
             prodpanel.Hide();
+        }
+
+        private void paymentCmb_TextChanged(object sender, EventArgs e)
+        {
+            if(paymentCmb.Text == "Cash")
+            {
+                cashTxt.Enabled = true;
+            }
+            else if(paymentCmb.Text == "Credit")
+            {
+                cashTxt.Enabled = false;
+            }
         }
 
         private void orderDG_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -186,7 +216,6 @@ namespace softeng1
             rowIndex = e.RowIndex; 
             DataGridViewRow row = orderDG.Rows[rowIndex];
 
-            custfnameTxt.Text = row.Cells[0].Value.ToString();
             pnameTxt.Text = row.Cells[1].Value.ToString();
             ppriceTxt.Text = row.Cells[2].Value.ToString();
             pquant.Text = row.Cells[3].Value.ToString();
@@ -226,7 +255,6 @@ namespace softeng1
 
                 orderDG.Rows.Add(row);
 
-                custfnameTxt.Clear();
                 pnameTxt.Clear();
                 ppriceTxt.Clear();
                 pquant.Clear();
@@ -235,7 +263,6 @@ namespace softeng1
                 calcSum();
             }
         }
-
         private void removeOrder_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow item in this.orderDG.SelectedRows)
@@ -251,7 +278,7 @@ namespace softeng1
                 a = Convert.ToDouble(row.Cells[4].Value);
                 b = b + a;
             }
-            totalpriceTxt.Text = b.ToString();            
+            totalpriceTxt.Text = b.ToString("#,0.00");
         }
     }
 }

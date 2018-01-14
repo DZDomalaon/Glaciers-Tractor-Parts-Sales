@@ -59,11 +59,11 @@ namespace softeng1
             this.totalpriceTxt = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.namepanel = new System.Windows.Forms.Panel();
-            this.closename = new System.Windows.Forms.Button();
             this.dgsearchname = new System.Windows.Forms.DataGridView();
+            this.closename = new System.Windows.Forms.Button();
             this.prodpanel = new System.Windows.Forms.Panel();
-            this.closeprod = new System.Windows.Forms.Button();
             this.dgsearchprod = new System.Windows.Forms.DataGridView();
+            this.closeprod = new System.Windows.Forms.Button();
             this.pquant = new System.Windows.Forms.TextBox();
             this.ptotal = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -73,6 +73,8 @@ namespace softeng1
             this.editOrderBtn = new System.Windows.Forms.Button();
             this.dateLbl = new System.Windows.Forms.Label();
             this.usernameLbl = new System.Windows.Forms.Label();
+            this.cashLbl = new System.Windows.Forms.Label();
+            this.cashTxt = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -184,7 +186,6 @@ namespace softeng1
             this.custfnameTxt.Name = "custfnameTxt";
             this.custfnameTxt.Size = new System.Drawing.Size(183, 27);
             this.custfnameTxt.TabIndex = 8;
-            this.custfnameTxt.TextChanged += new System.EventHandler(this.custfnameTxt_TextChanged);
             // 
             // label4
             // 
@@ -394,7 +395,7 @@ namespace softeng1
             // 
             this.totalpriceTxt.AutoSize = true;
             this.totalpriceTxt.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalpriceTxt.Location = new System.Drawing.Point(198, 7);
+            this.totalpriceTxt.Location = new System.Drawing.Point(205, 7);
             this.totalpriceTxt.Name = "totalpriceTxt";
             this.totalpriceTxt.Size = new System.Drawing.Size(48, 22);
             this.totalpriceTxt.TabIndex = 1;
@@ -404,7 +405,7 @@ namespace softeng1
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(129, 7);
+            this.label11.Location = new System.Drawing.Point(136, 7);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(63, 22);
             this.label11.TabIndex = 0;
@@ -420,20 +421,6 @@ namespace softeng1
             this.namepanel.Size = new System.Drawing.Size(687, 103);
             this.namepanel.TabIndex = 26;
             this.namepanel.Visible = false;
-            // 
-            // closename
-            // 
-            this.closename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
-            this.closename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closename.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closename.ForeColor = System.Drawing.Color.White;
-            this.closename.Location = new System.Drawing.Point(636, 3);
-            this.closename.Name = "closename";
-            this.closename.Size = new System.Drawing.Size(40, 32);
-            this.closename.TabIndex = 3;
-            this.closename.Text = "X";
-            this.closename.UseVisualStyleBackColor = false;
-            this.closename.Click += new System.EventHandler(this.close_Click);
             // 
             // dgsearchname
             // 
@@ -452,6 +439,20 @@ namespace softeng1
             this.dgsearchname.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchname_CellClick);
             this.dgsearchname.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchname_CellContentClick);
             // 
+            // closename
+            // 
+            this.closename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
+            this.closename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closename.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closename.ForeColor = System.Drawing.Color.White;
+            this.closename.Location = new System.Drawing.Point(636, 3);
+            this.closename.Name = "closename";
+            this.closename.Size = new System.Drawing.Size(40, 32);
+            this.closename.TabIndex = 3;
+            this.closename.Text = "X";
+            this.closename.UseVisualStyleBackColor = false;
+            this.closename.Click += new System.EventHandler(this.close_Click);
+            // 
             // prodpanel
             // 
             this.prodpanel.Controls.Add(this.dgsearchprod);
@@ -462,6 +463,21 @@ namespace softeng1
             this.prodpanel.Size = new System.Drawing.Size(687, 98);
             this.prodpanel.TabIndex = 27;
             this.prodpanel.Visible = false;
+            // 
+            // dgsearchprod
+            // 
+            this.dgsearchprod.AllowUserToAddRows = false;
+            this.dgsearchprod.AllowUserToDeleteRows = false;
+            this.dgsearchprod.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgsearchprod.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgsearchprod.Location = new System.Drawing.Point(9, 39);
+            this.dgsearchprod.Name = "dgsearchprod";
+            this.dgsearchprod.ReadOnly = true;
+            this.dgsearchprod.RowHeadersVisible = false;
+            this.dgsearchprod.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgsearchprod.Size = new System.Drawing.Size(667, 248);
+            this.dgsearchprod.TabIndex = 0;
+            this.dgsearchprod.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchprod_CellClick);
             // 
             // closeprod
             // 
@@ -476,20 +492,6 @@ namespace softeng1
             this.closeprod.Text = "X";
             this.closeprod.UseVisualStyleBackColor = false;
             this.closeprod.Click += new System.EventHandler(this.closeprod_Click);
-            // 
-            // dgsearchprod
-            // 
-            this.dgsearchprod.AllowUserToAddRows = false;
-            this.dgsearchprod.AllowUserToDeleteRows = false;
-            this.dgsearchprod.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgsearchprod.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgsearchprod.Location = new System.Drawing.Point(9, 39);
-            this.dgsearchprod.Name = "dgsearchprod";
-            this.dgsearchprod.ReadOnly = true;
-            this.dgsearchprod.RowHeadersVisible = false;
-            this.dgsearchprod.Size = new System.Drawing.Size(667, 248);
-            this.dgsearchprod.TabIndex = 0;
-            this.dgsearchprod.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchprod_CellClick);
             // 
             // pquant
             // 
@@ -557,6 +559,7 @@ namespace softeng1
             this.paymentCmb.Name = "paymentCmb";
             this.paymentCmb.Size = new System.Drawing.Size(183, 27);
             this.paymentCmb.TabIndex = 47;
+            this.paymentCmb.TextChanged += new System.EventHandler(this.paymentCmb_TextChanged);
             // 
             // editOrderBtn
             // 
@@ -592,6 +595,25 @@ namespace softeng1
             this.usernameLbl.TabIndex = 51;
             this.usernameLbl.Text = "-----";
             // 
+            // cashLbl
+            // 
+            this.cashLbl.AutoSize = true;
+            this.cashLbl.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cashLbl.ForeColor = System.Drawing.Color.Black;
+            this.cashLbl.Location = new System.Drawing.Point(12, 371);
+            this.cashLbl.Name = "cashLbl";
+            this.cashLbl.Size = new System.Drawing.Size(113, 23);
+            this.cashLbl.TabIndex = 52;
+            this.cashLbl.Text = "Cash Amount";
+            // 
+            // cashTxt
+            // 
+            this.cashTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cashTxt.Location = new System.Drawing.Point(139, 367);
+            this.cashTxt.Name = "cashTxt";
+            this.cashTxt.Size = new System.Drawing.Size(183, 27);
+            this.cashTxt.TabIndex = 53;
+            // 
             // orderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -599,9 +621,11 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
-            this.Controls.Add(this.orderDG);
+            this.Controls.Add(this.cashTxt);
+            this.Controls.Add(this.cashLbl);
             this.Controls.Add(this.namepanel);
             this.Controls.Add(this.prodpanel);
+            this.Controls.Add(this.orderDG);
             this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.dateLbl);
             this.Controls.Add(this.editOrderBtn);
@@ -707,5 +731,7 @@ namespace softeng1
         private System.Windows.Forms.Button editOrderBtn;
         private System.Windows.Forms.Label dateLbl;
         private System.Windows.Forms.Label usernameLbl;
+        private System.Windows.Forms.Label cashLbl;
+        private System.Windows.Forms.TextBox cashTxt;
     }
 }

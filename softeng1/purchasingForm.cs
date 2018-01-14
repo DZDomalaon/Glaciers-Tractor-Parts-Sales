@@ -124,14 +124,16 @@ namespace softeng1
 
         private void purchaseData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            /*
             if (e.RowIndex > -1)
             {
-                selected_supplier_id = int.Parse(dgsname.Rows[e.RowIndex].Cells["supplier_id"].Value.ToString());
+                //selected_supplier_id = int.Parse(dgsname.Rows[e.RowIndex].Cells["supplier_id"].Value.ToString());
                 pnameTxt.Text = dgsname.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
                 ptotal.Text = dgsname.Rows[e.RowIndex].Cells["price"].Value.ToString();
                 pquant.Text = dgsname.Rows[e.RowIndex].Cells["quantity"].Value.ToString();
                 dateLbl.Text = dgsname.Rows[e.RowIndex].Cells["purchase_date"].Value.ToString();
             }
+            */
         }
         private void dgsearchname_CellClick(object sender, DataGridViewCellEventArgs e)
         {
