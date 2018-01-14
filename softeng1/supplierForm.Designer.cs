@@ -250,6 +250,7 @@
             this.lnameTxt.Name = "lnameTxt";
             this.lnameTxt.Size = new System.Drawing.Size(223, 27);
             this.lnameTxt.TabIndex = 77;
+            this.lnameTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lnameTxt_KeyPress);
             // 
             // label5
             // 
@@ -280,6 +281,7 @@
             this.fnameTxt.Name = "fnameTxt";
             this.fnameTxt.Size = new System.Drawing.Size(223, 27);
             this.fnameTxt.TabIndex = 75;
+            this.fnameTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fnameTxt_KeyPress);
             // 
             // supplierData
             // 
