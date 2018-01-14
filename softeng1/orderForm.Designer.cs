@@ -75,6 +75,8 @@ namespace softeng1
             this.usernameLbl = new System.Windows.Forms.Label();
             this.cashLbl = new System.Windows.Forms.Label();
             this.cashTxt = new System.Windows.Forms.TextBox();
+            this.discountTxt = new System.Windows.Forms.TextBox();
+            this.discountLbl = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -223,7 +225,7 @@ namespace softeng1
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(12, 201);
+            this.label6.Location = new System.Drawing.Point(12, 191);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(120, 23);
             this.label6.TabIndex = 12;
@@ -232,7 +234,7 @@ namespace softeng1
             // pnameTxt
             // 
             this.pnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnameTxt.Location = new System.Drawing.Point(139, 197);
+            this.pnameTxt.Location = new System.Drawing.Point(139, 187);
             this.pnameTxt.Name = "pnameTxt";
             this.pnameTxt.Size = new System.Drawing.Size(183, 27);
             this.pnameTxt.TabIndex = 13;
@@ -256,7 +258,7 @@ namespace softeng1
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(12, 246);
+            this.label7.Location = new System.Drawing.Point(12, 228);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(113, 23);
             this.label7.TabIndex = 15;
@@ -265,7 +267,7 @@ namespace softeng1
             // ppriceTxt
             // 
             this.ppriceTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ppriceTxt.Location = new System.Drawing.Point(139, 242);
+            this.ppriceTxt.Location = new System.Drawing.Point(139, 224);
             this.ppriceTxt.Name = "ppriceTxt";
             this.ppriceTxt.Size = new System.Drawing.Size(183, 27);
             this.ppriceTxt.TabIndex = 16;
@@ -317,7 +319,7 @@ namespace softeng1
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(12, 285);
+            this.label10.Location = new System.Drawing.Point(12, 266);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 23);
             this.label10.TabIndex = 21;
@@ -416,7 +418,7 @@ namespace softeng1
             this.namepanel.Controls.Add(this.dgsearchname);
             this.namepanel.Controls.Add(this.closename);
             this.namepanel.Enabled = false;
-            this.namepanel.Location = new System.Drawing.Point(125, 229);
+            this.namepanel.Location = new System.Drawing.Point(120, 233);
             this.namepanel.Name = "namepanel";
             this.namepanel.Size = new System.Drawing.Size(687, 103);
             this.namepanel.TabIndex = 26;
@@ -458,7 +460,7 @@ namespace softeng1
             this.prodpanel.Controls.Add(this.dgsearchprod);
             this.prodpanel.Controls.Add(this.closeprod);
             this.prodpanel.Enabled = false;
-            this.prodpanel.Location = new System.Drawing.Point(125, 129);
+            this.prodpanel.Location = new System.Drawing.Point(120, 127);
             this.prodpanel.Name = "prodpanel";
             this.prodpanel.Size = new System.Drawing.Size(687, 98);
             this.prodpanel.TabIndex = 27;
@@ -496,7 +498,7 @@ namespace softeng1
             // pquant
             // 
             this.pquant.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pquant.Location = new System.Drawing.Point(139, 281);
+            this.pquant.Location = new System.Drawing.Point(139, 262);
             this.pquant.Name = "pquant";
             this.pquant.Size = new System.Drawing.Size(53, 27);
             this.pquant.TabIndex = 16;
@@ -505,7 +507,7 @@ namespace softeng1
             // ptotal
             // 
             this.ptotal.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ptotal.Location = new System.Drawing.Point(250, 281);
+            this.ptotal.Location = new System.Drawing.Point(250, 262);
             this.ptotal.Name = "ptotal";
             this.ptotal.Size = new System.Drawing.Size(72, 27);
             this.ptotal.TabIndex = 16;
@@ -515,7 +517,7 @@ namespace softeng1
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(198, 285);
+            this.label12.Location = new System.Drawing.Point(198, 266);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(46, 23);
             this.label12.TabIndex = 21;
@@ -542,7 +544,7 @@ namespace softeng1
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(12, 326);
+            this.label13.Location = new System.Drawing.Point(12, 299);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(118, 23);
             this.label13.TabIndex = 30;
@@ -555,7 +557,7 @@ namespace softeng1
             this.paymentCmb.Items.AddRange(new object[] {
             "Cash",
             "Credit"});
-            this.paymentCmb.Location = new System.Drawing.Point(139, 326);
+            this.paymentCmb.Location = new System.Drawing.Point(139, 299);
             this.paymentCmb.Name = "paymentCmb";
             this.paymentCmb.Size = new System.Drawing.Size(183, 27);
             this.paymentCmb.TabIndex = 47;
@@ -600,7 +602,7 @@ namespace softeng1
             this.cashLbl.AutoSize = true;
             this.cashLbl.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cashLbl.ForeColor = System.Drawing.Color.Black;
-            this.cashLbl.Location = new System.Drawing.Point(12, 371);
+            this.cashLbl.Location = new System.Drawing.Point(12, 339);
             this.cashLbl.Name = "cashLbl";
             this.cashLbl.Size = new System.Drawing.Size(113, 23);
             this.cashLbl.TabIndex = 52;
@@ -609,10 +611,29 @@ namespace softeng1
             // cashTxt
             // 
             this.cashTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cashTxt.Location = new System.Drawing.Point(139, 367);
+            this.cashTxt.Location = new System.Drawing.Point(139, 335);
             this.cashTxt.Name = "cashTxt";
             this.cashTxt.Size = new System.Drawing.Size(183, 27);
             this.cashTxt.TabIndex = 53;
+            // 
+            // discountTxt
+            // 
+            this.discountTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discountTxt.Location = new System.Drawing.Point(139, 368);
+            this.discountTxt.Name = "discountTxt";
+            this.discountTxt.Size = new System.Drawing.Size(183, 27);
+            this.discountTxt.TabIndex = 55;
+            // 
+            // discountLbl
+            // 
+            this.discountLbl.AutoSize = true;
+            this.discountLbl.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discountLbl.ForeColor = System.Drawing.Color.Black;
+            this.discountLbl.Location = new System.Drawing.Point(12, 372);
+            this.discountLbl.Name = "discountLbl";
+            this.discountLbl.Size = new System.Drawing.Size(78, 23);
+            this.discountLbl.TabIndex = 54;
+            this.discountLbl.Text = "Discount";
             // 
             // orderForm
             // 
@@ -621,6 +642,8 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.discountTxt);
+            this.Controls.Add(this.discountLbl);
             this.Controls.Add(this.cashTxt);
             this.Controls.Add(this.cashLbl);
             this.Controls.Add(this.namepanel);
@@ -733,5 +756,7 @@ namespace softeng1
         private System.Windows.Forms.Label usernameLbl;
         private System.Windows.Forms.Label cashLbl;
         private System.Windows.Forms.TextBox cashTxt;
+        private System.Windows.Forms.TextBox discountTxt;
+        private System.Windows.Forms.Label discountLbl;
     }
 }

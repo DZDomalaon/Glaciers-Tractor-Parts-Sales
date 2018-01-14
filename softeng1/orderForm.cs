@@ -39,8 +39,8 @@ namespace softeng1
             orderDG.Columns.Add("Customer", "Customer");
             orderDG.Columns.Add("Product Name", "Product Name");
             orderDG.Columns.Add("Price", "Price");
+            orderDG.Columns.Add("Subtotal", "Sub Total");
             orderDG.Columns.Add("Quantity", "Quantity");
-            orderDG.Columns.Add("Sub Total", "Sub Total");
             orderDG.Columns.Add("Payment", "Payment");
             orderDG.Columns.Add("Employee", "Employee");
             orderDG.Columns.Add("Date", "Date");
@@ -164,28 +164,50 @@ namespace softeng1
         { 
 
             int maxOrderId = 0;
-            int increment = 0;
+            int OrderIncrement = 0;
             int maxPaymentId = 0;
             int PaymentInc = 0;
+            int product_id = 0;
 
             conn.Open();
-            //Select max id from sale_order
+            //Get max id from sale_order
             MySqlCommand query = new MySqlCommand("SELECT MAX(order_id) FROM SALES_ORDER", conn);
             maxOrderId = Convert.ToInt16(query.ExecuteScalar());
-            increment = maxOrderId + 1;
+            OrderIncrement = maxOrderId + 1;
 
             //insert payment amount
-            String insertToPayment = "INSERT INTO PAYMENT(AMOUNT) VALUES('" + cashTxt.Text + "'";
+            String insertToPayment = "INSERT INTO PAYMENT(AMOUNT) VALUES('" + cashTxt.Text + "')";
             MySqlCommand comm = new MySqlCommand(insertToPayment, conn);
             comm.ExecuteNonQuery();
 
-            //
+            //Get max id fron payment
             MySqlCommand query2 = new MySqlCommand("SELECT MAX(payment_id) FROM payment", conn);
             maxPaymentId = Convert.ToInt16(query2.ExecuteScalar());
-            PaymentInc = maxOrderId + 1;
+            PaymentInc = maxPaymentId;
+            conn.Close();
 
-
-            conn.Close();                
+            //Insert data to sales_order
+            double total = double.Parse(totalpriceTxt.Text.ToString());
+            foreach (DataGridViewRow row in orderDG.Rows)
+            {
+                conn.Open();
+                MySqlCommand getProduct_id = new MySqlCommand("SELECT PRODUCT_ID FROM PRODUCT WHERE (PRODUCT_NAME LIKE'%" + row.Cells[1].Value +"%' AND PRICE LIKE '%"+ row.Cells[2].Value +"%')", conn);
+                product_id = Convert.ToInt32(getProduct_id.ExecuteScalar());
+                using (conn)
+                {
+                    using (MySqlCommand cmd = new MySqlCommand("INSERT INTO sales_order(order_id,ORDER_price, order_subtotal, order_total, order_subquantity, order_tquantity, order_date, order_status, order_customer_id, order_emp_id, order_payment_id, order_product_id) VALUES('" + OrderIncrement + "', @Price, @Subtotal, '" + total + "', @Quantity, '" + totalQuanatity() + "', @Date, 'Paid', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "', '" + product_id + "')", conn))
+                    {
+                        
+                        cmd.Parameters.AddWithValue("@Price", double.Parse(row.Cells[2].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
+                        cmd.Parameters.AddWithValue("@Subtotal", double.Parse(row.Cells[3].Value.ToString()));
+                        cmd.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[4].Value.ToString()));
+                        cmd.Parameters.AddWithValue("@Date", row.Cells[5].Value.ToString());                        
+                        cmd.ExecuteNonQuery();
+                        conn.Close();
+                    }
+                }
+            }
+            MessageBox.Show("Records inserted.");             
 
             
         }
@@ -246,8 +268,8 @@ namespace softeng1
                 string firstColumn = custfnameTxt.Text;
                 string secondColumn = pnameTxt.Text;
                 string thirdColumn = ppriceTxt.Text;
-                string fourthColumn = pquant.Text;
-                string fifthColumn = ptotal.Text;
+                string fourthColumn = ptotal.Text;
+                string fifthColumn = pquant.Text;
                 string sixthColumn = paymentCmb.Text;
                 string seventhColumn = usernameLbl.Text;
                 string eigthColumn = dateLbl.Text;
@@ -275,10 +297,21 @@ namespace softeng1
             double a = 0, b = 0;
             foreach (DataGridViewRow row in orderDG.Rows)
             {
-                a = Convert.ToDouble(row.Cells[4].Value);
+                a = Convert.ToDouble(row.Cells[3].Value);
                 b = b + a;
             }
             totalpriceTxt.Text = b.ToString("#,0.00");
         }
+        private int totalQuanatity()
+        {
+            int a = 0, b = 0;
+            foreach (DataGridViewRow row in orderDG.Rows)
+            {
+                a = int.Parse(row.Cells[4].Value.ToString());
+                b = b + a;
+            }
+            return b;
+        }
+
     }
 }
