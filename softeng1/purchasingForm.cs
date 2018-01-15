@@ -25,8 +25,34 @@ namespace softeng1
         {
             usernameLbl.Text = loginForm.name;
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
-
+            datetime.Value = DateTime.Now;
             loadPurchase();
+            loadproducts();
+            pnameTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            pnameTxt.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+        }
+        public void loadproducts()
+        {
+            prodpanel.Enabled = true;
+            prodpanel.Visible = true;
+            prodpanel.Location = new Point(140, 56);
+            prodpanel.Size = new Size(681, 297);
+
+            String query = "SELECT * FROM inventory";
+            conn.Open();
+
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            dgsearchprod.DataSource = dt;
+
+            dgsearchprod.Columns["product_id"].Visible = false;
+            dgsearchprod.Columns["product_name"].HeaderText = "Product Name";
+            dgsearchprod.Columns["price"].HeaderText = "Price";
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -41,7 +67,7 @@ namespace softeng1
         }
 
 
-        private SqlDataAdapter adapt;
+        //private SqlDataAdapter adapt;
 
         public void loadPurchase()
         {
@@ -62,7 +88,7 @@ namespace softeng1
             purchaseData.Columns["purchase_date"].HeaderText = "Purchase Date";
             purchaseData.Columns["product_name"].HeaderText = "Product Name";
             purchaseData.Columns["quantity"].HeaderText = "Quantity";
-            purchaseData.Columns["price"].HeaderText = "Price";
+            //purchaseData.Columns["price"].HeaderText = "Price";
         }
 
         private void addBtn_Click(object sender, EventArgs e)
@@ -74,8 +100,8 @@ namespace softeng1
             else
             {
                 string query =
-                    "INSERT INTO purchase(purchase_emp_id, purchase_supplier_id, product_name, price, quantity, purchase_date) VALUES" +
-                    "('" + loginForm.user_id + "','"+ supplier_id + "','" + pnameTxt.Text + "','" + ptotal.Text + "','" + pquant.Text + "','" + dateLbl.Text + "')";
+                    "INSERT INTO purchase(purchase_emp_id, purchase_supplier_id, product_name, quantity, purchase_date) VALUES" +
+                    "('" + loginForm.user_id + "','"+ supplier_id + "','" + pnameTxt.Text + "','" + pquant.Text + "','" + datetime.Text + "')";
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
@@ -150,7 +176,44 @@ namespace softeng1
 
         private void closename_Click(object sender, EventArgs e)
         {
-            spanel.Hide();
+            spanel.Enabled = false;
+            spanel.Visible = false;
+            spanel.Location = new Point(434, 85);
+            spanel.Size = new Size(521, 44);
+        }
+        
+
+        private void dgsearchprod_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        public static int product_id;
+        private void dgsearchprod_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            product_id = int.Parse(dgsearchprod.Rows[e.RowIndex].Cells["product_id"].Value.ToString());
+            pnameTxt.Text = dgsearchprod.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
+            dgsearchprod.Rows[e.RowIndex].Cells["description"].Value.ToString();
+            priceTxt.Text = dgsearchprod.Rows[e.RowIndex].Cells["price"].Value.ToString();
+           // pnameTxt.Text = prod;
+           // ppriceTxt.Text = price;
+            prodpanel.Enabled = false;
+            prodpanel.Visible = false;
+            prodpanel.Location = new Point(434, 152);
+            prodpanel.Size = new Size(521, 44);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            prodpanel.Enabled = false;
+            prodpanel.Visible = false;
+            prodpanel.Location = new Point(434, 152);
+            prodpanel.Size = new Size(521, 44);
+
+        }
+
+        private void purchaseData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void removeBtn_Click(object sender, EventArgs e)

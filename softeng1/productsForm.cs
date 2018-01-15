@@ -131,7 +131,6 @@ namespace softeng1
             pdescTxt.Text = "";
             categTxt.Text = "";
             priceTxt.Text = ""; 
-            warrantyDate.Text = "";
             priceTxt.Text = "";
             categTxt.Text = "";
             variantTxt.Text = "";

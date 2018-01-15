@@ -246,3 +246,4 @@ C:\Users\jtsbellezas\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.exe
 C:\Users\jtsbellezas\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.pdb
 C:\Users\jtsbellezas\Documents\GitHub\SAD-2\softeng1\bin\Debug\MySql.Data.xml
 C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.csprojResolveAssemblyReference.cache
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.purchasingForm.resources

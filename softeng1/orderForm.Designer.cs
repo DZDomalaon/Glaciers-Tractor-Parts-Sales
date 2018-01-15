@@ -59,11 +59,11 @@ namespace softeng1
             this.totalpriceTxt = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.namepanel = new System.Windows.Forms.Panel();
-            this.closename = new System.Windows.Forms.Button();
             this.dgsearchname = new System.Windows.Forms.DataGridView();
+            this.closename = new System.Windows.Forms.Button();
             this.prodpanel = new System.Windows.Forms.Panel();
-            this.closeprod = new System.Windows.Forms.Button();
             this.dgsearchprod = new System.Windows.Forms.DataGridView();
+            this.closeprod = new System.Windows.Forms.Button();
             this.pquant = new System.Windows.Forms.TextBox();
             this.ptotal = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -73,6 +73,7 @@ namespace softeng1
             this.editOrderBtn = new System.Windows.Forms.Button();
             this.dateLbl = new System.Windows.Forms.Label();
             this.usernameLbl = new System.Windows.Forms.Label();
+            this.datetime = new System.Windows.Forms.DateTimePicker();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -415,25 +416,11 @@ namespace softeng1
             this.namepanel.Controls.Add(this.dgsearchname);
             this.namepanel.Controls.Add(this.closename);
             this.namepanel.Enabled = false;
-            this.namepanel.Location = new System.Drawing.Point(125, 229);
+            this.namepanel.Location = new System.Drawing.Point(309, 281);
             this.namepanel.Name = "namepanel";
-            this.namepanel.Size = new System.Drawing.Size(687, 103);
+            this.namepanel.Size = new System.Drawing.Size(119, 91);
             this.namepanel.TabIndex = 26;
             this.namepanel.Visible = false;
-            // 
-            // closename
-            // 
-            this.closename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
-            this.closename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closename.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closename.ForeColor = System.Drawing.Color.White;
-            this.closename.Location = new System.Drawing.Point(636, 3);
-            this.closename.Name = "closename";
-            this.closename.Size = new System.Drawing.Size(40, 32);
-            this.closename.TabIndex = 3;
-            this.closename.Text = "X";
-            this.closename.UseVisualStyleBackColor = false;
-            this.closename.Click += new System.EventHandler(this.close_Click);
             // 
             // dgsearchname
             // 
@@ -452,30 +439,30 @@ namespace softeng1
             this.dgsearchname.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchname_CellClick);
             this.dgsearchname.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchname_CellContentClick);
             // 
+            // closename
+            // 
+            this.closename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
+            this.closename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closename.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closename.ForeColor = System.Drawing.Color.White;
+            this.closename.Location = new System.Drawing.Point(636, 3);
+            this.closename.Name = "closename";
+            this.closename.Size = new System.Drawing.Size(40, 32);
+            this.closename.TabIndex = 3;
+            this.closename.Text = "X";
+            this.closename.UseVisualStyleBackColor = false;
+            this.closename.Click += new System.EventHandler(this.close_Click);
+            // 
             // prodpanel
             // 
             this.prodpanel.Controls.Add(this.dgsearchprod);
             this.prodpanel.Controls.Add(this.closeprod);
             this.prodpanel.Enabled = false;
-            this.prodpanel.Location = new System.Drawing.Point(125, 129);
+            this.prodpanel.Location = new System.Drawing.Point(172, 226);
             this.prodpanel.Name = "prodpanel";
-            this.prodpanel.Size = new System.Drawing.Size(687, 98);
+            this.prodpanel.Size = new System.Drawing.Size(283, 87);
             this.prodpanel.TabIndex = 27;
             this.prodpanel.Visible = false;
-            // 
-            // closeprod
-            // 
-            this.closeprod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
-            this.closeprod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeprod.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeprod.ForeColor = System.Drawing.Color.White;
-            this.closeprod.Location = new System.Drawing.Point(636, 4);
-            this.closeprod.Name = "closeprod";
-            this.closeprod.Size = new System.Drawing.Size(40, 32);
-            this.closeprod.TabIndex = 4;
-            this.closeprod.Text = "X";
-            this.closeprod.UseVisualStyleBackColor = false;
-            this.closeprod.Click += new System.EventHandler(this.closeprod_Click);
             // 
             // dgsearchprod
             // 
@@ -490,6 +477,20 @@ namespace softeng1
             this.dgsearchprod.Size = new System.Drawing.Size(667, 248);
             this.dgsearchprod.TabIndex = 0;
             this.dgsearchprod.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchprod_CellClick);
+            // 
+            // closeprod
+            // 
+            this.closeprod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
+            this.closeprod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closeprod.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closeprod.ForeColor = System.Drawing.Color.White;
+            this.closeprod.Location = new System.Drawing.Point(636, 4);
+            this.closeprod.Name = "closeprod";
+            this.closeprod.Size = new System.Drawing.Size(40, 32);
+            this.closeprod.TabIndex = 4;
+            this.closeprod.Text = "X";
+            this.closeprod.UseVisualStyleBackColor = false;
+            this.closeprod.Click += new System.EventHandler(this.closeprod_Click);
             // 
             // pquant
             // 
@@ -592,6 +593,13 @@ namespace softeng1
             this.usernameLbl.TabIndex = 51;
             this.usernameLbl.Text = "-----";
             // 
+            // datetime
+            // 
+            this.datetime.Location = new System.Drawing.Point(193, 498);
+            this.datetime.Name = "datetime";
+            this.datetime.Size = new System.Drawing.Size(200, 20);
+            this.datetime.TabIndex = 58;
+            // 
             // orderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -599,9 +607,10 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.datetime);
+            this.Controls.Add(this.prodpanel);
             this.Controls.Add(this.orderDG);
             this.Controls.Add(this.namepanel);
-            this.Controls.Add(this.prodpanel);
             this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.dateLbl);
             this.Controls.Add(this.editOrderBtn);
@@ -707,5 +716,6 @@ namespace softeng1
         private System.Windows.Forms.Button editOrderBtn;
         private System.Windows.Forms.Label dateLbl;
         private System.Windows.Forms.Label usernameLbl;
+        private System.Windows.Forms.DateTimePicker datetime;
     }
 }
