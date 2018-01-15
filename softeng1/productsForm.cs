@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
 
 namespace softeng1
 {
@@ -135,21 +136,6 @@ namespace softeng1
             categTxt.Text = "";
             variantTxt.Text = "";
         }
-
-        private void prodData_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void pnameTxt_TextChanged(object sender, EventArgs e)
-        {
-            if (!System.Text.RegularExpressions.Regex.IsMatch(pnameTxt.Text, "^[a-zA-Z]"))
-            {
-                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
-                pnameTxt.Text.Remove(pnameTxt.Text.Length - 1);
-            }
-        }
-
         private void quantityTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -157,7 +143,6 @@ namespace softeng1
                 e.Handled = true;
             }
         }
-
         private void priceTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -167,6 +152,18 @@ namespace softeng1
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
             {
                 e.Handled = true;
+            }
+            if (Regex.IsMatch(priceTxt.Text, @"\.\d\d") && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void pnameTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
             }
         }
     }

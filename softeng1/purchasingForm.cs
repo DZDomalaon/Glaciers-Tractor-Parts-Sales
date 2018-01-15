@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
+using System.Text.RegularExpressions;
 
 namespace softeng1
 {
@@ -150,14 +151,16 @@ namespace softeng1
 
         private void purchaseData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            /*
             if (e.RowIndex > -1)
             {
-                selected_supplier_id = int.Parse(dgsname.Rows[e.RowIndex].Cells["supplier_id"].Value.ToString());
+                //selected_supplier_id = int.Parse(dgsname.Rows[e.RowIndex].Cells["supplier_id"].Value.ToString());
                 pnameTxt.Text = dgsname.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
                 ptotal.Text = dgsname.Rows[e.RowIndex].Cells["price"].Value.ToString();
                 pquant.Text = dgsname.Rows[e.RowIndex].Cells["quantity"].Value.ToString();
                 dateLbl.Text = dgsname.Rows[e.RowIndex].Cells["purchase_date"].Value.ToString();
             }
+            */
         }
         private void dgsearchname_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -214,6 +217,31 @@ namespace softeng1
         private void purchaseData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void priceTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+            if (Regex.IsMatch(priceTxt.Text, @"\.\d\d") && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void pnameTxt_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(pnameTxt.Text, "^[a-zA-Z]"))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
+                pnameTxt.Text.Remove(pnameTxt.Text.Length - 1);
+            }
         }
 
         private void removeBtn_Click(object sender, EventArgs e)

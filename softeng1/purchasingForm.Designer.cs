@@ -207,6 +207,7 @@
             this.priceTxt.Name = "priceTxt";
             this.priceTxt.Size = new System.Drawing.Size(183, 27);
             this.priceTxt.TabIndex = 26;
+            this.priceTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceTxt_KeyPress);
             // 
             // label7
             // 
@@ -219,6 +220,18 @@
             this.label7.TabIndex = 24;
             this.label7.Text = "Product Price";
             // 
+<<<<<<< HEAD
+=======
+            // pnameTxt
+            // 
+            this.pnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pnameTxt.Location = new System.Drawing.Point(130, 101);
+            this.pnameTxt.Name = "pnameTxt";
+            this.pnameTxt.Size = new System.Drawing.Size(183, 27);
+            this.pnameTxt.TabIndex = 23;
+            this.pnameTxt.TextChanged += new System.EventHandler(this.pnameTxt_TextChanged);
+            // 
+>>>>>>> 9f57847888f68869140f094b6ab7cdbf9d1ec557
             // label6
             // 
             this.label6.AutoSize = true;

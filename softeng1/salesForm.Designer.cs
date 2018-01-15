@@ -104,9 +104,9 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
             this.panel2.Controls.Add(this.label2);
-            this.panel2.Location = new System.Drawing.Point(0, 53);
+            this.panel2.Location = new System.Drawing.Point(0, 47);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(197, 173);
+            this.panel2.Size = new System.Drawing.Size(197, 179);
             this.panel2.TabIndex = 32;
             // 
             // label2
@@ -124,25 +124,25 @@
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(101)))), ((int)(((byte)(113)))));
-            this.panel6.Location = new System.Drawing.Point(0, 464);
+            this.panel6.Location = new System.Drawing.Point(0, 455);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(197, 117);
+            this.panel6.Size = new System.Drawing.Size(197, 135);
             this.panel6.TabIndex = 35;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(77)))), ((int)(((byte)(86)))));
-            this.panel5.Location = new System.Drawing.Point(0, 348);
+            this.panel5.Location = new System.Drawing.Point(0, 341);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(197, 110);
+            this.panel5.Size = new System.Drawing.Size(197, 117);
             this.panel5.TabIndex = 34;
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
-            this.panel4.Location = new System.Drawing.Point(0, 232);
+            this.panel4.Location = new System.Drawing.Point(0, 225);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(197, 110);
+            this.panel4.Size = new System.Drawing.Size(197, 117);
             this.panel4.TabIndex = 33;
             // 
             // chart1
@@ -365,7 +365,7 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "salesForm";
