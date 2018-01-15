@@ -55,9 +55,6 @@ namespace softeng1
             this.removeOrder = new System.Windows.Forms.Button();
             this.backToMenu = new System.Windows.Forms.Button();
             this.snameTxt = new System.Windows.Forms.Button();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.totalpriceTxt = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.namepanel = new System.Windows.Forms.Panel();
             this.dgsearchname = new System.Windows.Forms.DataGridView();
             this.closename = new System.Windows.Forms.Button();
@@ -67,7 +64,6 @@ namespace softeng1
             this.pquant = new System.Windows.Forms.TextBox();
             this.ptotal = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.buyBtn = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.paymentCmb = new System.Windows.Forms.ComboBox();
             this.editOrderBtn = new System.Windows.Forms.Button();
@@ -77,6 +73,32 @@ namespace softeng1
             this.cashTxt = new System.Windows.Forms.TextBox();
             this.discountTxt = new System.Windows.Forms.TextBox();
             this.discountLbl = new System.Windows.Forms.Label();
+            this.buyBtn = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.totalpriceTxt = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.orderPanel = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.label18 = new System.Windows.Forms.Label();
+            this.date = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.payment = new System.Windows.Forms.ComboBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.cash = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.discount = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.interest = new System.Windows.Forms.TextBox();
+            this.confirmBtn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -84,11 +106,17 @@ namespace softeng1
             ((System.ComponentModel.ISupportInitialize)(this.orderDG)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
             this.namepanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchname)).BeginInit();
             this.prodpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchprod)).BeginInit();
+            this.panel7.SuspendLayout();
+            this.orderPanel.SuspendLayout();
+            this.panel8.SuspendLayout();
+            this.panel9.SuspendLayout();
+            this.panel10.SuspendLayout();
+            this.panel11.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -176,8 +204,9 @@ namespace softeng1
             this.orderDG.Name = "orderDG";
             this.orderDG.ReadOnly = true;
             this.orderDG.RowHeadersVisible = false;
+            this.orderDG.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.orderDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.orderDG.Size = new System.Drawing.Size(818, 464);
+            this.orderDG.Size = new System.Drawing.Size(521, 470);
             this.orderDG.TabIndex = 7;
             this.orderDG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderDG_CellClick);
             // 
@@ -381,38 +410,6 @@ namespace softeng1
             this.snameTxt.UseVisualStyleBackColor = false;
             this.snameTxt.Click += new System.EventHandler(this.snameTxt_Click);
             // 
-            // panel7
-            // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.panel7.Controls.Add(this.totalpriceTxt);
-            this.panel7.Controls.Add(this.label11);
-            this.panel7.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel7.ForeColor = System.Drawing.Color.White;
-            this.panel7.Location = new System.Drawing.Point(434, 551);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(380, 38);
-            this.panel7.TabIndex = 7;
-            // 
-            // totalpriceTxt
-            // 
-            this.totalpriceTxt.AutoSize = true;
-            this.totalpriceTxt.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalpriceTxt.Location = new System.Drawing.Point(205, 7);
-            this.totalpriceTxt.Name = "totalpriceTxt";
-            this.totalpriceTxt.Size = new System.Drawing.Size(48, 22);
-            this.totalpriceTxt.TabIndex = 1;
-            this.totalpriceTxt.Text = "0.00";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(136, 7);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(63, 22);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Total: ";
-            // 
             // namepanel
             // 
             this.namepanel.Controls.Add(this.dgsearchname);
@@ -465,6 +462,7 @@ namespace softeng1
             this.prodpanel.Size = new System.Drawing.Size(687, 98);
             this.prodpanel.TabIndex = 27;
             this.prodpanel.Visible = false;
+            this.prodpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.prodpanel_Paint);
             // 
             // dgsearchprod
             // 
@@ -522,22 +520,6 @@ namespace softeng1
             this.label12.Size = new System.Drawing.Size(46, 23);
             this.label12.TabIndex = 21;
             this.label12.Text = "Total";
-            // 
-            // buyBtn
-            // 
-            this.buyBtn.BackColor = System.Drawing.Color.White;
-            this.buyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buyBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buyBtn.Image = ((System.Drawing.Image)(resources.GetObject("buyBtn.Image")));
-            this.buyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buyBtn.Location = new System.Drawing.Point(814, 551);
-            this.buyBtn.Name = "buyBtn";
-            this.buyBtn.Size = new System.Drawing.Size(141, 36);
-            this.buyBtn.TabIndex = 0;
-            this.buyBtn.Text = "Check Out";
-            this.buyBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buyBtn.UseVisualStyleBackColor = false;
-            this.buyBtn.Click += new System.EventHandler(this.buyBtn_Click);
             // 
             // label13
             // 
@@ -635,6 +617,302 @@ namespace softeng1
             this.discountLbl.TabIndex = 54;
             this.discountLbl.Text = "Discount";
             // 
+            // buyBtn
+            // 
+            this.buyBtn.BackColor = System.Drawing.Color.White;
+            this.buyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buyBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buyBtn.Image = ((System.Drawing.Image)(resources.GetObject("buyBtn.Image")));
+            this.buyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buyBtn.Location = new System.Drawing.Point(814, 551);
+            this.buyBtn.Name = "buyBtn";
+            this.buyBtn.Size = new System.Drawing.Size(141, 36);
+            this.buyBtn.TabIndex = 0;
+            this.buyBtn.Text = "Check Out";
+            this.buyBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buyBtn.UseVisualStyleBackColor = false;
+            this.buyBtn.Click += new System.EventHandler(this.buyBtn_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(136, 7);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(63, 22);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Total: ";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // totalpriceTxt
+            // 
+            this.totalpriceTxt.AutoSize = true;
+            this.totalpriceTxt.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalpriceTxt.Location = new System.Drawing.Point(205, 7);
+            this.totalpriceTxt.Name = "totalpriceTxt";
+            this.totalpriceTxt.Size = new System.Drawing.Size(48, 22);
+            this.totalpriceTxt.TabIndex = 1;
+            this.totalpriceTxt.Text = "0.00";
+            this.totalpriceTxt.Click += new System.EventHandler(this.totalpriceTxt_Click);
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.panel7.Controls.Add(this.totalpriceTxt);
+            this.panel7.Controls.Add(this.label11);
+            this.panel7.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel7.ForeColor = System.Drawing.Color.White;
+            this.panel7.Location = new System.Drawing.Point(434, 551);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(380, 38);
+            this.panel7.TabIndex = 7;
+            // 
+            // orderPanel
+            // 
+            this.orderPanel.Controls.Add(this.button1);
+            this.orderPanel.Controls.Add(this.confirmBtn);
+            this.orderPanel.Controls.Add(this.interest);
+            this.orderPanel.Controls.Add(this.label22);
+            this.orderPanel.Controls.Add(this.discount);
+            this.orderPanel.Controls.Add(this.label21);
+            this.orderPanel.Controls.Add(this.cash);
+            this.orderPanel.Controls.Add(this.label20);
+            this.orderPanel.Controls.Add(this.payment);
+            this.orderPanel.Controls.Add(this.label19);
+            this.orderPanel.Controls.Add(this.panel12);
+            this.orderPanel.Controls.Add(this.panel8);
+            this.orderPanel.Enabled = false;
+            this.orderPanel.Location = new System.Drawing.Point(480, 95);
+            this.orderPanel.Name = "orderPanel";
+            this.orderPanel.Size = new System.Drawing.Size(418, 425);
+            this.orderPanel.TabIndex = 28;
+            this.orderPanel.Visible = false;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.panel8.Controls.Add(this.panel10);
+            this.panel8.Controls.Add(this.panel9);
+            this.panel8.Controls.Add(this.label15);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.ForeColor = System.Drawing.Color.White;
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(418, 38);
+            this.panel8.TabIndex = 7;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.panel9.Controls.Add(this.label14);
+            this.panel9.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel9.ForeColor = System.Drawing.Color.White;
+            this.panel9.Location = new System.Drawing.Point(434, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(521, 38);
+            this.panel9.TabIndex = 6;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(166, 8);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(174, 22);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Products Ordered";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(98, 8);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(248, 21);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "Glacier Tractor Parts And Sales";
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.panel10.Controls.Add(this.panel11);
+            this.panel10.Controls.Add(this.label17);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.ForeColor = System.Drawing.Color.White;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(418, 38);
+            this.panel10.TabIndex = 8;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.panel11.Controls.Add(this.label16);
+            this.panel11.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel11.ForeColor = System.Drawing.Color.White;
+            this.panel11.Location = new System.Drawing.Point(434, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(521, 38);
+            this.panel11.TabIndex = 6;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(166, 8);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(174, 22);
+            this.label16.TabIndex = 0;
+            this.label16.Text = "Products Ordered";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(98, 8);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(248, 21);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Glacier Tractor Parts And Sales";
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(67)))), ((int)(((byte)(74)))));
+            this.panel12.Controls.Add(this.date);
+            this.panel12.Controls.Add(this.label18);
+            this.panel12.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel12.ForeColor = System.Drawing.Color.White;
+            this.panel12.Location = new System.Drawing.Point(1, 37);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(417, 38);
+            this.panel12.TabIndex = 8;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(98, 7);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(61, 22);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Date:";
+            // 
+            // date
+            // 
+            this.date.AutoSize = true;
+            this.date.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date.Location = new System.Drawing.Point(179, 8);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(130, 22);
+            this.date.TabIndex = 1;
+            this.date.Text = "mm/dd/yyyy";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(42, 120);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(118, 23);
+            this.label19.TabIndex = 10;
+            this.label19.Text = "Payment Type";
+            // 
+            // payment
+            // 
+            this.payment.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.payment.FormattingEnabled = true;
+            this.payment.Items.AddRange(new object[] {
+            "Cash",
+            "Credit"});
+            this.payment.Location = new System.Drawing.Point(182, 120);
+            this.payment.Name = "payment";
+            this.payment.Size = new System.Drawing.Size(183, 27);
+            this.payment.TabIndex = 48;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(42, 178);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(113, 23);
+            this.label20.TabIndex = 49;
+            this.label20.Text = "Cash Amount";
+            // 
+            // cash
+            // 
+            this.cash.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cash.Location = new System.Drawing.Point(182, 174);
+            this.cash.Name = "cash";
+            this.cash.Size = new System.Drawing.Size(183, 27);
+            this.cash.TabIndex = 54;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.Black;
+            this.label21.Location = new System.Drawing.Point(42, 234);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(78, 23);
+            this.label21.TabIndex = 55;
+            this.label21.Text = "Discount";
+            // 
+            // discount
+            // 
+            this.discount.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discount.Location = new System.Drawing.Point(182, 230);
+            this.discount.Name = "discount";
+            this.discount.Size = new System.Drawing.Size(183, 27);
+            this.discount.TabIndex = 56;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(42, 290);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(71, 23);
+            this.label22.TabIndex = 57;
+            this.label22.Text = "Interest";
+            // 
+            // interest
+            // 
+            this.interest.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interest.Location = new System.Drawing.Point(182, 286);
+            this.interest.Name = "interest";
+            this.interest.Size = new System.Drawing.Size(183, 27);
+            this.interest.TabIndex = 58;
+            // 
+            // confirmBtn
+            // 
+            this.confirmBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
+            this.confirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.confirmBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmBtn.ForeColor = System.Drawing.Color.White;
+            this.confirmBtn.Location = new System.Drawing.Point(59, 367);
+            this.confirmBtn.Name = "confirmBtn";
+            this.confirmBtn.Size = new System.Drawing.Size(144, 37);
+            this.confirmBtn.TabIndex = 56;
+            this.confirmBtn.Text = "Confirm";
+            this.confirmBtn.UseVisualStyleBackColor = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(213, 367);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(144, 37);
+            this.button1.TabIndex = 56;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // orderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -642,17 +920,16 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.orderPanel);
             this.Controls.Add(this.discountTxt);
             this.Controls.Add(this.discountLbl);
             this.Controls.Add(this.cashTxt);
             this.Controls.Add(this.cashLbl);
             this.Controls.Add(this.namepanel);
             this.Controls.Add(this.prodpanel);
-            this.Controls.Add(this.orderDG);
             this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.dateLbl);
             this.Controls.Add(this.editOrderBtn);
-            this.Controls.Add(this.panel7);
             this.Controls.Add(this.buyBtn);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
@@ -677,6 +954,8 @@ namespace softeng1
             this.Controls.Add(this.custfnameTxt);
             this.Controls.Add(this.ptotal);
             this.Controls.Add(this.paymentCmb);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.orderDG);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -697,12 +976,24 @@ namespace softeng1
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
             this.namepanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchname)).EndInit();
             this.prodpanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchprod)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.orderPanel.ResumeLayout(false);
+            this.orderPanel.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -736,9 +1027,6 @@ namespace softeng1
         private System.Windows.Forms.Button removeOrder;
         private System.Windows.Forms.Button backToMenu;
         private System.Windows.Forms.Button snameTxt;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label totalpriceTxt;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Panel namepanel;
         private System.Windows.Forms.DataGridView dgsearchname;
         private System.Windows.Forms.Panel prodpanel;
@@ -748,7 +1036,6 @@ namespace softeng1
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button closename;
         private System.Windows.Forms.Button closeprod;
-        private System.Windows.Forms.Button buyBtn;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox paymentCmb;
         private System.Windows.Forms.Button editOrderBtn;
@@ -758,5 +1045,31 @@ namespace softeng1
         private System.Windows.Forms.TextBox cashTxt;
         private System.Windows.Forms.TextBox discountTxt;
         private System.Windows.Forms.Label discountLbl;
+        private System.Windows.Forms.Button buyBtn;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label totalpriceTxt;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel orderPanel;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Panel panel12;
+        private System.Windows.Forms.Label date;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button confirmBtn;
+        private System.Windows.Forms.TextBox interest;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox discount;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.TextBox cash;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox payment;
+        private System.Windows.Forms.Label label19;
     }
 }

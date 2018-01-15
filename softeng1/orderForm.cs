@@ -210,9 +210,7 @@ namespace softeng1
                     }
                 }
             }
-            MessageBox.Show("Records inserted.");             
-
-            
+            MessageBox.Show("Records inserted.");
         }
 
         private void dgsearchname_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -247,6 +245,22 @@ namespace softeng1
             ptotal.Text = row.Cells[4].Value.ToString();
             paymentCmb.Text = row.Cells[5].Value.ToString();
         }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void totalpriceTxt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void prodpanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         //update the values of data from Datagrid
         private void editOrderBtn_Click(object sender, EventArgs e)
         {
