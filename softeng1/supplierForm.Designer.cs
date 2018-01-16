@@ -57,11 +57,16 @@
             this.organizationTxt = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.cnumTxt = new System.Windows.Forms.MaskedTextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dgproduct = new System.Windows.Forms.DataGridView();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierData)).BeginInit();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgproduct)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -290,13 +295,12 @@
             this.supplierData.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.supplierData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.supplierData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.supplierData.Dock = System.Windows.Forms.DockStyle.Right;
             this.supplierData.Location = new System.Drawing.Point(434, 85);
             this.supplierData.Name = "supplierData";
             this.supplierData.ReadOnly = true;
             this.supplierData.RowHeadersVisible = false;
             this.supplierData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.supplierData.Size = new System.Drawing.Size(521, 502);
+            this.supplierData.Size = new System.Drawing.Size(521, 226);
             this.supplierData.TabIndex = 93;
             this.supplierData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.supplierData_CellClick);
             // 
@@ -384,12 +388,50 @@
             this.cnumTxt.TabIndex = 103;
             this.cnumTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.panel5.Controls.Add(this.label10);
+            this.panel5.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel5.ForeColor = System.Drawing.Color.White;
+            this.panel5.Location = new System.Drawing.Point(434, 311);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(521, 38);
+            this.panel5.TabIndex = 104;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(223, 6);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(90, 22);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Products";
+            // 
+            // dgproduct
+            // 
+            this.dgproduct.AllowUserToAddRows = false;
+            this.dgproduct.AllowUserToDeleteRows = false;
+            this.dgproduct.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgproduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgproduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgproduct.Location = new System.Drawing.Point(434, 348);
+            this.dgproduct.Name = "dgproduct";
+            this.dgproduct.ReadOnly = true;
+            this.dgproduct.RowHeadersVisible = false;
+            this.dgproduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgproduct.Size = new System.Drawing.Size(521, 239);
+            this.dgproduct.TabIndex = 105;
+            // 
             // supplierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.dgproduct);
             this.Controls.Add(this.cnumTxt);
             this.Controls.Add(this.supplierData);
             this.Controls.Add(this.backBtn);
@@ -430,6 +472,9 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.supplierData)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgproduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -466,5 +511,8 @@
         private System.Windows.Forms.TextBox organizationTxt;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.MaskedTextBox cnumTxt;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView dgproduct;
     }
 }

@@ -55,11 +55,16 @@
             this.label10 = new System.Windows.Forms.Label();
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.rbFemale = new System.Windows.Forms.RadioButton();
+            this.dgtransactions = new System.Windows.Forms.DataGridView();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.custData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgtransactions)).BeginInit();
+            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -251,13 +256,12 @@
             this.custData.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.custData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.custData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.custData.Dock = System.Windows.Forms.DockStyle.Right;
             this.custData.Location = new System.Drawing.Point(434, 85);
             this.custData.Name = "custData";
             this.custData.ReadOnly = true;
             this.custData.RowHeadersVisible = false;
             this.custData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.custData.Size = new System.Drawing.Size(521, 502);
+            this.custData.Size = new System.Drawing.Size(521, 243);
             this.custData.TabIndex = 63;
             this.custData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.custData_CellClick);
             // 
@@ -366,12 +370,50 @@
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
             // 
+            // dgtransactions
+            // 
+            this.dgtransactions.AllowUserToAddRows = false;
+            this.dgtransactions.AllowUserToDeleteRows = false;
+            this.dgtransactions.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgtransactions.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgtransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgtransactions.Location = new System.Drawing.Point(434, 361);
+            this.dgtransactions.Name = "dgtransactions";
+            this.dgtransactions.ReadOnly = true;
+            this.dgtransactions.RowHeadersVisible = false;
+            this.dgtransactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgtransactions.Size = new System.Drawing.Size(521, 226);
+            this.dgtransactions.TabIndex = 94;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.panel5.Controls.Add(this.label11);
+            this.panel5.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel5.ForeColor = System.Drawing.Color.White;
+            this.panel5.Location = new System.Drawing.Point(434, 324);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(521, 38);
+            this.panel5.TabIndex = 7;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(169, 8);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(222, 22);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Customers Transactions";
+            // 
             // customersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.dgtransactions);
             this.Controls.Add(this.rbFemale);
             this.Controls.Add(this.rbMale);
             this.Controls.Add(this.label10);
@@ -410,6 +452,9 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.custData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgtransactions)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -444,5 +489,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.RadioButton rbFemale;
+        private System.Windows.Forms.DataGridView dgtransactions;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label11;
     }
 }
