@@ -207,9 +207,7 @@ namespace softeng1
                     }
                 }
             }
-            MessageBox.Show("Records inserted.");             
-
-            
+            MessageBox.Show("Records inserted.");
         }
 
         private void dgsearchname_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -245,6 +243,25 @@ namespace softeng1
             paymentCmb.Text = row.Cells[5].Value.ToString();
         }
 
+<<<<<<< HEAD
+=======
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void totalpriceTxt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void prodpanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        //update the values of data from Datagrid
+>>>>>>> c066271e99c1495407318c88b7cc21687b3f760f
         private void editOrderBtn_Click(object sender, EventArgs e)
         {
             DataGridViewRow updRow = orderDG.Rows[rowIndex];

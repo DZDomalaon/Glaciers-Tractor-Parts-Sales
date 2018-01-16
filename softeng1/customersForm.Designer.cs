@@ -212,9 +212,9 @@
             // lnameTxt
             // 
             this.lnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lnameTxt.Location = new System.Drawing.Point(105, 153);
+            this.lnameTxt.Location = new System.Drawing.Point(129, 153);
             this.lnameTxt.Name = "lnameTxt";
-            this.lnameTxt.Size = new System.Drawing.Size(223, 27);
+            this.lnameTxt.Size = new System.Drawing.Size(159, 27);
             this.lnameTxt.TabIndex = 50;
             this.lnameTxt.TextChanged += new System.EventHandler(this.lnameTxt_TextChanged);
             // 
@@ -243,9 +243,9 @@
             // fnameTxt
             // 
             this.fnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.fnameTxt.Location = new System.Drawing.Point(105, 106);
+            this.fnameTxt.Location = new System.Drawing.Point(129, 106);
             this.fnameTxt.Name = "fnameTxt";
-            this.fnameTxt.Size = new System.Drawing.Size(223, 27);
+            this.fnameTxt.Size = new System.Drawing.Size(159, 27);
             this.fnameTxt.TabIndex = 48;
             this.fnameTxt.TextChanged += new System.EventHandler(this.fnameTxt_TextChanged);
             // 
@@ -268,10 +268,10 @@
             // creditTxt
             // 
             this.creditTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creditTxt.Location = new System.Drawing.Point(105, 248);
+            this.creditTxt.Location = new System.Drawing.Point(129, 248);
             this.creditTxt.Name = "creditTxt";
             this.creditTxt.ReadOnly = true;
-            this.creditTxt.Size = new System.Drawing.Size(223, 27);
+            this.creditTxt.Size = new System.Drawing.Size(159, 27);
             this.creditTxt.TabIndex = 64;
             // 
             // label7
@@ -288,9 +288,9 @@
             // addressTxt
             // 
             this.addressTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addressTxt.Location = new System.Drawing.Point(105, 301);
+            this.addressTxt.Location = new System.Drawing.Point(129, 301);
             this.addressTxt.Name = "addressTxt";
-            this.addressTxt.Size = new System.Drawing.Size(223, 27);
+            this.addressTxt.Size = new System.Drawing.Size(159, 27);
             this.addressTxt.TabIndex = 66;
             // 
             // label8
@@ -307,11 +307,11 @@
             // cnumTxt
             // 
             this.cnumTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cnumTxt.Location = new System.Drawing.Point(105, 349);
+            this.cnumTxt.Location = new System.Drawing.Point(129, 349);
             this.cnumTxt.Mask = "0000-000-0000";
             this.cnumTxt.Name = "cnumTxt";
             this.cnumTxt.PromptChar = '0';
-            this.cnumTxt.Size = new System.Drawing.Size(223, 27);
+            this.cnumTxt.Size = new System.Drawing.Size(159, 27);
             this.cnumTxt.TabIndex = 68;
             this.cnumTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.cnumTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cnumTxt_KeyPress);
@@ -330,9 +330,9 @@
             // emailTxt
             // 
             this.emailTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailTxt.Location = new System.Drawing.Point(105, 413);
+            this.emailTxt.Location = new System.Drawing.Point(129, 413);
             this.emailTxt.Name = "emailTxt";
-            this.emailTxt.Size = new System.Drawing.Size(223, 27);
+            this.emailTxt.Size = new System.Drawing.Size(159, 27);
             this.emailTxt.TabIndex = 70;
             // 
             // label10
@@ -350,7 +350,7 @@
             // 
             this.rbMale.AutoSize = true;
             this.rbMale.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbMale.Location = new System.Drawing.Point(137, 200);
+            this.rbMale.Location = new System.Drawing.Point(129, 201);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(60, 23);
             this.rbMale.TabIndex = 72;
@@ -362,7 +362,7 @@
             // 
             this.rbFemale.AutoSize = true;
             this.rbFemale.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFemale.Location = new System.Drawing.Point(213, 200);
+            this.rbFemale.Location = new System.Drawing.Point(214, 200);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(74, 23);
             this.rbFemale.TabIndex = 73;
