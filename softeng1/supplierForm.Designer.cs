@@ -48,7 +48,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.fnameTxt = new System.Windows.Forms.TextBox();
-            this.supplierData = new System.Windows.Forms.DataGridView();
             this.contact = new System.Windows.Forms.Label();
             this.contactTxt = new System.Windows.Forms.TextBox();
             this.rbFemale = new System.Windows.Forms.RadioButton();
@@ -60,13 +59,14 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
             this.dgproduct = new System.Windows.Forms.DataGridView();
+            this.supplierData = new System.Windows.Forms.DataGridView();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierData)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgproduct)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierData)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -288,22 +288,6 @@
             this.fnameTxt.TabIndex = 75;
             this.fnameTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fnameTxt_KeyPress);
             // 
-            // supplierData
-            // 
-            this.supplierData.AllowUserToAddRows = false;
-            this.supplierData.AllowUserToDeleteRows = false;
-            this.supplierData.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.supplierData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.supplierData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.supplierData.Location = new System.Drawing.Point(434, 85);
-            this.supplierData.Name = "supplierData";
-            this.supplierData.ReadOnly = true;
-            this.supplierData.RowHeadersVisible = false;
-            this.supplierData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.supplierData.Size = new System.Drawing.Size(521, 226);
-            this.supplierData.TabIndex = 93;
-            this.supplierData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.supplierData_CellClick);
-            // 
             // contact
             // 
             this.contact.AutoSize = true;
@@ -424,6 +408,22 @@
             this.dgproduct.Size = new System.Drawing.Size(521, 239);
             this.dgproduct.TabIndex = 105;
             // 
+            // supplierData
+            // 
+            this.supplierData.AllowUserToAddRows = false;
+            this.supplierData.AllowUserToDeleteRows = false;
+            this.supplierData.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.supplierData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.supplierData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.supplierData.Location = new System.Drawing.Point(434, 85);
+            this.supplierData.Name = "supplierData";
+            this.supplierData.ReadOnly = true;
+            this.supplierData.RowHeadersVisible = false;
+            this.supplierData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.supplierData.Size = new System.Drawing.Size(521, 226);
+            this.supplierData.TabIndex = 93;
+            this.supplierData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.supplierData_CellClick);
+            // 
             // supplierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -471,10 +471,10 @@
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.supplierData)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgproduct)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.supplierData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -502,7 +502,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox fnameTxt;
-        private System.Windows.Forms.DataGridView supplierData;
         private System.Windows.Forms.Label contact;
         private System.Windows.Forms.TextBox contactTxt;
         private System.Windows.Forms.RadioButton rbFemale;
@@ -514,5 +513,6 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView dgproduct;
+        private System.Windows.Forms.DataGridView supplierData;
     }
 }

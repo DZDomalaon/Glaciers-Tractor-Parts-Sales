@@ -55,7 +55,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.rbFemale = new System.Windows.Forms.RadioButton();
-            this.dgtransactions = new System.Windows.Forms.DataGridView();
+            this.transactions = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
@@ -63,7 +63,7 @@
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.custData)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgtransactions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactions)).BeginInit();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -370,20 +370,20 @@
             this.rbFemale.Text = "Female";
             this.rbFemale.UseVisualStyleBackColor = true;
             // 
-            // dgtransactions
+            // transactions
             // 
-            this.dgtransactions.AllowUserToAddRows = false;
-            this.dgtransactions.AllowUserToDeleteRows = false;
-            this.dgtransactions.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dgtransactions.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgtransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgtransactions.Location = new System.Drawing.Point(434, 361);
-            this.dgtransactions.Name = "dgtransactions";
-            this.dgtransactions.ReadOnly = true;
-            this.dgtransactions.RowHeadersVisible = false;
-            this.dgtransactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgtransactions.Size = new System.Drawing.Size(521, 226);
-            this.dgtransactions.TabIndex = 94;
+            this.transactions.AllowUserToAddRows = false;
+            this.transactions.AllowUserToDeleteRows = false;
+            this.transactions.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.transactions.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.transactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.transactions.Location = new System.Drawing.Point(434, 361);
+            this.transactions.Name = "transactions";
+            this.transactions.ReadOnly = true;
+            this.transactions.RowHeadersVisible = false;
+            this.transactions.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.transactions.Size = new System.Drawing.Size(521, 226);
+            this.transactions.TabIndex = 94;
             // 
             // panel5
             // 
@@ -413,7 +413,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.dgtransactions);
+            this.Controls.Add(this.transactions);
             this.Controls.Add(this.rbFemale);
             this.Controls.Add(this.rbMale);
             this.Controls.Add(this.label10);
@@ -452,7 +452,7 @@
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.custData)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgtransactions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.transactions)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
@@ -489,7 +489,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.RadioButton rbFemale;
-        private System.Windows.Forms.DataGridView dgtransactions;
+        private System.Windows.Forms.DataGridView transactions;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label11;
     }
