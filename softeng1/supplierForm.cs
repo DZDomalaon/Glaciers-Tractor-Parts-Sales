@@ -110,7 +110,6 @@ namespace softeng1
                 }
             }
         }
-
         private void addBtn_Click(object sender, EventArgs e)
         {
             if (fnameTxt.Text == "" || lnameTxt.Text == "" || emailTxt.Text == "" || cnumTxt.Text == "" || addressTxt.Text == "")

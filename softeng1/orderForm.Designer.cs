@@ -67,6 +67,7 @@ namespace softeng1
             this.editOrderBtn = new System.Windows.Forms.Button();
             this.dateLbl = new System.Windows.Forms.Label();
             this.usernameLbl = new System.Windows.Forms.Label();
+            this.datetime = new System.Windows.Forms.DateTimePicker();
             this.buyBtn = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.totalpriceTxt = new System.Windows.Forms.Label();
@@ -411,7 +412,7 @@ namespace softeng1
             this.namepanel.Enabled = false;
             this.namepanel.Location = new System.Drawing.Point(121, 295);
             this.namepanel.Name = "namepanel";
-            this.namepanel.Size = new System.Drawing.Size(283, 91);
+            this.namepanel.Size = new System.Drawing.Size(119, 91);
             this.namepanel.TabIndex = 26;
             this.namepanel.Visible = false;
             // 
@@ -548,6 +549,13 @@ namespace softeng1
             this.usernameLbl.Size = new System.Drawing.Size(40, 23);
             this.usernameLbl.TabIndex = 51;
             this.usernameLbl.Text = "-----";
+            // 
+            // datetime
+            // 
+            this.datetime.Location = new System.Drawing.Point(193, 498);
+            this.datetime.Name = "datetime";
+            this.datetime.Size = new System.Drawing.Size(200, 20);
+            this.datetime.TabIndex = 58;
             // 
             // buyBtn
             // 
@@ -854,6 +862,11 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
+<<<<<<< HEAD
+=======
+            this.Controls.Add(this.datetime);
+            this.Controls.Add(this.prodpanel);
+>>>>>>> 62a973f74fa96ab1879c5bc06b77613b9ccae362
             this.Controls.Add(this.buyPanel);
             this.Controls.Add(this.prodpanel);
             this.Controls.Add(this.namepanel);
@@ -967,6 +980,8 @@ namespace softeng1
         private System.Windows.Forms.Button editOrderBtn;
         private System.Windows.Forms.Label dateLbl;
         private System.Windows.Forms.Label usernameLbl;
+
+        private System.Windows.Forms.DateTimePicker datetime;
 
         private System.Windows.Forms.Button buyBtn;
         private System.Windows.Forms.Label label11;
