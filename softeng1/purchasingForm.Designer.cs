@@ -220,8 +220,7 @@
             this.label7.TabIndex = 24;
             this.label7.Text = "Product Price";
             // 
-<<<<<<< HEAD
-=======
+
 
             // pnameTxt
             // 
@@ -233,7 +232,7 @@
             this.pnameTxt.TextChanged += new System.EventHandler(this.pnameTxt_TextChanged);
             // 
 
->>>>>>> 62a973f74fa96ab1879c5bc06b77613b9ccae362
+
             // label6
             // 
             this.label6.AutoSize = true;
