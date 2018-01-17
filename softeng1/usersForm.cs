@@ -44,6 +44,7 @@ namespace softeng1
             usersData.Columns["password"].Visible = false;
             usersData.Columns["time_in"].Visible = false;
             usersData.Columns["time_out"].Visible = false;
+            usersData.Columns["log_date"].Visible = false;
             usersData.Columns["person_type"].Visible = false;
             usersData.Columns["emp_person_id"].Visible = false;
             usersData.Columns["gender"].Visible = false;
@@ -167,25 +168,63 @@ namespace softeng1
 
         private void editBtn_Click(object sender, EventArgs e)
         {
-
-            int gen = 0;
-
-            if (rbMale.Checked == true)
+            if (MessageBox.Show("Do you want to update the data ?", "Confirm ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                gen = 1;
-            }
-            else if (rbFemale.Checked == true)
-            {
-                gen = 0;
-            }
-            String query = "Update PERSON, EMPLOYEE SET PERSON.FIRSTNAME = '"+ fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text +"', POSITION = '" + positionCmb.Text + "', PERSON.GENDER = '" + gen + "', STATUS = '" + statusCmb.Text + "', SHIFT = '" + shiftTxt.Text +"', SALARY = '" + salaryTxt.Text +"', PERSON.CONTACT_NUM = '" + numberTxt.Text +"', PERSON.EMAIL = '" + emailTxt.Text +"', PERSON.ADDRESS ='" + addressTxt.Text + "' WHERE EMP_ID = '" + selected_emp_id + "' AND PERSON_ID = '" + selected_person_id + "'";
+                int gen = 0;
 
-            conn.Open();
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            comm.ExecuteNonQuery();
-            conn.Close();
+                if (rbMale.Checked == true)
+                {
+                    gen = 1;
+                }
+                else if (rbFemale.Checked == true)
+                {
+                    gen = 0;
+                }
+                String query = "Update PERSON, EMPLOYEE SET PERSON.FIRSTNAME = '" + fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text + "', POSITION = '" + positionCmb.Text + "', PERSON.GENDER = '" + gen + "', STATUS = '" + statusCmb.Text + "', SHIFT = '" + shiftTxt.Text + "', SALARY = '" + salaryTxt.Text + "', PERSON.CONTACT_NUM = '" + numberTxt.Text + "', PERSON.EMAIL = '" + emailTxt.Text + "', PERSON.ADDRESS ='" + addressTxt.Text + "' WHERE EMP_ID = '" + selected_emp_id + "' AND PERSON_ID = '" + selected_person_id + "'";
 
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();                
+            }
             loadEmployeeData();
+            MessageBox.Show("Your data has been updated successfully", "Updated Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            
+        }
+
+        private void fnameTxt_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(fnameTxt.Text, "^[a-zA-Z]"))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
+                fnameTxt.Text.Remove(fnameTxt.Text.Length - 1);
+            }
+        }
+
+        private void lnameTxt_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(lnameTxt.Text, "^[a-zA-Z]"))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
+                fnameTxt.Text.Remove(lnameTxt.Text.Length - 1);
+            }
+        }
+
+        private void salaryTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void numberTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }

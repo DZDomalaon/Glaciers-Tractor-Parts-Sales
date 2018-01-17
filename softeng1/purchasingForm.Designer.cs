@@ -41,7 +41,6 @@
             this.pquant = new System.Windows.Forms.TextBox();
             this.priceTxt = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.pnameTxt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.ptotal = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -51,12 +50,21 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.dateTxt = new System.Windows.Forms.Label();
-            this.userTxt = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.dtpTxt = new System.Windows.Forms.DateTimePicker();
             this.backBtn = new System.Windows.Forms.Button();
             this.removeBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
+            this.usernameLbl = new System.Windows.Forms.Label();
+            this.dateLbl = new System.Windows.Forms.Label();
+            this.searchBtn = new System.Windows.Forms.Button();
+            this.spanel = new System.Windows.Forms.Panel();
+            this.closename = new System.Windows.Forms.Button();
+            this.dgsname = new System.Windows.Forms.DataGridView();
+            this.prodpanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dgsearchprod = new System.Windows.Forms.DataGridView();
+            this.datetime = new System.Windows.Forms.DateTimePicker();
+            this.pnameTxt = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -64,6 +72,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.purchaseData)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            this.spanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgsname)).BeginInit();
+            this.prodpanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgsearchprod)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -154,6 +166,8 @@
             this.purchaseData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.purchaseData.Size = new System.Drawing.Size(521, 502);
             this.purchaseData.TabIndex = 8;
+            this.purchaseData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.purchaseData_CellClick);
+            this.purchaseData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.purchaseData_CellContentClick);
             // 
             // label12
             // 
@@ -193,6 +207,7 @@
             this.priceTxt.Name = "priceTxt";
             this.priceTxt.Size = new System.Drawing.Size(183, 27);
             this.priceTxt.TabIndex = 26;
+            this.priceTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceTxt_KeyPress);
             // 
             // label7
             // 
@@ -205,6 +220,8 @@
             this.label7.TabIndex = 24;
             this.label7.Text = "Product Price";
             // 
+<<<<<<< HEAD
+=======
             // pnameTxt
             // 
             this.pnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -212,7 +229,9 @@
             this.pnameTxt.Name = "pnameTxt";
             this.pnameTxt.Size = new System.Drawing.Size(183, 27);
             this.pnameTxt.TabIndex = 23;
+            this.pnameTxt.TextChanged += new System.EventHandler(this.pnameTxt_TextChanged);
             // 
+>>>>>>> 9f57847888f68869140f094b6ab7cdbf9d1ec557
             // label6
             // 
             this.label6.AutoSize = true;
@@ -302,15 +321,6 @@
             this.dateTxt.TabIndex = 36;
             this.dateTxt.Text = "Date";
             // 
-            // userTxt
-            // 
-            this.userTxt.Enabled = false;
-            this.userTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.userTxt.Location = new System.Drawing.Point(130, 400);
-            this.userTxt.Name = "userTxt";
-            this.userTxt.Size = new System.Drawing.Size(183, 27);
-            this.userTxt.TabIndex = 35;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -321,15 +331,6 @@
             this.label9.Size = new System.Drawing.Size(89, 23);
             this.label9.TabIndex = 34;
             this.label9.Text = "Username";
-            // 
-            // dtpTxt
-            // 
-            this.dtpTxt.Enabled = false;
-            this.dtpTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpTxt.Location = new System.Drawing.Point(130, 446);
-            this.dtpTxt.Name = "dtpTxt";
-            this.dtpTxt.Size = new System.Drawing.Size(183, 27);
-            this.dtpTxt.TabIndex = 37;
             // 
             // backBtn
             // 
@@ -373,19 +374,156 @@
             this.addBtn.UseVisualStyleBackColor = false;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
+            // usernameLbl
+            // 
+            this.usernameLbl.AutoSize = true;
+            this.usernameLbl.Font = new System.Drawing.Font("Calibri", 14.25F);
+            this.usernameLbl.Location = new System.Drawing.Point(126, 400);
+            this.usernameLbl.Name = "usernameLbl";
+            this.usernameLbl.Size = new System.Drawing.Size(40, 23);
+            this.usernameLbl.TabIndex = 52;
+            this.usernameLbl.Text = "-----";
+            // 
+            // dateLbl
+            // 
+            this.dateLbl.AutoSize = true;
+            this.dateLbl.Font = new System.Drawing.Font("Calibri", 14.25F);
+            this.dateLbl.Location = new System.Drawing.Point(126, 450);
+            this.dateLbl.Name = "dateLbl";
+            this.dateLbl.Size = new System.Drawing.Size(40, 23);
+            this.dateLbl.TabIndex = 53;
+            this.dateLbl.Text = "-----";
+            // 
+            // searchBtn
+            // 
+            this.searchBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
+            this.searchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.searchBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.searchBtn.ForeColor = System.Drawing.Color.White;
+            this.searchBtn.Location = new System.Drawing.Point(332, 295);
+            this.searchBtn.Name = "searchBtn";
+            this.searchBtn.Size = new System.Drawing.Size(78, 30);
+            this.searchBtn.TabIndex = 54;
+            this.searchBtn.Text = "Search";
+            this.searchBtn.UseVisualStyleBackColor = false;
+            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
+            // 
+            // spanel
+            // 
+            this.spanel.Controls.Add(this.closename);
+            this.spanel.Controls.Add(this.dgsname);
+            this.spanel.Enabled = false;
+            this.spanel.Location = new System.Drawing.Point(434, 194);
+            this.spanel.Name = "spanel";
+            this.spanel.Size = new System.Drawing.Size(521, 103);
+            this.spanel.TabIndex = 55;
+            this.spanel.Visible = false;
+            // 
+            // closename
+            // 
+            this.closename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
+            this.closename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closename.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closename.ForeColor = System.Drawing.Color.White;
+            this.closename.Location = new System.Drawing.Point(636, 3);
+            this.closename.Name = "closename";
+            this.closename.Size = new System.Drawing.Size(40, 32);
+            this.closename.TabIndex = 3;
+            this.closename.Text = "X";
+            this.closename.UseVisualStyleBackColor = false;
+            this.closename.Click += new System.EventHandler(this.closename_Click);
+            // 
+            // dgsname
+            // 
+            this.dgsname.AllowUserToAddRows = false;
+            this.dgsname.AllowUserToDeleteRows = false;
+            this.dgsname.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgsname.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgsname.Location = new System.Drawing.Point(9, 38);
+            this.dgsname.Name = "dgsname";
+            this.dgsname.ReadOnly = true;
+            this.dgsname.RowHeadersVisible = false;
+            this.dgsname.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgsname.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgsname.Size = new System.Drawing.Size(667, 249);
+            this.dgsname.TabIndex = 0;
+            this.dgsname.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchname_CellClick);
+            // 
+            // prodpanel
+            // 
+            this.prodpanel.Controls.Add(this.button1);
+            this.prodpanel.Controls.Add(this.dgsearchprod);
+            this.prodpanel.Enabled = false;
+            this.prodpanel.Location = new System.Drawing.Point(434, 85);
+            this.prodpanel.Name = "prodpanel";
+            this.prodpanel.Size = new System.Drawing.Size(521, 103);
+            this.prodpanel.TabIndex = 56;
+            this.prodpanel.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(636, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(40, 32);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // dgsearchprod
+            // 
+            this.dgsearchprod.AllowUserToAddRows = false;
+            this.dgsearchprod.AllowUserToDeleteRows = false;
+            this.dgsearchprod.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgsearchprod.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgsearchprod.Location = new System.Drawing.Point(9, 38);
+            this.dgsearchprod.Name = "dgsearchprod";
+            this.dgsearchprod.ReadOnly = true;
+            this.dgsearchprod.RowHeadersVisible = false;
+            this.dgsearchprod.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
+            this.dgsearchprod.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgsearchprod.Size = new System.Drawing.Size(667, 249);
+            this.dgsearchprod.TabIndex = 0;
+            this.dgsearchprod.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchprod_CellClick);
+            this.dgsearchprod.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchprod_CellContentClick);
+            // 
+            // datetime
+            // 
+            this.datetime.Location = new System.Drawing.Point(172, 453);
+            this.datetime.Name = "datetime";
+            this.datetime.Size = new System.Drawing.Size(200, 20);
+            this.datetime.TabIndex = 57;
+            // 
+            // pnameTxt
+            // 
+            this.pnameTxt.FormattingEnabled = true;
+            this.pnameTxt.Location = new System.Drawing.Point(129, 107);
+            this.pnameTxt.Name = "pnameTxt";
+            this.pnameTxt.Size = new System.Drawing.Size(184, 21);
+            this.pnameTxt.TabIndex = 58;
+            // 
             // purchasingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.pnameTxt);
+            this.Controls.Add(this.datetime);
+            this.Controls.Add(this.prodpanel);
+            this.Controls.Add(this.spanel);
+            this.Controls.Add(this.searchBtn);
+            this.Controls.Add(this.dateLbl);
+            this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.removeBtn);
             this.Controls.Add(this.addBtn);
             this.Controls.Add(this.dateTxt);
-            this.Controls.Add(this.userTxt);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.dtpTxt);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.snameTxt);
             this.Controls.Add(this.label4);
@@ -395,7 +533,6 @@
             this.Controls.Add(this.pquant);
             this.Controls.Add(this.priceTxt);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.pnameTxt);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.ptotal);
             this.Controls.Add(this.purchaseData);
@@ -421,6 +558,10 @@
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            this.spanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgsname)).EndInit();
+            this.prodpanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgsearchprod)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -441,7 +582,6 @@
         private System.Windows.Forms.TextBox pquant;
         private System.Windows.Forms.TextBox priceTxt;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox pnameTxt;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox ptotal;
         private System.Windows.Forms.Panel panel5;
@@ -451,11 +591,20 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label dateTxt;
-        private System.Windows.Forms.TextBox userTxt;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.DateTimePicker dtpTxt;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button removeBtn;
         private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.Label usernameLbl;
+        private System.Windows.Forms.Label dateLbl;
+        private System.Windows.Forms.Button searchBtn;
+        private System.Windows.Forms.Panel spanel;
+        private System.Windows.Forms.Button closename;
+        private System.Windows.Forms.DataGridView dgsname;
+        private System.Windows.Forms.Panel prodpanel;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView dgsearchprod;
+        private System.Windows.Forms.DateTimePicker datetime;
+        private System.Windows.Forms.ComboBox pnameTxt;
     }
 }

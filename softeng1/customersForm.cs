@@ -150,28 +150,58 @@ namespace softeng1
             addressTxt.Text = "";
             rbMale.Checked = false;
             rbFemale.Checked = false;
+            addBtn.Enabled = true;
         }
 
         private void editBtn_Click(object sender, EventArgs e)
         {
-            int gen = 0;
-
-            if (rbMale.Checked == true)
+            if (MessageBox.Show("Do you want to update the data ?", "Confirm ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                gen = 1;
-            }
-            else if (rbFemale.Checked == true)
-            {
-                gen = 0;
-            }
-            String query = "Update PERSON, CUSTOMER SET PERSON.FIRSTNAME = '" + fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text + "', PERSON.GENDER = '" + gen +  "', PERSON.CONTACT_NUM = '" + cnumTxt.Text + "', PERSON.EMAIL = '" + emailTxt.Text + "', PERSON.ADDRESS ='" + addressTxt.Text + "' WHERE CUSTOMER_ID = '" + selected_cust_id + "' AND PERSON_ID = '" + selected_person_id + "'";
+                int gen = 0;
 
-            conn.Open();
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            comm.ExecuteNonQuery();
-            conn.Close();
+                if (rbMale.Checked == true)
+                {
+                    gen = 1;
+                }
+                else if (rbFemale.Checked == true)
+                {
+                    gen = 0;
+                }
+                String query = "Update PERSON, CUSTOMER SET PERSON.FIRSTNAME = '" + fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text + "', PERSON.GENDER = '" + gen + "', PERSON.CONTACT_NUM = '" + cnumTxt.Text + "', PERSON.EMAIL = '" + emailTxt.Text + "', PERSON.ADDRESS ='" + addressTxt.Text + "' WHERE CUSTOMER_ID = '" + selected_cust_id + "' AND PERSON_ID = '" + selected_person_id + "'";
 
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
+            }
+            MessageBox.Show("Your data has been updated successfully", "Updated Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             loadCustomerData();
+        }
+
+        private void fnameTxt_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(fnameTxt.Text, "^[a-zA-Z]"))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
+                fnameTxt.Text.Remove(fnameTxt.Text.Length - 1);
+            }
+        }
+
+        private void lnameTxt_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(lnameTxt.Text, "^[a-zA-Z]"))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
+                lnameTxt.Text.Remove(lnameTxt.Text.Length - 1);
+            }
+        }
+        private void cnumTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
         }
     }
 }
