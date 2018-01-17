@@ -67,46 +67,33 @@ namespace softeng1
             this.editOrderBtn = new System.Windows.Forms.Button();
             this.dateLbl = new System.Windows.Forms.Label();
             this.usernameLbl = new System.Windows.Forms.Label();
-<<<<<<< HEAD
-            this.cashLbl = new System.Windows.Forms.Label();
-            this.cashTxt = new System.Windows.Forms.TextBox();
-            this.discountTxt = new System.Windows.Forms.TextBox();
-            this.discountLbl = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
-=======
-<<<<<<< HEAD
             this.datetime = new System.Windows.Forms.DateTimePicker();
-=======
             this.buyBtn = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.totalpriceTxt = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
-            this.orderPanel = new System.Windows.Forms.Panel();
+            this.buyPanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.confirmBtn = new System.Windows.Forms.Button();
+            this.interest = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.discount = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.cashTxt = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.paymentCmb = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.panel12 = new System.Windows.Forms.Panel();
+            this.date = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.panel12 = new System.Windows.Forms.Panel();
-            this.label18 = new System.Windows.Forms.Label();
-            this.date = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.payment = new System.Windows.Forms.ComboBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.cash = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.discount = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.interest = new System.Windows.Forms.TextBox();
-            this.confirmBtn = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
->>>>>>> 9f57847888f68869140f094b6ab7cdbf9d1ec557
->>>>>>> c066271e99c1495407318c88b7cc21687b3f760f
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -118,18 +105,13 @@ namespace softeng1
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchname)).BeginInit();
             this.prodpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchprod)).BeginInit();
-<<<<<<< HEAD
-            this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-=======
             this.panel7.SuspendLayout();
-            this.orderPanel.SuspendLayout();
+            this.buyPanel.SuspendLayout();
+            this.panel12.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel9.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
-            this.panel12.SuspendLayout();
->>>>>>> c066271e99c1495407318c88b7cc21687b3f760f
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -175,8 +157,8 @@ namespace softeng1
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
-            this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.panel4);
+            this.panel2.Controls.Add(this.label2);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.ForeColor = System.Drawing.Color.White;
             this.panel2.Location = new System.Drawing.Point(0, 47);
@@ -428,11 +410,7 @@ namespace softeng1
             this.namepanel.Controls.Add(this.dgsearchname);
             this.namepanel.Controls.Add(this.closename);
             this.namepanel.Enabled = false;
-<<<<<<< HEAD
-            this.namepanel.Location = new System.Drawing.Point(309, 281);
-=======
             this.namepanel.Location = new System.Drawing.Point(121, 295);
->>>>>>> 9f57847888f68869140f094b6ab7cdbf9d1ec557
             this.namepanel.Name = "namepanel";
             this.namepanel.Size = new System.Drawing.Size(119, 91);
             this.namepanel.TabIndex = 26;
@@ -474,19 +452,12 @@ namespace softeng1
             this.prodpanel.Controls.Add(this.dgsearchprod);
             this.prodpanel.Controls.Add(this.closeprod);
             this.prodpanel.Enabled = false;
-<<<<<<< HEAD
-            this.prodpanel.Location = new System.Drawing.Point(172, 226);
-=======
             this.prodpanel.Location = new System.Drawing.Point(121, 182);
->>>>>>> 9f57847888f68869140f094b6ab7cdbf9d1ec557
             this.prodpanel.Name = "prodpanel";
             this.prodpanel.Size = new System.Drawing.Size(283, 87);
             this.prodpanel.TabIndex = 27;
             this.prodpanel.Visible = false;
-<<<<<<< HEAD
-=======
             this.prodpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.prodpanel_Paint);
->>>>>>> 9f57847888f68869140f094b6ab7cdbf9d1ec557
             // 
             // dgsearchprod
             // 
@@ -579,14 +550,13 @@ namespace softeng1
             this.usernameLbl.TabIndex = 51;
             this.usernameLbl.Text = "-----";
             // 
-<<<<<<< HEAD
             // datetime
             // 
             this.datetime.Location = new System.Drawing.Point(193, 498);
             this.datetime.Name = "datetime";
             this.datetime.Size = new System.Drawing.Size(200, 20);
             this.datetime.TabIndex = 58;
-=======
+            // 
             // buyBtn
             // 
             this.buyBtn.BackColor = System.Drawing.Color.White;
@@ -637,26 +607,164 @@ namespace softeng1
             this.panel7.Size = new System.Drawing.Size(380, 38);
             this.panel7.TabIndex = 7;
             // 
-            // orderPanel
+            // buyPanel
             // 
-            this.orderPanel.Controls.Add(this.button1);
-            this.orderPanel.Controls.Add(this.confirmBtn);
-            this.orderPanel.Controls.Add(this.interest);
-            this.orderPanel.Controls.Add(this.label22);
-            this.orderPanel.Controls.Add(this.discount);
-            this.orderPanel.Controls.Add(this.label21);
-            this.orderPanel.Controls.Add(this.cash);
-            this.orderPanel.Controls.Add(this.label20);
-            this.orderPanel.Controls.Add(this.payment);
-            this.orderPanel.Controls.Add(this.label19);
-            this.orderPanel.Controls.Add(this.panel12);
-            this.orderPanel.Controls.Add(this.panel8);
-            this.orderPanel.Enabled = false;
-            this.orderPanel.Location = new System.Drawing.Point(466, 100);
-            this.orderPanel.Name = "orderPanel";
-            this.orderPanel.Size = new System.Drawing.Size(418, 425);
-            this.orderPanel.TabIndex = 28;
-            this.orderPanel.Visible = false;
+            this.buyPanel.Controls.Add(this.button1);
+            this.buyPanel.Controls.Add(this.confirmBtn);
+            this.buyPanel.Controls.Add(this.interest);
+            this.buyPanel.Controls.Add(this.label22);
+            this.buyPanel.Controls.Add(this.discount);
+            this.buyPanel.Controls.Add(this.label21);
+            this.buyPanel.Controls.Add(this.cashTxt);
+            this.buyPanel.Controls.Add(this.label20);
+            this.buyPanel.Controls.Add(this.paymentCmb);
+            this.buyPanel.Controls.Add(this.label19);
+            this.buyPanel.Controls.Add(this.panel12);
+            this.buyPanel.Controls.Add(this.panel8);
+            this.buyPanel.Enabled = false;
+            this.buyPanel.Location = new System.Drawing.Point(466, 100);
+            this.buyPanel.Name = "buyPanel";
+            this.buyPanel.Size = new System.Drawing.Size(418, 425);
+            this.buyPanel.TabIndex = 28;
+            this.buyPanel.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(213, 367);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(144, 37);
+            this.button1.TabIndex = 56;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // confirmBtn
+            // 
+            this.confirmBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
+            this.confirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.confirmBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmBtn.ForeColor = System.Drawing.Color.White;
+            this.confirmBtn.Location = new System.Drawing.Point(59, 367);
+            this.confirmBtn.Name = "confirmBtn";
+            this.confirmBtn.Size = new System.Drawing.Size(144, 37);
+            this.confirmBtn.TabIndex = 56;
+            this.confirmBtn.Text = "Confirm";
+            this.confirmBtn.UseVisualStyleBackColor = false;
+            // 
+            // interest
+            // 
+            this.interest.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interest.Location = new System.Drawing.Point(182, 286);
+            this.interest.Name = "interest";
+            this.interest.Size = new System.Drawing.Size(183, 27);
+            this.interest.TabIndex = 58;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(42, 290);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(71, 23);
+            this.label22.TabIndex = 57;
+            this.label22.Text = "Interest";
+            // 
+            // discount
+            // 
+            this.discount.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discount.Location = new System.Drawing.Point(182, 230);
+            this.discount.Name = "discount";
+            this.discount.Size = new System.Drawing.Size(183, 27);
+            this.discount.TabIndex = 56;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.Black;
+            this.label21.Location = new System.Drawing.Point(42, 234);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(78, 23);
+            this.label21.TabIndex = 55;
+            this.label21.Text = "Discount";
+            // 
+            // cashTxt
+            // 
+            this.cashTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cashTxt.Location = new System.Drawing.Point(182, 174);
+            this.cashTxt.Name = "cashTxt";
+            this.cashTxt.Size = new System.Drawing.Size(183, 27);
+            this.cashTxt.TabIndex = 54;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.Black;
+            this.label20.Location = new System.Drawing.Point(42, 178);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(113, 23);
+            this.label20.TabIndex = 49;
+            this.label20.Text = "Cash Amount";
+            // 
+            // paymentCmb
+            // 
+            this.paymentCmb.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentCmb.FormattingEnabled = true;
+            this.paymentCmb.Items.AddRange(new object[] {
+            "Cash",
+            "Credit"});
+            this.paymentCmb.Location = new System.Drawing.Point(182, 120);
+            this.paymentCmb.Name = "paymentCmb";
+            this.paymentCmb.Size = new System.Drawing.Size(183, 27);
+            this.paymentCmb.TabIndex = 48;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Black;
+            this.label19.Location = new System.Drawing.Point(42, 120);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(118, 23);
+            this.label19.TabIndex = 10;
+            this.label19.Text = "Payment Type";
+            // 
+            // panel12
+            // 
+            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(67)))), ((int)(((byte)(74)))));
+            this.panel12.Controls.Add(this.date);
+            this.panel12.Controls.Add(this.label18);
+            this.panel12.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel12.ForeColor = System.Drawing.Color.White;
+            this.panel12.Location = new System.Drawing.Point(1, 37);
+            this.panel12.Name = "panel12";
+            this.panel12.Size = new System.Drawing.Size(417, 38);
+            this.panel12.TabIndex = 8;
+            // 
+            // date
+            // 
+            this.date.AutoSize = true;
+            this.date.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.date.Location = new System.Drawing.Point(179, 8);
+            this.date.Name = "date";
+            this.date.Size = new System.Drawing.Size(130, 22);
+            this.date.TabIndex = 1;
+            this.date.Text = "mm/dd/yyyy";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(98, 7);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(61, 22);
+            this.label18.TabIndex = 0;
+            this.label18.Text = "Date:";
             // 
             // panel8
             // 
@@ -670,37 +778,6 @@ namespace softeng1
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(418, 38);
             this.panel8.TabIndex = 7;
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
-            this.panel9.Controls.Add(this.label14);
-            this.panel9.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel9.ForeColor = System.Drawing.Color.White;
-            this.panel9.Location = new System.Drawing.Point(434, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(521, 38);
-            this.panel9.TabIndex = 6;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(166, 8);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(174, 22);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Products Ordered";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(98, 8);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(248, 21);
-            this.label15.TabIndex = 5;
-            this.label15.Text = "Glacier Tractor Parts And Sales";
             // 
             // panel10
             // 
@@ -745,182 +822,36 @@ namespace softeng1
             this.label17.TabIndex = 5;
             this.label17.Text = "Glacier Tractor Parts And Sales";
             // 
-            // panel12
+            // panel9
             // 
-            this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(67)))), ((int)(((byte)(74)))));
-            this.panel12.Controls.Add(this.date);
-            this.panel12.Controls.Add(this.label18);
-            this.panel12.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel12.ForeColor = System.Drawing.Color.White;
-            this.panel12.Location = new System.Drawing.Point(1, 37);
-            this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(417, 38);
-            this.panel12.TabIndex = 8;
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.panel9.Controls.Add(this.label14);
+            this.panel9.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel9.ForeColor = System.Drawing.Color.White;
+            this.panel9.Location = new System.Drawing.Point(434, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(521, 38);
+            this.panel9.TabIndex = 6;
             // 
-            // label18
+            // label14
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(98, 7);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(61, 22);
-            this.label18.TabIndex = 0;
-            this.label18.Text = "Date:";
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(166, 8);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(174, 22);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Products Ordered";
             // 
-            // date
+            // label15
             // 
-            this.date.AutoSize = true;
-            this.date.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.date.Location = new System.Drawing.Point(179, 8);
-            this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(130, 22);
-            this.date.TabIndex = 1;
-            this.date.Text = "mm/dd/yyyy";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Black;
-            this.label19.Location = new System.Drawing.Point(42, 120);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(118, 23);
-            this.label19.TabIndex = 10;
-            this.label19.Text = "Payment Type";
-            // 
-            // payment
-            // 
-            this.payment.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.payment.FormattingEnabled = true;
-            this.payment.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.payment.Location = new System.Drawing.Point(182, 120);
-            this.payment.Name = "payment";
-            this.payment.Size = new System.Drawing.Size(183, 27);
-            this.payment.TabIndex = 48;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.Black;
-            this.label20.Location = new System.Drawing.Point(42, 178);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(113, 23);
-            this.label20.TabIndex = 49;
-            this.label20.Text = "Cash Amount";
-            // 
-            // cash
-            // 
-            this.cash.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cash.Location = new System.Drawing.Point(182, 174);
-            this.cash.Name = "cash";
-            this.cash.Size = new System.Drawing.Size(183, 27);
-            this.cash.TabIndex = 54;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.Black;
-            this.label21.Location = new System.Drawing.Point(42, 234);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(78, 23);
-            this.label21.TabIndex = 55;
-            this.label21.Text = "Discount";
-            // 
-            // discount
-            // 
-            this.discount.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discount.Location = new System.Drawing.Point(182, 230);
-            this.discount.Name = "discount";
-            this.discount.Size = new System.Drawing.Size(183, 27);
-            this.discount.TabIndex = 56;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(42, 290);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(71, 23);
-            this.label22.TabIndex = 57;
-            this.label22.Text = "Interest";
-            // 
-            // interest
-            // 
-            this.interest.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interest.Location = new System.Drawing.Point(182, 286);
-            this.interest.Name = "interest";
-            this.interest.Size = new System.Drawing.Size(183, 27);
-            this.interest.TabIndex = 58;
-            // 
-            // confirmBtn
-            // 
-            this.confirmBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
-            this.confirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.confirmBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.confirmBtn.ForeColor = System.Drawing.Color.White;
-            this.confirmBtn.Location = new System.Drawing.Point(59, 367);
-            this.confirmBtn.Name = "confirmBtn";
-            this.confirmBtn.Size = new System.Drawing.Size(144, 37);
-            this.confirmBtn.TabIndex = 56;
-            this.confirmBtn.Text = "Confirm";
-            this.confirmBtn.UseVisualStyleBackColor = false;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(213, 367);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 37);
-            this.button1.TabIndex = 56;
-            this.button1.Text = "Back";
-            this.button1.UseVisualStyleBackColor = false;
->>>>>>> 9f57847888f68869140f094b6ab7cdbf9d1ec557
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.dataGridView1);
-            this.panel8.Controls.Add(this.button1);
-            this.panel8.Enabled = false;
-            this.panel8.Location = new System.Drawing.Point(120, 344);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(687, 98);
-            this.panel8.TabIndex = 28;
-            this.panel8.Visible = false;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 39);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(667, 248);
-            this.dataGridView1.TabIndex = 0;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(636, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 32);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = false;
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(98, 8);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(248, 21);
+            this.label15.TabIndex = 5;
+            this.label15.Text = "Glacier Tractor Parts And Sales";
             // 
             // orderForm
             // 
@@ -929,32 +860,14 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
-<<<<<<< HEAD
-            this.Controls.Add(this.orderDG);
-            this.Controls.Add(this.panel8);
-            this.Controls.Add(this.discountTxt);
-            this.Controls.Add(this.discountLbl);
-            this.Controls.Add(this.cashTxt);
-            this.Controls.Add(this.cashLbl);
-            this.Controls.Add(this.namepanel);
-            this.Controls.Add(this.prodpanel);
-            this.Controls.Add(this.usernameLbl);
-            this.Controls.Add(this.dateLbl);
-            this.Controls.Add(this.editOrderBtn);
-=======
-<<<<<<< HEAD
             this.Controls.Add(this.datetime);
             this.Controls.Add(this.prodpanel);
-            this.Controls.Add(this.orderDG);
-=======
-            this.Controls.Add(this.orderPanel);
->>>>>>> 9f57847888f68869140f094b6ab7cdbf9d1ec557
+            this.Controls.Add(this.buyPanel);
             this.Controls.Add(this.namepanel);
             this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.dateLbl);
             this.Controls.Add(this.editOrderBtn);
             this.Controls.Add(this.buyBtn);
->>>>>>> c066271e99c1495407318c88b7cc21687b3f760f
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.backToMenu);
@@ -976,14 +889,8 @@ namespace softeng1
             this.Controls.Add(this.label4);
             this.Controls.Add(this.custfnameTxt);
             this.Controls.Add(this.ptotal);
-<<<<<<< HEAD
-            this.Controls.Add(this.paymentCmb);
-            this.Controls.Add(this.panel7);
-            this.Controls.Add(this.buyBtn);
-=======
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.orderDG);
->>>>>>> c066271e99c1495407318c88b7cc21687b3f760f
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -1008,25 +915,20 @@ namespace softeng1
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchname)).EndInit();
             this.prodpanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchprod)).EndInit();
-<<<<<<< HEAD
-            this.panel8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-=======
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.orderPanel.ResumeLayout(false);
-            this.orderPanel.PerformLayout();
+            this.buyPanel.ResumeLayout(false);
+            this.buyPanel.PerformLayout();
+            this.panel12.ResumeLayout(false);
+            this.panel12.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
-            this.panel12.ResumeLayout(false);
-            this.panel12.PerformLayout();
->>>>>>> c066271e99c1495407318c88b7cc21687b3f760f
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1072,23 +974,14 @@ namespace softeng1
         private System.Windows.Forms.Button editOrderBtn;
         private System.Windows.Forms.Label dateLbl;
         private System.Windows.Forms.Label usernameLbl;
-<<<<<<< HEAD
-        private System.Windows.Forms.Label cashLbl;
-        private System.Windows.Forms.TextBox cashTxt;
-        private System.Windows.Forms.TextBox discountTxt;
-        private System.Windows.Forms.Label discountLbl;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button1;
-=======
-<<<<<<< HEAD
+
         private System.Windows.Forms.DateTimePicker datetime;
-=======
+
         private System.Windows.Forms.Button buyBtn;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label totalpriceTxt;
         private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Panel orderPanel;
+        private System.Windows.Forms.Panel buyPanel;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label14;
@@ -1106,11 +999,10 @@ namespace softeng1
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox discount;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox cash;
+        private System.Windows.Forms.TextBox cashTxt;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.ComboBox payment;
+        private System.Windows.Forms.ComboBox paymentCmb;
         private System.Windows.Forms.Label label19;
->>>>>>> 9f57847888f68869140f094b6ab7cdbf9d1ec557
->>>>>>> c066271e99c1495407318c88b7cc21687b3f760f
+
     }
 }
