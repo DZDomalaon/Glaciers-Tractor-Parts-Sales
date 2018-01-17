@@ -862,11 +862,10 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
-<<<<<<< HEAD
-=======
+
             this.Controls.Add(this.datetime);
             this.Controls.Add(this.prodpanel);
->>>>>>> 62a973f74fa96ab1879c5bc06b77613b9ccae362
+
             this.Controls.Add(this.buyPanel);
             this.Controls.Add(this.prodpanel);
             this.Controls.Add(this.namepanel);
