@@ -74,9 +74,9 @@ namespace softeng1
             this.buyPanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.confirmBtn = new System.Windows.Forms.Button();
-            this.interest = new System.Windows.Forms.TextBox();
+            this.interestTxt = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.discount = new System.Windows.Forms.TextBox();
+            this.discountTxt = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.cashTxt = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -603,9 +603,9 @@ namespace softeng1
             // 
             this.buyPanel.Controls.Add(this.button1);
             this.buyPanel.Controls.Add(this.confirmBtn);
-            this.buyPanel.Controls.Add(this.interest);
+            this.buyPanel.Controls.Add(this.interestTxt);
             this.buyPanel.Controls.Add(this.label22);
-            this.buyPanel.Controls.Add(this.discount);
+            this.buyPanel.Controls.Add(this.discountTxt);
             this.buyPanel.Controls.Add(this.label21);
             this.buyPanel.Controls.Add(this.cashTxt);
             this.buyPanel.Controls.Add(this.label20);
@@ -614,7 +614,7 @@ namespace softeng1
             this.buyPanel.Controls.Add(this.panel12);
             this.buyPanel.Controls.Add(this.panel8);
             this.buyPanel.Enabled = false;
-            this.buyPanel.Location = new System.Drawing.Point(466, 100);
+            this.buyPanel.Location = new System.Drawing.Point(250, 96);
             this.buyPanel.Name = "buyPanel";
             this.buyPanel.Size = new System.Drawing.Size(418, 425);
             this.buyPanel.TabIndex = 28;
@@ -645,14 +645,15 @@ namespace softeng1
             this.confirmBtn.TabIndex = 56;
             this.confirmBtn.Text = "Confirm";
             this.confirmBtn.UseVisualStyleBackColor = false;
+            this.confirmBtn.Click += new System.EventHandler(this.confirmBtn_Click);
             // 
-            // interest
+            // interestTxt
             // 
-            this.interest.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interest.Location = new System.Drawing.Point(182, 286);
-            this.interest.Name = "interest";
-            this.interest.Size = new System.Drawing.Size(183, 27);
-            this.interest.TabIndex = 58;
+            this.interestTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.interestTxt.Location = new System.Drawing.Point(182, 286);
+            this.interestTxt.Name = "interestTxt";
+            this.interestTxt.Size = new System.Drawing.Size(183, 27);
+            this.interestTxt.TabIndex = 58;
             // 
             // label22
             // 
@@ -665,13 +666,13 @@ namespace softeng1
             this.label22.TabIndex = 57;
             this.label22.Text = "Interest";
             // 
-            // discount
+            // discountTxt
             // 
-            this.discount.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discount.Location = new System.Drawing.Point(182, 230);
-            this.discount.Name = "discount";
-            this.discount.Size = new System.Drawing.Size(183, 27);
-            this.discount.TabIndex = 56;
+            this.discountTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discountTxt.Location = new System.Drawing.Point(182, 230);
+            this.discountTxt.Name = "discountTxt";
+            this.discountTxt.Size = new System.Drawing.Size(183, 27);
+            this.discountTxt.TabIndex = 56;
             // 
             // label21
             // 
@@ -714,6 +715,7 @@ namespace softeng1
             this.paymentCmb.Name = "paymentCmb";
             this.paymentCmb.Size = new System.Drawing.Size(183, 27);
             this.paymentCmb.TabIndex = 48;
+            this.paymentCmb.TextChanged += new System.EventHandler(this.paymentCmb_TextChanged);
             // 
             // label19
             // 
@@ -774,8 +776,8 @@ namespace softeng1
             // panel10
             // 
             this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
-            this.panel10.Controls.Add(this.panel11);
             this.panel10.Controls.Add(this.label17);
+            this.panel10.Controls.Add(this.panel11);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel10.ForeColor = System.Drawing.Color.White;
             this.panel10.Location = new System.Drawing.Point(0, 0);
@@ -852,8 +854,8 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
-            this.Controls.Add(this.prodpanel);
             this.Controls.Add(this.buyPanel);
+            this.Controls.Add(this.prodpanel);
             this.Controls.Add(this.namepanel);
             this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.dateLbl);
@@ -984,9 +986,9 @@ namespace softeng1
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button confirmBtn;
-        private System.Windows.Forms.TextBox interest;
+        private System.Windows.Forms.TextBox interestTxt;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox discount;
+        private System.Windows.Forms.TextBox discountTxt;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox cashTxt;
         private System.Windows.Forms.Label label20;

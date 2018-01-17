@@ -136,14 +136,13 @@ namespace softeng1
             categTxt.Text = "";
             variantTxt.Text = "";
         }
-<<<<<<< HEAD
+
 
         private void prodData_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
-=======
->>>>>>> c066271e99c1495407318c88b7cc21687b3f760f
+
         private void quantityTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))

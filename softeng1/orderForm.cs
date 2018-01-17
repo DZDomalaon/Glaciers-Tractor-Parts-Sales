@@ -165,8 +165,49 @@ namespace softeng1
         }
 
         private void buyBtn_Click(object sender, EventArgs e)
-        { 
+        {
+            buyPanel.Visible = true;
+            buyPanel.Enabled = true;
+        }
 
+        private void dgsearchname_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+        private void closeprod_Click(object sender, EventArgs e)
+        {
+            prodpanel.Hide();
+        }
+        //pass all data from Datagridview to textboxes
+        private void orderDG_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            rowIndex = e.RowIndex; 
+            DataGridViewRow row = orderDG.Rows[rowIndex];
+
+            pnameTxt.Text = row.Cells[1].Value.ToString();
+            ppriceTxt.Text = row.Cells[2].Value.ToString();
+            pquant.Text = row.Cells[3].Value.ToString();
+            ptotal.Text = row.Cells[4].Value.ToString();
+            paymentCmb.Text = row.Cells[5].Value.ToString();
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void totalpriceTxt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void prodpanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void confirmBtn_Click(object sender, EventArgs e)
+        {
             int maxOrderId = 0;
             int OrderIncrement = 0;
             int maxPaymentId = 0;
@@ -196,17 +237,17 @@ namespace softeng1
             {
                 conn.Open();
                 //Get all product id
-                MySqlCommand getProduct_id = new MySqlCommand("SELECT PRODUCT_ID FROM PRODUCT WHERE (PRODUCT_NAME LIKE'%" + row.Cells[1].Value +"%' AND PRICE LIKE '%"+ row.Cells[2].Value +"%')", conn);
+                MySqlCommand getProduct_id = new MySqlCommand("SELECT PRODUCT_ID FROM PRODUCT WHERE (PRODUCT_NAME LIKE'%" + row.Cells[1].Value + "%' AND PRICE LIKE '%" + row.Cells[2].Value + "%')", conn);
                 product_id = Convert.ToInt32(getProduct_id.ExecuteScalar());
                 using (conn)
                 {
                     using (MySqlCommand cmd = new MySqlCommand("INSERT INTO sales_order(order_id,ORDER_price, order_subtotal, order_total, order_subquantity, order_tquantity, order_date, order_status, order_customer_id, order_emp_id, order_payment_id, order_product_id) VALUES('" + OrderIncrement + "', @Price, @Subtotal, '" + total + "', @Quantity, '" + totalQuanatity() + "', @Date, 'Paid', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "', '" + product_id + "')", conn))
                     {
-                        
+
                         cmd.Parameters.AddWithValue("@Price", double.Parse(row.Cells[2].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
                         cmd.Parameters.AddWithValue("@Subtotal", double.Parse(row.Cells[3].Value.ToString()));
                         cmd.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[4].Value.ToString()));
-                        cmd.Parameters.AddWithValue("@Date", row.Cells[5].Value.ToString());                        
+                        cmd.Parameters.AddWithValue("@Date", row.Cells[5].Value.ToString());
                         cmd.ExecuteNonQuery();
                         conn.Close();
                     }
@@ -215,52 +256,20 @@ namespace softeng1
             MessageBox.Show("Records inserted.");
         }
 
-        private void dgsearchname_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-        private void closeprod_Click(object sender, EventArgs e)
-        {
-            prodpanel.Hide();
-        }
-
         private void paymentCmb_TextChanged(object sender, EventArgs e)
         {
-            if(paymentCmb.Text == "Cash")
+            if (paymentCmb.Text == "Cash")
             {
                 cashTxt.Enabled = true;
+                discountTxt.Enabled = true;
+                interestTxt.Enabled = false;
             }
-            else if(paymentCmb.Text == "Credit")
+            else if (paymentCmb.Text == "Credit")
             {
                 cashTxt.Enabled = false;
+                discountTxt.Enabled = false;
+                interestTxt.Enabled = true;
             }
-        }
-        //pass all data from Datagridview to textboxes
-        private void orderDG_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            rowIndex = e.RowIndex; 
-            DataGridViewRow row = orderDG.Rows[rowIndex];
-
-            pnameTxt.Text = row.Cells[1].Value.ToString();
-            ppriceTxt.Text = row.Cells[2].Value.ToString();
-            pquant.Text = row.Cells[3].Value.ToString();
-            ptotal.Text = row.Cells[4].Value.ToString();
-            paymentCmb.Text = row.Cells[5].Value.ToString();
-        }
-
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void totalpriceTxt_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void prodpanel_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         //update the values of data from Datagrid
