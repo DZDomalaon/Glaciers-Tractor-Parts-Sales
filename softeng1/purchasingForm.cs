@@ -241,6 +241,22 @@ namespace softeng1
             }
         }
 
+        private void pnameTxt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string sort = pnameTxt.Text;
+            
+
+            String query = "SELECT * FROM products WHERE client_name LIKE '%" + sort + "' ";
+
+
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+        }
+
         private void removeBtn_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow item in this.purchaseData.SelectedRows)
