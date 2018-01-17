@@ -67,9 +67,6 @@ namespace softeng1
             fromPurchasing.Show();
         }
 
-
-        //private SqlDataAdapter adapt;
-
         public void loadPurchase()
         {
             String query = "select * from purchase";
