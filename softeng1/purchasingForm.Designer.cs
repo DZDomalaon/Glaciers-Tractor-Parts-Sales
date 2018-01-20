@@ -63,7 +63,6 @@
             this.prodpanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.dgsearchprod = new System.Windows.Forms.DataGridView();
-            this.datetime = new System.Windows.Forms.DateTimePicker();
             this.pnameTxt = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -220,19 +219,6 @@
             this.label7.TabIndex = 24;
             this.label7.Text = "Product Price";
             // 
-
-
-            // pnameTxt
-            // 
-            this.pnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnameTxt.Location = new System.Drawing.Point(130, 101);
-            this.pnameTxt.Name = "pnameTxt";
-            this.pnameTxt.Size = new System.Drawing.Size(183, 27);
-            this.pnameTxt.TabIndex = 23;
-            this.pnameTxt.TextChanged += new System.EventHandler(this.pnameTxt_TextChanged);
-            // 
-
-
             // label6
             // 
             this.label6.AutoSize = true;
@@ -489,24 +475,18 @@
             this.dgsearchprod.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgsearchprod.Size = new System.Drawing.Size(667, 249);
             this.dgsearchprod.TabIndex = 0;
-            this.dgsearchprod.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchprod_CellClick);
             this.dgsearchprod.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchprod_CellContentClick);
-            // 
-            // datetime
-            // 
-            this.datetime.Location = new System.Drawing.Point(172, 453);
-            this.datetime.Name = "datetime";
-            this.datetime.Size = new System.Drawing.Size(200, 20);
-            this.datetime.TabIndex = 57;
             // 
             // pnameTxt
             // 
+            this.pnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.pnameTxt.FormattingEnabled = true;
             this.pnameTxt.Location = new System.Drawing.Point(129, 107);
             this.pnameTxt.Name = "pnameTxt";
-            this.pnameTxt.Size = new System.Drawing.Size(184, 21);
+            this.pnameTxt.Size = new System.Drawing.Size(184, 27);
             this.pnameTxt.TabIndex = 58;
             this.pnameTxt.SelectedIndexChanged += new System.EventHandler(this.pnameTxt_SelectedIndexChanged);
+            this.pnameTxt.TextChanged += new System.EventHandler(this.pnameTxt_TextChanged);
             // 
             // purchasingForm
             // 
@@ -515,7 +495,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
             this.Controls.Add(this.pnameTxt);
-            this.Controls.Add(this.datetime);
             this.Controls.Add(this.prodpanel);
             this.Controls.Add(this.spanel);
             this.Controls.Add(this.searchBtn);
@@ -606,7 +585,6 @@
         private System.Windows.Forms.Panel prodpanel;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgsearchprod;
-        private System.Windows.Forms.DateTimePicker datetime;
         private System.Windows.Forms.ComboBox pnameTxt;
     }
 }
