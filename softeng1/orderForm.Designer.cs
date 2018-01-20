@@ -67,7 +67,6 @@ namespace softeng1
             this.editOrderBtn = new System.Windows.Forms.Button();
             this.dateLbl = new System.Windows.Forms.Label();
             this.usernameLbl = new System.Windows.Forms.Label();
-            this.datetime = new System.Windows.Forms.DateTimePicker();
             this.buyBtn = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.totalpriceTxt = new System.Windows.Forms.Label();
@@ -88,9 +87,9 @@ namespace softeng1
             this.label18 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -550,13 +549,6 @@ namespace softeng1
             this.usernameLbl.TabIndex = 51;
             this.usernameLbl.Text = "-----";
             // 
-            // datetime
-            // 
-            this.datetime.Location = new System.Drawing.Point(193, 498);
-            this.datetime.Name = "datetime";
-            this.datetime.Size = new System.Drawing.Size(200, 20);
-            this.datetime.TabIndex = 58;
-            // 
             // buyBtn
             // 
             this.buyBtn.BackColor = System.Drawing.Color.White;
@@ -793,6 +785,16 @@ namespace softeng1
             this.panel10.Size = new System.Drawing.Size(418, 38);
             this.panel10.TabIndex = 8;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(98, 8);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(248, 21);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Glacier Tractor Parts And Sales";
+            // 
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
@@ -813,16 +815,6 @@ namespace softeng1
             this.label16.Size = new System.Drawing.Size(174, 22);
             this.label16.TabIndex = 0;
             this.label16.Text = "Products Ordered";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(98, 8);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(248, 21);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "Glacier Tractor Parts And Sales";
             // 
             // panel9
             // 
@@ -862,10 +854,6 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
-
-            this.Controls.Add(this.datetime);
-            this.Controls.Add(this.prodpanel);
-
             this.Controls.Add(this.buyPanel);
             this.Controls.Add(this.prodpanel);
             this.Controls.Add(this.namepanel);
@@ -979,8 +967,6 @@ namespace softeng1
         private System.Windows.Forms.Button editOrderBtn;
         private System.Windows.Forms.Label dateLbl;
         private System.Windows.Forms.Label usernameLbl;
-
-        private System.Windows.Forms.DateTimePicker datetime;
 
         private System.Windows.Forms.Button buyBtn;
         private System.Windows.Forms.Label label11;

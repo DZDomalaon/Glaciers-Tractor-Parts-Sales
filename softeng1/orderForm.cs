@@ -300,7 +300,7 @@ namespace softeng1
                 string fifthColumn = pquant.Text;
                 string sixthColumn = paymentCmb.Text;
                 string seventhColumn = usernameLbl.Text;
-                string eigthColumn = dateLbl.Text;
+                string eigthColumn = DateTime.Now.Date.ToString();
                 string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn, sixthColumn, seventhColumn, eigthColumn };
 
                 orderDG.Rows.Add(row);
