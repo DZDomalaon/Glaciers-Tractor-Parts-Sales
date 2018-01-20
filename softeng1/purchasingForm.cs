@@ -188,7 +188,7 @@ namespace softeng1
 
         }
         public static int product_id;
-        private void dgsearchprod_CellClick(object sender, DataGridViewCellEventArgs e)
+        /*private void dgsearchprod_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             product_id = int.Parse(dgsearchprod.Rows[e.RowIndex].Cells["product_id"].Value.ToString());
             pnameTxt.Text = dgsearchprod.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
@@ -200,7 +200,7 @@ namespace softeng1
             prodpanel.Visible = false;
             prodpanel.Location = new Point(434, 152);
             prodpanel.Size = new Size(521, 44);
-        }
+        }*/
 
         private void button1_Click(object sender, EventArgs e)
         {
