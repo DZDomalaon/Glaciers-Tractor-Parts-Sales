@@ -27,33 +27,11 @@ namespace softeng1
             usernameLbl.Text = loginForm.name;
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
             loadPurchase();
-            loadproducts();
             pnameTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             pnameTxt.AutoCompleteSource = AutoCompleteSource.ListItems;
 
         }
-        public void loadproducts()
-        {
-            prodpanel.Enabled = true;
-            prodpanel.Visible = true;
-            prodpanel.Location = new Point(140, 56);
-            prodpanel.Size = new Size(681, 297);
-
-            String query = "SELECT * FROM inventory";
-            conn.Open();
-
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-            conn.Close();
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-
-            dgsearchprod.DataSource = dt;
-
-            dgsearchprod.Columns["product_id"].Visible = false;
-            dgsearchprod.Columns["product_name"].HeaderText = "Product Name";
-            dgsearchprod.Columns["price"].HeaderText = "Price";
-        }
+       
 
         private void backBtn_Click(object sender, EventArgs e)
         {
@@ -186,24 +164,6 @@ namespace softeng1
         {
 
         }
-        public static int product_id;
-<<<<<<< HEAD
-
-=======
-        /*private void dgsearchprod_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            product_id = int.Parse(dgsearchprod.Rows[e.RowIndex].Cells["product_id"].Value.ToString());
-            pnameTxt.Text = dgsearchprod.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
-            dgsearchprod.Rows[e.RowIndex].Cells["description"].Value.ToString();
-            priceTxt.Text = dgsearchprod.Rows[e.RowIndex].Cells["price"].Value.ToString();
-           // pnameTxt.Text = prod;
-           // ppriceTxt.Text = price;
-            prodpanel.Enabled = false;
-            prodpanel.Visible = false;
-            prodpanel.Location = new Point(434, 152);
-            prodpanel.Size = new Size(521, 44);
-        }*/
->>>>>>> af194853274e2aaa5396bc305c28a06e9e38f5d3
 
         private void button1_Click(object sender, EventArgs e)
         {
