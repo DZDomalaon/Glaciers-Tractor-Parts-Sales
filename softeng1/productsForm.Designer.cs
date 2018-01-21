@@ -158,11 +158,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-
-            this.backBtn.Location = new System.Drawing.Point(313, 490);
-
             this.backBtn.Location = new System.Drawing.Point(310, 493);
-
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(92, 37);
             this.backBtn.TabIndex = 82;
@@ -176,11 +172,7 @@
             this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.editBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.editBtn.ForeColor = System.Drawing.Color.White;
-
-            this.editBtn.Location = new System.Drawing.Point(215, 490);
-
             this.editBtn.Location = new System.Drawing.Point(212, 493);
-
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(92, 37);
             this.editBtn.TabIndex = 81;
@@ -194,11 +186,7 @@
             this.resetBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.resetBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resetBtn.ForeColor = System.Drawing.Color.White;
-
-            this.resetBtn.Location = new System.Drawing.Point(117, 490);
-
             this.resetBtn.Location = new System.Drawing.Point(114, 493);
-
             this.resetBtn.Name = "resetBtn";
             this.resetBtn.Size = new System.Drawing.Size(92, 37);
             this.resetBtn.TabIndex = 80;
@@ -212,11 +200,7 @@
             this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addBtn.ForeColor = System.Drawing.Color.White;
-
-            this.addBtn.Location = new System.Drawing.Point(19, 490);
-
             this.addBtn.Location = new System.Drawing.Point(16, 493);
-
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(92, 37);
             this.addBtn.TabIndex = 79;
@@ -227,11 +211,7 @@
             // pdescTxt
             // 
             this.pdescTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
-            this.pdescTxt.Location = new System.Drawing.Point(153, 147);
-
             this.pdescTxt.Location = new System.Drawing.Point(165, 156);
-
             this.pdescTxt.Name = "pdescTxt";
             this.pdescTxt.Size = new System.Drawing.Size(223, 27);
             this.pdescTxt.TabIndex = 77;
@@ -241,11 +221,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-
-            this.label5.Location = new System.Drawing.Point(12, 151);
-
             this.label5.Location = new System.Drawing.Point(24, 160);
-
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(99, 23);
             this.label5.TabIndex = 76;
@@ -256,11 +232,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-
-            this.label4.Location = new System.Drawing.Point(13, 109);
-
             this.label4.Location = new System.Drawing.Point(25, 118);
-
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(120, 23);
             this.label4.TabIndex = 74;
@@ -270,11 +242,7 @@
             // pnameTxt
             // 
             this.pnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
-            this.pnameTxt.Location = new System.Drawing.Point(154, 105);
-
             this.pnameTxt.Location = new System.Drawing.Point(166, 114);
-
             this.pnameTxt.Name = "pnameTxt";
             this.pnameTxt.Size = new System.Drawing.Size(223, 27);
             this.pnameTxt.TabIndex = 75;
@@ -285,11 +253,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-
-            this.label6.Location = new System.Drawing.Point(13, 370);
-
             this.label6.Location = new System.Drawing.Point(25, 379);
-
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(113, 23);
             this.label6.TabIndex = 83;
@@ -298,11 +262,7 @@
             // priceTxt
             // 
             this.priceTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
-            this.priceTxt.Location = new System.Drawing.Point(154, 366);
-
             this.priceTxt.Location = new System.Drawing.Point(166, 375);
-
             this.priceTxt.Name = "priceTxt";
             this.priceTxt.Size = new System.Drawing.Size(223, 27);
             this.priceTxt.TabIndex = 84;
@@ -313,11 +273,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-
-            this.label9.Location = new System.Drawing.Point(13, 237);
-
             this.label9.Location = new System.Drawing.Point(25, 246);
-
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(83, 23);
             this.label9.TabIndex = 89;
@@ -328,11 +284,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-
-            this.label10.Location = new System.Drawing.Point(13, 281);
-
             this.label10.Location = new System.Drawing.Point(25, 290);
-
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(79, 23);
             this.label10.TabIndex = 91;
@@ -342,11 +294,7 @@
             // 
             this.categTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categTxt.FormattingEnabled = true;
-
-            this.categTxt.Location = new System.Drawing.Point(154, 277);
-
             this.categTxt.Location = new System.Drawing.Point(166, 286);
-
             this.categTxt.Name = "categTxt";
             this.categTxt.Size = new System.Drawing.Size(223, 27);
             this.categTxt.TabIndex = 92;
@@ -356,11 +304,7 @@
             this.asd.AutoSize = true;
             this.asd.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.asd.ForeColor = System.Drawing.Color.Black;
-
-            this.asd.Location = new System.Drawing.Point(13, 326);
-
             this.asd.Location = new System.Drawing.Point(25, 335);
-
             this.asd.Name = "asd";
             this.asd.Size = new System.Drawing.Size(65, 23);
             this.asd.TabIndex = 76;
@@ -369,11 +313,7 @@
             // quantityTxt
             // 
             this.quantityTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
-            this.quantityTxt.Location = new System.Drawing.Point(154, 190);
-
             this.quantityTxt.Location = new System.Drawing.Point(166, 199);
-
             this.quantityTxt.Name = "quantityTxt";
             this.quantityTxt.Size = new System.Drawing.Size(223, 27);
             this.quantityTxt.TabIndex = 94;
@@ -384,11 +324,7 @@
             this.quantityLbl.AutoSize = true;
             this.quantityLbl.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.quantityLbl.ForeColor = System.Drawing.Color.Black;
-
-            this.quantityLbl.Location = new System.Drawing.Point(13, 194);
-
             this.quantityLbl.Location = new System.Drawing.Point(25, 203);
-
             this.quantityLbl.Name = "quantityLbl";
             this.quantityLbl.Size = new System.Drawing.Size(78, 23);
             this.quantityLbl.TabIndex = 93;
@@ -397,11 +333,7 @@
             // serialTxt
             // 
             this.serialTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-
-            this.serialTxt.Location = new System.Drawing.Point(153, 233);
-
             this.serialTxt.Location = new System.Drawing.Point(165, 242);
-
             this.serialTxt.Name = "serialTxt";
             this.serialTxt.Size = new System.Drawing.Size(223, 27);
             this.serialTxt.TabIndex = 95;
@@ -410,11 +342,7 @@
             // 
             this.SupplierCmb.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SupplierCmb.FormattingEnabled = true;
-
-            this.SupplierCmb.Location = new System.Drawing.Point(153, 409);
-
             this.SupplierCmb.Location = new System.Drawing.Point(165, 418);
-
             this.SupplierCmb.Name = "SupplierCmb";
             this.SupplierCmb.Size = new System.Drawing.Size(223, 27);
             this.SupplierCmb.TabIndex = 97;
@@ -424,11 +352,7 @@
             this.SupplierLbl.AutoSize = true;
             this.SupplierLbl.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SupplierLbl.ForeColor = System.Drawing.Color.Black;
-
-            this.SupplierLbl.Location = new System.Drawing.Point(12, 413);
-
             this.SupplierLbl.Location = new System.Drawing.Point(24, 422);
-
             this.SupplierLbl.Name = "SupplierLbl";
             this.SupplierLbl.Size = new System.Drawing.Size(73, 23);
             this.SupplierLbl.TabIndex = 96;
@@ -438,11 +362,7 @@
             // 
             this.variantTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.variantTxt.FormattingEnabled = true;
-
-            this.variantTxt.Location = new System.Drawing.Point(153, 322);
-
             this.variantTxt.Location = new System.Drawing.Point(165, 331);
-
             this.variantTxt.Name = "variantTxt";
             this.variantTxt.Size = new System.Drawing.Size(223, 27);
             this.variantTxt.TabIndex = 98;
@@ -482,8 +402,7 @@
             this.Name = "productsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Glacier Tractor Parts & Sales | Products";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.productsForm_FormClosing_1);
-            this.Load += new System.EventHandler(this.productsForm_Load_1);
+            this.Load += new System.EventHandler(this.productsForm_Load);
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

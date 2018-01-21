@@ -39,13 +39,11 @@
             this.editBtn = new System.Windows.Forms.Button();
             this.resetBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.lnameTxt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.fnameTxt = new System.Windows.Forms.TextBox();
             this.custData = new System.Windows.Forms.DataGridView();
-            this.creditTxt = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.addressTxt = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -58,6 +56,8 @@
             this.dgtransactions = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label11 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.creditTxt = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -197,18 +197,6 @@
             this.addBtn.UseVisualStyleBackColor = false;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(12, 244);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 46);
-            this.label6.TabIndex = 51;
-            this.label6.Text = "Credit\r\nLimit";
-            this.label6.Click += new System.EventHandler(this.label6_Click);
-            // 
             // lnameTxt
             // 
             this.lnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -253,6 +241,7 @@
             // 
             this.custData.AllowUserToAddRows = false;
             this.custData.AllowUserToDeleteRows = false;
+            this.custData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.custData.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.custData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.custData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -264,15 +253,6 @@
             this.custData.Size = new System.Drawing.Size(521, 243);
             this.custData.TabIndex = 63;
             this.custData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.custData_CellClick);
-            // 
-            // creditTxt
-            // 
-            this.creditTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.creditTxt.Location = new System.Drawing.Point(129, 248);
-            this.creditTxt.Name = "creditTxt";
-            this.creditTxt.ReadOnly = true;
-            this.creditTxt.Size = new System.Drawing.Size(159, 27);
-            this.creditTxt.TabIndex = 64;
             // 
             // label7
             // 
@@ -288,7 +268,7 @@
             // addressTxt
             // 
             this.addressTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addressTxt.Location = new System.Drawing.Point(129, 301);
+            this.addressTxt.Location = new System.Drawing.Point(129, 305);
             this.addressTxt.Name = "addressTxt";
             this.addressTxt.Size = new System.Drawing.Size(159, 27);
             this.addressTxt.TabIndex = 66;
@@ -307,7 +287,7 @@
             // cnumTxt
             // 
             this.cnumTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cnumTxt.Location = new System.Drawing.Point(129, 349);
+            this.cnumTxt.Location = new System.Drawing.Point(129, 358);
             this.cnumTxt.Mask = "0000-000-0000";
             this.cnumTxt.Name = "cnumTxt";
             this.cnumTxt.PromptChar = '0';
@@ -321,7 +301,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(12, 413);
+            this.label9.Location = new System.Drawing.Point(12, 409);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(51, 23);
             this.label9.TabIndex = 69;
@@ -330,7 +310,7 @@
             // emailTxt
             // 
             this.emailTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailTxt.Location = new System.Drawing.Point(129, 413);
+            this.emailTxt.Location = new System.Drawing.Point(129, 409);
             this.emailTxt.Name = "emailTxt";
             this.emailTxt.Size = new System.Drawing.Size(159, 27);
             this.emailTxt.TabIndex = 70;
@@ -340,7 +320,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(12, 200);
+            this.label10.Location = new System.Drawing.Point(12, 205);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 23);
             this.label10.TabIndex = 71;
@@ -350,7 +330,7 @@
             // 
             this.rbMale.AutoSize = true;
             this.rbMale.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbMale.Location = new System.Drawing.Point(129, 201);
+            this.rbMale.Location = new System.Drawing.Point(129, 206);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(60, 23);
             this.rbMale.TabIndex = 72;
@@ -362,7 +342,7 @@
             // 
             this.rbFemale.AutoSize = true;
             this.rbFemale.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFemale.Location = new System.Drawing.Point(214, 200);
+            this.rbFemale.Location = new System.Drawing.Point(214, 205);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(74, 23);
             this.rbFemale.TabIndex = 73;
@@ -374,6 +354,7 @@
             // 
             this.dgtransactions.AllowUserToAddRows = false;
             this.dgtransactions.AllowUserToDeleteRows = false;
+            this.dgtransactions.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgtransactions.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.dgtransactions.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgtransactions.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -406,12 +387,33 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Customers Transactions";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(12, 244);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(56, 46);
+            this.label6.TabIndex = 51;
+            this.label6.Text = "Credit\r\nLimit";
+            // 
+            // creditTxt
+            // 
+            this.creditTxt.Enabled = false;
+            this.creditTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.creditTxt.Location = new System.Drawing.Point(129, 254);
+            this.creditTxt.Name = "creditTxt";
+            this.creditTxt.Size = new System.Drawing.Size(159, 27);
+            this.creditTxt.TabIndex = 95;
+            // 
             // customersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.creditTxt);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.dgtransactions);
             this.Controls.Add(this.rbFemale);
@@ -423,7 +425,6 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.addressTxt);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.creditTxt);
             this.Controls.Add(this.custData);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.editBtn);
@@ -473,13 +474,11 @@
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.Button addBtn;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox lnameTxt;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox fnameTxt;
         private System.Windows.Forms.DataGridView custData;
-        private System.Windows.Forms.TextBox creditTxt;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox addressTxt;
         private System.Windows.Forms.Label label8;
@@ -492,5 +491,7 @@
         private System.Windows.Forms.DataGridView dgtransactions;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox creditTxt;
     }
 }
