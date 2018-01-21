@@ -409,7 +409,7 @@ namespace softeng1
             this.namepanel.Controls.Add(this.dgsearchname);
             this.namepanel.Controls.Add(this.closename);
             this.namepanel.Enabled = false;
-            this.namepanel.Location = new System.Drawing.Point(121, 295);
+            this.namepanel.Location = new System.Drawing.Point(132, 104);
             this.namepanel.Name = "namepanel";
             this.namepanel.Size = new System.Drawing.Size(119, 91);
             this.namepanel.TabIndex = 26;
@@ -451,9 +451,9 @@ namespace softeng1
             this.prodpanel.Controls.Add(this.dgsearchprod);
             this.prodpanel.Controls.Add(this.closeprod);
             this.prodpanel.Enabled = false;
-            this.prodpanel.Location = new System.Drawing.Point(121, 182);
+            this.prodpanel.Location = new System.Drawing.Point(257, 102);
             this.prodpanel.Name = "prodpanel";
-            this.prodpanel.Size = new System.Drawing.Size(283, 87);
+            this.prodpanel.Size = new System.Drawing.Size(119, 93);
             this.prodpanel.TabIndex = 27;
             this.prodpanel.Visible = false;
             this.prodpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.prodpanel_Paint);
@@ -614,7 +614,7 @@ namespace softeng1
             this.buyPanel.Controls.Add(this.panel12);
             this.buyPanel.Controls.Add(this.panel8);
             this.buyPanel.Enabled = false;
-            this.buyPanel.Location = new System.Drawing.Point(250, 96);
+            this.buyPanel.Location = new System.Drawing.Point(269, 96);
             this.buyPanel.Name = "buyPanel";
             this.buyPanel.Size = new System.Drawing.Size(418, 425);
             this.buyPanel.TabIndex = 28;

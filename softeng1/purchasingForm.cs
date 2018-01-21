@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
+using Microsoft.VisualBasic;
 
 namespace softeng1
 {
@@ -27,9 +28,13 @@ namespace softeng1
             usernameLbl.Text = loginForm.name;
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
             loadPurchase();
-            pnameTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            pnameTxt.AutoCompleteSource = AutoCompleteSource.ListItems;
-
+            
+            /*purchaseDG.Columns.Add("Product Name", "Product Name");
+            purchaseDG.Columns.Add("Quantity", "Quantity");
+            purchaseDG.Columns.Add("Price", "Price");
+            purchaseDG.Columns.Add("Date", "Date");
+            purchaseDG.Columns.Add("Employee", "Employee");
+            purchaseDG.Columns.Add("Supplier", "Supplier");*/
         }
        
 
@@ -55,28 +60,28 @@ namespace softeng1
             DataTable dt = new DataTable();
             adp.Fill(dt);
 
-            purchaseData.DataSource = dt;
+            purchaseDG.DataSource = dt;
 
-            purchaseData.Columns["purchase_id"].Visible = false;
-            purchaseData.Columns["purchase_emp_id"].HeaderText = "Employee";
-            purchaseData.Columns["purchase_supplier_id"].HeaderText = "Supplier";
-            purchaseData.Columns["purchase_date"].HeaderText = "Purchase Date";
-            purchaseData.Columns["product_name"].HeaderText = "Product Name";
-            purchaseData.Columns["quantity"].HeaderText = "Quantity";
-            //purchaseData.Columns["price"].HeaderText = "Price";
+            purchaseDG.Columns["purchase_id"].Visible = false;
+            purchaseDG.Columns["purchase_date"].HeaderText = "Purchase Date";
+            purchaseDG.Columns["product_name"].HeaderText = "Product Name";
+            purchaseDG.Columns["quantity"].HeaderText = "Quantity";
+            purchaseDG.Columns["price"].HeaderText = "Price";
+            purchaseDG.Columns["purchase_emp_id"].HeaderText = "Employee";
+            purchaseDG.Columns["purchase_supplier_id"].HeaderText = "Supplier";
         }
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            if (pnameTxt.Text == "" || priceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "" || snameTxt.Text == "")
+            /*if (pname.Text == "" || priceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "" || snameTxt.Text == "")
             {
                 MessageBox.Show("Please fill up all the data", "Add Purchased Product", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
                 string query =
-                    "INSERT INTO purchase(purchase_emp_id, purchase_supplier_id, product_name, quantity, purchase_date) VALUES" +
-                    "('" + loginForm.user_id + "','"+ supplier_id + "','" + pnameTxt.Text + "','" + pquant.Text + "','" + dateLbl.Text + "')";
+                    "INSERT INTO purchase(purchase_emp_id, purchase_supplier_id, product_name, quantity, price, purchase_date) VALUES" +
+                    "('" + loginForm.user_id + "','"+ supplier_id + "','" + pname.Text + "','" + pquant.Text + "','" + ptotal.Text + "','" + dateLbl.Text + "')";
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
@@ -87,12 +92,32 @@ namespace softeng1
 
                 usernameLbl.Text = "";
                 snameTxt.Text = "";
-                pnameTxt.Text = "";
+                pname.Text = "";
                 ptotal.Text = "";
                 pquant.Text = "";
-                dateLbl.Text = "";
+                dateLbl.Text = "";*/
+                if (pname.Text == "" || pquant.Text == "" || ptotal.Text == "" || usernameLbl.Text == "" || snameTxt.Text == "")
+                {
+                    MessageBox.Show("Please fill up all the data", "Add Purchase Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    string firstColumn = pname.Text;
+                    string secondColumn = pquant.Text;
+                    string thirdColumn = ptotal.Text;
+                    string fourthColumn = snameTxt.Text;
+                    string fifthColumn = usernameLbl.Text;
+                    string sixthColumn = DateTime.Now.Date.ToString();
+                    string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn, sixthColumn };
+
+                    purchaseDG.Rows.Add(row);
+
+                    pname.Clear();
+                    pquant.Clear();
+                    ptotal.Clear();
+                    snameTxt.Clear();
+                }
             }
-        }
         public static int quant;
         public static double tot, p, q;
 
@@ -122,14 +147,14 @@ namespace softeng1
         public static int supplier_id;
         public static String name;
         private int selected_supplier_id;
-
+        public static int rowIndex;
         private void purchaseData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             /*
             if (e.RowIndex > -1)
             {
                 //selected_supplier_id = int.Parse(dgsname.Rows[e.RowIndex].Cells["supplier_id"].Value.ToString());
-                pnameTxt.Text = dgsname.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
+                pname.Text = dgsname.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
                 ptotal.Text = dgsname.Rows[e.RowIndex].Cells["price"].Value.ToString();
                 pquant.Text = dgsname.Rows[e.RowIndex].Cells["quantity"].Value.ToString();
                 dateLbl.Text = dgsname.Rows[e.RowIndex].Cells["purchase_date"].Value.ToString();
@@ -158,8 +183,6 @@ namespace softeng1
             spanel.Location = new Point(434, 85);
             spanel.Size = new Size(521, 44);
         }
-        
-
         private void dgsearchprod_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -173,12 +196,6 @@ namespace softeng1
             prodpanel.Size = new Size(521, 44);
 
         }
-
-        private void purchaseData_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void priceTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -194,19 +211,9 @@ namespace softeng1
                 e.Handled = true;
             }
         }
-
-        private void pnameTxt_TextChanged(object sender, EventArgs e)
-        {
-            if (!System.Text.RegularExpressions.Regex.IsMatch(pnameTxt.Text, "^[a-zA-Z]"))
-            {
-                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
-                pnameTxt.Text.Remove(pnameTxt.Text.Length - 1);
-            }
-        }
-
         private void pnameTxt_SelectedIndexChanged(object sender, EventArgs e)
         {
-            string sort = pnameTxt.Text;
+            string sort = pname.Text;
             
 
             String query = "SELECT * FROM products WHERE client_name LIKE '%" + sort + "' ";
@@ -220,11 +227,32 @@ namespace softeng1
             adp.Fill(dt);
         }
 
+        private void pnameTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
+            }
+        }
+
+        private void purchaseDG_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            rowIndex = e.RowIndex;
+            DataGridViewRow row = purchaseDG.Rows[rowIndex];
+
+            pname.Text = row.Cells[1].Value.ToString();
+            pquant.Text = row.Cells[2].Value.ToString();
+            ptotal.Text = row.Cells[3].Value.ToString();
+            dateLbl.Text = row.Cells[4].Value.ToString();
+            usernameLbl.Text = row.Cells[5].Value.ToString();
+            snameTxt.Text = row.Cells[6].Value.ToString();
+        }
+
         private void removeBtn_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow item in this.purchaseData.SelectedRows)
+            foreach (DataGridViewRow item in this.purchaseDG.SelectedRows)
             {
-                purchaseData.Rows.RemoveAt(item.Index);
+                purchaseDG.Rows.RemoveAt(item.Index);
             }
         }
         private void pquant_TextChanged(object sender, EventArgs e)
