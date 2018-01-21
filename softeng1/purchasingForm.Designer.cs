@@ -160,16 +160,16 @@
             // 
             this.purchaseDG.AllowUserToAddRows = false;
             this.purchaseDG.AllowUserToDeleteRows = false;
+            this.purchaseDG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.purchaseDG.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.purchaseDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.purchaseDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.purchaseDG.Dock = System.Windows.Forms.DockStyle.Right;
             this.purchaseDG.Location = new System.Drawing.Point(436, 85);
             this.purchaseDG.Name = "purchaseDG";
             this.purchaseDG.ReadOnly = true;
             this.purchaseDG.RowHeadersVisible = false;
             this.purchaseDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.purchaseDG.Size = new System.Drawing.Size(519, 502);
+            this.purchaseDG.Size = new System.Drawing.Size(519, 465);
             this.purchaseDG.TabIndex = 8;
             this.purchaseDG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.purchaseDG_CellClick);
             // 
@@ -531,7 +531,7 @@
             this.buyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buyBtn.Location = new System.Drawing.Point(816, 549);
             this.buyBtn.Name = "buyBtn";
-            this.buyBtn.Size = new System.Drawing.Size(141, 36);
+            this.buyBtn.Size = new System.Drawing.Size(141, 38);
             this.buyBtn.TabIndex = 58;
             this.buyBtn.Text = "Check Out";
             this.buyBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

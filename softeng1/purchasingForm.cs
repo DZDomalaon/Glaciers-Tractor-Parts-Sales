@@ -27,14 +27,11 @@ namespace softeng1
         {
             usernameLbl.Text = loginForm.name;
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
-            loadPurchase();
             
-            /*purchaseDG.Columns.Add("Product Name", "Product Name");
-            purchaseDG.Columns.Add("Quantity", "Quantity");
+            purchaseDG.Columns.Add("Product Name", "Product Name");
             purchaseDG.Columns.Add("Price", "Price");
-            purchaseDG.Columns.Add("Date", "Date");
-            purchaseDG.Columns.Add("Employee", "Employee");
-            purchaseDG.Columns.Add("Supplier", "Supplier");*/
+            purchaseDG.Columns.Add("Quantity", "Quantity");
+            purchaseDG.Columns.Add("Sub Total", "Sub Total");
         }
        
 
@@ -49,7 +46,7 @@ namespace softeng1
             fromPurchasing.Show();
         }
 
-        public void loadPurchase()
+        /*public void loadPurchase()
         {
             String query = "select * from purchase";
 
@@ -62,60 +59,37 @@ namespace softeng1
 
             purchaseDG.DataSource = dt;
 
-            purchaseDG.Columns["purchase_id"].Visible = false;
-            purchaseDG.Columns["purchase_date"].HeaderText = "Purchase Date";
+            //purchaseDG.Columns["purchase_id"].Visible = false;
             purchaseDG.Columns["product_name"].HeaderText = "Product Name";
-            purchaseDG.Columns["quantity"].HeaderText = "Quantity";
+
             purchaseDG.Columns["price"].HeaderText = "Price";
-            purchaseDG.Columns["purchase_emp_id"].HeaderText = "Employee";
+            purchaseDG.Columns["quantity"].HeaderText = "Quantity";
             purchaseDG.Columns["purchase_supplier_id"].HeaderText = "Supplier";
-        }
+            purchaseDG.Columns["purchase_emp_id"].HeaderText = "Employee";
+            purchaseDG.Columns["purchase_date"].HeaderText = "Purchase Date";
+        }*/
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            /*if (pname.Text == "" || priceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "" || snameTxt.Text == "")
-            {
-                MessageBox.Show("Please fill up all the data", "Add Purchased Product", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                string query =
-                    "INSERT INTO purchase(purchase_emp_id, purchase_supplier_id, product_name, quantity, price, purchase_date) VALUES" +
-                    "('" + loginForm.user_id + "','"+ supplier_id + "','" + pname.Text + "','" + pquant.Text + "','" + ptotal.Text + "','" + dateLbl.Text + "')";
-
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand(query, conn);
-                comm.ExecuteNonQuery();
-                conn.Close();
-
-                loadPurchase();
-
-                usernameLbl.Text = "";
-                snameTxt.Text = "";
-                pname.Text = "";
-                ptotal.Text = "";
-                pquant.Text = "";
-                dateLbl.Text = "";*/
-                if (pname.Text == "" || pquant.Text == "" || ptotal.Text == "" || usernameLbl.Text == "" || snameTxt.Text == "")
-                {
-                    MessageBox.Show("Please fill up all the data", "Add Purchase Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
+                if (pname.Text != "" || priceTxt.Text != "" || pquant.Text != "" || ptotal.Text != "")
                 {
                     string firstColumn = pname.Text;
-                    string secondColumn = pquant.Text;
-                    string thirdColumn = ptotal.Text;
-                    string fourthColumn = snameTxt.Text;
-                    string fifthColumn = usernameLbl.Text;
-                    string sixthColumn = DateTime.Now.Date.ToString();
-                    string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn, sixthColumn };
+                    string secondColumn = priceTxt.Text;
+                    string thirdColumn = pquant.Text;
+                    string fourthColumn = ptotal.Text;
+
+                    string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn };
 
                     purchaseDG.Rows.Add(row);
 
                     pname.Clear();
+                    priceTxt.Clear();
                     pquant.Clear();
-                    ptotal.Clear();
-                    snameTxt.Clear();
+                    ptotal.Clear();               
+                }
+                else
+                {
+                    MessageBox.Show("Please fill up all the data", "Add Purchase Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         public static int quant;
