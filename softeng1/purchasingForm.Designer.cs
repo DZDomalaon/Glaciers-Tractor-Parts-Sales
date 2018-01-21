@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(purchasingForm));
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -35,7 +36,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.purchaseData = new System.Windows.Forms.DataGridView();
+            this.purchaseDG = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pquant = new System.Windows.Forms.TextBox();
@@ -63,18 +64,23 @@
             this.prodpanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.dgsearchprod = new System.Windows.Forms.DataGridView();
-            this.pnameTxt = new System.Windows.Forms.ComboBox();
+            this.pname = new System.Windows.Forms.TextBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.totalpriceTxt = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.buyBtn = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseDG)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.spanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgsname)).BeginInit();
             this.prodpanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchprod)).BeginInit();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -150,23 +156,22 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Product Details";
             // 
-            // purchaseData
+            // purchaseDG
             // 
-            this.purchaseData.AllowUserToAddRows = false;
-            this.purchaseData.AllowUserToDeleteRows = false;
-            this.purchaseData.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.purchaseData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.purchaseData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.purchaseData.Dock = System.Windows.Forms.DockStyle.Right;
-            this.purchaseData.Location = new System.Drawing.Point(434, 85);
-            this.purchaseData.Name = "purchaseData";
-            this.purchaseData.ReadOnly = true;
-            this.purchaseData.RowHeadersVisible = false;
-            this.purchaseData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.purchaseData.Size = new System.Drawing.Size(521, 502);
-            this.purchaseData.TabIndex = 8;
-            this.purchaseData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.purchaseData_CellClick);
-            this.purchaseData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.purchaseData_CellContentClick);
+            this.purchaseDG.AllowUserToAddRows = false;
+            this.purchaseDG.AllowUserToDeleteRows = false;
+            this.purchaseDG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.purchaseDG.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.purchaseDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.purchaseDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.purchaseDG.Location = new System.Drawing.Point(436, 85);
+            this.purchaseDG.Name = "purchaseDG";
+            this.purchaseDG.ReadOnly = true;
+            this.purchaseDG.RowHeadersVisible = false;
+            this.purchaseDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.purchaseDG.Size = new System.Drawing.Size(519, 465);
+            this.purchaseDG.TabIndex = 8;
+            this.purchaseDG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.purchaseDG_CellClick);
             // 
             // label12
             // 
@@ -477,16 +482,60 @@
             this.dgsearchprod.TabIndex = 0;
             this.dgsearchprod.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchprod_CellContentClick);
             // 
-            // pnameTxt
+            // pname
             // 
-            this.pnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnameTxt.FormattingEnabled = true;
-            this.pnameTxt.Location = new System.Drawing.Point(129, 107);
-            this.pnameTxt.Name = "pnameTxt";
-            this.pnameTxt.Size = new System.Drawing.Size(184, 27);
-            this.pnameTxt.TabIndex = 58;
-            this.pnameTxt.SelectedIndexChanged += new System.EventHandler(this.pnameTxt_SelectedIndexChanged);
-            this.pnameTxt.TextChanged += new System.EventHandler(this.pnameTxt_TextChanged);
+            this.pname.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pname.Location = new System.Drawing.Point(130, 105);
+            this.pname.Name = "pname";
+            this.pname.Size = new System.Drawing.Size(183, 27);
+            this.pname.TabIndex = 57;
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.panel7.Controls.Add(this.totalpriceTxt);
+            this.panel7.Controls.Add(this.label11);
+            this.panel7.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel7.ForeColor = System.Drawing.Color.White;
+            this.panel7.Location = new System.Drawing.Point(436, 549);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(380, 38);
+            this.panel7.TabIndex = 59;
+            // 
+            // totalpriceTxt
+            // 
+            this.totalpriceTxt.AutoSize = true;
+            this.totalpriceTxt.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalpriceTxt.Location = new System.Drawing.Point(205, 7);
+            this.totalpriceTxt.Name = "totalpriceTxt";
+            this.totalpriceTxt.Size = new System.Drawing.Size(48, 22);
+            this.totalpriceTxt.TabIndex = 1;
+            this.totalpriceTxt.Text = "0.00";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(136, 7);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(63, 22);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Total: ";
+            // 
+            // buyBtn
+            // 
+            this.buyBtn.BackColor = System.Drawing.Color.White;
+            this.buyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buyBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buyBtn.Image = ((System.Drawing.Image)(resources.GetObject("buyBtn.Image")));
+            this.buyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buyBtn.Location = new System.Drawing.Point(816, 549);
+            this.buyBtn.Name = "buyBtn";
+            this.buyBtn.Size = new System.Drawing.Size(141, 38);
+            this.buyBtn.TabIndex = 58;
+            this.buyBtn.Text = "Check Out";
+            this.buyBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buyBtn.UseVisualStyleBackColor = false;
             // 
             // purchasingForm
             // 
@@ -494,7 +543,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
-            this.Controls.Add(this.pnameTxt);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.buyBtn);
             this.Controls.Add(this.prodpanel);
             this.Controls.Add(this.spanel);
             this.Controls.Add(this.searchBtn);
@@ -516,9 +566,10 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.ptotal);
-            this.Controls.Add(this.purchaseData);
+            this.Controls.Add(this.purchaseDG);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pname);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -534,7 +585,7 @@
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseDG)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -543,6 +594,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgsname)).EndInit();
             this.prodpanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchprod)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -557,7 +610,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView purchaseData;
+        private System.Windows.Forms.DataGridView purchaseDG;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox pquant;
@@ -585,6 +638,10 @@
         private System.Windows.Forms.Panel prodpanel;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dgsearchprod;
-        private System.Windows.Forms.ComboBox pnameTxt;
+        private System.Windows.Forms.TextBox pname;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label totalpriceTxt;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button buyBtn;
     }
 }

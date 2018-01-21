@@ -250,7 +250,7 @@
             this.custData.ReadOnly = true;
             this.custData.RowHeadersVisible = false;
             this.custData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.custData.Size = new System.Drawing.Size(521, 243);
+            this.custData.Size = new System.Drawing.Size(521, 239);
             this.custData.TabIndex = 63;
             this.custData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.custData_CellClick);
             // 
@@ -413,7 +413,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+<<<<<<< HEAD
             this.Controls.Add(this.creditTxt);
+=======
+            this.Controls.Add(this.custData);
+>>>>>>> 2f8465027a9709ddf1efe0155338cd10d5cda3a8
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.dgtransactions);
             this.Controls.Add(this.rbFemale);
@@ -425,7 +429,11 @@
             this.Controls.Add(this.label8);
             this.Controls.Add(this.addressTxt);
             this.Controls.Add(this.label7);
+<<<<<<< HEAD
             this.Controls.Add(this.custData);
+=======
+            this.Controls.Add(this.creditTxt);
+>>>>>>> 2f8465027a9709ddf1efe0155338cd10d5cda3a8
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.resetBtn);
