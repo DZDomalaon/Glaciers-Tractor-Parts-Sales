@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -48,7 +51,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.fnameTxt = new System.Windows.Forms.TextBox();
-            this.supplierData = new System.Windows.Forms.DataGridView();
             this.contact = new System.Windows.Forms.Label();
             this.contactTxt = new System.Windows.Forms.TextBox();
             this.rbFemale = new System.Windows.Forms.RadioButton();
@@ -57,10 +59,16 @@
             this.organizationTxt = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.cnumTxt = new System.Windows.Forms.MaskedTextBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.dgproduct = new System.Windows.Forms.DataGridView();
+            this.supplierData = new System.Windows.Forms.DataGridView();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgproduct)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -143,7 +151,7 @@
             this.emailTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailTxt.Location = new System.Drawing.Point(128, 295);
             this.emailTxt.Name = "emailTxt";
-            this.emailTxt.Size = new System.Drawing.Size(159, 27);
+            this.emailTxt.Size = new System.Drawing.Size(176, 27);
             this.emailTxt.TabIndex = 89;
             // 
             // label9
@@ -173,7 +181,7 @@
             this.addressTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addressTxt.Location = new System.Drawing.Point(128, 343);
             this.addressTxt.Name = "addressTxt";
-            this.addressTxt.Size = new System.Drawing.Size(159, 27);
+            this.addressTxt.Size = new System.Drawing.Size(176, 27);
             this.addressTxt.TabIndex = 85;
             // 
             // label7
@@ -248,8 +256,9 @@
             this.lnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnameTxt.Location = new System.Drawing.Point(128, 152);
             this.lnameTxt.Name = "lnameTxt";
-            this.lnameTxt.Size = new System.Drawing.Size(159, 27);
+            this.lnameTxt.Size = new System.Drawing.Size(176, 27);
             this.lnameTxt.TabIndex = 77;
+            this.lnameTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lnameTxt_KeyPress);
             // 
             // label5
             // 
@@ -278,24 +287,9 @@
             this.fnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fnameTxt.Location = new System.Drawing.Point(128, 105);
             this.fnameTxt.Name = "fnameTxt";
-            this.fnameTxt.Size = new System.Drawing.Size(159, 27);
+            this.fnameTxt.Size = new System.Drawing.Size(176, 27);
             this.fnameTxt.TabIndex = 75;
-            // 
-            // supplierData
-            // 
-            this.supplierData.AllowUserToAddRows = false;
-            this.supplierData.AllowUserToDeleteRows = false;
-            this.supplierData.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.supplierData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.supplierData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.supplierData.Location = new System.Drawing.Point(434, 85);
-            this.supplierData.Name = "supplierData";
-            this.supplierData.ReadOnly = true;
-            this.supplierData.RowHeadersVisible = false;
-            this.supplierData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.supplierData.Size = new System.Drawing.Size(521, 502);
-            this.supplierData.TabIndex = 93;
-            this.supplierData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.supplierData_CellClick);
+            this.fnameTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fnameTxt_KeyPress);
             // 
             // contact
             // 
@@ -313,14 +307,14 @@
             this.contactTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactTxt.Location = new System.Drawing.Point(129, 388);
             this.contactTxt.Name = "contactTxt";
-            this.contactTxt.Size = new System.Drawing.Size(158, 27);
+            this.contactTxt.Size = new System.Drawing.Size(175, 27);
             this.contactTxt.TabIndex = 97;
             // 
             // rbFemale
             // 
             this.rbFemale.AutoSize = true;
             this.rbFemale.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFemale.Location = new System.Drawing.Point(213, 202);
+            this.rbFemale.Location = new System.Drawing.Point(220, 202);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(74, 23);
             this.rbFemale.TabIndex = 100;
@@ -332,7 +326,7 @@
             // 
             this.rbMale.AutoSize = true;
             this.rbMale.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbMale.Location = new System.Drawing.Point(128, 202);
+            this.rbMale.Location = new System.Drawing.Point(135, 202);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(60, 23);
             this.rbMale.TabIndex = 99;
@@ -356,7 +350,7 @@
             this.organizationTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.organizationTxt.Location = new System.Drawing.Point(129, 433);
             this.organizationTxt.Name = "organizationTxt";
-            this.organizationTxt.Size = new System.Drawing.Size(158, 27);
+            this.organizationTxt.Size = new System.Drawing.Size(175, 27);
             this.organizationTxt.TabIndex = 102;
             // 
             // label11
@@ -377,9 +371,82 @@
             this.cnumTxt.Mask = "0000-000-0000";
             this.cnumTxt.Name = "cnumTxt";
             this.cnumTxt.PromptChar = '0';
-            this.cnumTxt.Size = new System.Drawing.Size(159, 27);
+            this.cnumTxt.Size = new System.Drawing.Size(176, 27);
             this.cnumTxt.TabIndex = 103;
             this.cnumTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.panel5.Controls.Add(this.label10);
+            this.panel5.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel5.ForeColor = System.Drawing.Color.White;
+            this.panel5.Location = new System.Drawing.Point(434, 311);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(521, 38);
+            this.panel5.TabIndex = 104;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(223, 6);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(90, 22);
+            this.label10.TabIndex = 0;
+            this.label10.Text = "Products";
+            // 
+            // dgproduct
+            // 
+            this.dgproduct.AllowUserToAddRows = false;
+            this.dgproduct.AllowUserToDeleteRows = false;
+            this.dgproduct.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgproduct.BackgroundColor = System.Drawing.Color.White;
+            this.dgproduct.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgproduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgproduct.Location = new System.Drawing.Point(434, 348);
+            this.dgproduct.Name = "dgproduct";
+            this.dgproduct.ReadOnly = true;
+            this.dgproduct.RowHeadersVisible = false;
+            this.dgproduct.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgproduct.Size = new System.Drawing.Size(521, 236);
+            this.dgproduct.TabIndex = 105;
+            // 
+            // supplierData
+            // 
+            this.supplierData.AllowUserToAddRows = false;
+            this.supplierData.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(158)))), ((int)(((byte)(176)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            this.supplierData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.supplierData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.supplierData.BackgroundColor = System.Drawing.Color.White;
+            this.supplierData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(158)))), ((int)(((byte)(176)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.supplierData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.supplierData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(166)))), ((int)(((byte)(158)))), ((int)(((byte)(176)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.supplierData.DefaultCellStyle = dataGridViewCellStyle3;
+            this.supplierData.Location = new System.Drawing.Point(434, 85);
+            this.supplierData.Name = "supplierData";
+            this.supplierData.ReadOnly = true;
+            this.supplierData.RowHeadersVisible = false;
+            this.supplierData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.supplierData.Size = new System.Drawing.Size(521, 220);
+            this.supplierData.TabIndex = 93;
+            this.supplierData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.supplierData_CellClick);
             // 
             // supplierForm
             // 
@@ -387,6 +454,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.dgproduct);
             this.Controls.Add(this.cnumTxt);
             this.Controls.Add(this.supplierData);
             this.Controls.Add(this.backBtn);
@@ -426,6 +495,9 @@
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgproduct)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.supplierData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -454,7 +526,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox fnameTxt;
-        private System.Windows.Forms.DataGridView supplierData;
         private System.Windows.Forms.Label contact;
         private System.Windows.Forms.TextBox contactTxt;
         private System.Windows.Forms.RadioButton rbFemale;
@@ -463,5 +534,9 @@
         private System.Windows.Forms.TextBox organizationTxt;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.MaskedTextBox cnumTxt;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView dgproduct;
+        private System.Windows.Forms.DataGridView supplierData;
     }
 }

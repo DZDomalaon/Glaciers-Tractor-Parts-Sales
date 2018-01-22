@@ -3,18 +3,14 @@ INSERT INTO PERSON(FIRSTNAME, LASTNAME, CONTACT_NUM, EMAIL, ADDRESS, GENDER, PER
 ('Kristina', 'Pitoy', '09154843947', 'mkopitoy@addu.edu.ph', 'SA PUSO NI RJ', '0', 'CUSTOMER'),
 ('Jusane', 'Bellezas', '09154843947', 'jtsbellezas@addu.edu.ph', 'SA PUSO NG JOLLIBEE', '0', 'SUPPLIER');
 
-INSERT INTO inventory(product_name,description,price,warranty,discount,serial) VALUES 
+INSERT INTO `glaciers`.`inventory` (`INVENTORY_ID`, `QUANTITY`) VALUES ('1', '10');
+INSERT INTO `glaciers`.`inventory` (`INVENTORY_ID`, `QUANTITY`) VALUES ('2', '20');
 
-('Ligid','sa puno',300.00,NULL,NULL,NULL),
+INSERT INTO `glaciers`.`product_catalogue` (`PC_ID`, `PC_CATEGORY`, `PC_VARIANT`) VALUES ('1', 'wheel', 'size');
+INSERT INTO `glaciers`.`product_catalogue` (`PC_ID`, `PC_CATEGORY`, `PC_VARIANT`) VALUES ('2', 'wheel', 'color');
+INSERT INTO `glaciers`.`product_catalogue` (`PC_ID`, `PC_CATEGORY`, `PC_VARIANT`) VALUES ('3', 'wheel', 'model');
 
-('Ligid','sa Glacier Tractor',100.00,NULL,NULL,NULL),
-
-('Screw','gamay',50.00,NULL,NULL,NULL),
-
-('Bearing','na dako',600.00,NULL,NULL,NULL),
-
-('bearing','na gamay',300.00,NULL,NULL,NULL),
-
-('Spinner','Blue',450.00,NULL,NULL,NULL),
-
-('Spinner','Red',450.00,NULL,NULL,NULL);
+INSERT INTO `glaciers`.`product` (`PRODUCT_NAME`, `DESCRIPTION`, `PRICE`, `SERIAL`, `PRODUCT_PC_ID`, `PRODUCT_INV_ID`) VALUES ('ligid', 'gamay', '100', '123', '2', '1');
+INSERT INTO `glaciers`.`product` (`PRODUCT_NAME`, `DESCRIPTION`, `PRICE`, `SERIAL`, `PRODUCT_PC_ID`, `PRODUCT_INV_ID`) VALUES ('ligid1', 'dako', '200', '122', '3', '1');
+INSERT INTO `glaciers`.`product` (`PRODUCT_NAME`, `DESCRIPTION`, `PRICE`, `SERIAL`, `PRODUCT_PC_ID`, `PRODUCT_INV_ID`) VALUES ('bearing', 'blue', '500', '1142', '2', '2');
+INSERT INTO `glaciers`.`product` (`PRODUCT_NAME`, `DESCRIPTION`, `PRICE`, `SERIAL`, `PRODUCT_PC_ID`, `PRODUCT_INV_ID`) VALUES ('wrench', 'pula', '120', '112', '3', '1');

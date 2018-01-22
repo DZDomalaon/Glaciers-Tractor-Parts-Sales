@@ -24,7 +24,7 @@ namespace softeng1
 
         private void productsForm_Load(object sender, EventArgs e)
         {
-
+            loadprod();
         }
         private void backBtn_Click(object sender, EventArgs e)
         {
@@ -41,14 +41,9 @@ namespace softeng1
         {
 
         }
-        private void productsForm_Load_1(object sender, EventArgs e)
-        {
-            loadprod();
-        }
-
         public void loadprod()
         {
-            String query = "SELECT product_id, product_name, description, (select quantity from inventory) as Quantity, price, (select pc_category from product_catalogue WHERE PRODUCT_PC_ID = pc_id)as category, (select pc_variant from product_catalogue WHERE PRODUCT_PC_ID = pc_id)as variant FROM product, inventory where product_inv_id = inventory_id";
+            String query = "SELECT product_id, product_name, description, Quantity, price, pc_category , pc_variant FROM product, inventory, product_catalogue where product_inv_id = inventory_id and PRODUCT_PC_ID = pc_id";
 
 
             conn.Open();
@@ -62,36 +57,13 @@ namespace softeng1
             prodData.Columns["product_id"].Visible = false;
             prodData.Columns["product_name"].HeaderText = "Product Name";
             prodData.Columns["description"].HeaderText = "Description";
+            prodData.Columns["quantity"].HeaderText = "Quantity";
             prodData.Columns["price"].HeaderText = "Price";
-            prodData.Columns["category"].HeaderText = "Category";
-            prodData.Columns["variant"].HeaderText = "Variant";
+            prodData.Columns["pc_category"].HeaderText = "Category";
+            prodData.Columns["pc_variant"].HeaderText = "Variant";
 
         }
-
-        private void productsForm_FormClosing_1(object sender, FormClosingEventArgs e)
-        {
-            fromProduct.Show();
-        }
-
-
-        private int selected_prod_id;
-
-        private void prodData_CellClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-            addBtn.Enabled = false;
-            editBtn.Enabled = true;
-            if (e.RowIndex > -1)
-            {
-                selected_prod_id = int.Parse(prodData.Rows[e.RowIndex].Cells["product_id"].Value.ToString());
-                pnameTxt.Text = prodData.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
-                pdescTxt.Text = prodData.Rows[e.RowIndex].Cells["description"].Value.ToString();                
-                categTxt.Text = prodData.Rows[e.RowIndex].Cells["category"].Value.ToString();
-                priceTxt.Text = prodData.Rows[e.RowIndex].Cells["price"].Value.ToString();              
-                categTxt.Text = prodData.Rows[e.RowIndex].Cells["category"].Value.ToString();
-                variantTxt.Text = prodData.Rows[e.RowIndex].Cells["variant"].Value.ToString();
-            }
-        }
-
+        
         private void editBtn_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Do you want to update the data ?", "Confirm ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -165,6 +137,28 @@ namespace softeng1
             {
                 MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
             }
+        }
+
+        private int selected_prod_id;
+        private void prodData_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            addBtn.Enabled = false;
+            editBtn.Enabled = true;
+            if (e.RowIndex > -1)
+            {
+                selected_prod_id = int.Parse(prodData.Rows[e.RowIndex].Cells["product_id"].Value.ToString());
+                pnameTxt.Text = prodData.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
+                pdescTxt.Text = prodData.Rows[e.RowIndex].Cells["description"].Value.ToString();
+                quantityTxt.Text = prodData.Rows[e.RowIndex].Cells["quantity"].Value.ToString();
+                priceTxt.Text = prodData.Rows[e.RowIndex].Cells["price"].Value.ToString();
+                categTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_category"].Value.ToString();
+                variantTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_variant"].Value.ToString();
+            }
+        }
+
+        private void priceTxt_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
