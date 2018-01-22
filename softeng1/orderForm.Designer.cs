@@ -37,10 +37,6 @@ namespace softeng1
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.orderDG = new System.Windows.Forms.DataGridView();
-            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.custfnameTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -97,6 +93,10 @@ namespace softeng1
             this.panel9 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProdQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -199,7 +199,7 @@ namespace softeng1
             this.orderDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.orderDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.orderDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ProductName,
+            this.ProdName,
             this.ProductPrice,
             this.SubTotal,
             this.ProdQuantity});
@@ -212,30 +212,6 @@ namespace softeng1
             this.orderDG.Size = new System.Drawing.Size(521, 470);
             this.orderDG.TabIndex = 7;
             this.orderDG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderDG_CellClick);
-            // 
-            // ProductName
-            // 
-            this.ProductName.HeaderText = "Product";
-            this.ProductName.Name = "ProductName";
-            this.ProductName.ReadOnly = true;
-            // 
-            // ProductPrice
-            // 
-            this.ProductPrice.HeaderText = "Price";
-            this.ProductPrice.Name = "ProductPrice";
-            this.ProductPrice.ReadOnly = true;
-            // 
-            // SubTotal
-            // 
-            this.SubTotal.HeaderText = "Sub Total";
-            this.SubTotal.Name = "SubTotal";
-            this.SubTotal.ReadOnly = true;
-            // 
-            // ProdQuantity
-            // 
-            this.ProdQuantity.HeaderText = "Quantity";
-            this.ProdQuantity.Name = "ProdQuantity";
-            this.ProdQuantity.ReadOnly = true;
             // 
             // custfnameTxt
             // 
@@ -483,15 +459,9 @@ namespace softeng1
             this.prodpanel.Controls.Add(this.dgsearchprod);
             this.prodpanel.Controls.Add(this.closeprod);
             this.prodpanel.Enabled = false;
-<<<<<<< HEAD
-            this.prodpanel.Location = new System.Drawing.Point(121, 194);
-            this.prodpanel.Name = "prodpanel";
-            this.prodpanel.Size = new System.Drawing.Size(119, 87);
-=======
             this.prodpanel.Location = new System.Drawing.Point(257, 102);
             this.prodpanel.Name = "prodpanel";
             this.prodpanel.Size = new System.Drawing.Size(119, 93);
->>>>>>> 2f8465027a9709ddf1efe0155338cd10d5cda3a8
             this.prodpanel.TabIndex = 27;
             this.prodpanel.Visible = false;
             // 
@@ -649,11 +619,7 @@ namespace softeng1
             this.buyPanel.Controls.Add(this.panel12);
             this.buyPanel.Controls.Add(this.panel8);
             this.buyPanel.Enabled = false;
-<<<<<<< HEAD
-            this.buyPanel.Location = new System.Drawing.Point(225, 92);
-=======
             this.buyPanel.Location = new System.Drawing.Point(269, 96);
->>>>>>> 2f8465027a9709ddf1efe0155338cd10d5cda3a8
             this.buyPanel.Name = "buyPanel";
             this.buyPanel.Size = new System.Drawing.Size(418, 425);
             this.buyPanel.TabIndex = 28;
@@ -887,6 +853,30 @@ namespace softeng1
             this.label15.TabIndex = 5;
             this.label15.Text = "Glacier Tractor Parts And Sales";
             // 
+            // ProdName
+            // 
+            this.ProdName.HeaderText = "Product";
+            this.ProdName.Name = "ProdName";
+            this.ProdName.ReadOnly = true;
+            // 
+            // ProductPrice
+            // 
+            this.ProductPrice.HeaderText = "Price";
+            this.ProductPrice.Name = "ProductPrice";
+            this.ProductPrice.ReadOnly = true;
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.HeaderText = "Sub Total";
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.ReadOnly = true;
+            // 
+            // ProdQuantity
+            // 
+            this.ProdQuantity.HeaderText = "Quantity";
+            this.ProdQuantity.Name = "ProdQuantity";
+            this.ProdQuantity.ReadOnly = true;
+            // 
             // orderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1034,7 +1024,7 @@ namespace softeng1
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox paymentCmb;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProdName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdQuantity;
