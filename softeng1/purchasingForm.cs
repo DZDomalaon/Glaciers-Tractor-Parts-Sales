@@ -9,14 +9,20 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
+<<<<<<< HEAD
+=======
 using System.Text.RegularExpressions;
 <<<<<<< HEAD
 <<<<<<< HEAD
 using Microsoft.VisualBasic;
+<<<<<<< HEAD
 =======
 >>>>>>> parent of f23151b... asd
 =======
 >>>>>>> parent of f23151b... asd
+=======
+>>>>>>> a47742ac3f869df61a6a9d8f0b3d0f15ea3e6bf8
+>>>>>>> parent of d92cfcd... mm
 
 namespace softeng1
 {
@@ -34,9 +40,16 @@ namespace softeng1
             usernameLbl.Text = loginForm.name;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             //dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
             //datetime.Value = DateTime.Now;
             //loadPurchase();
+=======
+            dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
+<<<<<<< HEAD
+            datetime.Value = DateTime.Now;
+            loadPurchase();
+>>>>>>> parent of d92cfcd... mm
             //loadproducts();
             //pnameTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             //pnameTxt.AutoCompleteSource = AutoCompleteSource.ListItems;
@@ -79,6 +92,8 @@ namespace softeng1
         //    dgsearchprod.Columns["product_name"].HeaderText = "Product Name";
         //    dgsearchprod.Columns["price"].HeaderText = "Price";
         //}
+=======
+            
             purchaseDG.Columns.Add("Product Name", "Product Name");
             purchaseDG.Columns.Add("Price", "Price");
             purchaseDG.Columns.Add("Quantity", "Quantity");
@@ -94,6 +109,8 @@ namespace softeng1
             dgsearchprod.Columns["price"].HeaderText = "Price";
 >>>>>>> parent of f23151b... asd
         }
+       
+>>>>>>> a47742ac3f869df61a6a9d8f0b3d0f15ea3e6bf8
 
         private void backBtn_Click(object sender, EventArgs e)
         {
