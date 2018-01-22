@@ -11,7 +11,10 @@ using MySql.Data.MySqlClient;
 using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 <<<<<<< HEAD
+<<<<<<< HEAD
 using Microsoft.VisualBasic;
+=======
+>>>>>>> parent of f23151b... asd
 =======
 >>>>>>> parent of f23151b... asd
 
@@ -30,6 +33,7 @@ namespace softeng1
         {
             usernameLbl.Text = loginForm.name;
 <<<<<<< HEAD
+<<<<<<< HEAD
             //dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
             //datetime.Value = DateTime.Now;
             //loadPurchase();
@@ -37,12 +41,17 @@ namespace softeng1
             //pnameTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             //pnameTxt.AutoCompleteSource = AutoCompleteSource.ListItems;
 =======
+=======
+>>>>>>> parent of f23151b... asd
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
             datetime.Value = DateTime.Now;
             loadPurchase();
             loadproducts();
             pnameTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             pnameTxt.AutoCompleteSource = AutoCompleteSource.ListItems;
+<<<<<<< HEAD
+>>>>>>> parent of f23151b... asd
+=======
 >>>>>>> parent of f23151b... asd
 
         }
@@ -65,6 +74,7 @@ namespace softeng1
             dgsearchprod.DataSource = dt;
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         //    dgsearchprod.Columns["product_id"].Visible = false;
         //    dgsearchprod.Columns["product_name"].HeaderText = "Product Name";
         //    dgsearchprod.Columns["price"].HeaderText = "Price";
@@ -73,6 +83,11 @@ namespace softeng1
             purchaseDG.Columns.Add("Price", "Price");
             purchaseDG.Columns.Add("Quantity", "Quantity");
             purchaseDG.Columns.Add("Sub Total", "Sub Total");
+=======
+            dgsearchprod.Columns["product_id"].Visible = false;
+            dgsearchprod.Columns["product_name"].HeaderText = "Product Name";
+            dgsearchprod.Columns["price"].HeaderText = "Price";
+>>>>>>> parent of f23151b... asd
 =======
             dgsearchprod.Columns["product_id"].Visible = false;
             dgsearchprod.Columns["product_name"].HeaderText = "Product Name";
@@ -174,7 +189,11 @@ namespace softeng1
             {
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                 selected_supplier_id = int.Parse(dgsname.Rows[e.RowIndex].Cells["supplier_id"].Value.ToString());
+=======
+                //selected_supplier_id = int.Parse(dgsname.Rows[e.RowIndex].Cells["supplier_id"].Value.ToString());
+>>>>>>> parent of f23151b... asd
 =======
                 //selected_supplier_id = int.Parse(dgsname.Rows[e.RowIndex].Cells["supplier_id"].Value.ToString());
 >>>>>>> parent of f23151b... asd
@@ -295,6 +314,31 @@ namespace softeng1
                 MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
             }
 >>>>>>> a47742ac3f869df61a6a9d8f0b3d0f15ea3e6bf8
+        }
+
+        private void priceTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+            if (Regex.IsMatch(priceTxt.Text, @"\.\d\d") && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void pnameTxt_TextChanged(object sender, EventArgs e)
+        {
+            if (!System.Text.RegularExpressions.Regex.IsMatch(pnameTxt.Text, "^[a-zA-Z]"))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
+                pnameTxt.Text.Remove(pnameTxt.Text.Length - 1);
+            }
         }
 
         private void priceTxt_KeyPress(object sender, KeyPressEventArgs e)
