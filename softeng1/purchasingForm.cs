@@ -26,7 +26,11 @@ using Microsoft.VisualBasic;
 >>>>>>> parent of d92cfcd... mm
 =======
 using Microsoft.VisualBasic;
+<<<<<<< HEAD
 >>>>>>> parent of b5a35a8... ,
+=======
+>>>>>>> a47742ac3f869df61a6a9d8f0b3d0f15ea3e6bf8
+>>>>>>> parent of d92cfcd... mm
 
 namespace softeng1
 {
@@ -46,16 +50,22 @@ namespace softeng1
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> parent of b5a35a8... ,
             //dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
             //datetime.Value = DateTime.Now;
             //loadPurchase();
 =======
+=======
+>>>>>>> parent of d92cfcd... mm
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
 <<<<<<< HEAD
             datetime.Value = DateTime.Now;
             loadPurchase();
+<<<<<<< HEAD
+>>>>>>> parent of d92cfcd... mm
+=======
 >>>>>>> parent of d92cfcd... mm
             //loadproducts();
             //pnameTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
