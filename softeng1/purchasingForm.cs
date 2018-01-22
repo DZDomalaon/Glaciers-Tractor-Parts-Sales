@@ -14,6 +14,7 @@ using System.Data.SqlClient;
 using System.Text.RegularExpressions;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 using Microsoft.VisualBasic;
 <<<<<<< HEAD
 =======
@@ -23,6 +24,9 @@ using Microsoft.VisualBasic;
 =======
 >>>>>>> a47742ac3f869df61a6a9d8f0b3d0f15ea3e6bf8
 >>>>>>> parent of d92cfcd... mm
+=======
+using Microsoft.VisualBasic;
+>>>>>>> parent of b5a35a8... ,
 
 namespace softeng1
 {
@@ -41,6 +45,9 @@ namespace softeng1
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of b5a35a8... ,
             //dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
             //datetime.Value = DateTime.Now;
             //loadPurchase();
@@ -53,6 +60,7 @@ namespace softeng1
             //loadproducts();
             //pnameTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             //pnameTxt.AutoCompleteSource = AutoCompleteSource.ListItems;
+<<<<<<< HEAD
 =======
 =======
 >>>>>>> parent of f23151b... asd
@@ -66,28 +74,33 @@ namespace softeng1
 >>>>>>> parent of f23151b... asd
 =======
 >>>>>>> parent of f23151b... asd
+=======
+>>>>>>> parent of b5a35a8... ,
 
         }
-        public void loadproducts()
-        {
-            prodpanel.Enabled = true;
-            prodpanel.Visible = true;
-            prodpanel.Location = new Point(140, 56);
-            prodpanel.Size = new Size(681, 297);
+        //public void loadproducts()
+        //{
+        //    prodpanel.Enabled = true;
+        //    prodpanel.Visible = true;
+        //    prodpanel.Location = new Point(140, 56);
+        //    prodpanel.Size = new Size(681, 297);
 
-            String query = "SELECT * FROM inventory";
-            conn.Open();
+        //    String query = "SELECT * FROM inventory";
+        //    conn.Open();
 
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-            conn.Close();
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
+        //    MySqlCommand comm = new MySqlCommand(query, conn);
+        //    MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+        //    conn.Close();
+        //    DataTable dt = new DataTable();
+        //    adp.Fill(dt);
 
-            dgsearchprod.DataSource = dt;
+        //    dgsearchprod.DataSource = dt;
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> parent of b5a35a8... ,
         //    dgsearchprod.Columns["product_id"].Visible = false;
         //    dgsearchprod.Columns["product_name"].HeaderText = "Product Name";
         //    dgsearchprod.Columns["price"].HeaderText = "Price";
@@ -98,6 +111,7 @@ namespace softeng1
             purchaseDG.Columns.Add("Price", "Price");
             purchaseDG.Columns.Add("Quantity", "Quantity");
             purchaseDG.Columns.Add("Sub Total", "Sub Total");
+<<<<<<< HEAD
 =======
             dgsearchprod.Columns["product_id"].Visible = false;
             dgsearchprod.Columns["product_name"].HeaderText = "Product Name";
@@ -108,6 +122,8 @@ namespace softeng1
             dgsearchprod.Columns["product_name"].HeaderText = "Product Name";
             dgsearchprod.Columns["price"].HeaderText = "Price";
 >>>>>>> parent of f23151b... asd
+=======
+>>>>>>> parent of b5a35a8... ,
         }
        
 >>>>>>> a47742ac3f869df61a6a9d8f0b3d0f15ea3e6bf8
@@ -201,9 +217,9 @@ namespace softeng1
         public static int rowIndex;
         private void purchaseData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            /*
             if (e.RowIndex > -1)
             {
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -214,6 +230,9 @@ namespace softeng1
 =======
                 //selected_supplier_id = int.Parse(dgsname.Rows[e.RowIndex].Cells["supplier_id"].Value.ToString());
 >>>>>>> parent of f23151b... asd
+=======
+                selected_supplier_id = int.Parse(dgsname.Rows[e.RowIndex].Cells["supplier_id"].Value.ToString());
+>>>>>>> parent of b5a35a8... ,
                 pnameTxt.Text = dgsname.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
 =======
                 //selected_supplier_id = int.Parse(dgsname.Rows[e.RowIndex].Cells["supplier_id"].Value.ToString());
@@ -223,7 +242,6 @@ namespace softeng1
                 pquant.Text = dgsname.Rows[e.RowIndex].Cells["quantity"].Value.ToString();
                 dateLbl.Text = dgsname.Rows[e.RowIndex].Cells["purchase_date"].Value.ToString();
             }
-            */
         }
         private void dgsearchname_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -333,6 +351,7 @@ namespace softeng1
 >>>>>>> a47742ac3f869df61a6a9d8f0b3d0f15ea3e6bf8
         }
 
+<<<<<<< HEAD
         private void priceTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -383,6 +402,8 @@ namespace softeng1
             }
         }
 
+=======
+>>>>>>> parent of b5a35a8... ,
         private void removeBtn_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow item in this.purchaseDG.SelectedRows)
