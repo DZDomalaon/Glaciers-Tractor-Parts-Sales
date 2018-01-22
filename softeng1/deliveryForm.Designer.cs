@@ -40,23 +40,20 @@
             this.label5 = new System.Windows.Forms.Label();
             this.stockinBtn = new System.Windows.Forms.RadioButton();
             this.repBtn = new System.Windows.Forms.RadioButton();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.pnameTxt = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pquantTxt = new System.Windows.Forms.TextBox();
             this.backBtn = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
             this.resetBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.snameTxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.custData)).BeginInit();
-            this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -104,6 +101,7 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.panel4.Controls.Add(this.label3);
             this.panel4.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.ForeColor = System.Drawing.Color.White;
             this.panel4.Location = new System.Drawing.Point(434, 0);
@@ -179,71 +177,13 @@
             // 
             this.repBtn.AutoSize = true;
             this.repBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.repBtn.Location = new System.Drawing.Point(232, 151);
+            this.repBtn.Location = new System.Drawing.Point(139, 180);
             this.repBtn.Name = "repBtn";
             this.repBtn.Size = new System.Drawing.Size(122, 23);
             this.repBtn.TabIndex = 69;
             this.repBtn.TabStop = true;
             this.repBtn.Text = "To be replaced";
             this.repBtn.UseVisualStyleBackColor = true;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
-            this.panel5.Controls.Add(this.label6);
-            this.panel5.Location = new System.Drawing.Point(0, 274);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(435, 38);
-            this.panel5.TabIndex = 12;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(3, 9);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(128, 21);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Product Details";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(12, 334);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(120, 23);
-            this.label7.TabIndex = 70;
-            this.label7.Text = "Product Name";
-            // 
-            // pnameTxt
-            // 
-            this.pnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnameTxt.Location = new System.Drawing.Point(139, 334);
-            this.pnameTxt.Name = "pnameTxt";
-            this.pnameTxt.Size = new System.Drawing.Size(234, 27);
-            this.pnameTxt.TabIndex = 71;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(12, 385);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(78, 23);
-            this.label8.TabIndex = 72;
-            this.label8.Text = "Quantity";
-            // 
-            // pquantTxt
-            // 
-            this.pquantTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pquantTxt.Location = new System.Drawing.Point(139, 385);
-            this.pquantTxt.Name = "pquantTxt";
-            this.pquantTxt.Size = new System.Drawing.Size(60, 27);
-            this.pquantTxt.TabIndex = 73;
             // 
             // backBtn
             // 
@@ -303,7 +243,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(12, 212);
+            this.label9.Location = new System.Drawing.Point(12, 285);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 46);
             this.label9.TabIndex = 78;
@@ -312,10 +252,44 @@
             // snameTxt
             // 
             this.snameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.snameTxt.Location = new System.Drawing.Point(139, 212);
+            this.snameTxt.Location = new System.Drawing.Point(139, 285);
             this.snameTxt.Name = "snameTxt";
             this.snameTxt.Size = new System.Drawing.Size(234, 27);
             this.snameTxt.TabIndex = 79;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(205, 8);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(151, 22);
+            this.label3.TabIndex = 80;
+            this.label3.Text = "Delivery Report";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton1.Location = new System.Drawing.Point(139, 209);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(99, 23);
+            this.radioButton1.TabIndex = 80;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Incomplete";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioButton2.Location = new System.Drawing.Point(139, 238);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(114, 23);
+            this.radioButton2.TabIndex = 81;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Not delivered";
+            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // deliveryForm
             // 
@@ -323,17 +297,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.snameTxt);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.addBtn);
-            this.Controls.Add(this.pquantTxt);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.pnameTxt);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.panel5);
             this.Controls.Add(this.repBtn);
             this.Controls.Add(this.stockinBtn);
             this.Controls.Add(this.label5);
@@ -355,9 +326,9 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.custData)).EndInit();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -377,17 +348,14 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RadioButton stockinBtn;
         private System.Windows.Forms.RadioButton repBtn;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox pnameTxt;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox pquantTxt;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox snameTxt;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
     }
 }
