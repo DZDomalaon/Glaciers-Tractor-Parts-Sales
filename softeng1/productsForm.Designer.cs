@@ -266,6 +266,7 @@
             this.priceTxt.Name = "priceTxt";
             this.priceTxt.Size = new System.Drawing.Size(223, 27);
             this.priceTxt.TabIndex = 84;
+            this.priceTxt.TextChanged += new System.EventHandler(this.priceTxt_TextChanged);
             this.priceTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceTxt_KeyPress);
             // 
             // label9

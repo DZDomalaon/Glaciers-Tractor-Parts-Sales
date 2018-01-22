@@ -37,6 +37,10 @@ namespace softeng1
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.orderDG = new System.Windows.Forms.DataGridView();
+            this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProdQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.custfnameTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -93,10 +97,6 @@ namespace softeng1
             this.panel9 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -212,6 +212,30 @@ namespace softeng1
             this.orderDG.Size = new System.Drawing.Size(521, 470);
             this.orderDG.TabIndex = 7;
             this.orderDG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderDG_CellClick);
+            // 
+            // ProdName
+            // 
+            this.ProdName.HeaderText = "Product";
+            this.ProdName.Name = "ProdName";
+            this.ProdName.ReadOnly = true;
+            // 
+            // ProductPrice
+            // 
+            this.ProductPrice.HeaderText = "Price";
+            this.ProductPrice.Name = "ProductPrice";
+            this.ProductPrice.ReadOnly = true;
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.HeaderText = "Sub Total";
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.ReadOnly = true;
+            // 
+            // ProdQuantity
+            // 
+            this.ProdQuantity.HeaderText = "Quantity";
+            this.ProdQuantity.Name = "ProdQuantity";
+            this.ProdQuantity.ReadOnly = true;
             // 
             // custfnameTxt
             // 
@@ -575,10 +599,10 @@ namespace softeng1
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(136, 7);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(63, 22);
+            this.label11.Size = new System.Drawing.Size(64, 23);
             this.label11.TabIndex = 0;
             this.label11.Text = "Total: ";
             // 
@@ -852,30 +876,6 @@ namespace softeng1
             this.label15.Size = new System.Drawing.Size(248, 21);
             this.label15.TabIndex = 5;
             this.label15.Text = "Glacier Tractor Parts And Sales";
-            // 
-            // ProdName
-            // 
-            this.ProdName.HeaderText = "Product";
-            this.ProdName.Name = "ProdName";
-            this.ProdName.ReadOnly = true;
-            // 
-            // ProductPrice
-            // 
-            this.ProductPrice.HeaderText = "Price";
-            this.ProductPrice.Name = "ProductPrice";
-            this.ProductPrice.ReadOnly = true;
-            // 
-            // SubTotal
-            // 
-            this.SubTotal.HeaderText = "Sub Total";
-            this.SubTotal.Name = "SubTotal";
-            this.SubTotal.ReadOnly = true;
-            // 
-            // ProdQuantity
-            // 
-            this.ProdQuantity.HeaderText = "Quantity";
-            this.ProdQuantity.Name = "ProdQuantity";
-            this.ProdQuantity.ReadOnly = true;
             // 
             // orderForm
             // 

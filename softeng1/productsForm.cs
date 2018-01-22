@@ -155,5 +155,10 @@ namespace softeng1
                 variantTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_variant"].Value.ToString();
             }
         }
+
+        private void priceTxt_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

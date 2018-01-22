@@ -161,15 +161,6 @@ namespace softeng1
         {
 
         }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            prodpanel.Enabled = false;
-            prodpanel.Visible = false;
-            prodpanel.Location = new Point(434, 152);
-            prodpanel.Size = new Size(521, 44);
-
-        }
         private void priceTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -185,22 +176,6 @@ namespace softeng1
                 e.Handled = true;
             }
         }
-        private void pnameTxt_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string sort = pname.Text;
-            
-
-            String query = "SELECT * FROM products WHERE client_name LIKE '%" + sort + "' ";
-
-
-            conn.Open();
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-            conn.Close();
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-        }
-
         private void pnameTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back))
@@ -220,6 +195,22 @@ namespace softeng1
             dateLbl.Text = row.Cells[4].Value.ToString();
             usernameLbl.Text = row.Cells[5].Value.ToString();
             snameTxt.Text = row.Cells[6].Value.ToString();
+        }
+
+        private void snameTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
+            }
+        }
+
+        private void pname_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
+            }
         }
 
         private void removeBtn_Click(object sender, EventArgs e)
