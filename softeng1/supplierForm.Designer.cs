@@ -151,7 +151,7 @@
             this.emailTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.emailTxt.Location = new System.Drawing.Point(128, 295);
             this.emailTxt.Name = "emailTxt";
-            this.emailTxt.Size = new System.Drawing.Size(159, 27);
+            this.emailTxt.Size = new System.Drawing.Size(176, 27);
             this.emailTxt.TabIndex = 89;
             // 
             // label9
@@ -181,7 +181,7 @@
             this.addressTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addressTxt.Location = new System.Drawing.Point(128, 343);
             this.addressTxt.Name = "addressTxt";
-            this.addressTxt.Size = new System.Drawing.Size(159, 27);
+            this.addressTxt.Size = new System.Drawing.Size(176, 27);
             this.addressTxt.TabIndex = 85;
             // 
             // label7
@@ -256,7 +256,7 @@
             this.lnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lnameTxt.Location = new System.Drawing.Point(128, 152);
             this.lnameTxt.Name = "lnameTxt";
-            this.lnameTxt.Size = new System.Drawing.Size(159, 27);
+            this.lnameTxt.Size = new System.Drawing.Size(176, 27);
             this.lnameTxt.TabIndex = 77;
             this.lnameTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lnameTxt_KeyPress);
             // 
@@ -287,7 +287,7 @@
             this.fnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fnameTxt.Location = new System.Drawing.Point(128, 105);
             this.fnameTxt.Name = "fnameTxt";
-            this.fnameTxt.Size = new System.Drawing.Size(159, 27);
+            this.fnameTxt.Size = new System.Drawing.Size(176, 27);
             this.fnameTxt.TabIndex = 75;
             this.fnameTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fnameTxt_KeyPress);
             // 
@@ -307,14 +307,14 @@
             this.contactTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contactTxt.Location = new System.Drawing.Point(129, 388);
             this.contactTxt.Name = "contactTxt";
-            this.contactTxt.Size = new System.Drawing.Size(158, 27);
+            this.contactTxt.Size = new System.Drawing.Size(175, 27);
             this.contactTxt.TabIndex = 97;
             // 
             // rbFemale
             // 
             this.rbFemale.AutoSize = true;
             this.rbFemale.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFemale.Location = new System.Drawing.Point(213, 202);
+            this.rbFemale.Location = new System.Drawing.Point(220, 202);
             this.rbFemale.Name = "rbFemale";
             this.rbFemale.Size = new System.Drawing.Size(74, 23);
             this.rbFemale.TabIndex = 100;
@@ -326,7 +326,7 @@
             // 
             this.rbMale.AutoSize = true;
             this.rbMale.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbMale.Location = new System.Drawing.Point(128, 202);
+            this.rbMale.Location = new System.Drawing.Point(135, 202);
             this.rbMale.Name = "rbMale";
             this.rbMale.Size = new System.Drawing.Size(60, 23);
             this.rbMale.TabIndex = 99;
@@ -350,7 +350,7 @@
             this.organizationTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.organizationTxt.Location = new System.Drawing.Point(129, 433);
             this.organizationTxt.Name = "organizationTxt";
-            this.organizationTxt.Size = new System.Drawing.Size(158, 27);
+            this.organizationTxt.Size = new System.Drawing.Size(175, 27);
             this.organizationTxt.TabIndex = 102;
             // 
             // label11
@@ -371,7 +371,7 @@
             this.cnumTxt.Mask = "0000-000-0000";
             this.cnumTxt.Name = "cnumTxt";
             this.cnumTxt.PromptChar = '0';
-            this.cnumTxt.Size = new System.Drawing.Size(159, 27);
+            this.cnumTxt.Size = new System.Drawing.Size(176, 27);
             this.cnumTxt.TabIndex = 103;
             this.cnumTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 

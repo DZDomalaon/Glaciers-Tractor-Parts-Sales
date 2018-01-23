@@ -180,7 +180,7 @@ namespace softeng1
                 {
                     gen = 0;
                 }
-                String query = "Update PERSON, EMPLOYEE SET PERSON.FIRSTNAME = '" + fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text + "', POSITION = '" + positionCmb.Text + "', PERSON.GENDER = '" + gen + "', STATUS = '" + statusCmb.Text + "', SHIFT = '" + shiftTxt.Text + "', SALARY = '" + salaryTxt.Text + "', PERSON.CONTACT_NUM = '" + numberTxt.Text + "', PERSON.EMAIL = '" + emailTxt.Text + "', PERSON.ADDRESS ='" + addressTxt.Text + "' WHERE EMP_ID = '" + selected_emp_id + "' AND PERSON_ID = '" + selected_person_id + "'";
+                String query = "Update PERSON, EMPLOYEE SET PERSON.FIRSTNAME = '" + fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text + "', POSITION = '" + positionCmb.Text + "', PERSON.GENDER = '" + gen + "', STATUS = '" + statusCmb.Text + "', SHIFT = '" + shiftTxt.Text + "', SALARY = '" + double.Parse(salaryTxt.Text.ToString()) + "', PERSON.CONTACT_NUM = '" + numberTxt.Text + "', PERSON.EMAIL = '" + emailTxt.Text + "', PERSON.ADDRESS ='" + addressTxt.Text + "' WHERE EMP_ID = '" + selected_emp_id + "' AND PERSON_ID = '" + selected_person_id + "'";
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);

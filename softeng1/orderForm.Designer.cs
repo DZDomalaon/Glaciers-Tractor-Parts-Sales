@@ -67,13 +67,12 @@ namespace softeng1
             this.editOrderBtn = new System.Windows.Forms.Button();
             this.dateLbl = new System.Windows.Forms.Label();
             this.usernameLbl = new System.Windows.Forms.Label();
-            this.datetime = new System.Windows.Forms.DateTimePicker();
             this.buyBtn = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.totalpriceTxt = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.buyPanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buyBackBtn = new System.Windows.Forms.Button();
             this.confirmBtn = new System.Windows.Forms.Button();
             this.interestTxt = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -84,16 +83,20 @@ namespace softeng1
             this.paymentCmb = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
-            this.date = new System.Windows.Forms.Label();
+            this.BuydateLbl = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
             this.panel10 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProdQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -195,6 +198,11 @@ namespace softeng1
             this.orderDG.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.orderDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.orderDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.orderDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ProdName,
+            this.ProductPrice,
+            this.SubTotal,
+            this.ProdQuantity});
             this.orderDG.Location = new System.Drawing.Point(434, 85);
             this.orderDG.Name = "orderDG";
             this.orderDG.ReadOnly = true;
@@ -249,7 +257,7 @@ namespace softeng1
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(12, 194);
+            this.label6.Location = new System.Drawing.Point(12, 202);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(120, 23);
             this.label6.TabIndex = 12;
@@ -258,7 +266,7 @@ namespace softeng1
             // pnameTxt
             // 
             this.pnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnameTxt.Location = new System.Drawing.Point(139, 190);
+            this.pnameTxt.Location = new System.Drawing.Point(139, 198);
             this.pnameTxt.Name = "pnameTxt";
             this.pnameTxt.Size = new System.Drawing.Size(183, 27);
             this.pnameTxt.TabIndex = 13;
@@ -282,7 +290,7 @@ namespace softeng1
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(12, 237);
+            this.label7.Location = new System.Drawing.Point(12, 245);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(113, 23);
             this.label7.TabIndex = 15;
@@ -291,7 +299,7 @@ namespace softeng1
             // ppriceTxt
             // 
             this.ppriceTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ppriceTxt.Location = new System.Drawing.Point(139, 233);
+            this.ppriceTxt.Location = new System.Drawing.Point(139, 241);
             this.ppriceTxt.Name = "ppriceTxt";
             this.ppriceTxt.Size = new System.Drawing.Size(183, 27);
             this.ppriceTxt.TabIndex = 16;
@@ -321,7 +329,7 @@ namespace softeng1
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(12, 389);
+            this.label9.Location = new System.Drawing.Point(12, 400);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(46, 23);
             this.label9.TabIndex = 17;
@@ -332,7 +340,7 @@ namespace softeng1
             this.dateTxt.AutoSize = true;
             this.dateTxt.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dateTxt.ForeColor = System.Drawing.Color.Black;
-            this.dateTxt.Location = new System.Drawing.Point(12, 426);
+            this.dateTxt.Location = new System.Drawing.Point(12, 437);
             this.dateTxt.Name = "dateTxt";
             this.dateTxt.Size = new System.Drawing.Size(46, 23);
             this.dateTxt.TabIndex = 19;
@@ -343,7 +351,7 @@ namespace softeng1
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(12, 283);
+            this.label10.Location = new System.Drawing.Point(12, 291);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 23);
             this.label10.TabIndex = 21;
@@ -410,7 +418,7 @@ namespace softeng1
             this.namepanel.Controls.Add(this.dgsearchname);
             this.namepanel.Controls.Add(this.closename);
             this.namepanel.Enabled = false;
-            this.namepanel.Location = new System.Drawing.Point(121, 295);
+            this.namepanel.Location = new System.Drawing.Point(132, 104);
             this.namepanel.Name = "namepanel";
             this.namepanel.Size = new System.Drawing.Size(119, 91);
             this.namepanel.TabIndex = 26;
@@ -431,7 +439,6 @@ namespace softeng1
             this.dgsearchname.Size = new System.Drawing.Size(667, 249);
             this.dgsearchname.TabIndex = 0;
             this.dgsearchname.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchname_CellClick);
-            this.dgsearchname.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchname_CellContentClick);
             // 
             // closename
             // 
@@ -452,12 +459,11 @@ namespace softeng1
             this.prodpanel.Controls.Add(this.dgsearchprod);
             this.prodpanel.Controls.Add(this.closeprod);
             this.prodpanel.Enabled = false;
-            this.prodpanel.Location = new System.Drawing.Point(121, 182);
+            this.prodpanel.Location = new System.Drawing.Point(257, 102);
             this.prodpanel.Name = "prodpanel";
-            this.prodpanel.Size = new System.Drawing.Size(283, 87);
+            this.prodpanel.Size = new System.Drawing.Size(119, 93);
             this.prodpanel.TabIndex = 27;
             this.prodpanel.Visible = false;
-            this.prodpanel.Paint += new System.Windows.Forms.PaintEventHandler(this.prodpanel_Paint);
             // 
             // dgsearchprod
             // 
@@ -491,7 +497,7 @@ namespace softeng1
             // pquant
             // 
             this.pquant.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pquant.Location = new System.Drawing.Point(139, 279);
+            this.pquant.Location = new System.Drawing.Point(139, 287);
             this.pquant.Name = "pquant";
             this.pquant.Size = new System.Drawing.Size(53, 27);
             this.pquant.TabIndex = 16;
@@ -500,7 +506,7 @@ namespace softeng1
             // ptotal
             // 
             this.ptotal.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ptotal.Location = new System.Drawing.Point(250, 279);
+            this.ptotal.Location = new System.Drawing.Point(250, 287);
             this.ptotal.Name = "ptotal";
             this.ptotal.Size = new System.Drawing.Size(72, 27);
             this.ptotal.TabIndex = 16;
@@ -510,7 +516,7 @@ namespace softeng1
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(198, 283);
+            this.label12.Location = new System.Drawing.Point(198, 291);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(46, 23);
             this.label12.TabIndex = 21;
@@ -534,7 +540,7 @@ namespace softeng1
             // 
             this.dateLbl.AutoSize = true;
             this.dateLbl.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.dateLbl.Location = new System.Drawing.Point(130, 426);
+            this.dateLbl.Location = new System.Drawing.Point(130, 437);
             this.dateLbl.Name = "dateLbl";
             this.dateLbl.Size = new System.Drawing.Size(40, 23);
             this.dateLbl.TabIndex = 50;
@@ -544,18 +550,11 @@ namespace softeng1
             // 
             this.usernameLbl.AutoSize = true;
             this.usernameLbl.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.usernameLbl.Location = new System.Drawing.Point(130, 389);
+            this.usernameLbl.Location = new System.Drawing.Point(130, 400);
             this.usernameLbl.Name = "usernameLbl";
             this.usernameLbl.Size = new System.Drawing.Size(40, 23);
             this.usernameLbl.TabIndex = 51;
             this.usernameLbl.Text = "-----";
-            // 
-            // datetime
-            // 
-            this.datetime.Location = new System.Drawing.Point(193, 498);
-            this.datetime.Name = "datetime";
-            this.datetime.Size = new System.Drawing.Size(200, 20);
-            this.datetime.TabIndex = 58;
             // 
             // buyBtn
             // 
@@ -582,7 +581,6 @@ namespace softeng1
             this.label11.Size = new System.Drawing.Size(63, 22);
             this.label11.TabIndex = 0;
             this.label11.Text = "Total: ";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
             // totalpriceTxt
             // 
@@ -593,7 +591,6 @@ namespace softeng1
             this.totalpriceTxt.Size = new System.Drawing.Size(48, 22);
             this.totalpriceTxt.TabIndex = 1;
             this.totalpriceTxt.Text = "0.00";
-            this.totalpriceTxt.Click += new System.EventHandler(this.totalpriceTxt_Click);
             // 
             // panel7
             // 
@@ -609,7 +606,7 @@ namespace softeng1
             // 
             // buyPanel
             // 
-            this.buyPanel.Controls.Add(this.button1);
+            this.buyPanel.Controls.Add(this.buyBackBtn);
             this.buyPanel.Controls.Add(this.confirmBtn);
             this.buyPanel.Controls.Add(this.interestTxt);
             this.buyPanel.Controls.Add(this.label22);
@@ -622,24 +619,25 @@ namespace softeng1
             this.buyPanel.Controls.Add(this.panel12);
             this.buyPanel.Controls.Add(this.panel8);
             this.buyPanel.Enabled = false;
-            this.buyPanel.Location = new System.Drawing.Point(250, 96);
+            this.buyPanel.Location = new System.Drawing.Point(269, 96);
             this.buyPanel.Name = "buyPanel";
             this.buyPanel.Size = new System.Drawing.Size(418, 425);
             this.buyPanel.TabIndex = 28;
             this.buyPanel.Visible = false;
             // 
-            // button1
+            // buyBackBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(213, 367);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(144, 37);
-            this.button1.TabIndex = 56;
-            this.button1.Text = "Back";
-            this.button1.UseVisualStyleBackColor = false;
+            this.buyBackBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
+            this.buyBackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buyBackBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buyBackBtn.ForeColor = System.Drawing.Color.White;
+            this.buyBackBtn.Location = new System.Drawing.Point(213, 367);
+            this.buyBackBtn.Name = "buyBackBtn";
+            this.buyBackBtn.Size = new System.Drawing.Size(144, 37);
+            this.buyBackBtn.TabIndex = 56;
+            this.buyBackBtn.Text = "Back";
+            this.buyBackBtn.UseVisualStyleBackColor = false;
+            this.buyBackBtn.Click += new System.EventHandler(this.buyBackBtn_Click);
             // 
             // confirmBtn
             // 
@@ -739,24 +737,24 @@ namespace softeng1
             // panel12
             // 
             this.panel12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(43)))), ((int)(((byte)(67)))), ((int)(((byte)(74)))));
-            this.panel12.Controls.Add(this.date);
+            this.panel12.Controls.Add(this.BuydateLbl);
             this.panel12.Controls.Add(this.label18);
             this.panel12.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel12.ForeColor = System.Drawing.Color.White;
-            this.panel12.Location = new System.Drawing.Point(1, 37);
+            this.panel12.Location = new System.Drawing.Point(0, 37);
             this.panel12.Name = "panel12";
-            this.panel12.Size = new System.Drawing.Size(417, 38);
+            this.panel12.Size = new System.Drawing.Size(418, 38);
             this.panel12.TabIndex = 8;
             // 
-            // date
+            // BuydateLbl
             // 
-            this.date.AutoSize = true;
-            this.date.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.date.Location = new System.Drawing.Point(179, 8);
-            this.date.Name = "date";
-            this.date.Size = new System.Drawing.Size(130, 22);
-            this.date.TabIndex = 1;
-            this.date.Text = "mm/dd/yyyy";
+            this.BuydateLbl.AutoSize = true;
+            this.BuydateLbl.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BuydateLbl.Location = new System.Drawing.Point(179, 8);
+            this.BuydateLbl.Name = "BuydateLbl";
+            this.BuydateLbl.Size = new System.Drawing.Size(130, 22);
+            this.BuydateLbl.TabIndex = 1;
+            this.BuydateLbl.Text = "mm/dd/yyyy";
             // 
             // label18
             // 
@@ -793,6 +791,16 @@ namespace softeng1
             this.panel10.Size = new System.Drawing.Size(418, 38);
             this.panel10.TabIndex = 8;
             // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(87, 8);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(248, 21);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Glacier Tractor Parts And Sales";
+            // 
             // panel11
             // 
             this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
@@ -813,16 +821,6 @@ namespace softeng1
             this.label16.Size = new System.Drawing.Size(174, 22);
             this.label16.TabIndex = 0;
             this.label16.Text = "Products Ordered";
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(98, 8);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(248, 21);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "Glacier Tractor Parts And Sales";
             // 
             // panel9
             // 
@@ -855,6 +853,30 @@ namespace softeng1
             this.label15.TabIndex = 5;
             this.label15.Text = "Glacier Tractor Parts And Sales";
             // 
+            // ProdName
+            // 
+            this.ProdName.HeaderText = "Product";
+            this.ProdName.Name = "ProdName";
+            this.ProdName.ReadOnly = true;
+            // 
+            // ProductPrice
+            // 
+            this.ProductPrice.HeaderText = "Price";
+            this.ProductPrice.Name = "ProductPrice";
+            this.ProductPrice.ReadOnly = true;
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.HeaderText = "Sub Total";
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.ReadOnly = true;
+            // 
+            // ProdQuantity
+            // 
+            this.ProdQuantity.HeaderText = "Quantity";
+            this.ProdQuantity.Name = "ProdQuantity";
+            this.ProdQuantity.ReadOnly = true;
+            // 
             // orderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -862,10 +884,6 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
-
-            this.Controls.Add(this.datetime);
-            this.Controls.Add(this.prodpanel);
-
             this.Controls.Add(this.buyPanel);
             this.Controls.Add(this.prodpanel);
             this.Controls.Add(this.namepanel);
@@ -980,8 +998,6 @@ namespace softeng1
         private System.Windows.Forms.Label dateLbl;
         private System.Windows.Forms.Label usernameLbl;
 
-        private System.Windows.Forms.DateTimePicker datetime;
-
         private System.Windows.Forms.Button buyBtn;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label totalpriceTxt;
@@ -996,9 +1012,9 @@ namespace softeng1
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Panel panel12;
-        private System.Windows.Forms.Label date;
+        private System.Windows.Forms.Label BuydateLbl;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buyBackBtn;
         private System.Windows.Forms.Button confirmBtn;
         private System.Windows.Forms.TextBox interestTxt;
         private System.Windows.Forms.Label label22;
@@ -1008,6 +1024,9 @@ namespace softeng1
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox paymentCmb;
         private System.Windows.Forms.Label label19;
-
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProdName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProdQuantity;
     }
 }

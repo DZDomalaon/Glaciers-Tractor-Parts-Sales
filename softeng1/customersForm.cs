@@ -36,12 +36,6 @@ namespace softeng1
             fromCustomer.Show();
         }
 
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void backBtn_Click_1(object sender, EventArgs e)
         {
             fromCustomer.Show();
@@ -70,11 +64,31 @@ namespace softeng1
             custData.Columns["person_type"].Visible = false;
             custData.Columns["customer_person_id"].Visible = false;
             custData.Columns["gender"].Visible = false;
+            custData.Columns["balance"].Visible = false;
+            custData.Columns["credit_limit"].Visible = false;
             custData.Columns["firstname"].HeaderText = "Firstname";
             custData.Columns["lastname"].HeaderText = "Lastname";
             custData.Columns["contact_num"].HeaderText = "Contact Number";
             custData.Columns["address"].HeaderText = "Address";
             custData.Columns["email"].HeaderText = "Email";
+        }
+
+        public void loadTransaction()
+        {
+            String query = "SELECT ORDER_TOTAL, ORDER_DATE, ORDER_STATUS FROM SALES_ORDER WHERE ORDER_CUSTOMER_ID = '" + selected_cust_id + "'";
+
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            dgtransactions.DataSource = dt;
+
+            dgtransactions.Columns["ORDER_TOTAL"].HeaderText = "Total Price";
+            dgtransactions.Columns["ORDER_DATE"].HeaderText = "Date";
+            dgtransactions.Columns["ORDER_STATUS"].HeaderText = "Status";
         }
 
         private int selected_cust_id;
@@ -92,6 +106,7 @@ namespace softeng1
                 emailTxt.Text = custData.Rows[e.RowIndex].Cells["email"].Value.ToString();
                 addressTxt.Text = custData.Rows[e.RowIndex].Cells["address"].Value.ToString();
                 cnumTxt.Text = custData.Rows[e.RowIndex].Cells["contact_num"].Value.ToString();
+                creditTxt.Text = custData.Rows[e.RowIndex].Cells["credit_limit"].Value.ToString();
                 int gen = int.Parse(custData.Rows[e.RowIndex].Cells["gender"].Value.ToString());
                 if (gen == 1)
                 {
@@ -102,6 +117,7 @@ namespace softeng1
                     rbFemale.Checked = true;
                 }
             }
+            loadTransaction();
         }
 
         private void addBtn_Click(object sender, EventArgs e)
@@ -128,7 +144,9 @@ namespace softeng1
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
                 comm.ExecuteNonQuery();
+                
                 conn.Close();
+                
 
                 loadCustomerData();
 
@@ -183,7 +201,7 @@ namespace softeng1
             if (!System.Text.RegularExpressions.Regex.IsMatch(fnameTxt.Text, "^[a-zA-Z]"))
             {
                 MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
-                fnameTxt.Text.Remove(fnameTxt.Text.Length - 1);
+                fnameTxt.Text.Remove(fnameTxt.Text.Length);
             }
         }
 
@@ -192,7 +210,7 @@ namespace softeng1
             if (!System.Text.RegularExpressions.Regex.IsMatch(lnameTxt.Text, "^[a-zA-Z]"))
             {
                 MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
-                lnameTxt.Text.Remove(lnameTxt.Text.Length - 1);
+                lnameTxt.Text.Remove(lnameTxt.Text.Length);
             }
         }
         private void cnumTxt_KeyPress(object sender, KeyPressEventArgs e)
