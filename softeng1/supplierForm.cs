@@ -110,7 +110,6 @@ namespace softeng1
                 }
             }
         }
-
         private void addBtn_Click(object sender, EventArgs e)
         {
             if (fnameTxt.Text == "" || lnameTxt.Text == "" || emailTxt.Text == "" || cnumTxt.Text == "" || addressTxt.Text == "")
@@ -172,6 +171,22 @@ namespace softeng1
             }
             MessageBox.Show("Your data has been updated successfully", "Updated Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             loadSupplierData();
+        }
+
+        private void fnameTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
+            }
+        }
+
+        private void lnameTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
+            }
         }
     }
 }
