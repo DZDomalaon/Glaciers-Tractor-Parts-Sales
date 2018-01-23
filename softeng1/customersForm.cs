@@ -195,30 +195,28 @@ namespace softeng1
             MessageBox.Show("Your data has been updated successfully", "Updated Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             loadCustomerData();
         }
-
-        private void fnameTxt_TextChanged(object sender, EventArgs e)
-        {
-            if (!System.Text.RegularExpressions.Regex.IsMatch(fnameTxt.Text, "^[a-zA-Z]"))
-            {
-                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
-                fnameTxt.Text.Remove(fnameTxt.Text.Length);
-            }
-        }
-
-        private void lnameTxt_TextChanged(object sender, EventArgs e)
-        {
-            if (!System.Text.RegularExpressions.Regex.IsMatch(lnameTxt.Text, "^[a-zA-Z]"))
-            {
-                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
-                lnameTxt.Text.Remove(lnameTxt.Text.Length);
-            }
-        }
         private void cnumTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
                 (e.KeyChar != '.'))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void fnameTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
+            }
+        }
+
+        private void lnameTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back))
+            {
+                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
             }
         }
     }

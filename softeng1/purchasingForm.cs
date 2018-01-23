@@ -30,8 +30,8 @@ namespace softeng1
             
             purchaseDG.Columns.Add("Product Name", "Product Name");
             purchaseDG.Columns.Add("Price", "Price");
-            purchaseDG.Columns.Add("Quantity", "Quantity");
             purchaseDG.Columns.Add("Sub Total", "Sub Total");
+            purchaseDG.Columns.Add("Quantity", "Quantity");
         }
        
 
@@ -75,8 +75,8 @@ namespace softeng1
                 {
                     string firstColumn = pname.Text;
                     string secondColumn = priceTxt.Text;
-                    string thirdColumn = pquant.Text;
                     string fourthColumn = ptotal.Text;
+                    string thirdColumn = pquant.Text;
 
                     string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn };
 
@@ -85,7 +85,9 @@ namespace softeng1
                     pname.Clear();
                     priceTxt.Clear();
                     pquant.Clear();
-                    ptotal.Clear();               
+                    ptotal.Clear();
+
+                    calcSum();
                 }
                 else
                 {
@@ -122,19 +124,6 @@ namespace softeng1
         public static String name;
         private int selected_supplier_id;
         public static int rowIndex;
-        private void purchaseData_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            /*
-            if (e.RowIndex > -1)
-            {
-                //selected_supplier_id = int.Parse(dgsname.Rows[e.RowIndex].Cells["supplier_id"].Value.ToString());
-                pname.Text = dgsname.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
-                ptotal.Text = dgsname.Rows[e.RowIndex].Cells["price"].Value.ToString();
-                pquant.Text = dgsname.Rows[e.RowIndex].Cells["quantity"].Value.ToString();
-                dateLbl.Text = dgsname.Rows[e.RowIndex].Cells["purchase_date"].Value.ToString();
-            }
-            */
-        }
         private void dgsearchname_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex > -1)
@@ -159,15 +148,6 @@ namespace softeng1
         }
         private void dgsearchprod_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            prodpanel.Enabled = false;
-            prodpanel.Visible = false;
-            prodpanel.Location = new Point(434, 152);
-            prodpanel.Size = new Size(521, 44);
 
         }
         private void priceTxt_KeyPress(object sender, KeyPressEventArgs e)
@@ -208,7 +188,6 @@ namespace softeng1
                 MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
             }
         }
-
         private void purchaseDG_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             rowIndex = e.RowIndex;
@@ -217,11 +196,7 @@ namespace softeng1
             pname.Text = row.Cells[1].Value.ToString();
             pquant.Text = row.Cells[2].Value.ToString();
             ptotal.Text = row.Cells[3].Value.ToString();
-            dateLbl.Text = row.Cells[4].Value.ToString();
-            usernameLbl.Text = row.Cells[5].Value.ToString();
-            snameTxt.Text = row.Cells[6].Value.ToString();
         }
-
         private void removeBtn_Click(object sender, EventArgs e)
         {
             foreach (DataGridViewRow item in this.purchaseDG.SelectedRows)
@@ -243,6 +218,16 @@ namespace softeng1
             {
                 ptotal.Text = "";
             }
+        }
+        private void calcSum()
+        {
+            double a = 0, b = 0;
+            foreach (DataGridViewRow row in purchaseDG.Rows)
+            {
+                a = Convert.ToDouble(row.Cells[1].Value);
+                b = b + a;
+            }
+            totalpriceTxt.Text = b.ToString("#,0.00");
         }
     }
 }

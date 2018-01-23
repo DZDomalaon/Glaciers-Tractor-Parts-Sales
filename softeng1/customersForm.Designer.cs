@@ -204,7 +204,7 @@
             this.lnameTxt.Name = "lnameTxt";
             this.lnameTxt.Size = new System.Drawing.Size(159, 27);
             this.lnameTxt.TabIndex = 50;
-            this.lnameTxt.TextChanged += new System.EventHandler(this.lnameTxt_TextChanged);
+            this.lnameTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lnameTxt_KeyPress);
             // 
             // label5
             // 
@@ -235,7 +235,7 @@
             this.fnameTxt.Name = "fnameTxt";
             this.fnameTxt.Size = new System.Drawing.Size(159, 27);
             this.fnameTxt.TabIndex = 48;
-            this.fnameTxt.TextChanged += new System.EventHandler(this.fnameTxt_TextChanged);
+            this.fnameTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fnameTxt_KeyPress);
             // 
             // custData
             // 
@@ -414,7 +414,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
             this.Controls.Add(this.creditTxt);
-            this.Controls.Add(this.custData);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.dgtransactions);
             this.Controls.Add(this.rbFemale);
