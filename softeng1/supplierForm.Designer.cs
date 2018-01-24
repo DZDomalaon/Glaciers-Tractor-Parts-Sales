@@ -53,8 +53,6 @@
             this.fnameTxt = new System.Windows.Forms.TextBox();
             this.contact = new System.Windows.Forms.Label();
             this.contactTxt = new System.Windows.Forms.TextBox();
-            this.rbFemale = new System.Windows.Forms.RadioButton();
-            this.rbMale = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
             this.organizationTxt = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -63,6 +61,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.dgproduct = new System.Windows.Forms.DataGridView();
             this.supplierData = new System.Windows.Forms.DataGridView();
+            this.rbMale = new MaterialSkin.Controls.MaterialRadioButton();
+            this.rbFemale = new MaterialSkin.Controls.MaterialRadioButton();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -310,30 +310,6 @@
             this.contactTxt.Size = new System.Drawing.Size(175, 27);
             this.contactTxt.TabIndex = 97;
             // 
-            // rbFemale
-            // 
-            this.rbFemale.AutoSize = true;
-            this.rbFemale.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbFemale.Location = new System.Drawing.Point(220, 202);
-            this.rbFemale.Name = "rbFemale";
-            this.rbFemale.Size = new System.Drawing.Size(74, 23);
-            this.rbFemale.TabIndex = 100;
-            this.rbFemale.TabStop = true;
-            this.rbFemale.Text = "Female";
-            this.rbFemale.UseVisualStyleBackColor = true;
-            // 
-            // rbMale
-            // 
-            this.rbMale.AutoSize = true;
-            this.rbMale.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.rbMale.Location = new System.Drawing.Point(135, 202);
-            this.rbMale.Name = "rbMale";
-            this.rbMale.Size = new System.Drawing.Size(60, 23);
-            this.rbMale.TabIndex = 99;
-            this.rbMale.TabStop = true;
-            this.rbMale.Text = "Male";
-            this.rbMale.UseVisualStyleBackColor = true;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -448,12 +424,48 @@
             this.supplierData.TabIndex = 93;
             this.supplierData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.supplierData_CellClick);
             // 
+            // rbMale
+            // 
+            this.rbMale.AutoSize = true;
+            this.rbMale.Depth = 0;
+            this.rbMale.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbMale.Location = new System.Drawing.Point(128, 199);
+            this.rbMale.Margin = new System.Windows.Forms.Padding(0);
+            this.rbMale.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbMale.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rbMale.Name = "rbMale";
+            this.rbMale.Ripple = true;
+            this.rbMale.Size = new System.Drawing.Size(59, 30);
+            this.rbMale.TabIndex = 106;
+            this.rbMale.TabStop = true;
+            this.rbMale.Text = "Male";
+            this.rbMale.UseVisualStyleBackColor = true;
+            // 
+            // rbFemale
+            // 
+            this.rbFemale.AutoSize = true;
+            this.rbFemale.Depth = 0;
+            this.rbFemale.Font = new System.Drawing.Font("Roboto", 10F);
+            this.rbFemale.Location = new System.Drawing.Point(212, 199);
+            this.rbFemale.Margin = new System.Windows.Forms.Padding(0);
+            this.rbFemale.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.rbFemale.MouseState = MaterialSkin.MouseState.HOVER;
+            this.rbFemale.Name = "rbFemale";
+            this.rbFemale.Ripple = true;
+            this.rbFemale.Size = new System.Drawing.Size(74, 30);
+            this.rbFemale.TabIndex = 107;
+            this.rbFemale.TabStop = true;
+            this.rbFemale.Text = "Female";
+            this.rbFemale.UseVisualStyleBackColor = true;
+            // 
             // supplierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.rbFemale);
+            this.Controls.Add(this.rbMale);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.dgproduct);
             this.Controls.Add(this.cnumTxt);
@@ -465,8 +477,6 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.rbFemale);
-            this.Controls.Add(this.rbMale);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.contact);
             this.Controls.Add(this.label9);
@@ -528,8 +538,6 @@
         private System.Windows.Forms.TextBox fnameTxt;
         private System.Windows.Forms.Label contact;
         private System.Windows.Forms.TextBox contactTxt;
-        private System.Windows.Forms.RadioButton rbFemale;
-        private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox organizationTxt;
         private System.Windows.Forms.Label label11;
@@ -538,5 +546,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView dgproduct;
         private System.Windows.Forms.DataGridView supplierData;
+        private MaterialSkin.Controls.MaterialRadioButton rbMale;
+        private MaterialSkin.Controls.MaterialRadioButton rbFemale;
     }
 }
