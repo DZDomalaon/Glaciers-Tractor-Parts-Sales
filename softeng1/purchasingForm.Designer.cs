@@ -66,6 +66,7 @@
             this.totalpriceTxt = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.buyBtn = new System.Windows.Forms.Button();
+            this.editBtn = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -324,7 +325,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(259, 512);
+            this.backBtn.Location = new System.Drawing.Point(318, 513);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(92, 37);
             this.backBtn.TabIndex = 40;
@@ -338,7 +339,7 @@
             this.removeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.removeBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeBtn.ForeColor = System.Drawing.Color.White;
-            this.removeBtn.Location = new System.Drawing.Point(161, 512);
+            this.removeBtn.Location = new System.Drawing.Point(122, 513);
             this.removeBtn.Name = "removeBtn";
             this.removeBtn.Size = new System.Drawing.Size(92, 37);
             this.removeBtn.TabIndex = 39;
@@ -352,7 +353,7 @@
             this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addBtn.ForeColor = System.Drawing.Color.White;
-            this.addBtn.Location = new System.Drawing.Point(63, 512);
+            this.addBtn.Location = new System.Drawing.Point(24, 513);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(92, 37);
             this.addBtn.TabIndex = 38;
@@ -452,7 +453,7 @@
             this.panel7.ForeColor = System.Drawing.Color.White;
             this.panel7.Location = new System.Drawing.Point(436, 549);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(380, 47);
+            this.panel7.Size = new System.Drawing.Size(380, 38);
             this.panel7.TabIndex = 59;
             // 
             // totalpriceTxt
@@ -484,11 +485,24 @@
             this.buyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buyBtn.Location = new System.Drawing.Point(816, 549);
             this.buyBtn.Name = "buyBtn";
-            this.buyBtn.Size = new System.Drawing.Size(141, 38);
+            this.buyBtn.Size = new System.Drawing.Size(139, 38);
             this.buyBtn.TabIndex = 58;
             this.buyBtn.Text = "Check Out";
             this.buyBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buyBtn.UseVisualStyleBackColor = false;
+            // 
+            // editBtn
+            // 
+            this.editBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
+            this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editBtn.ForeColor = System.Drawing.Color.White;
+            this.editBtn.Location = new System.Drawing.Point(220, 513);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(92, 37);
+            this.editBtn.TabIndex = 60;
+            this.editBtn.Text = "Edit";
+            this.editBtn.UseVisualStyleBackColor = false;
             // 
             // purchasingForm
             // 
@@ -496,6 +510,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.editBtn);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.buyBtn);
             this.Controls.Add(this.spanel);
@@ -590,5 +605,6 @@
         private System.Windows.Forms.Label totalpriceTxt;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button buyBtn;
+        private System.Windows.Forms.Button editBtn;
     }
 }
