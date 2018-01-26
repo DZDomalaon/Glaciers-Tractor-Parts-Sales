@@ -414,10 +414,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
             this.Controls.Add(this.creditTxt);
-<<<<<<< HEAD
             this.Controls.Add(this.custData);
-=======
->>>>>>> 67fe194063d0cf480b45282199790e77b4980cc2
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.dgtransactions);
             this.Controls.Add(this.rbFemale);

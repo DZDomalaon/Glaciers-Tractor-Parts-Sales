@@ -310,7 +310,6 @@
             this.contactTxt.Size = new System.Drawing.Size(175, 27);
             this.contactTxt.TabIndex = 97;
             // 
-<<<<<<< HEAD
             // rbFemale
             // 
             this.rbFemale.AutoSize = true;
@@ -335,8 +334,6 @@
             this.rbMale.Text = "Male";
             this.rbMale.UseVisualStyleBackColor = true;
             // 
-=======
->>>>>>> 67fe194063d0cf480b45282199790e77b4980cc2
             // label6
             // 
             this.label6.AutoSize = true;
