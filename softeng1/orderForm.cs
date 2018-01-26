@@ -20,7 +20,7 @@ namespace softeng1
             conn = new MySqlConnection("SERVER=localhost; DATABASE=glaciers; uid = root; pwd = root");
             InitializeComponent();
         }
-        public static int customer_id , rowIndex, product_id, inv_id, availableStock;
+        public static int customer_id, rowIndex, product_id, inv_id, availableStock, quan;
         public static String prod, price, ln, fn;
         public static double tot, p, q;
 
@@ -37,6 +37,7 @@ namespace softeng1
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
 
             buyPanel.Visible = false;
+            stockLbl.Visible = false;
         }
         public static string searchn;
         private void snameTxt_Click(object sender, EventArgs e)
@@ -69,7 +70,7 @@ namespace softeng1
             prodpanel.Location = new Point(140, 56);
             prodpanel.Size = new Size(681, 297);
 
-            String query = "SELECT product_id, product_pc_id, product_inv_id, product_name, description, price FROM product where product_name like '%" + pnameTxt.Text + "%'";
+            String query = "SELECT product_id, product_pc_id, product_inv_id, product_name, description, price, quantity FROM product, inventory where product_name like '%" + pnameTxt.Text + "%' and product_inv_id = inventory_id";
             conn.Open();
 
 
@@ -83,6 +84,7 @@ namespace softeng1
             dgsearchprod.Columns["product_id"].Visible = false;
             dgsearchprod.Columns["product_pc_id"].Visible = false;
             dgsearchprod.Columns["product_inv_id"].Visible = false;
+            dgsearchprod.Columns["quantity"].Visible = false;
             dgsearchprod.Columns["product_name"].HeaderText = "Product Name";
             dgsearchprod.Columns["description"].HeaderText = "Product Description";
             dgsearchprod.Columns["price"].HeaderText = "Product Price";
@@ -121,6 +123,7 @@ namespace softeng1
                 dgsearchprod.Rows[e.RowIndex].Cells["description"].Value.ToString();
                 price = dgsearchprod.Rows[e.RowIndex].Cells["price"].Value.ToString();
                 inv_id = int.Parse(dgsearchprod.Rows[e.RowIndex].Cells["product_inv_id"].Value.ToString());
+                quan = int.Parse(dgsearchprod.Rows[e.RowIndex].Cells["quantity"].Value.ToString());
 
                 pnameTxt.Text = prod;
                 ppriceTxt.Text = price;
@@ -128,6 +131,9 @@ namespace softeng1
                 prodpanel.Visible = false;
                 prodpanel.Location = new Point(434, 152);
                 prodpanel.Size = new Size(521, 44);
+
+                stockLbl.Visible = true;
+                stockLbl.Text = "The available stock is only " + quan;
             }
         }
         //Search for customer
@@ -282,6 +288,7 @@ namespace softeng1
             updRow.Cells[1].Value = ppriceTxt.Text;
             updRow.Cells[2].Value = pquant.Text;
             updRow.Cells[3].Value = ptotal.Text;
+            calcSum();
         }
         //Add order to Datagrid
         private void addOrder_Click(object sender, EventArgs e)
@@ -314,10 +321,12 @@ namespace softeng1
                     ptotal.Clear();
                     paymentCmb.Text = "";
                     calcSum();
+
+                    stockLbl.Visible = false;
                 }
                 else
                 {
-
+                    MessageBox.Show("The available stock is only " + availableStock, "Not enough stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
         }
