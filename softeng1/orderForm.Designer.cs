@@ -97,15 +97,8 @@ namespace softeng1
             this.panel9 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-
-            this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-
             this.label13 = new System.Windows.Forms.Label();
             this.stockLbl = new System.Windows.Forms.Label();
-
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -887,31 +880,6 @@ namespace softeng1
             this.label15.TabIndex = 5;
             this.label15.Text = "Glacier Tractor Parts And Sales";
             // 
-
-            // ProdName
-            // 
-            this.ProdName.HeaderText = "Product";
-            this.ProdName.Name = "ProdName";
-            this.ProdName.ReadOnly = true;
-            // 
-            // ProductPrice
-            // 
-            this.ProductPrice.HeaderText = "Price";
-            this.ProductPrice.Name = "ProductPrice";
-            this.ProductPrice.ReadOnly = true;
-            // 
-            // SubTotal
-            // 
-            this.SubTotal.HeaderText = "Sub Total";
-            this.SubTotal.Name = "SubTotal";
-            this.SubTotal.ReadOnly = true;
-            // 
-            // ProdQuantity
-            // 
-            this.ProdQuantity.HeaderText = "Quantity";
-            this.ProdQuantity.Name = "ProdQuantity";
-            this.ProdQuantity.ReadOnly = true;
-
             // label13
             // 
             this.label13.AutoSize = true;
@@ -930,7 +898,6 @@ namespace softeng1
             this.stockLbl.Size = new System.Drawing.Size(22, 13);
             this.stockLbl.TabIndex = 52;
             this.stockLbl.Text = "-----";
-
             // 
             // orderForm
             // 
@@ -939,10 +906,7 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
-
-
             this.Controls.Add(this.stockLbl);
-
             this.Controls.Add(this.buyPanel);
             this.Controls.Add(this.prodpanel);
             this.Controls.Add(this.namepanel);

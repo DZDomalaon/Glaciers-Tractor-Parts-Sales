@@ -20,7 +20,6 @@ namespace softeng1
             conn = new MySqlConnection("SERVER=localhost; DATABASE=glaciers; uid = root; pwd = root");
             InitializeComponent();
         }
-
         public static int customer_id, rowIndex, product_id, inv_id, availableStock, quan;
         public static String prod, price, ln, fn;
         public static double tot, p, q;
@@ -38,11 +37,9 @@ namespace softeng1
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
 
             buyPanel.Visible = false;
-
             stockLbl.Visible = false;
-
         }
-        
+        public static string searchn;
         private void snameTxt_Click(object sender, EventArgs e)
         {
             namepanel.Enabled = true;
@@ -72,7 +69,6 @@ namespace softeng1
             prodpanel.Visible = true;
             prodpanel.Location = new Point(140, 56);
             prodpanel.Size = new Size(681, 297);
-
 
             String query = "SELECT product_id, product_pc_id, product_inv_id, product_name, description, price, quantity FROM product, inventory where product_name like '%" + pnameTxt.Text + "%' and product_inv_id = inventory_id";
             conn.Open();
@@ -167,17 +163,6 @@ namespace softeng1
 
         private void buyBtn_Click(object sender, EventArgs e)
         {
-            if (orderDG.Rows.Count == 0)
-            {
-                MessageBox.Show("There are no orders", "No orders", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                buyPanel.Visible = true;
-                buyPanel.Enabled = true;
-                BuydateLbl.Text = DateTime.Now.Date.ToString("MM-dd-yyyy");
-            }           
-
             buyPanel.Visible = true;
             buyPanel.Enabled = true;
             BuydateLbl.Text = DateTime.Now.Date.ToString("MM-dd-yyyy");
@@ -336,6 +321,7 @@ namespace softeng1
                     ptotal.Clear();
                     paymentCmb.Text = "";
                     calcSum();
+
                     stockLbl.Visible = false;
                 }
                 else

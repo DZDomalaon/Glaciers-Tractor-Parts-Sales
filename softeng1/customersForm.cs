@@ -200,8 +200,6 @@ namespace softeng1
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
                 (e.KeyChar != '.'))
             {
-                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
-                fnameTxt.Text.Remove(fnameTxt.Text.Length);
                 e.Handled = true;
             }
         }
@@ -211,7 +209,6 @@ namespace softeng1
             if (!(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back))
             {
                 MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
-                lnameTxt.Text.Remove(lnameTxt.Text.Length);
             }
         }
 
