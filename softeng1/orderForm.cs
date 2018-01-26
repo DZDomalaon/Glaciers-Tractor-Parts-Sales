@@ -20,8 +20,13 @@ namespace softeng1
             conn = new MySqlConnection("SERVER=localhost; DATABASE=glaciers; uid = root; pwd = root");
             InitializeComponent();
         }
+<<<<<<< HEAD
         public static int customer_id , rowIndex, product_id, inv_id, availableStock;
         public static string prod, price, ln, fn, searchn;
+=======
+        public static int customer_id, rowIndex, product_id, inv_id, availableStock, quan;
+        public static String prod, price, ln, fn;
+>>>>>>> 67fe194063d0cf480b45282199790e77b4980cc2
         public static double tot, p, q;
 
         public static homeForm fromOrder { get; set; }
@@ -37,6 +42,10 @@ namespace softeng1
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
 
             buyPanel.Visible = false;
+<<<<<<< HEAD
+=======
+            stockLbl.Visible = false;
+>>>>>>> 67fe194063d0cf480b45282199790e77b4980cc2
         }
         
         private void snameTxt_Click(object sender, EventArgs e)
@@ -69,7 +78,11 @@ namespace softeng1
             prodpanel.Location = new Point(140, 56);
             prodpanel.Size = new Size(681, 297);
 
+<<<<<<< HEAD
             String query = "SELECT product_id, product_pc_id, product_inv_id, product_name, description, price FROM product where product_name like '%" + pnameTxt.Text + "%'";
+=======
+            String query = "SELECT product_id, product_pc_id, product_inv_id, product_name, description, price, quantity FROM product, inventory where product_name like '%" + pnameTxt.Text + "%' and product_inv_id = inventory_id";
+>>>>>>> 67fe194063d0cf480b45282199790e77b4980cc2
             conn.Open();
 
 
@@ -83,6 +96,10 @@ namespace softeng1
             dgsearchprod.Columns["product_id"].Visible = false;
             dgsearchprod.Columns["product_pc_id"].Visible = false;
             dgsearchprod.Columns["product_inv_id"].Visible = false;
+<<<<<<< HEAD
+=======
+            dgsearchprod.Columns["quantity"].Visible = false;
+>>>>>>> 67fe194063d0cf480b45282199790e77b4980cc2
             dgsearchprod.Columns["product_name"].HeaderText = "Product Name";
             dgsearchprod.Columns["description"].HeaderText = "Product Description";
             dgsearchprod.Columns["price"].HeaderText = "Product Price";
@@ -121,6 +138,10 @@ namespace softeng1
                 dgsearchprod.Rows[e.RowIndex].Cells["description"].Value.ToString();
                 price = dgsearchprod.Rows[e.RowIndex].Cells["price"].Value.ToString();
                 inv_id = int.Parse(dgsearchprod.Rows[e.RowIndex].Cells["product_inv_id"].Value.ToString());
+<<<<<<< HEAD
+=======
+                quan = int.Parse(dgsearchprod.Rows[e.RowIndex].Cells["quantity"].Value.ToString());
+>>>>>>> 67fe194063d0cf480b45282199790e77b4980cc2
 
                 pnameTxt.Text = prod;
                 ppriceTxt.Text = price;
@@ -128,6 +149,9 @@ namespace softeng1
                 prodpanel.Visible = false;
                 prodpanel.Location = new Point(434, 152);
                 prodpanel.Size = new Size(521, 44);
+
+                stockLbl.Visible = true;
+                stockLbl.Text = "The available stock is only " + quan;
             }
         }
         //Search for customer
@@ -157,6 +181,7 @@ namespace softeng1
 
         private void buyBtn_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             if (orderDG.Rows.Count == 0)
             {
                 MessageBox.Show("There are no orders", "No orders", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -167,6 +192,11 @@ namespace softeng1
                 buyPanel.Enabled = true;
                 BuydateLbl.Text = DateTime.Now.Date.ToString("MM-dd-yyyy");
             }           
+=======
+            buyPanel.Visible = true;
+            buyPanel.Enabled = true;
+            BuydateLbl.Text = DateTime.Now.Date.ToString("MM-dd-yyyy");
+>>>>>>> 67fe194063d0cf480b45282199790e77b4980cc2
         }
 
         private void closeprod_Click(object sender, EventArgs e)
@@ -289,6 +319,10 @@ namespace softeng1
             updRow.Cells[1].Value = ppriceTxt.Text;
             updRow.Cells[2].Value = pquant.Text;
             updRow.Cells[3].Value = ptotal.Text;
+<<<<<<< HEAD
+=======
+            calcSum();
+>>>>>>> 67fe194063d0cf480b45282199790e77b4980cc2
         }
         //Add order to Datagrid
         private void addOrder_Click(object sender, EventArgs e)
@@ -321,10 +355,19 @@ namespace softeng1
                     ptotal.Clear();
                     paymentCmb.Text = "";
                     calcSum();
+<<<<<<< HEAD
                 }
                 else
                 {
 
+=======
+
+                    stockLbl.Visible = false;
+                }
+                else
+                {
+                    MessageBox.Show("The available stock is only " + availableStock, "Not enough stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+>>>>>>> 67fe194063d0cf480b45282199790e77b4980cc2
                 }
             }
         }

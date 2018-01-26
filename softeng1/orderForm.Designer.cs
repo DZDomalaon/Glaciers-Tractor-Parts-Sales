@@ -37,6 +37,10 @@ namespace softeng1
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.orderDG = new System.Windows.Forms.DataGridView();
+            this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProdQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.custfnameTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -93,10 +97,15 @@ namespace softeng1
             this.panel9 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+<<<<<<< HEAD
             this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProdQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+=======
+            this.label13 = new System.Windows.Forms.Label();
+            this.stockLbl = new System.Windows.Forms.Label();
+>>>>>>> 67fe194063d0cf480b45282199790e77b4980cc2
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -212,6 +221,30 @@ namespace softeng1
             this.orderDG.Size = new System.Drawing.Size(521, 470);
             this.orderDG.TabIndex = 7;
             this.orderDG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderDG_CellClick);
+            // 
+            // ProdName
+            // 
+            this.ProdName.HeaderText = "Product";
+            this.ProdName.Name = "ProdName";
+            this.ProdName.ReadOnly = true;
+            // 
+            // ProductPrice
+            // 
+            this.ProductPrice.HeaderText = "Price";
+            this.ProductPrice.Name = "ProductPrice";
+            this.ProductPrice.ReadOnly = true;
+            // 
+            // SubTotal
+            // 
+            this.SubTotal.HeaderText = "Sub Total";
+            this.SubTotal.Name = "SubTotal";
+            this.SubTotal.ReadOnly = true;
+            // 
+            // ProdQuantity
+            // 
+            this.ProdQuantity.HeaderText = "Quantity";
+            this.ProdQuantity.Name = "ProdQuantity";
+            this.ProdQuantity.ReadOnly = true;
             // 
             // custfnameTxt
             // 
@@ -456,6 +489,7 @@ namespace softeng1
             // 
             // prodpanel
             // 
+            this.prodpanel.Controls.Add(this.label13);
             this.prodpanel.Controls.Add(this.dgsearchprod);
             this.prodpanel.Controls.Add(this.closeprod);
             this.prodpanel.Enabled = false;
@@ -853,6 +887,7 @@ namespace softeng1
             this.label15.TabIndex = 5;
             this.label15.Text = "Glacier Tractor Parts And Sales";
             // 
+<<<<<<< HEAD
             // ProdName
             // 
             this.ProdName.HeaderText = "Product";
@@ -876,6 +911,26 @@ namespace softeng1
             this.ProdQuantity.HeaderText = "Quantity";
             this.ProdQuantity.Name = "ProdQuantity";
             this.ProdQuantity.ReadOnly = true;
+=======
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(17, 47);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(41, 13);
+            this.label13.TabIndex = 5;
+            this.label13.Text = "label13";
+            // 
+            // stockLbl
+            // 
+            this.stockLbl.AutoSize = true;
+            this.stockLbl.ForeColor = System.Drawing.Color.Red;
+            this.stockLbl.Location = new System.Drawing.Point(159, 320);
+            this.stockLbl.Name = "stockLbl";
+            this.stockLbl.Size = new System.Drawing.Size(22, 13);
+            this.stockLbl.TabIndex = 52;
+            this.stockLbl.Text = "-----";
+>>>>>>> 67fe194063d0cf480b45282199790e77b4980cc2
             // 
             // orderForm
             // 
@@ -884,6 +939,10 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
+<<<<<<< HEAD
+=======
+            this.Controls.Add(this.stockLbl);
+>>>>>>> 67fe194063d0cf480b45282199790e77b4980cc2
             this.Controls.Add(this.buyPanel);
             this.Controls.Add(this.prodpanel);
             this.Controls.Add(this.namepanel);
@@ -937,6 +996,7 @@ namespace softeng1
             this.namepanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchname)).EndInit();
             this.prodpanel.ResumeLayout(false);
+            this.prodpanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgsearchprod)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
@@ -1028,5 +1088,10 @@ namespace softeng1
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdQuantity;
+<<<<<<< HEAD
+=======
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label stockLbl;
+>>>>>>> 67fe194063d0cf480b45282199790e77b4980cc2
     }
 }

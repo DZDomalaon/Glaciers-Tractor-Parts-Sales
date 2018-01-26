@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(purchasingForm));
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -35,7 +36,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.purchaseData = new System.Windows.Forms.DataGridView();
+            this.purchaseDG = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pquant = new System.Windows.Forms.TextBox();
@@ -60,22 +61,22 @@
             this.spanel = new System.Windows.Forms.Panel();
             this.closename = new System.Windows.Forms.Button();
             this.dgsname = new System.Windows.Forms.DataGridView();
-            this.prodpanel = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.dgsearchprod = new System.Windows.Forms.DataGridView();
-            this.datetime = new System.Windows.Forms.DateTimePicker();
-            this.pnameTxt = new System.Windows.Forms.ComboBox();
+            this.pname = new System.Windows.Forms.TextBox();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.totalpriceTxt = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.buyBtn = new System.Windows.Forms.Button();
+            this.editBtn = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseDG)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.spanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgsname)).BeginInit();
-            this.prodpanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgsearchprod)).BeginInit();
+            this.panel7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -126,9 +127,9 @@
             this.panel4.Controls.Add(this.label3);
             this.panel4.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.ForeColor = System.Drawing.Color.White;
-            this.panel4.Location = new System.Drawing.Point(434, 0);
+            this.panel4.Location = new System.Drawing.Point(435, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(521, 38);
+            this.panel4.Size = new System.Drawing.Size(520, 38);
             this.panel4.TabIndex = 6;
             // 
             // label3
@@ -151,23 +152,21 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Product Details";
             // 
-            // purchaseData
+            // purchaseDG
             // 
-            this.purchaseData.AllowUserToAddRows = false;
-            this.purchaseData.AllowUserToDeleteRows = false;
-            this.purchaseData.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.purchaseData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.purchaseData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.purchaseData.Dock = System.Windows.Forms.DockStyle.Right;
-            this.purchaseData.Location = new System.Drawing.Point(434, 85);
-            this.purchaseData.Name = "purchaseData";
-            this.purchaseData.ReadOnly = true;
-            this.purchaseData.RowHeadersVisible = false;
-            this.purchaseData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.purchaseData.Size = new System.Drawing.Size(521, 502);
-            this.purchaseData.TabIndex = 8;
-            this.purchaseData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.purchaseData_CellClick);
-            this.purchaseData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.purchaseData_CellContentClick);
+            this.purchaseDG.AllowUserToAddRows = false;
+            this.purchaseDG.AllowUserToDeleteRows = false;
+            this.purchaseDG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.purchaseDG.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.purchaseDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.purchaseDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.purchaseDG.Location = new System.Drawing.Point(436, 85);
+            this.purchaseDG.Name = "purchaseDG";
+            this.purchaseDG.ReadOnly = true;
+            this.purchaseDG.RowHeadersVisible = false;
+            this.purchaseDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.purchaseDG.Size = new System.Drawing.Size(519, 465);
+            this.purchaseDG.TabIndex = 8;
             // 
             // label12
             // 
@@ -220,19 +219,6 @@
             this.label7.TabIndex = 24;
             this.label7.Text = "Product Price";
             // 
-
-
-            // pnameTxt
-            // 
-            this.pnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnameTxt.Location = new System.Drawing.Point(130, 101);
-            this.pnameTxt.Name = "pnameTxt";
-            this.pnameTxt.Size = new System.Drawing.Size(183, 27);
-            this.pnameTxt.TabIndex = 23;
-            this.pnameTxt.TextChanged += new System.EventHandler(this.pnameTxt_TextChanged);
-            // 
-
-
             // label6
             // 
             this.label6.AutoSize = true;
@@ -339,7 +325,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(259, 512);
+            this.backBtn.Location = new System.Drawing.Point(318, 513);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(92, 37);
             this.backBtn.TabIndex = 40;
@@ -353,7 +339,7 @@
             this.removeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.removeBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeBtn.ForeColor = System.Drawing.Color.White;
-            this.removeBtn.Location = new System.Drawing.Point(161, 512);
+            this.removeBtn.Location = new System.Drawing.Point(122, 513);
             this.removeBtn.Name = "removeBtn";
             this.removeBtn.Size = new System.Drawing.Size(92, 37);
             this.removeBtn.TabIndex = 39;
@@ -367,7 +353,7 @@
             this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addBtn.ForeColor = System.Drawing.Color.White;
-            this.addBtn.Location = new System.Drawing.Point(63, 512);
+            this.addBtn.Location = new System.Drawing.Point(24, 513);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(92, 37);
             this.addBtn.TabIndex = 38;
@@ -450,63 +436,73 @@
             this.dgsname.TabIndex = 0;
             this.dgsname.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchname_CellClick);
             // 
-            // prodpanel
+            // pname
             // 
-            this.prodpanel.Controls.Add(this.button1);
-            this.prodpanel.Controls.Add(this.dgsearchprod);
-            this.prodpanel.Enabled = false;
-            this.prodpanel.Location = new System.Drawing.Point(434, 85);
-            this.prodpanel.Name = "prodpanel";
-            this.prodpanel.Size = new System.Drawing.Size(521, 103);
-            this.prodpanel.TabIndex = 56;
-            this.prodpanel.Visible = false;
+            this.pname.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pname.Location = new System.Drawing.Point(130, 105);
+            this.pname.Name = "pname";
+            this.pname.Size = new System.Drawing.Size(183, 27);
+            this.pname.TabIndex = 57;
             // 
-            // button1
+            // panel7
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(636, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 32);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.panel7.Controls.Add(this.totalpriceTxt);
+            this.panel7.Controls.Add(this.label11);
+            this.panel7.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel7.ForeColor = System.Drawing.Color.White;
+            this.panel7.Location = new System.Drawing.Point(436, 549);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(380, 38);
+            this.panel7.TabIndex = 59;
             // 
-            // dgsearchprod
+            // totalpriceTxt
             // 
-            this.dgsearchprod.AllowUserToAddRows = false;
-            this.dgsearchprod.AllowUserToDeleteRows = false;
-            this.dgsearchprod.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgsearchprod.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgsearchprod.Location = new System.Drawing.Point(9, 38);
-            this.dgsearchprod.Name = "dgsearchprod";
-            this.dgsearchprod.ReadOnly = true;
-            this.dgsearchprod.RowHeadersVisible = false;
-            this.dgsearchprod.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgsearchprod.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgsearchprod.Size = new System.Drawing.Size(667, 249);
-            this.dgsearchprod.TabIndex = 0;
-            this.dgsearchprod.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchprod_CellClick);
-            this.dgsearchprod.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchprod_CellContentClick);
+            this.totalpriceTxt.AutoSize = true;
+            this.totalpriceTxt.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalpriceTxt.Location = new System.Drawing.Point(205, 7);
+            this.totalpriceTxt.Name = "totalpriceTxt";
+            this.totalpriceTxt.Size = new System.Drawing.Size(48, 22);
+            this.totalpriceTxt.TabIndex = 1;
+            this.totalpriceTxt.Text = "0.00";
             // 
-            // datetime
+            // label11
             // 
-            this.datetime.Location = new System.Drawing.Point(172, 453);
-            this.datetime.Name = "datetime";
-            this.datetime.Size = new System.Drawing.Size(200, 20);
-            this.datetime.TabIndex = 57;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(136, 7);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(64, 23);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Total: ";
             // 
-            // pnameTxt
+            // buyBtn
             // 
-            this.pnameTxt.FormattingEnabled = true;
-            this.pnameTxt.Location = new System.Drawing.Point(129, 107);
-            this.pnameTxt.Name = "pnameTxt";
-            this.pnameTxt.Size = new System.Drawing.Size(184, 21);
-            this.pnameTxt.TabIndex = 58;
-            this.pnameTxt.SelectedIndexChanged += new System.EventHandler(this.pnameTxt_SelectedIndexChanged);
+            this.buyBtn.BackColor = System.Drawing.Color.White;
+            this.buyBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buyBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buyBtn.Image = ((System.Drawing.Image)(resources.GetObject("buyBtn.Image")));
+            this.buyBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buyBtn.Location = new System.Drawing.Point(816, 549);
+            this.buyBtn.Name = "buyBtn";
+            this.buyBtn.Size = new System.Drawing.Size(139, 38);
+            this.buyBtn.TabIndex = 58;
+            this.buyBtn.Text = "Check Out";
+            this.buyBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buyBtn.UseVisualStyleBackColor = false;
+            // 
+            // editBtn
+            // 
+            this.editBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
+            this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editBtn.ForeColor = System.Drawing.Color.White;
+            this.editBtn.Location = new System.Drawing.Point(220, 513);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(92, 37);
+            this.editBtn.TabIndex = 60;
+            this.editBtn.Text = "Edit";
+            this.editBtn.UseVisualStyleBackColor = false;
             // 
             // purchasingForm
             // 
@@ -514,9 +510,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
-            this.Controls.Add(this.pnameTxt);
-            this.Controls.Add(this.datetime);
-            this.Controls.Add(this.prodpanel);
+            this.Controls.Add(this.editBtn);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.buyBtn);
             this.Controls.Add(this.spanel);
             this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.dateLbl);
@@ -537,9 +533,10 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.ptotal);
-            this.Controls.Add(this.purchaseData);
+            this.Controls.Add(this.purchaseDG);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.pname);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -555,15 +552,15 @@
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseDG)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.spanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgsname)).EndInit();
-            this.prodpanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgsearchprod)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -578,7 +575,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView purchaseData;
+        private System.Windows.Forms.DataGridView purchaseDG;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox pquant;
@@ -603,10 +600,11 @@
         private System.Windows.Forms.Panel spanel;
         private System.Windows.Forms.Button closename;
         private System.Windows.Forms.DataGridView dgsname;
-        private System.Windows.Forms.Panel prodpanel;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView dgsearchprod;
-        private System.Windows.Forms.DateTimePicker datetime;
-        private System.Windows.Forms.ComboBox pnameTxt;
+        private System.Windows.Forms.TextBox pname;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label totalpriceTxt;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Button buyBtn;
+        private System.Windows.Forms.Button editBtn;
     }
 }
