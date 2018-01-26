@@ -46,7 +46,6 @@
             this.ptotal = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.snameTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
@@ -57,7 +56,6 @@
             this.addBtn = new System.Windows.Forms.Button();
             this.usernameLbl = new System.Windows.Forms.Label();
             this.dateLbl = new System.Windows.Forms.Label();
-            this.searchBtn = new System.Windows.Forms.Button();
             this.spanel = new System.Windows.Forms.Panel();
             this.closename = new System.Windows.Forms.Button();
             this.dgsname = new System.Windows.Forms.DataGridView();
@@ -67,6 +65,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.buyBtn = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
+            this.snameTxt = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -258,14 +257,6 @@
             this.label5.TabIndex = 7;
             this.label5.Text = "Supplier Details";
             // 
-            // snameTxt
-            // 
-            this.snameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.snameTxt.Location = new System.Drawing.Point(130, 294);
-            this.snameTxt.Name = "snameTxt";
-            this.snameTxt.Size = new System.Drawing.Size(183, 27);
-            this.snameTxt.TabIndex = 32;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -381,20 +372,6 @@
             this.dateLbl.TabIndex = 53;
             this.dateLbl.Text = "-----";
             // 
-            // searchBtn
-            // 
-            this.searchBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
-            this.searchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBtn.ForeColor = System.Drawing.Color.White;
-            this.searchBtn.Location = new System.Drawing.Point(332, 295);
-            this.searchBtn.Name = "searchBtn";
-            this.searchBtn.Size = new System.Drawing.Size(78, 30);
-            this.searchBtn.TabIndex = 54;
-            this.searchBtn.Text = "Search";
-            this.searchBtn.UseVisualStyleBackColor = false;
-            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
-            // 
             // spanel
             // 
             this.spanel.Controls.Add(this.closename);
@@ -443,6 +420,7 @@
             this.pname.Name = "pname";
             this.pname.Size = new System.Drawing.Size(183, 27);
             this.pname.TabIndex = 57;
+            this.pname.TextChanged += new System.EventHandler(this.pname_TextChanged);
             // 
             // panel7
             // 
@@ -504,17 +482,25 @@
             this.editBtn.Text = "Edit";
             this.editBtn.UseVisualStyleBackColor = false;
             // 
+            // snameTxt
+            // 
+            this.snameTxt.FormattingEnabled = true;
+            this.snameTxt.Location = new System.Drawing.Point(130, 298);
+            this.snameTxt.Name = "snameTxt";
+            this.snameTxt.Size = new System.Drawing.Size(183, 21);
+            this.snameTxt.TabIndex = 61;
+            // 
             // purchasingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.snameTxt);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.buyBtn);
             this.Controls.Add(this.spanel);
-            this.Controls.Add(this.searchBtn);
             this.Controls.Add(this.dateLbl);
             this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.backBtn);
@@ -523,7 +509,6 @@
             this.Controls.Add(this.dateTxt);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel6);
-            this.Controls.Add(this.snameTxt);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.label12);
@@ -585,7 +570,6 @@
         private System.Windows.Forms.TextBox ptotal;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox snameTxt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label8;
@@ -596,7 +580,6 @@
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Label usernameLbl;
         private System.Windows.Forms.Label dateLbl;
-        private System.Windows.Forms.Button searchBtn;
         private System.Windows.Forms.Panel spanel;
         private System.Windows.Forms.Button closename;
         private System.Windows.Forms.DataGridView dgsname;
@@ -606,5 +589,6 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button buyBtn;
         private System.Windows.Forms.Button editBtn;
+        private System.Windows.Forms.ComboBox snameTxt;
     }
 }

@@ -32,8 +32,31 @@ namespace softeng1
             purchaseDG.Columns.Add("Price", "Price");
             purchaseDG.Columns.Add("Sub Total", "Sub Total");
             purchaseDG.Columns.Add("Quantity", "Quantity");
+            loadsupplier();
+
+            snameTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            snameTxt.AutoCompleteSource = AutoCompleteSource.ListItems;
         }
        
+        public void loadsupplier()
+        {
+            String query = "SELECT firstname, lastname FROM person, supplier where person_id=supplier_person_id";
+             
+
+
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            comm.CommandText = query;
+            conn.Open();
+            MySqlDataReader drd = comm.ExecuteReader();
+
+            snameTxt.Items.Clear();
+            while (drd.Read())
+            {
+
+                snameTxt.Items.Add(drd["firstname"].ToString() + " " + drd["lastname"].ToString());
+            }
+            conn.Close();
+        }
 
         private void backBtn_Click(object sender, EventArgs e)
         {
@@ -204,6 +227,12 @@ namespace softeng1
                 purchaseDG.Rows.RemoveAt(item.Index);
             }
         }
+
+        private void pname_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void pquant_TextChanged(object sender, EventArgs e)
         {
             if (pquant.Text != "")
