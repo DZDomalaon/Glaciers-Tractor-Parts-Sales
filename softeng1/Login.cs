@@ -20,15 +20,13 @@ namespace softeng1
             conn = new MySqlConnection("SERVER=localhost; DATABASE=glaciers; uid = root; pwd = root");
             InitializeComponent();
         }
-        
-        public static string name;
-        public static string usern;
-        public static string userp;
-        public static int user_id;
-        public static string type;
 
+            public static string name;
+            public static string usern;
+            public static string userp;
+            public static int user_id;
+            public static string type;
         
-
         private void Form1_Load(object sender, EventArgs e)
         {
             time.Text = DateTime.Now.ToShortTimeString();

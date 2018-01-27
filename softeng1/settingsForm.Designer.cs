@@ -30,17 +30,19 @@
         {
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.nameTxt = new System.Windows.Forms.TextBox();
+            this.unameTxt = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.searchBtn = new System.Windows.Forms.Button();
+            this.userBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.passBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.opsswrdTxt = new System.Windows.Forms.TextBox();
             this.npsswrdTxt = new System.Windows.Forms.TextBox();
             this.cpsswrdTxt = new System.Windows.Forms.TextBox();
             this.backBtn = new System.Windows.Forms.Button();
+            this.usernLbl = new System.Windows.Forms.Label();
+            this.psswrdLbl = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -67,13 +69,13 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Settings";
             // 
-            // nameTxt
+            // unameTxt
             // 
-            this.nameTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameTxt.Location = new System.Drawing.Point(12, 55);
-            this.nameTxt.Name = "nameTxt";
-            this.nameTxt.Size = new System.Drawing.Size(211, 26);
-            this.nameTxt.TabIndex = 41;
+            this.unameTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.unameTxt.Location = new System.Drawing.Point(12, 55);
+            this.unameTxt.Name = "unameTxt";
+            this.unameTxt.Size = new System.Drawing.Size(211, 26);
+            this.unameTxt.TabIndex = 41;
             // 
             // label7
             // 
@@ -90,34 +92,37 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
-            this.panel1.Controls.Add(this.searchBtn);
+            this.panel1.Controls.Add(this.usernLbl);
+            this.panel1.Controls.Add(this.userBtn);
             this.panel1.Controls.Add(this.label7);
-            this.panel1.Controls.Add(this.nameTxt);
+            this.panel1.Controls.Add(this.unameTxt);
             this.panel1.Location = new System.Drawing.Point(0, 47);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(334, 107);
             this.panel1.TabIndex = 5;
             // 
-            // searchBtn
+            // userBtn
             // 
-            this.searchBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
-            this.searchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBtn.ForeColor = System.Drawing.Color.White;
-            this.searchBtn.Location = new System.Drawing.Point(244, 49);
-            this.searchBtn.Name = "searchBtn";
-            this.searchBtn.Size = new System.Drawing.Size(78, 35);
-            this.searchBtn.TabIndex = 36;
-            this.searchBtn.Text = "Update";
-            this.searchBtn.UseVisualStyleBackColor = false;
+            this.userBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
+            this.userBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.userBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.userBtn.ForeColor = System.Drawing.Color.White;
+            this.userBtn.Location = new System.Drawing.Point(244, 49);
+            this.userBtn.Name = "userBtn";
+            this.userBtn.Size = new System.Drawing.Size(78, 35);
+            this.userBtn.TabIndex = 36;
+            this.userBtn.Text = "Update";
+            this.userBtn.UseVisualStyleBackColor = false;
+            this.userBtn.Click += new System.EventHandler(this.userBtn_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(48)))), ((int)(((byte)(77)))), ((int)(((byte)(86)))));
+            this.panel2.Controls.Add(this.psswrdLbl);
             this.panel2.Controls.Add(this.backBtn);
             this.panel2.Controls.Add(this.cpsswrdTxt);
             this.panel2.Controls.Add(this.npsswrdTxt);
-            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.passBtn);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Controls.Add(this.opsswrdTxt);
             this.panel2.Location = new System.Drawing.Point(0, 152);
@@ -125,18 +130,19 @@
             this.panel2.Size = new System.Drawing.Size(334, 190);
             this.panel2.TabIndex = 42;
             // 
-            // button1
+            // passBtn
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(244, 55);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(78, 35);
-            this.button1.TabIndex = 36;
-            this.button1.Text = "Update";
-            this.button1.UseVisualStyleBackColor = false;
+            this.passBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
+            this.passBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.passBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.passBtn.ForeColor = System.Drawing.Color.White;
+            this.passBtn.Location = new System.Drawing.Point(244, 55);
+            this.passBtn.Name = "passBtn";
+            this.passBtn.Size = new System.Drawing.Size(78, 35);
+            this.passBtn.TabIndex = 36;
+            this.passBtn.Text = "Update";
+            this.passBtn.UseVisualStyleBackColor = false;
+            this.passBtn.Click += new System.EventHandler(this.passBtn_Click);
             // 
             // label2
             // 
@@ -192,6 +198,30 @@
             this.backBtn.TabIndex = 46;
             this.backBtn.Text = "Back";
             this.backBtn.UseVisualStyleBackColor = false;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
+            // usernLbl
+            // 
+            this.usernLbl.AutoSize = true;
+            this.usernLbl.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.usernLbl.Location = new System.Drawing.Point(34, 84);
+            this.usernLbl.Name = "usernLbl";
+            this.usernLbl.Size = new System.Drawing.Size(58, 18);
+            this.usernLbl.TabIndex = 42;
+            this.usernLbl.Text = "----------";
+            this.usernLbl.Visible = false;
+            // 
+            // psswrdLbl
+            // 
+            this.psswrdLbl.AutoSize = true;
+            this.psswrdLbl.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.psswrdLbl.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.psswrdLbl.Location = new System.Drawing.Point(34, 148);
+            this.psswrdLbl.Name = "psswrdLbl";
+            this.psswrdLbl.Size = new System.Drawing.Size(58, 18);
+            this.psswrdLbl.TabIndex = 43;
+            this.psswrdLbl.Text = "----------";
             // 
             // settingsForm
             // 
@@ -208,6 +238,7 @@
             this.Name = "settingsForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Glacier Tractor Parts & Sales | Settings";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.settingsForm_FormClosing);
             this.Load += new System.EventHandler(this.settingsForm_Load);
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -223,16 +254,18 @@
 
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox nameTxt;
+        private System.Windows.Forms.TextBox unameTxt;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button searchBtn;
+        private System.Windows.Forms.Button userBtn;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button passBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox opsswrdTxt;
         private System.Windows.Forms.TextBox cpsswrdTxt;
         private System.Windows.Forms.TextBox npsswrdTxt;
         private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.Label usernLbl;
+        private System.Windows.Forms.Label psswrdLbl;
     }
 }
