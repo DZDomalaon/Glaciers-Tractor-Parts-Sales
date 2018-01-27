@@ -32,13 +32,14 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.homePanel = new System.Windows.Forms.Panel();
-            this.invoiceBtn = new System.Windows.Forms.Button();
-            this.purchasingBtn = new System.Windows.Forms.Button();
-            this.exitBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.nameTxt = new System.Windows.Forms.Label();
             this.loginAs = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.invoiceBtn = new System.Windows.Forms.Button();
+            this.purchasingBtn = new System.Windows.Forms.Button();
+            this.exitBtn = new System.Windows.Forms.Button();
+            this.settingsBtn = new System.Windows.Forms.Button();
             this.delivBtn = new System.Windows.Forms.Button();
             this.custBtn = new System.Windows.Forms.Button();
             this.warrBtn = new System.Windows.Forms.Button();
@@ -106,6 +107,46 @@
             this.homePanel.Size = new System.Drawing.Size(955, 540);
             this.homePanel.TabIndex = 4;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.panel2.Controls.Add(this.settingsBtn);
+            this.panel2.Controls.Add(this.nameTxt);
+            this.panel2.Controls.Add(this.loginAs);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(0, 512);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(955, 28);
+            this.panel2.TabIndex = 9;
+            // 
+            // nameTxt
+            // 
+            this.nameTxt.AutoSize = true;
+            this.nameTxt.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameTxt.Location = new System.Drawing.Point(104, 5);
+            this.nameTxt.Name = "nameTxt";
+            this.nameTxt.Size = new System.Drawing.Size(0, 17);
+            this.nameTxt.TabIndex = 2;
+            // 
+            // loginAs
+            // 
+            this.loginAs.AutoSize = true;
+            this.loginAs.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.loginAs.Location = new System.Drawing.Point(99, 5);
+            this.loginAs.Name = "loginAs";
+            this.loginAs.Size = new System.Drawing.Size(0, 17);
+            this.loginAs.TabIndex = 1;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(2, 5);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(104, 17);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Logged In As |";
+            // 
             // invoiceBtn
             // 
             this.invoiceBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
@@ -154,45 +195,21 @@
             this.exitBtn.UseVisualStyleBackColor = false;
             this.exitBtn.Click += new System.EventHandler(this.exitBtn_Click);
             // 
-            // panel2
+            // settingsBtn
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
-            this.panel2.Controls.Add(this.nameTxt);
-            this.panel2.Controls.Add(this.loginAs);
-            this.panel2.Controls.Add(this.label2);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 515);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(955, 25);
-            this.panel2.TabIndex = 9;
-            // 
-            // nameTxt
-            // 
-            this.nameTxt.AutoSize = true;
-            this.nameTxt.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameTxt.Location = new System.Drawing.Point(104, 5);
-            this.nameTxt.Name = "nameTxt";
-            this.nameTxt.Size = new System.Drawing.Size(0, 17);
-            this.nameTxt.TabIndex = 2;
-            // 
-            // loginAs
-            // 
-            this.loginAs.AutoSize = true;
-            this.loginAs.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginAs.Location = new System.Drawing.Point(99, 5);
-            this.loginAs.Name = "loginAs";
-            this.loginAs.Size = new System.Drawing.Size(0, 17);
-            this.loginAs.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(2, 5);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(104, 17);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Logged In As |";
+            this.settingsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
+            this.settingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsBtn.Image = global::softeng1.Properties.Resources.settings_gears;
+            this.settingsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.settingsBtn.Location = new System.Drawing.Point(869, -2);
+            this.settingsBtn.Name = "settingsBtn";
+            this.settingsBtn.Size = new System.Drawing.Size(91, 32);
+            this.settingsBtn.TabIndex = 13;
+            this.settingsBtn.Text = "Settings";
+            this.settingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.settingsBtn.UseVisualStyleBackColor = false;
+            this.settingsBtn.Click += new System.EventHandler(this.settingsBtn_Click);
             // 
             // delivBtn
             // 
@@ -368,5 +385,6 @@
         private System.Windows.Forms.Button delivBtn;
         private System.Windows.Forms.Label nameTxt;
         private System.Windows.Forms.Button purchasingBtn;
+        private System.Windows.Forms.Button settingsBtn;
     }
 }

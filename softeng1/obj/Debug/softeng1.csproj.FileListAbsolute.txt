@@ -294,3 +294,5 @@ C:\Users\mkopitoy\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.exe
 C:\Users\mkopitoy\Documents\GitHub\SAD-2\softeng1\bin\Debug\softeng1.pdb
 C:\Users\mkopitoy\Documents\GitHub\SAD-2\softeng1\bin\Debug\MaterialSkin.dll
 C:\Users\mkopitoy\Documents\GitHub\SAD-2\softeng1\bin\Debug\MySql.Data.xml
+C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\bin\Debug\MaterialSkin.dll
+C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.settingsForm.resources

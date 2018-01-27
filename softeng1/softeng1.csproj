@@ -103,6 +103,12 @@
     <Compile Include="salesForm.Designer.cs">
       <DependentUpon>salesForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="settingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="settingsForm.Designer.cs">
+      <DependentUpon>settingsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="supplierForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -161,6 +167,9 @@
     <EmbeddedResource Include="salesForm.resx">
       <DependentUpon>salesForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="settingsForm.resx">
+      <DependentUpon>settingsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="supplierForm.resx">
       <DependentUpon>supplierForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -195,6 +204,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="5.png" />
+    <None Include="Resources\settings-gears.png" />
     <None Include="Resources\add-to-cart1.png" />
     <None Include="Resources\add-to-cart.png" />
     <None Include="Resources\full-shopping-cart.png" />

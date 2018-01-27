@@ -162,5 +162,13 @@ namespace softeng1
             purchasingForm.fromPurchasing = this;
             this.Hide();
         }
+
+        private void settingsBtn_Click(object sender, EventArgs e)
+        {
+            settingsForm settings = new settingsForm();
+            settings.Show();
+            settingsForm.fromSettings = this;
+            this.Hide();
+        }
     }
 }
