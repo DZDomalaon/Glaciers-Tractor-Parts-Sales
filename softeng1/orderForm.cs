@@ -47,7 +47,8 @@ namespace softeng1
         {
             fromOrder.Show();
         }
-
+        
+        //AutoComplete for customer
         public void loadCustomer()
         {
             AutoCompleteStringCollection namesCollection = new AutoCompleteStringCollection();
@@ -72,7 +73,8 @@ namespace softeng1
             custnameTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
             custnameTxt.AutoCompleteCustomSource = namesCollection;
         }
-
+        
+        //AutoComplete for product
         public void loadProduct()
         {
             AutoCompleteStringCollection productsCollection = new AutoCompleteStringCollection();
