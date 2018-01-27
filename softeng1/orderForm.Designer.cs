@@ -41,13 +41,12 @@ namespace softeng1
             this.ProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProdQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.custfnameTxt = new System.Windows.Forms.TextBox();
+            this.custnameTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.pnameTxt = new System.Windows.Forms.TextBox();
-            this.sprodTxt = new System.Windows.Forms.Button();
+            this.productnameTxt = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.ppriceTxt = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -58,13 +57,6 @@ namespace softeng1
             this.addOrder = new System.Windows.Forms.Button();
             this.removeOrder = new System.Windows.Forms.Button();
             this.backToMenu = new System.Windows.Forms.Button();
-            this.snameTxt = new System.Windows.Forms.Button();
-            this.namepanel = new System.Windows.Forms.Panel();
-            this.dgsearchname = new System.Windows.Forms.DataGridView();
-            this.closename = new System.Windows.Forms.Button();
-            this.prodpanel = new System.Windows.Forms.Panel();
-            this.dgsearchprod = new System.Windows.Forms.DataGridView();
-            this.closeprod = new System.Windows.Forms.Button();
             this.pquant = new System.Windows.Forms.TextBox();
             this.ptotal = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -97,7 +89,6 @@ namespace softeng1
             this.panel9 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.stockLbl = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -106,10 +97,6 @@ namespace softeng1
             ((System.ComponentModel.ISupportInitialize)(this.orderDG)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.namepanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgsearchname)).BeginInit();
-            this.prodpanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgsearchprod)).BeginInit();
             this.panel7.SuspendLayout();
             this.buyPanel.SuspendLayout();
             this.panel12.SuspendLayout();
@@ -239,13 +226,13 @@ namespace softeng1
             this.ProdQuantity.Name = "ProdQuantity";
             this.ProdQuantity.ReadOnly = true;
             // 
-            // custfnameTxt
+            // custnameTxt
             // 
-            this.custfnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.custfnameTxt.Location = new System.Drawing.Point(139, 96);
-            this.custfnameTxt.Name = "custfnameTxt";
-            this.custfnameTxt.Size = new System.Drawing.Size(183, 27);
-            this.custfnameTxt.TabIndex = 8;
+            this.custnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.custnameTxt.Location = new System.Drawing.Point(139, 96);
+            this.custnameTxt.Name = "custnameTxt";
+            this.custnameTxt.Size = new System.Drawing.Size(183, 27);
+            this.custnameTxt.TabIndex = 8;
             // 
             // label4
             // 
@@ -289,27 +276,13 @@ namespace softeng1
             this.label6.TabIndex = 12;
             this.label6.Text = "Product Name";
             // 
-            // pnameTxt
+            // productnameTxt
             // 
-            this.pnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnameTxt.Location = new System.Drawing.Point(139, 198);
-            this.pnameTxt.Name = "pnameTxt";
-            this.pnameTxt.Size = new System.Drawing.Size(183, 27);
-            this.pnameTxt.TabIndex = 13;
-            // 
-            // sprodTxt
-            // 
-            this.sprodTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
-            this.sprodTxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sprodTxt.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sprodTxt.ForeColor = System.Drawing.Color.White;
-            this.sprodTxt.Location = new System.Drawing.Point(337, 195);
-            this.sprodTxt.Name = "sprodTxt";
-            this.sprodTxt.Size = new System.Drawing.Size(78, 31);
-            this.sprodTxt.TabIndex = 14;
-            this.sprodTxt.Text = "Search";
-            this.sprodTxt.UseVisualStyleBackColor = false;
-            this.sprodTxt.Click += new System.EventHandler(this.sprodTxt_Click);
+            this.productnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.productnameTxt.Location = new System.Drawing.Point(139, 198);
+            this.productnameTxt.Name = "productnameTxt";
+            this.productnameTxt.Size = new System.Drawing.Size(183, 27);
+            this.productnameTxt.TabIndex = 13;
             // 
             // label7
             // 
@@ -424,102 +397,6 @@ namespace softeng1
             this.backToMenu.Text = "Back";
             this.backToMenu.UseVisualStyleBackColor = false;
             this.backToMenu.Click += new System.EventHandler(this.backBtn_Click);
-            // 
-            // snameTxt
-            // 
-            this.snameTxt.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
-            this.snameTxt.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.snameTxt.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.snameTxt.ForeColor = System.Drawing.Color.White;
-            this.snameTxt.Location = new System.Drawing.Point(337, 96);
-            this.snameTxt.Name = "snameTxt";
-            this.snameTxt.Size = new System.Drawing.Size(78, 30);
-            this.snameTxt.TabIndex = 10;
-            this.snameTxt.Text = "Search";
-            this.snameTxt.UseVisualStyleBackColor = false;
-            this.snameTxt.Click += new System.EventHandler(this.snameTxt_Click);
-            // 
-            // namepanel
-            // 
-            this.namepanel.Controls.Add(this.dgsearchname);
-            this.namepanel.Controls.Add(this.closename);
-            this.namepanel.Enabled = false;
-            this.namepanel.Location = new System.Drawing.Point(132, 104);
-            this.namepanel.Name = "namepanel";
-            this.namepanel.Size = new System.Drawing.Size(119, 91);
-            this.namepanel.TabIndex = 26;
-            this.namepanel.Visible = false;
-            // 
-            // dgsearchname
-            // 
-            this.dgsearchname.AllowUserToAddRows = false;
-            this.dgsearchname.AllowUserToDeleteRows = false;
-            this.dgsearchname.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgsearchname.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgsearchname.Location = new System.Drawing.Point(9, 38);
-            this.dgsearchname.Name = "dgsearchname";
-            this.dgsearchname.ReadOnly = true;
-            this.dgsearchname.RowHeadersVisible = false;
-            this.dgsearchname.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgsearchname.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgsearchname.Size = new System.Drawing.Size(667, 249);
-            this.dgsearchname.TabIndex = 0;
-            this.dgsearchname.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchname_CellClick);
-            // 
-            // closename
-            // 
-            this.closename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
-            this.closename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closename.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closename.ForeColor = System.Drawing.Color.White;
-            this.closename.Location = new System.Drawing.Point(636, 3);
-            this.closename.Name = "closename";
-            this.closename.Size = new System.Drawing.Size(40, 32);
-            this.closename.TabIndex = 3;
-            this.closename.Text = "X";
-            this.closename.UseVisualStyleBackColor = false;
-            this.closename.Click += new System.EventHandler(this.close_Click);
-            // 
-            // prodpanel
-            // 
-            this.prodpanel.Controls.Add(this.label13);
-            this.prodpanel.Controls.Add(this.dgsearchprod);
-            this.prodpanel.Controls.Add(this.closeprod);
-            this.prodpanel.Enabled = false;
-            this.prodpanel.Location = new System.Drawing.Point(257, 102);
-            this.prodpanel.Name = "prodpanel";
-            this.prodpanel.Size = new System.Drawing.Size(119, 93);
-            this.prodpanel.TabIndex = 27;
-            this.prodpanel.Visible = false;
-            // 
-            // dgsearchprod
-            // 
-            this.dgsearchprod.AllowUserToAddRows = false;
-            this.dgsearchprod.AllowUserToDeleteRows = false;
-            this.dgsearchprod.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgsearchprod.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgsearchprod.Location = new System.Drawing.Point(9, 39);
-            this.dgsearchprod.Name = "dgsearchprod";
-            this.dgsearchprod.ReadOnly = true;
-            this.dgsearchprod.RowHeadersVisible = false;
-            this.dgsearchprod.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgsearchprod.Size = new System.Drawing.Size(667, 248);
-            this.dgsearchprod.TabIndex = 0;
-            this.dgsearchprod.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchprod_CellClick);
-            // 
-            // closeprod
-            // 
-            this.closeprod.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
-            this.closeprod.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closeprod.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closeprod.ForeColor = System.Drawing.Color.White;
-            this.closeprod.Location = new System.Drawing.Point(636, 4);
-            this.closeprod.Name = "closeprod";
-            this.closeprod.Size = new System.Drawing.Size(40, 32);
-            this.closeprod.TabIndex = 4;
-            this.closeprod.Text = "X";
-            this.closeprod.UseVisualStyleBackColor = false;
-            this.closeprod.Click += new System.EventHandler(this.closeprod_Click);
             // 
             // pquant
             // 
@@ -880,15 +757,6 @@ namespace softeng1
             this.label15.TabIndex = 5;
             this.label15.Text = "Glacier Tractor Parts And Sales";
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(17, 47);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(41, 13);
-            this.label13.TabIndex = 5;
-            this.label13.Text = "label13";
-            // 
             // stockLbl
             // 
             this.stockLbl.AutoSize = true;
@@ -908,8 +776,6 @@ namespace softeng1
             this.ClientSize = new System.Drawing.Size(955, 587);
             this.Controls.Add(this.stockLbl);
             this.Controls.Add(this.buyPanel);
-            this.Controls.Add(this.prodpanel);
-            this.Controls.Add(this.namepanel);
             this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.dateLbl);
             this.Controls.Add(this.editOrderBtn);
@@ -927,13 +793,11 @@ namespace softeng1
             this.Controls.Add(this.pquant);
             this.Controls.Add(this.ppriceTxt);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.sprodTxt);
-            this.Controls.Add(this.pnameTxt);
+            this.Controls.Add(this.productnameTxt);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.snameTxt);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.custfnameTxt);
+            this.Controls.Add(this.custnameTxt);
             this.Controls.Add(this.ptotal);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.orderDG);
@@ -957,11 +821,6 @@ namespace softeng1
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.namepanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgsearchname)).EndInit();
-            this.prodpanel.ResumeLayout(false);
-            this.prodpanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgsearchprod)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.buyPanel.ResumeLayout(false);
@@ -991,13 +850,12 @@ namespace softeng1
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView orderDG;
-        private System.Windows.Forms.TextBox custfnameTxt;
+        private System.Windows.Forms.TextBox custnameTxt;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox pnameTxt;
-        private System.Windows.Forms.Button sprodTxt;
+        private System.Windows.Forms.TextBox productnameTxt;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox ppriceTxt;
         private System.Windows.Forms.Panel panel6;
@@ -1008,16 +866,9 @@ namespace softeng1
         private System.Windows.Forms.Button addOrder;
         private System.Windows.Forms.Button removeOrder;
         private System.Windows.Forms.Button backToMenu;
-        private System.Windows.Forms.Button snameTxt;
-        private System.Windows.Forms.Panel namepanel;
-        private System.Windows.Forms.DataGridView dgsearchname;
-        private System.Windows.Forms.Panel prodpanel;
-        private System.Windows.Forms.DataGridView dgsearchprod;
         private System.Windows.Forms.TextBox pquant;
         private System.Windows.Forms.TextBox ptotal;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button closename;
-        private System.Windows.Forms.Button closeprod;
         private System.Windows.Forms.Button editOrderBtn;
         private System.Windows.Forms.Label dateLbl;
         private System.Windows.Forms.Label usernameLbl;
@@ -1052,7 +903,6 @@ namespace softeng1
         private System.Windows.Forms.DataGridViewTextBoxColumn ProductPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdQuantity;
-        private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label stockLbl;
     }
 }

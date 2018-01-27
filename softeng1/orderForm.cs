@@ -38,63 +38,64 @@ namespace softeng1
 
             buyPanel.Visible = false;
             stockLbl.Visible = false;
+            loadCustomer();
+            loadProduct();
         }
-        public static string searchn;
-        private void snameTxt_Click(object sender, EventArgs e)
-        {
-            namepanel.Enabled = true;
-            namepanel.Visible = true;
-            namepanel.Location = new Point(140, 56);
-            namepanel.Size = new Size(681, 297);
-
-            String query = "SELECT customer_id, firstname, lastname FROM person, customer where (lastname like '%" + custfnameTxt.Text + "%' or firstname like '%" + custfnameTxt.Text + "%') and person_type = 'customer' and person_id = customer_person_id ";
-            conn.Open();
-
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-            conn.Close();
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-
-            dgsearchname.DataSource = dt;
-
-            dgsearchname.Columns["customer_id"].Visible = false;
-            dgsearchname.Columns["firstname"].HeaderText = "First Name";
-            dgsearchname.Columns["lastname"].HeaderText = "Last Name";
-        }
-
-        private void sprodTxt_Click(object sender, EventArgs e)
-        {
-            prodpanel.Enabled = true;
-            prodpanel.Visible = true;
-            prodpanel.Location = new Point(140, 56);
-            prodpanel.Size = new Size(681, 297);
-
-            String query = "SELECT product_id, product_pc_id, product_inv_id, product_name, description, price, quantity FROM product, inventory where product_name like '%" + pnameTxt.Text + "%' and product_inv_id = inventory_id";
-            conn.Open();
-
-
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-            conn.Close();
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-
-            dgsearchprod.DataSource = dt;
-            dgsearchprod.Columns["product_id"].Visible = false;
-            dgsearchprod.Columns["product_pc_id"].Visible = false;
-            dgsearchprod.Columns["product_inv_id"].Visible = false;
-            dgsearchprod.Columns["quantity"].Visible = false;
-            dgsearchprod.Columns["product_name"].HeaderText = "Product Name";
-            dgsearchprod.Columns["description"].HeaderText = "Product Description";
-            dgsearchprod.Columns["price"].HeaderText = "Product Price";
-        }
-
-        
+     
 
         private void orderForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             fromOrder.Show();
+        }
+
+        public void loadCustomer()
+        {
+            AutoCompleteStringCollection namesCollection = new AutoCompleteStringCollection();
+
+            conn.Open();
+
+            String query = "SELECT firstname, lastname FROM person, customer where (lastname like '%" + custnameTxt.Text + "%' or firstname like '%" + custnameTxt.Text + "%') and person_type = 'customer' and person_id = customer_person_id ";
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            comm.CommandText = query;
+            MySqlDataReader drd = comm.ExecuteReader();
+
+            if (drd.HasRows == true)
+            {
+                while (drd.Read())
+                    namesCollection.Add(drd["firstname"].ToString() + " " + drd["lastname"].ToString());
+            }
+
+            drd.Close();
+            conn.Close();
+
+            custnameTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            custnameTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            custnameTxt.AutoCompleteCustomSource = namesCollection;
+        }
+
+        public void loadProduct()
+        {
+            AutoCompleteStringCollection productsCollection = new AutoCompleteStringCollection();
+
+            conn.Open();
+
+            String query = "SELECT PRODUCT_NAME FROM PRODUCT";
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            comm.CommandText = query;
+            MySqlDataReader drd = comm.ExecuteReader();
+
+            if (drd.HasRows == true)
+            {
+                while (drd.Read())
+                    productsCollection.Add(drd["PRODUCT_NAME"].ToString());
+            }
+
+            drd.Close();
+            conn.Close();
+
+            productnameTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            productnameTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            productnameTxt.AutoCompleteCustomSource = productsCollection;
         }
 
         public static int quant;
@@ -115,50 +116,17 @@ namespace softeng1
         }
         //Search for product
         private void dgsearchprod_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex > -1)
-            {
-                product_id = int.Parse(dgsearchprod.Rows[e.RowIndex].Cells["product_id"].Value.ToString());
-                prod = dgsearchprod.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
-                dgsearchprod.Rows[e.RowIndex].Cells["description"].Value.ToString();
-                price = dgsearchprod.Rows[e.RowIndex].Cells["price"].Value.ToString();
-                inv_id = int.Parse(dgsearchprod.Rows[e.RowIndex].Cells["product_inv_id"].Value.ToString());
-                quan = int.Parse(dgsearchprod.Rows[e.RowIndex].Cells["quantity"].Value.ToString());
-
-                pnameTxt.Text = prod;
-                ppriceTxt.Text = price;
-                prodpanel.Enabled = false;
-                prodpanel.Visible = false;
-                prodpanel.Location = new Point(434, 152);
-                prodpanel.Size = new Size(521, 44);
-
+        {           
                 stockLbl.Visible = true;
                 stockLbl.Text = "The available stock is only " + quan;
-            }
+            
         }
         //Search for customer
-        private void dgsearchname_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex > -1)
-            {
-                customer_id = int.Parse(dgsearchname.Rows[e.RowIndex].Cells["customer_id"].Value.ToString());
-                fn = dgsearchname.Rows[e.RowIndex].Cells["firstname"].Value.ToString();
-                ln = dgsearchname.Rows[e.RowIndex].Cells["lastname"].Value.ToString();
-                custfnameTxt.Text = fn + ' ' + ln;
-                namepanel.Enabled = false;
-                namepanel.Visible = false;
-                namepanel.Location = new Point(434, 85);
-                namepanel.Size = new Size(521, 44);
-            }
-        }
+        
 
         private void orderForm_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             fromOrder.Show();
-        }
-        private void close_Click(object sender, EventArgs e)
-        {
-            namepanel.Hide();
         }
 
         private void buyBtn_Click(object sender, EventArgs e)
@@ -168,17 +136,14 @@ namespace softeng1
             BuydateLbl.Text = DateTime.Now.Date.ToString("MM-dd-yyyy");
         }
 
-        private void closeprod_Click(object sender, EventArgs e)
-        {
-            prodpanel.Hide();
-        }
+
         //pass all data from Datagridview to textboxes
         private void orderDG_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             rowIndex = e.RowIndex; 
             DataGridViewRow row = orderDG.Rows[rowIndex];
 
-            pnameTxt.Text = row.Cells[0].Value.ToString();
+            productnameTxt.Text = row.Cells[0].Value.ToString();
             ppriceTxt.Text = row.Cells[1].Value.ToString();            
             ptotal.Text = row.Cells[2].Value.ToString();
             pquant.Text = row.Cells[3].Value.ToString();
@@ -284,7 +249,7 @@ namespace softeng1
         {
             DataGridViewRow updRow = orderDG.Rows[rowIndex];
 
-            updRow.Cells[0].Value = pnameTxt.Text;
+            updRow.Cells[0].Value = productnameTxt.Text;
             updRow.Cells[1].Value = ppriceTxt.Text;
             updRow.Cells[2].Value = pquant.Text;
             updRow.Cells[3].Value = ptotal.Text;
@@ -293,7 +258,7 @@ namespace softeng1
         //Add order to Datagrid
         private void addOrder_Click(object sender, EventArgs e)
         {
-             if (custfnameTxt.Text == "" || pnameTxt.Text == "" || ppriceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "")
+             if (custnameTxt.Text == "" || productnameTxt.Text == "" || ppriceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "")
             {
                 MessageBox.Show("Please fill up all the data", "Add Customer Order", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -307,7 +272,7 @@ namespace softeng1
 
                 if(availableStock >= int.Parse(pquant.Text.ToString()))
                 {
-                    string firstColumn = pnameTxt.Text;
+                    string firstColumn = productnameTxt.Text;
                     string secondColumn = ppriceTxt.Text;
                     string thirdColumn = ptotal.Text;
                     string fourthColumn = pquant.Text;
@@ -315,7 +280,7 @@ namespace softeng1
 
                     orderDG.Rows.Add(row);
 
-                    pnameTxt.Clear();
+                    productnameTxt.Clear();
                     ppriceTxt.Clear();
                     pquant.Clear();
                     ptotal.Clear();
