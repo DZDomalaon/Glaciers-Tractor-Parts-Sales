@@ -283,6 +283,7 @@ namespace softeng1
             this.productnameTxt.Name = "productnameTxt";
             this.productnameTxt.Size = new System.Drawing.Size(183, 27);
             this.productnameTxt.TabIndex = 13;
+            this.productnameTxt.TextChanged += new System.EventHandler(this.productnameTxt_TextChanged);
             // 
             // label7
             // 
