@@ -29,18 +29,20 @@ namespace softeng1
             MySqlCommand comm =
                 new MySqlCommand(
                     "SELECT firstname, lastname, order_warranty, product_name FROM person, sales_order, product, customer WHERE (firstname LIKE '%" +
-                    nameTxt.Text + "%' or lastname LIKE '%" + nameTxt.Text + "%') AND person_type = 'CUSTOMER' and customer_person_id = person_id and product_id = order_product_id and customer_id = order_customer_id", conn);
+                    custnameTxt.Text + "%' or lastname LIKE '%" + custnameTxt.Text + "%') AND person_type = 'CUSTOMER' and customer_person_id = person_id and product_id = order_product_id and customer_id = order_customer_id", conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
             conn.Close();
             DataTable dt = new DataTable();
             adp.Fill(dt);
 
-            IsExpired();
+            loadWarranty();
+            loadCustomer();            
         }
 
         private void warrantyForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             fromWarranty.Show();
+            loadWarranty();
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -49,12 +51,9 @@ namespace softeng1
             fromWarranty.Show();
         }
 
-        private void searchBtn_Click(object sender, EventArgs e)
+        public void loadWarranty()
         {
-            IsExpired();
-
-            String query =
-                "SELECT CONCAT(firstname,' ',lastname), INTEREST, TERM ,PRODUCT_NAME, ORDER_DATE, order_WARRANTY FROM PERSON, CUSTOMER, PAYMENT, SALES_ORDER, PRODUCT WHERE ORDER_CUSTOMER_ID = CUSTOMER_ID AND CUSTOMER_PERSON_ID = PERSON_ID AND ORDER_PRODUCT_ID = PRODUCT_ID AND ORDER_PAYMENT_ID = PAYMENT_ID AND ORDER_STATUS = 'Paid'";
+            String query = "SELECT firstname, lastname ,PRODUCT_NAME, ORDER_DATE, order_WARRANTY FROM PERSON, CUSTOMER, SALES_ORDER, PRODUCT WHERE ORDER_CUSTOMER_ID = CUSTOMER_ID AND CUSTOMER_PERSON_ID = PERSON_ID AND ORDER_PRODUCT_ID = PRODUCT_ID AND ORDER_STATUS = 'Paid' and person_type = 'customer'";
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -64,7 +63,55 @@ namespace softeng1
             adp.Fill(dt);
 
             warrantyData.DataSource = dt;
-            warrantyData.Columns["CONCAT(firstname,' ',lastname)"].HeaderText = "Customer Name";
+            warrantyData.Columns["FIRSTNAME"].HeaderText = "Firstname";
+            warrantyData.Columns["LASTNAME"].HeaderText = "Lastname";
+            warrantyData.Columns["PRODUCT_NAME"].HeaderText = "Product Name";
+            warrantyData.Columns["ORDER_DATE"].HeaderText = "Order Date";
+            warrantyData.Columns["ORDER_WARRANTY"].HeaderText = "Warranty";
+        }
+
+        //AutoComplete for customer
+        public void loadCustomer()
+        {
+            AutoCompleteStringCollection namesCollection = new AutoCompleteStringCollection();
+
+            conn.Open();
+
+            String getCustomer = "SELECT firstname, lastname FROM person, customer where (lastname like '%" + custnameTxt.Text + "%' or firstname like '%" + custnameTxt.Text + "%') and person_type = 'customer' and person_id = customer_person_id ";
+            MySqlCommand comm = new MySqlCommand(getCustomer, conn);
+            comm.CommandText = getCustomer;
+            MySqlDataReader drd = comm.ExecuteReader();
+
+            if (drd.HasRows == true)
+            {
+                while (drd.Read())
+                    namesCollection.Add(drd["firstname"].ToString() + " " + drd["lastname"].ToString());
+            }
+
+            drd.Close();
+            conn.Close();
+
+            custnameTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            custnameTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            custnameTxt.AutoCompleteCustomSource = namesCollection;
+        }
+
+        public void selectedCustomer()
+        {
+            String query = "SELECT FIRSTNAME, LASTNAME, PRODUCT_NAME, ORDER_DATE, ORDER_WARRANTY FROM person, product, sales_order WHERE CONCAT(FIRSTNAME, ' ', LASTNAME) LIKE '%" + custnameTxt.Text + "' AND ORDER_PRODUCT_ID = PRODUCT_ID AND ORDER_STATUS = 'Paid'";
+
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            warrantyData.DataSource = dt;
+
+            warrantyData.Columns["FIRSTNAME"].HeaderText = "Firstname";
+            warrantyData.Columns["LASTNAME"].HeaderText = "Lastname";
             warrantyData.Columns["PRODUCT_NAME"].HeaderText = "Product Name";
             warrantyData.Columns["ORDER_DATE"].HeaderText = "Order Date";
             warrantyData.Columns["ORDER_WARRANTY"].HeaderText = "Warranty";
@@ -75,7 +122,7 @@ namespace softeng1
             IsExpired();
             String date = wDate.Text;
             String query =
-                "SELECT firstname, lastname, ORDER_warranty, product_name FROM person, product, sales_order WHERE person_type = 'CUSTOMER' AND ORDER_warranty LIKE '%" +
+                "SELECT firstname, lastname, ORDER_warranty, product_name, ORDER_DATE FROM person, product, sales_order, CUSTOMER WHERE ORDER_CUSTOMER_ID = CUSTOMER_ID AND CUSTOMER_PERSON_ID = PERSON_ID AND ORDER_PRODUCT_ID = PRODUCT_ID AND ORDER_STATUS = 'Paid' and person_type = 'customer' AND ORDER_warranty LIKE '%" +
                 date + "%'";
 
             conn.Open();
@@ -88,10 +135,11 @@ namespace softeng1
 
             warrantyData.DataSource = dt;
 
-            warrantyData.Columns["firstname"].HeaderText = "Firstname";
-            warrantyData.Columns["lastname"].HeaderText = "Lastname";
-            warrantyData.Columns["product_name"].HeaderText = "Product";
-            warrantyData.Columns["ORDER_warranty"].HeaderText = "Date";
+            warrantyData.Columns["FIRSTNAME"].HeaderText = "Firstname";
+            warrantyData.Columns["LASTNAME"].HeaderText = "Lastname";
+            warrantyData.Columns["PRODUCT_NAME"].HeaderText = "Product Name";
+            warrantyData.Columns["ORDER_DATE"].HeaderText = "Order Date";
+            warrantyData.Columns["ORDER_WARRANTY"].HeaderText = "Warranty";
         }
         public void IsExpired()
         {
@@ -127,6 +175,16 @@ namespace softeng1
                 }
                 */
             //}
+        }
+
+        private void custnameTxt_TextChanged(object sender, EventArgs e)
+        {            
+            selectedCustomer();
+
+            if(custnameTxt.Text == "")
+            {
+                loadWarranty();
+            }
         }
     }
 }

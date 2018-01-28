@@ -32,9 +32,7 @@ namespace softeng1
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.nameTxt = new System.Windows.Forms.TextBox();
-            this.searchBtn = new System.Windows.Forms.Button();
+            this.custnameTxt = new System.Windows.Forms.TextBox();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -48,7 +46,6 @@ namespace softeng1
             this.backBtn = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.warrantyData)).BeginInit();
             this.panel2.SuspendLayout();
@@ -85,46 +82,20 @@ namespace softeng1
             this.label1.TabIndex = 0;
             this.label1.Text = "GLACIER TRACTOR\r\nPARTS AND SALES";
             // 
-            // pictureBox1
+            // custnameTxt
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.White;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pictureBox1.Image = global::softeng1.Properties.Resources.magnifier;
-            this.pictureBox1.Location = new System.Drawing.Point(195, 129);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(20, 22);
-            this.pictureBox1.TabIndex = 37;
-            this.pictureBox1.TabStop = false;
-            // 
-            // nameTxt
-            // 
-            this.nameTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameTxt.Location = new System.Drawing.Point(5, 126);
-            this.nameTxt.Name = "nameTxt";
-            this.nameTxt.Size = new System.Drawing.Size(211, 26);
-            this.nameTxt.TabIndex = 34;
-            // 
-            // searchBtn
-            // 
-            this.searchBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
-            this.searchBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.searchBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.searchBtn.ForeColor = System.Drawing.Color.White;
-            this.searchBtn.Location = new System.Drawing.Point(5, 172);
-            this.searchBtn.Name = "searchBtn";
-            this.searchBtn.Size = new System.Drawing.Size(78, 30);
-            this.searchBtn.TabIndex = 35;
-            this.searchBtn.Text = "Search";
-            this.searchBtn.UseVisualStyleBackColor = false;
-            this.searchBtn.Click += new System.EventHandler(this.searchBtn_Click);
+            this.custnameTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.custnameTxt.Location = new System.Drawing.Point(5, 126);
+            this.custnameTxt.Name = "custnameTxt";
+            this.custnameTxt.Size = new System.Drawing.Size(211, 26);
+            this.custnameTxt.TabIndex = 34;
+            this.custnameTxt.TextChanged += new System.EventHandler(this.custnameTxt_TextChanged);
             // 
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
             this.panel4.Controls.Add(this.label7);
-            this.panel4.Controls.Add(this.searchBtn);
-            this.panel4.Controls.Add(this.pictureBox1);
-            this.panel4.Controls.Add(this.nameTxt);
+            this.panel4.Controls.Add(this.custnameTxt);
             this.panel4.ForeColor = System.Drawing.Color.White;
             this.panel4.Location = new System.Drawing.Point(0, 47);
             this.panel4.Name = "panel4";
@@ -138,9 +109,9 @@ namespace softeng1
             this.label7.ForeColor = System.Drawing.Color.White;
             this.label7.Location = new System.Drawing.Point(4, 51);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(157, 44);
+            this.label7.Size = new System.Drawing.Size(215, 44);
             this.label7.TabIndex = 39;
-            this.label7.Text = "Search for a\r\ncustomer here...";
+            this.label7.Text = "Type the name\r\nof the customer below";
             // 
             // panel5
             // 
@@ -206,7 +177,7 @@ namespace softeng1
             this.wDate.Name = "wDate";
             this.wDate.Size = new System.Drawing.Size(211, 26);
             this.wDate.TabIndex = 41;
-            this.wDate.Value = new System.DateTime(2017, 12, 29, 0, 0, 0, 0);
+            this.wDate.Value = new System.DateTime(2017, 1, 7, 0, 0, 0, 0);
             // 
             // label2
             // 
@@ -274,7 +245,6 @@ namespace softeng1
             this.panel3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.warrantyData)).EndInit();
@@ -290,10 +260,8 @@ namespace softeng1
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox nameTxt;
+        private System.Windows.Forms.TextBox custnameTxt;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Button searchBtn;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView warrantyData;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label7;

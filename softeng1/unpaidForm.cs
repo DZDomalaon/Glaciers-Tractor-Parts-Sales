@@ -38,7 +38,7 @@ namespace softeng1
         }
         public void loadUnpaidCustomer()
         {
-            String query = "SELECT * from sales_order where order_status = 'Unpaid'";
+            String query = "SELECT CONCAT(FIRSTNAME , ' ', LASTNAME), ORDER_TOTAL, ORDER_DATE, (SELECT SUM(BALANCE) FROM CUSTOMER) AS BALANCE from sales_order, person, customer where order_status = 'Unpaid' and person_id = customer_person_id and person_type = 'customer' and order_customer_id = customer_id";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -48,19 +48,10 @@ namespace softeng1
             adp.Fill(dt);
 
             unpaidData.DataSource = dt;
-            unpaidData.Columns["order_id"].Visible = false;
-            unpaidData.Columns["order_customer_id"].Visible = false;
-            unpaidData.Columns["order_emp_id"].Visible = false;
-            unpaidData.Columns["order_product_id"].Visible = false;
-            unpaidData.Columns["order_payment_id"].Visible = false;
-            unpaidData.Columns["order_warranty"].Visible = false;
-            unpaidData.Columns["order_date"].Visible = false;
-            unpaidData.Columns["order_status"].Visible = false;
-            unpaidData.Columns["order_price"].HeaderText = "Price";
-            unpaidData.Columns["order_subtotal"].HeaderText = "Sub Total";
-            unpaidData.Columns["order_tquantity"].HeaderText = "Total Quantity";
-            unpaidData.Columns["order_discount"].HeaderText = "Discount";
-            unpaidData.Columns["order_date"].HeaderText = "Date";            
+            unpaidData.Columns["CONCAT(FIRSTNAME , ' ', LASTNAME)"].HeaderText = "Customer";
+            unpaidData.Columns["ORDER_TOTAL"].HeaderText = "Total";
+            unpaidData.Columns["ORDER_DATE"].HeaderText = "Date";
+            unpaidData.Columns["BALANCE"].HeaderText = "Balance";
         }
     }
 }

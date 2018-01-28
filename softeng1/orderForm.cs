@@ -286,7 +286,7 @@ namespace softeng1
                             string deductQuantity = "UPDATE INVENTORY SET QUANTITY = QUANTITY - '" + quan + "' WHERE INVENTORY_ID = (SELECT PRODUCT_INV_ID FROM PRODUCT WHERE PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')";
                             MySqlCommand comm2 = new MySqlCommand(deductQuantity, conn);
                             comm2.ExecuteNonQuery();
-                            MessageBox.Show("Records inserted.");
+                            MessageBox.Show("Trasaction complete");
 
                             custnameTxt.Clear();
                             buyPanel.Hide();
