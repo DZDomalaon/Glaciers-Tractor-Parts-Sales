@@ -218,9 +218,10 @@ namespace softeng1
             rowIndex = e.RowIndex;
             DataGridViewRow row = dgProducts.Rows[rowIndex];
 
-            pname.Text = row.Cells[1].Value.ToString();
-            pquant.Text = row.Cells[2].Value.ToString();
-            ptotal.Text = row.Cells[3].Value.ToString();
+            pname.Text = row.Cells[0].Value.ToString();
+            priceTxt.Text = row.Cells[1].Value.ToString();
+            ptotal.Text = row.Cells[2].Value.ToString();
+            pquant.Text = row.Cells[3].Value.ToString();
         }
         private void removeBtn_Click(object sender, EventArgs e)
         {
@@ -263,11 +264,17 @@ namespace softeng1
 
             updateRow.Cells[0].Value = pname.Text;
             updateRow.Cells[1].Value = priceTxt.Text;
-            updateRow.Cells[2].Value = pquant.Text;
-            updateRow.Cells[3].Value = ptotal.Text;
+            updateRow.Cells[2].Value = ptotal.Text;
+            updateRow.Cells[3].Value = pquant.Text;
 
             calcSum();
         }
+
+        private void confirmBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void pquant_TextChanged(object sender, EventArgs e)
         {
             if (pquant.Text != "")

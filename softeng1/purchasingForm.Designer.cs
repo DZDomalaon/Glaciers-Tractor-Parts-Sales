@@ -71,6 +71,7 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.confirmBtn = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -82,6 +83,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgsname)).BeginInit();
             this.panel7.SuspendLayout();
             this.cPanel.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -527,6 +529,7 @@
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.panel9.Controls.Add(this.label17);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
@@ -545,6 +548,7 @@
             this.confirmBtn.TabIndex = 63;
             this.confirmBtn.Text = "Confirm";
             this.confirmBtn.UseVisualStyleBackColor = false;
+            this.confirmBtn.Click += new System.EventHandler(this.confirmBtn_Click);
             // 
             // btnBack
             // 
@@ -559,6 +563,17 @@
             this.btnBack.Text = "Back";
             this.btnBack.UseVisualStyleBackColor = false;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.White;
+            this.label17.Location = new System.Drawing.Point(148, 7);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(71, 21);
+            this.label17.TabIndex = 63;
+            this.label17.Text = "Confirm";
             // 
             // purchasingForm
             // 
@@ -619,6 +634,8 @@
             this.panel7.PerformLayout();
             this.cPanel.ResumeLayout(false);
             this.cPanel.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -668,5 +685,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button confirmBtn;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label label17;
     }
 }
