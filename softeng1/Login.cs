@@ -55,10 +55,10 @@ namespace softeng1
             if(dt.Rows.Count  == 1)
             {
                 int id = int.Parse(dt.Rows[0][0].ToString());
-                string fname = dt.Rows[0][13].ToString();
-                string lname = dt.Rows[0][14].ToString();
-                string username = dt.Rows[0][7].ToString();
-                string password = dt.Rows[0][8].ToString();
+                string fname = dt.Rows[0][11].ToString();
+                string lname = dt.Rows[0][12].ToString();
+                string username = dt.Rows[0][4].ToString();
+                string password = dt.Rows[0][5].ToString();
 
                 user_id = id;
                 name = fname + " " + lname;

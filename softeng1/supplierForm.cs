@@ -39,7 +39,6 @@ namespace softeng1
             emailTxt.Text = "";
             cnumTxt.Text = "";
             addressTxt.Text = "";
-            contactTxt.Text = "";
             organizationTxt.Text = "";
             rbMale.Checked = false;
             rbFemale.Checked = false;
@@ -49,8 +48,6 @@ namespace softeng1
         private void supplierForm_Load(object sender, EventArgs e)
         {
             loadSupplierData();
-            contactTxt.Enabled = false;
-            organizationTxt.Enabled = false;
         }
         
         public void loadSupplierData()
@@ -70,7 +67,6 @@ namespace softeng1
             supplierData.Columns["person_type"].Visible = false;
             supplierData.Columns["supplier_person_id"].Visible = false;
             supplierData.Columns["gender"].Visible = false;
-            supplierData.Columns["contact_person"].Visible = false;
             supplierData.Columns["firstname"].HeaderText = "Firstname";
             supplierData.Columns["lastname"].HeaderText = "Lastname";
             supplierData.Columns["contact_num"].HeaderText = "Contact Number";
@@ -111,8 +107,7 @@ namespace softeng1
                 lnameTxt.Text = supplierData.Rows[e.RowIndex].Cells["lastname"].Value.ToString();
                 emailTxt.Text = supplierData.Rows[e.RowIndex].Cells["email"].Value.ToString();
                 addressTxt.Text = supplierData.Rows[e.RowIndex].Cells["address"].Value.ToString();
-                cnumTxt.Text = supplierData.Rows[e.RowIndex].Cells["contact_num"].Value.ToString();
-                contactTxt.Text = supplierData.Rows[e.RowIndex].Cells["contact_person"].Value.ToString();
+                cnumTxt.Text = supplierData.Rows[e.RowIndex].Cells["contact_num"].Value.ToString();                
                 organizationTxt.Text = supplierData.Rows[e.RowIndex].Cells["organization"].Value.ToString();
                 int gen = int.Parse(supplierData.Rows[e.RowIndex].Cells["gender"].Value.ToString());
                 if (gen == 1)

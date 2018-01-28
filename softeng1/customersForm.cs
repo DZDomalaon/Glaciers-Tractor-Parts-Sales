@@ -185,14 +185,19 @@ namespace softeng1
                 {
                     gen = 0;
                 }
-                String query = "Update PERSON, CUSTOMER SET PERSON.FIRSTNAME = '" + fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text + "', PERSON.GENDER = '" + gen + "', PERSON.CONTACT_NUM = '" + cnumTxt.Text + "', PERSON.EMAIL = '" + emailTxt.Text + "', PERSON.ADDRESS ='" + addressTxt.Text + "' WHERE CUSTOMER_ID = '" + selected_cust_id + "' AND PERSON_ID = '" + selected_person_id + "'";
-
                 conn.Open();
-                MySqlCommand comm = new MySqlCommand(query, conn);
+
+                String updateCustomer = "Update PERSON, CUSTOMER SET PERSON.FIRSTNAME = '" + fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text + "', PERSON.GENDER = '" + gen + "', PERSON.CONTACT_NUM = '" + cnumTxt.Text + "', PERSON.EMAIL = '" + emailTxt.Text + "', PERSON.ADDRESS ='" + addressTxt.Text + "' WHERE CUSTOMER_ID = '" + selected_cust_id + "' AND PERSON_ID = '" + selected_person_id + "'";                
+                MySqlCommand comm = new MySqlCommand(updateCustomer, conn);
                 comm.ExecuteNonQuery();
+
+                String updateCreditLimit = "Update PERSON, CUSTOMER SET CREDIT_LIMIT = '" + int.Parse(creditTxt.Text.ToString()) + "'";
+                MySqlCommand comm2 = new MySqlCommand(updateCreditLimit, conn);
+                comm.ExecuteNonQuery();
+
                 conn.Close();
             }
-            MessageBox.Show("Your data has been updated successfully", "Updated Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Customer data has been updated successfully", "Updated Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             loadCustomerData();
         }
         private void cnumTxt_KeyPress(object sender, KeyPressEventArgs e)

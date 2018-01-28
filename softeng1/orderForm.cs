@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
 using Microsoft.VisualBasic;
 
 namespace softeng1
@@ -55,9 +56,9 @@ namespace softeng1
 
             conn.Open();
 
-            String query = "SELECT firstname, lastname FROM person, customer where (lastname like '%" + custnameTxt.Text + "%' or firstname like '%" + custnameTxt.Text + "%') and person_type = 'customer' and person_id = customer_person_id ";
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            comm.CommandText = query;
+            String getCustomer = "SELECT firstname, lastname FROM person, customer where (lastname like '%" + custnameTxt.Text + "%' or firstname like '%" + custnameTxt.Text + "%') and person_type = 'customer' and person_id = customer_person_id ";
+            MySqlCommand comm = new MySqlCommand(getCustomer, conn);
+            comm.CommandText = getCustomer;
             MySqlDataReader drd = comm.ExecuteReader();
 
             if (drd.HasRows == true)
@@ -81,9 +82,9 @@ namespace softeng1
 
             conn.Open();
 
-            String query = "SELECT PRODUCT_NAME, PRICE FROM PRODUCT";
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            comm.CommandText = query;
+            String getProduct = "SELECT PRODUCT_NAME, PRICE FROM PRODUCT";
+            MySqlCommand comm = new MySqlCommand(getProduct, conn);
+            comm.CommandText = getProduct;
             MySqlDataReader drd = comm.ExecuteReader();
 
             if (drd.HasRows == true)
@@ -107,9 +108,9 @@ namespace softeng1
         {
             conn.Open();
 
-            String query = "SELECT PRICE FROM PRODUCT WHERE PRODUCT_NAME = '" + productnameTxt.Text +"'";
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            comm.CommandText = query;
+            String getPrice = "SELECT PRICE FROM PRODUCT WHERE PRODUCT_NAME = '" + productnameTxt.Text +"'";
+            MySqlCommand comm = new MySqlCommand(getPrice, conn);
+            comm.CommandText = getPrice;
             MySqlDataReader drd = comm.ExecuteReader();
 
             if (drd.HasRows == true)
@@ -155,12 +156,28 @@ namespace softeng1
             }
         }
 
+        private void cashTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+            if (Regex.IsMatch(cashTxt.Text, @"\.\d\d") && e.KeyChar != 8)
+            {
+                e.Handled = true;
+            }
+        }
+
         //Filter for productnameTxt
         private void productnameTxt_TextChanged(object sender, EventArgs e)
         {           
             conn.Open();
-            MySqlCommand query = new MySqlCommand("SELECT COUNT(*) FROM PRODUCT WHERE PRODUCT_NAME = '" + productnameTxt.Text + "'", conn);
-            countProduct = Convert.ToInt16(query.ExecuteScalar());
+            MySqlCommand getProduct = new MySqlCommand("SELECT COUNT(*) FROM PRODUCT WHERE PRODUCT_NAME = '" + productnameTxt.Text + "'", conn);
+            countProduct = Convert.ToInt16(getProduct.ExecuteScalar());
             conn.Close();
             
             if (productnameTxt.Text == "" || countProduct == 0)
@@ -184,9 +201,17 @@ namespace softeng1
 
         private void buyBtn_Click(object sender, EventArgs e)
         {
-            buyPanel.Visible = true;
-            buyPanel.Enabled = true;
-            BuydateLbl.Text = DateTime.Now.Date.ToString("MM-dd-yyyy");
+            if (orderDG.Rows.Count == 0)
+            {
+                MessageBox.Show("Cannot check out because cart is empty", "Empty Cart", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                buyPanel.Visible = true;
+                buyPanel.Enabled = true;
+                BuydateLbl.Text = DateTime.Now.Date.ToString("MM-dd-yyyy");
+            }
+                
         }
 
         //pass all data from Datagridview to textboxes
@@ -212,18 +237,18 @@ namespace softeng1
 
             conn.Open();
             //Get max id from sales_order
-            MySqlCommand query = new MySqlCommand("SELECT MAX(order_id) FROM SALES_ORDER", conn);
-            maxOrderId = Convert.ToInt16(query.ExecuteScalar());
+            MySqlCommand maxIDOrder = new MySqlCommand("SELECT MAX(order_id) FROM SALES_ORDER", conn);
+            maxOrderId = Convert.ToInt16(maxIDOrder.ExecuteScalar());
             OrderIncrement = maxOrderId + 1;            
 
             //Get max id fron payment
-            MySqlCommand query2 = new MySqlCommand("SELECT MAX(payment_id) FROM payment", conn);
-            maxPaymentId = Convert.ToInt16(query2.ExecuteScalar());
+            MySqlCommand maxIDPayment = new MySqlCommand("SELECT MAX(payment_id) FROM payment", conn);
+            maxPaymentId = Convert.ToInt16(maxIDPayment.ExecuteScalar());
             PaymentInc = maxPaymentId;
 
             //Get customer id
-            MySqlCommand query3 = new MySqlCommand("SELECT customer_id FROM customer, person where (CONCAT(FIRSTNAME, ' ', LASTNAME) LIKE '%" + custnameTxt.Text + "%') and person_type = 'customer' and person_id = customer_person_id ", conn);
-            customer_id = Convert.ToInt16(query3.ExecuteScalar());
+            MySqlCommand getCustomerID = new MySqlCommand("SELECT customer_id FROM customer, person where (CONCAT(FIRSTNAME, ' ', LASTNAME) LIKE '%" + custnameTxt.Text + "%') and person_type = 'customer' and person_id = customer_person_id ", conn);
+            customer_id = Convert.ToInt16(getCustomerID.ExecuteScalar());
 
             conn.Close();
 
@@ -247,13 +272,13 @@ namespace softeng1
                             MySqlCommand comm = new MySqlCommand(insertToPayment, conn);
                             comm.ExecuteNonQuery();                            
 
-                            using (MySqlCommand cmd = new MySqlCommand("INSERT INTO sales_order(order_id,ORDER_price, order_subtotal, order_total, order_subquantity, order_tquantity, order_date, order_status, order_customer_id, order_emp_id, order_payment_id, order_product_id) VALUES('" + OrderIncrement + "', @Price, @Subtotal, '" + total + "', @Quantity, '" + totalQuanatity() + "', '" + BuydateLbl.Text + "', 'Paid', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "', '" + prod_id + "')", conn))
+                            using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO sales_order(order_id,ORDER_price, order_subtotal, order_total, order_subquantity, order_tquantity, order_date, order_status, order_customer_id, order_emp_id, order_payment_id, order_product_id) VALUES('" + OrderIncrement + "', @Price, @Subtotal, '" + total + "', @Quantity, '" + totalQuanatity() + "', '" + BuydateLbl.Text + "', 'Paid', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "', '" + prod_id + "')", conn))
                             {
 
-                                cmd.Parameters.AddWithValue("@Price", double.Parse(row.Cells[1].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
-                                cmd.Parameters.AddWithValue("@Subtotal", double.Parse(row.Cells[2].Value.ToString()));
-                                cmd.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[3].Value.ToString()));
-                                cmd.ExecuteNonQuery();
+                                addToSales.Parameters.AddWithValue("@Price", double.Parse(row.Cells[1].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
+                                addToSales.Parameters.AddWithValue("@Subtotal", double.Parse(row.Cells[2].Value.ToString()));
+                                addToSales.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[3].Value.ToString()));
+                                addToSales.ExecuteNonQuery();
                             }
 
                             //deduct quantity
@@ -279,13 +304,13 @@ namespace softeng1
                     }
                     else if(paymentCmb.Text == "Credit")
                     {
-                        using (MySqlCommand cmd = new MySqlCommand("INSERT INTO sales_order(order_id,ORDER_price, order_subtotal, order_total, order_subquantity, order_tquantity, order_date, order_status, order_customer_id, order_emp_id, order_payment_id, order_product_id) VALUES('" + OrderIncrement + "', @Price, @Subtotal, '" + total + "', @Quantity, '" + totalQuanatity() + "', '" + dateLbl.Text + "', 'Unpaid', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "', '" + prod_id + "')", conn))
+                        using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO sales_order(order_id,ORDER_price, order_subtotal, order_total, order_subquantity, order_tquantity, order_date, order_status, order_customer_id, order_emp_id, order_payment_id, order_product_id) VALUES('" + OrderIncrement + "', @Price, @Subtotal, '" + total + "', @Quantity, '" + totalQuanatity() + "', '" + dateLbl.Text + "', 'Unpaid', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "', '" + prod_id + "')", conn))
                         {
 
-                            cmd.Parameters.AddWithValue("@Price", double.Parse(row.Cells[1].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
-                            cmd.Parameters.AddWithValue("@Subtotal", double.Parse(row.Cells[2].Value.ToString()));
-                            cmd.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[3].Value.ToString()));
-                            cmd.ExecuteNonQuery();
+                            addToSales.Parameters.AddWithValue("@Price", double.Parse(row.Cells[1].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
+                            addToSales.Parameters.AddWithValue("@Subtotal", double.Parse(row.Cells[2].Value.ToString()));
+                            addToSales.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[3].Value.ToString()));
+                            addToSales.ExecuteNonQuery();
                         }
                         MessageBox.Show("Records inserted.");
 

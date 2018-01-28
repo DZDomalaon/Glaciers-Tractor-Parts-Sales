@@ -100,8 +100,6 @@ namespace softeng1
                 lnameTxt.Text = "";
                 positionCmb.Text = "";
                 statusCmb.Text = "";
-                shiftTxt.Text = "";
-                salaryTxt.Text = "";
                 emailTxt.Text = "";
                 numberTxt.Text = "";
                 addressTxt.Text = "";
@@ -133,9 +131,7 @@ namespace softeng1
                 fnameTxt.Text = usersData.Rows[e.RowIndex].Cells["firstname"].Value.ToString();
                 lnameTxt.Text = usersData.Rows[e.RowIndex].Cells["lastname"].Value.ToString();
                 positionCmb.Text = usersData.Rows[e.RowIndex].Cells["position"].Value.ToString();
-                statusCmb.Text = usersData.Rows[e.RowIndex].Cells["status"].Value.ToString();
-                shiftTxt.Text = usersData.Rows[e.RowIndex].Cells["shift"].Value.ToString();
-                salaryTxt.Text = usersData.Rows[e.RowIndex].Cells["salary"].Value.ToString();
+                statusCmb.Text = usersData.Rows[e.RowIndex].Cells["status"].Value.ToString();               
                 emailTxt.Text = usersData.Rows[e.RowIndex].Cells["email"].Value.ToString();
                 addressTxt.Text = usersData.Rows[e.RowIndex].Cells["address"].Value.ToString();
                 numberTxt.Text = usersData.Rows[e.RowIndex].Cells["contact_num"].Value.ToString();
@@ -157,8 +153,6 @@ namespace softeng1
             lnameTxt.Text = "";
             positionCmb.Text = "";
             statusCmb.Text = "";
-            shiftTxt.Text = "";
-            salaryTxt.Text = "";
             emailTxt.Text = "";
             numberTxt.Text = "";
             addressTxt.Text = "";
@@ -180,7 +174,7 @@ namespace softeng1
                 {
                     gen = 0;
                 }
-                String query = "Update PERSON, EMPLOYEE SET PERSON.FIRSTNAME = '" + fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text + "', POSITION = '" + positionCmb.Text + "', PERSON.GENDER = '" + gen + "', STATUS = '" + statusCmb.Text + "', SHIFT = '" + shiftTxt.Text + "', SALARY = '" + double.Parse(salaryTxt.Text.ToString()) + "', PERSON.CONTACT_NUM = '" + numberTxt.Text + "', PERSON.EMAIL = '" + emailTxt.Text + "', PERSON.ADDRESS ='" + addressTxt.Text + "' WHERE EMP_ID = '" + selected_emp_id + "' AND PERSON_ID = '" + selected_person_id + "'";
+                String query = "Update PERSON, EMPLOYEE SET PERSON.FIRSTNAME = '" + fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text + "', POSITION = '" + positionCmb.Text + "', PERSON.GENDER = '" + gen + "', STATUS = '" + statusCmb.Text + "', PERSON.CONTACT_NUM = '" + numberTxt.Text + "', PERSON.EMAIL = '" + emailTxt.Text + "', PERSON.ADDRESS ='" + addressTxt.Text + "' WHERE EMP_ID = '" + selected_emp_id + "' AND PERSON_ID = '" + selected_person_id + "'";
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);

@@ -603,6 +603,7 @@ namespace softeng1
             this.cashTxt.Name = "cashTxt";
             this.cashTxt.Size = new System.Drawing.Size(183, 27);
             this.cashTxt.TabIndex = 54;
+            this.cashTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cashTxt_KeyPress);
             // 
             // label20
             // 
@@ -617,6 +618,7 @@ namespace softeng1
             // 
             // paymentCmb
             // 
+            this.paymentCmb.Enabled = false;
             this.paymentCmb.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paymentCmb.FormattingEnabled = true;
             this.paymentCmb.Items.AddRange(new object[] {
