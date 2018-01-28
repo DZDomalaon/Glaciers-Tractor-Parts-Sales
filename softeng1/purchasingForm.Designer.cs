@@ -36,7 +36,7 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.purchaseDG = new System.Windows.Forms.DataGridView();
+            this.dgProducts = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pquant = new System.Windows.Forms.TextBox();
@@ -66,16 +66,22 @@
             this.buyBtn = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
             this.snameTxt = new System.Windows.Forms.ComboBox();
+            this.cPanel = new System.Windows.Forms.Panel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.confirmBtn = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseDG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProducts)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.spanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgsname)).BeginInit();
             this.panel7.SuspendLayout();
+            this.cPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -151,21 +157,22 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Product Details";
             // 
-            // purchaseDG
+            // dgProducts
             // 
-            this.purchaseDG.AllowUserToAddRows = false;
-            this.purchaseDG.AllowUserToDeleteRows = false;
-            this.purchaseDG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.purchaseDG.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.purchaseDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.purchaseDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.purchaseDG.Location = new System.Drawing.Point(436, 85);
-            this.purchaseDG.Name = "purchaseDG";
-            this.purchaseDG.ReadOnly = true;
-            this.purchaseDG.RowHeadersVisible = false;
-            this.purchaseDG.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.purchaseDG.Size = new System.Drawing.Size(519, 465);
-            this.purchaseDG.TabIndex = 8;
+            this.dgProducts.AllowUserToAddRows = false;
+            this.dgProducts.AllowUserToDeleteRows = false;
+            this.dgProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgProducts.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgProducts.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgProducts.Location = new System.Drawing.Point(436, 85);
+            this.dgProducts.Name = "dgProducts";
+            this.dgProducts.ReadOnly = true;
+            this.dgProducts.RowHeadersVisible = false;
+            this.dgProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgProducts.Size = new System.Drawing.Size(519, 465);
+            this.dgProducts.TabIndex = 8;
+            this.dgProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProducts_CellClick);
             // 
             // label12
             // 
@@ -468,6 +475,7 @@
             this.buyBtn.Text = "Check Out";
             this.buyBtn.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buyBtn.UseVisualStyleBackColor = false;
+            this.buyBtn.Click += new System.EventHandler(this.buyBtn_Click);
             // 
             // editBtn
             // 
@@ -481,6 +489,7 @@
             this.editBtn.TabIndex = 60;
             this.editBtn.Text = "Edit";
             this.editBtn.UseVisualStyleBackColor = false;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // snameTxt
             // 
@@ -490,13 +499,74 @@
             this.snameTxt.Size = new System.Drawing.Size(183, 21);
             this.snameTxt.TabIndex = 61;
             // 
+            // cPanel
+            // 
+            this.cPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
+            this.cPanel.Controls.Add(this.btnBack);
+            this.cPanel.Controls.Add(this.confirmBtn);
+            this.cPanel.Controls.Add(this.panel9);
+            this.cPanel.Controls.Add(this.label13);
+            this.cPanel.Enabled = false;
+            this.cPanel.Location = new System.Drawing.Point(279, 191);
+            this.cPanel.Name = "cPanel";
+            this.cPanel.Size = new System.Drawing.Size(385, 145);
+            this.cPanel.TabIndex = 62;
+            this.cPanel.Visible = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(50, 44);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(294, 23);
+            this.label13.TabIndex = 63;
+            this.label13.Text = "Do you want to add this transaction?";
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(385, 35);
+            this.panel9.TabIndex = 64;
+            // 
+            // confirmBtn
+            // 
+            this.confirmBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
+            this.confirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.confirmBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.confirmBtn.ForeColor = System.Drawing.Color.White;
+            this.confirmBtn.Location = new System.Drawing.Point(91, 83);
+            this.confirmBtn.Name = "confirmBtn";
+            this.confirmBtn.Size = new System.Drawing.Size(92, 37);
+            this.confirmBtn.TabIndex = 63;
+            this.confirmBtn.Text = "Confirm";
+            this.confirmBtn.UseVisualStyleBackColor = false;
+            // 
+            // btnBack
+            // 
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(192, 83);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(92, 37);
+            this.btnBack.TabIndex = 63;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // purchasingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
-            this.Controls.Add(this.snameTxt);
+            this.Controls.Add(this.cPanel);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.buyBtn);
@@ -518,10 +588,11 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.ptotal);
-            this.Controls.Add(this.purchaseDG);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pname);
+            this.Controls.Add(this.snameTxt);
+            this.Controls.Add(this.dgProducts);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -537,7 +608,7 @@
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseDG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProducts)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -546,6 +617,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgsname)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
+            this.cPanel.ResumeLayout(false);
+            this.cPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -560,7 +633,7 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView purchaseDG;
+        private System.Windows.Forms.DataGridView dgProducts;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox pquant;
@@ -590,5 +663,10 @@
         private System.Windows.Forms.Button buyBtn;
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.ComboBox snameTxt;
+        private System.Windows.Forms.Panel cPanel;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button confirmBtn;
+        private System.Windows.Forms.Button btnBack;
     }
 }

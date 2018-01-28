@@ -28,14 +28,16 @@ namespace softeng1
             usernameLbl.Text = loginForm.name;
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
             
-            purchaseDG.Columns.Add("Product Name", "Product Name");
-            purchaseDG.Columns.Add("Price", "Price");
-            purchaseDG.Columns.Add("Sub Total", "Sub Total");
-            purchaseDG.Columns.Add("Quantity", "Quantity");
+            dgProducts.Columns.Add("Product Name", "Product Name");
+            dgProducts.Columns.Add("Price", "Price");
+            dgProducts.Columns.Add("Sub Total", "Sub Total");
+            dgProducts.Columns.Add("Quantity", "Quantity");
             loadsupplier();
 
             snameTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             snameTxt.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            dgProducts.Visible = true;           
         }
        
         public void loadsupplier()
@@ -103,7 +105,7 @@ namespace softeng1
 
                     string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn };
 
-                    purchaseDG.Rows.Add(row);
+                    dgProducts.Rows.Add(row);
 
                     pname.Clear();
                     priceTxt.Clear();
@@ -214,7 +216,7 @@ namespace softeng1
         private void purchaseDG_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             rowIndex = e.RowIndex;
-            DataGridViewRow row = purchaseDG.Rows[rowIndex];
+            DataGridViewRow row = dgProducts.Rows[rowIndex];
 
             pname.Text = row.Cells[1].Value.ToString();
             pquant.Text = row.Cells[2].Value.ToString();
@@ -222,9 +224,9 @@ namespace softeng1
         }
         private void removeBtn_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow item in this.purchaseDG.SelectedRows)
+            foreach (DataGridViewRow item in this.dgProducts.SelectedRows)
             {
-                purchaseDG.Rows.RemoveAt(item.Index);
+                dgProducts.Rows.RemoveAt(item.Index);
             }
         }
 
@@ -233,6 +235,39 @@ namespace softeng1
 
         }
 
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            cPanel.Hide();
+        }
+
+        private void buyBtn_Click(object sender, EventArgs e)
+        {
+            cPanel.Visible = true;
+            cPanel.Enabled = true;
+        }
+
+        private void dgProducts_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            rowIndex = e.RowIndex;
+            DataGridViewRow row = dgProducts.Rows[rowIndex];
+
+            pname.Text = row.Cells[0].Value.ToString();
+            priceTxt.Text = row.Cells[1].Value.ToString();
+            ptotal.Text = row.Cells[2].Value.ToString();
+            pquant.Text = row.Cells[3].Value.ToString();
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            DataGridViewRow updateRow = dgProducts.Rows[rowIndex];
+
+            updateRow.Cells[0].Value = pname.Text;
+            updateRow.Cells[1].Value = priceTxt.Text;
+            updateRow.Cells[2].Value = pquant.Text;
+            updateRow.Cells[3].Value = ptotal.Text;
+
+            calcSum();
+        }
         private void pquant_TextChanged(object sender, EventArgs e)
         {
             if (pquant.Text != "")
@@ -251,7 +286,7 @@ namespace softeng1
         private void calcSum()
         {
             double a = 0, b = 0;
-            foreach (DataGridViewRow row in purchaseDG.Rows)
+            foreach (DataGridViewRow row in dgProducts.Rows)
             {
                 a = Convert.ToDouble(row.Cells[2].Value);
                 b = b + a;
