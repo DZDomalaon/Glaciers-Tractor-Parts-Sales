@@ -92,7 +92,6 @@ namespace softeng1
 
                         psswrdLbl.Visible = true;
                         psswrdLbl.Text = "Password changed! Please log out to see changes.";
-
                     }
                     else
                     {
