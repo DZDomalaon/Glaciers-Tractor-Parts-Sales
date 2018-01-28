@@ -98,8 +98,8 @@ namespace softeng1
                 {
                     string firstColumn = pname.Text;
                     string secondColumn = priceTxt.Text;
-                    string fourthColumn = ptotal.Text;
-                    string thirdColumn = pquant.Text;
+                    string thirdColumn = ptotal.Text;
+                    string fourthColumn = pquant.Text;
 
                     string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn };
 
@@ -253,7 +253,7 @@ namespace softeng1
             double a = 0, b = 0;
             foreach (DataGridViewRow row in purchaseDG.Rows)
             {
-                a = Convert.ToDouble(row.Cells[1].Value);
+                a = Convert.ToDouble(row.Cells[2].Value);
                 b = b + a;
             }
             totalpriceTxt.Text = b.ToString("#,0.00");

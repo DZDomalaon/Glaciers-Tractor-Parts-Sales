@@ -527,7 +527,7 @@
             this.MinimizeBox = false;
             this.Name = "purchasingForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "purchasingForm";
+            this.Text = "Glacier Tractor Parts & Sales | Purchasing";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.purchasingForm_FormClosing);
             this.Load += new System.EventHandler(this.purchasingForm_Load);
             this.panel3.ResumeLayout(false);
