@@ -56,6 +56,7 @@ namespace softeng1
                 if (dt.Rows.Count == 1)
                 {
                     usernLbl.Visible = true;
+                    usernLbl.Text = "Username already exists!";
                 }
                 else
                 {
@@ -70,13 +71,12 @@ namespace softeng1
                 }
             }
         }
-
         private void passBtn_Click(object sender, EventArgs e)
         {
-            if (opsswrdTxt.Text == "" || cpsswrdTxt.Text == "" || opsswrdTxt.Text == "")
+            if (opsswrdTxt.Text == "" || cpsswrdTxt.Text == "" || npsswrdTxt.Text == "")
             {
                 psswrdLbl.Visible = true;
-                psswrdLbl.Text = "Please fill up all the data.";
+                psswrdLbl.Text = "Please fill up all the data!";
             }
             else
             {
@@ -84,12 +84,15 @@ namespace softeng1
                 {
                     if (npsswrdTxt.Text == cpsswrdTxt.Text)
                     {
-                        string upquery = "Update employee set password = '" + npsswrdTxt.Text + "' where emp_id = '" + loginForm.user_id + "'";
+                        string upquery = "Update employee set password = '" + cpsswrdTxt.Text + "' where emp_id = '" + loginForm.user_id + "'";
                         conn.Open();
                         MySqlCommand comm2 = new MySqlCommand(upquery, conn);
                         comm2.ExecuteNonQuery();
                         conn.Close();
-                        MessageBox.Show("Password Changed! Please Logout to see changes.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                        psswrdLbl.Visible = true;
+                        psswrdLbl.Text = "Password changed! Please log out to see changes.";
+
                     }
                     else
                     {
@@ -99,6 +102,7 @@ namespace softeng1
                 }
                 else
                 {
+                    psswrdLbl.Visible = true;
                     psswrdLbl.Text = "Enter your Old password correctly!";
                 }
             }
