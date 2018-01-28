@@ -20,8 +20,8 @@ namespace softeng1
             conn = new MySqlConnection("SERVER=localhost; DATABASE=glaciers; uid = root; pwd = root");
             InitializeComponent();
         }
-        public static int customer_id, rowIndex, product_id, inv_id, availableStock, quan;
-        public static String prod, price, ln, fn;
+        public static int customer_id, rowIndex, product_id, availableStock, quan, countProduct, quant;
+        public static String prod, price, ln, fn, getPrice;
         public static double tot, p, q;
 
         public static homeForm fromOrder { get; set; }
@@ -39,7 +39,7 @@ namespace softeng1
             buyPanel.Visible = false;
             stockLbl.Visible = false;
             loadCustomer();
-            loadProduct();
+            loadProduct();            
         }
      
 
@@ -81,7 +81,7 @@ namespace softeng1
 
             conn.Open();
 
-            String query = "SELECT PRODUCT_NAME FROM PRODUCT";
+            String query = "SELECT PRODUCT_NAME, PRICE FROM PRODUCT";
             MySqlCommand comm = new MySqlCommand(query, conn);
             comm.CommandText = query;
             MySqlDataReader drd = comm.ExecuteReader();
@@ -89,18 +89,56 @@ namespace softeng1
             if (drd.HasRows == true)
             {
                 while (drd.Read())
+                {
                     productsCollection.Add(drd["PRODUCT_NAME"].ToString());
+                }                                        
             }
 
-            drd.Close();
-            conn.Close();
+            drd.Close();            
+            conn.Close();            
 
             productnameTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             productnameTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
             productnameTxt.AutoCompleteCustomSource = productsCollection;
         }
+        
+        //Load product price
+        public void productPrice()
+        {
+            conn.Open();
 
-        public static int quant;
+            String query = "SELECT PRICE FROM PRODUCT WHERE PRODUCT_NAME = '" + productnameTxt.Text +"'";
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            comm.CommandText = query;
+            MySqlDataReader drd = comm.ExecuteReader();
+
+            if (drd.HasRows == true)
+            {
+                while (drd.Read())
+                {
+                    ppriceTxt.Text = drd["PRICE"].ToString();
+                }                                   
+            }
+
+            drd.Close();
+            conn.Close();
+
+
+        }
+
+        //Check product quantity
+        public void productQuantity()
+        {
+            conn.Open();
+            MySqlCommand getQuantity = new MySqlCommand("select quantity from inventory, product where product_name = '" + productnameTxt.Text + "' and inventory_id = product_inv_id", conn);
+            availableStock = Convert.ToInt32(getQuantity.ExecuteScalar());
+            conn.Close();
+
+            stockLbl.Visible = true;
+            stockLbl.Text = "The available stock is only " + availableStock;
+        }
+
+        //calculate quantity * price
         private void pquant_TextChanged(object sender, EventArgs e)
         {
             if (pquant.Text != "")
@@ -116,15 +154,28 @@ namespace softeng1
                 ptotal.Text = "";
             }
         }
-        //Search for product
-        private void dgsearchprod_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        //Filter for productnameTxt
+        private void productnameTxt_TextChanged(object sender, EventArgs e)
         {           
-                stockLbl.Visible = true;
-                stockLbl.Text = "The available stock is only " + quan;
+            conn.Open();
+            MySqlCommand query = new MySqlCommand("SELECT COUNT(*) FROM PRODUCT WHERE PRODUCT_NAME = '" + productnameTxt.Text + "'", conn);
+            countProduct = Convert.ToInt16(query.ExecuteScalar());
+            conn.Close();
             
+            if (productnameTxt.Text == "" || countProduct == 0)
+            {
+                ppriceTxt.Clear();
+                pquant.Clear();
+                ptotal.Clear();
+                stockLbl.Visible = false;
+            }
+            else
+            {
+                productPrice();
+                productQuantity();
+            }            
         }
-        //Search for customer
-        
 
         private void orderForm_FormClosing_1(object sender, FormClosingEventArgs e)
         {
@@ -138,7 +189,6 @@ namespace softeng1
             BuydateLbl.Text = DateTime.Now.Date.ToString("MM-dd-yyyy");
         }
 
-
         //pass all data from Datagridview to textboxes
         private void orderDG_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -151,6 +201,7 @@ namespace softeng1
             pquant.Text = row.Cells[3].Value.ToString();
         }
 
+        //Confirm order
         private void confirmBtn_Click(object sender, EventArgs e)
         {
             int maxOrderId = 0;
@@ -160,7 +211,7 @@ namespace softeng1
             int prod_id = 0;
 
             conn.Open();
-            //Get max id from sale_order
+            //Get max id from sales_order
             MySqlCommand query = new MySqlCommand("SELECT MAX(order_id) FROM SALES_ORDER", conn);
             maxOrderId = Convert.ToInt16(query.ExecuteScalar());
             OrderIncrement = maxOrderId + 1;            
@@ -169,16 +220,21 @@ namespace softeng1
             MySqlCommand query2 = new MySqlCommand("SELECT MAX(payment_id) FROM payment", conn);
             maxPaymentId = Convert.ToInt16(query2.ExecuteScalar());
             PaymentInc = maxPaymentId;
+
+            //Get customer id
+            MySqlCommand query3 = new MySqlCommand("SELECT customer_id FROM customer, person where (CONCAT(FIRSTNAME, ' ', LASTNAME) LIKE '%" + custnameTxt.Text + "%') and person_type = 'customer' and person_id = customer_person_id ", conn);
+            customer_id = Convert.ToInt16(query3.ExecuteScalar());
+
             conn.Close();
 
-            //Insert data to sales_order
+            //Insert data to sales_order        
             double total = double.Parse(totalpriceTxt.Text.ToString());
             foreach (DataGridViewRow row in orderDG.Rows)
             {
                 conn.Open();
                 //Get all product id
                 MySqlCommand getProduct_id = new MySqlCommand("SELECT PRODUCT_ID FROM PRODUCT WHERE (PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')", conn);
-                prod_id = Convert.ToInt32(getProduct_id.ExecuteScalar());
+                prod_id = Convert.ToInt32(getProduct_id.ExecuteScalar());                
 
                 using (conn)
                 {
@@ -189,7 +245,7 @@ namespace softeng1
                             //insert payment amount
                             String insertToPayment = "INSERT INTO PAYMENT(AMOUNT) VALUES('" + cashTxt.Text + "')";
                             MySqlCommand comm = new MySqlCommand(insertToPayment, conn);
-                            comm.ExecuteNonQuery();
+                            comm.ExecuteNonQuery();                            
 
                             using (MySqlCommand cmd = new MySqlCommand("INSERT INTO sales_order(order_id,ORDER_price, order_subtotal, order_total, order_subquantity, order_tquantity, order_date, order_status, order_customer_id, order_emp_id, order_payment_id, order_product_id) VALUES('" + OrderIncrement + "', @Price, @Subtotal, '" + total + "', @Quantity, '" + totalQuanatity() + "', '" + BuydateLbl.Text + "', 'Paid', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "', '" + prod_id + "')", conn))
                             {
@@ -199,7 +255,21 @@ namespace softeng1
                                 cmd.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[3].Value.ToString()));
                                 cmd.ExecuteNonQuery();
                             }
+
+                            //deduct quantity
+                            quan = int.Parse(row.Cells[3].Value.ToString());
+                            string deductQuantity = "UPDATE INVENTORY SET QUANTITY = QUANTITY - '" + quan + "' WHERE INVENTORY_ID = (SELECT PRODUCT_INV_ID FROM PRODUCT WHERE PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')";
+                            MySqlCommand comm2 = new MySqlCommand(deductQuantity, conn);
+                            comm2.ExecuteNonQuery();
                             MessageBox.Show("Records inserted.");
+
+                            custnameTxt.Clear();
+                            buyPanel.Hide();
+                            cashTxt.Clear();
+                            discountTxt.Clear();
+                            interestTxt.Clear();
+                            paymentCmb.Text = " ";
+                            this.orderDG.Rows.Clear();
                         }
                         else if(int.Parse(cashTxt.Text.ToString()) < total)
                         {
@@ -218,6 +288,15 @@ namespace softeng1
                             cmd.ExecuteNonQuery();
                         }
                         MessageBox.Show("Records inserted.");
+
+                        custnameTxt.Clear();
+                        buyPanel.Hide();
+                        cashTxt.Clear();
+                        discountTxt.Clear();
+                        interestTxt.Clear();
+                        paymentCmb.Text = " ";
+
+                        this.orderDG.Rows.Clear();
                     }
                     
                 }
@@ -257,17 +336,18 @@ namespace softeng1
             updRow.Cells[3].Value = ptotal.Text;
             calcSum();
         }
+
         //Add order to Datagrid
         private void addOrder_Click(object sender, EventArgs e)
         {
-             if (custnameTxt.Text == "" || productnameTxt.Text == "" || ppriceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "")
+            if (custnameTxt.Text == "" || productnameTxt.Text == "" || ppriceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "")
             {
                 MessageBox.Show("Please fill up all the data", "Add Customer Order", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
                 conn.Open();
-                MySqlCommand getQuantity = new MySqlCommand("select quantity from inventory where inventory_id ='" + inv_id + "'", conn);
+                MySqlCommand getQuantity = new MySqlCommand("select quantity from inventory, product where product_name = '" + productnameTxt.Text + "' and inventory_id = product_inv_id", conn);
                 availableStock = Convert.ToInt32(getQuantity.ExecuteScalar());
                 conn.Close();
 
@@ -306,6 +386,7 @@ namespace softeng1
                 calcSum();
             }
         }
+
         //Calculate the total price
         private void calcSum()
         {
@@ -317,6 +398,7 @@ namespace softeng1
             }
             totalpriceTxt.Text = b.ToString("#,0.00");
         }
+
         //Calculate the total quantity
         private int totalQuanatity()
         {
