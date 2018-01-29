@@ -53,8 +53,7 @@ namespace softeng1
             usersData.Columns["lastname"].HeaderText = "Lastname";
             usersData.Columns["contact_num"].HeaderText = "Contact Number";
             usersData.Columns["address"].HeaderText = "Address";
-            usersData.Columns["email"].HeaderText = "Email";
-            usersData.Columns["shift"].HeaderText = "Shift";            
+            usersData.Columns["email"].HeaderText = "Email";                        
             usersData.Columns["position"].HeaderText = "Position";
             usersData.Columns["status"].HeaderText = "Status";
         }
