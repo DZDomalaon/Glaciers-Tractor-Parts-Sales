@@ -23,7 +23,7 @@ namespace softeng1
 
         private void settingsForm_Load(object sender, EventArgs e)
         {
-            usernLbl.Visible = false;
+            usenLbl.Visible = false;
             psswrdLbl.Visible = false;
         }
         private void backBtn_Click(object sender, EventArgs e)
@@ -39,8 +39,8 @@ namespace softeng1
         {
             if (unameTxt.Text == "")
             {
-                usernLbl.Visible = true;
-                usernLbl.Text = "Please fill up all the data!";
+                usenLbl.Visible = true;
+                usenLbl.Text = "Please fill up all the data!";
             }
             else
             {
@@ -55,8 +55,8 @@ namespace softeng1
 
                 if (dt.Rows.Count == 1)
                 {
-                    usernLbl.Visible = true;
-                    usernLbl.Text = "Username already exists!";
+                    usenLbl.Visible = true;
+                    usenLbl.Text = "Username already exists!";
                 }
                 else
                 {
@@ -65,9 +65,10 @@ namespace softeng1
                     MySqlCommand comm2 = new MySqlCommand(query2, conn);
                     comm2.ExecuteNonQuery();
                     conn.Close();
-                    MessageBox.Show("You may now login as " + unameTxt.Text + "! Please logout to see changes.", "Success", MessageBoxButtons.OK);
 
-                    usernLbl.Visible = false;
+                    usenLbl.Visible = true;
+                    usenLbl.ForeColor = Color.FromArgb(128, 255, 128);
+                    usenLbl.Text = "You may now login as " + unameTxt.Text + "! Please log out to see changes.";
                 }
             }
         }
@@ -80,7 +81,12 @@ namespace softeng1
             }
             else
             {
-                if (opsswrdTxt.Text == loginForm.userp)
+                if (opsswrdTxt.Text != loginForm.userp)
+                {
+                    psswrdLbl.Visible = true;
+                    psswrdLbl.Text = "Enter your Old password correctly!";
+                }
+                else
                 {
                     if (npsswrdTxt.Text == cpsswrdTxt.Text)
                     {
@@ -91,6 +97,7 @@ namespace softeng1
                         conn.Close();
 
                         psswrdLbl.Visible = true;
+                        psswrdLbl.ForeColor = Color.FromArgb(128, 255, 128);
                         psswrdLbl.Text = "Password changed! Please log out to see changes.";
                     }
                     else
@@ -98,11 +105,6 @@ namespace softeng1
                         psswrdLbl.Visible = true;
                         psswrdLbl.Text = "Passwords do not match!";
                     }
-                }
-                else
-                {
-                    psswrdLbl.Visible = true;
-                    psswrdLbl.Text = "Enter your Old password correctly!";
                 }
             }
         }
