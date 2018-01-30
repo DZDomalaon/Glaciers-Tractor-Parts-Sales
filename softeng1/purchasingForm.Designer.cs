@@ -67,11 +67,11 @@
             this.editBtn = new System.Windows.Forms.Button();
             this.snameTxt = new System.Windows.Forms.ComboBox();
             this.cPanel = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.confirmBtn = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.confirmBtn = new System.Windows.Forms.Button();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -95,6 +95,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(955, 47);
             this.panel3.TabIndex = 5;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // panel1
             // 
@@ -515,26 +516,19 @@
             this.cPanel.TabIndex = 62;
             this.cPanel.Visible = false;
             // 
-            // label13
+            // btnBack
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(50, 44);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(294, 23);
-            this.label13.TabIndex = 63;
-            this.label13.Text = "Do you want to add this transaction?";
-            // 
-            // panel9
-            // 
-            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
-            this.panel9.Controls.Add(this.label17);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(385, 35);
-            this.panel9.TabIndex = 64;
+            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
+            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBack.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBack.ForeColor = System.Drawing.Color.White;
+            this.btnBack.Location = new System.Drawing.Point(192, 83);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(92, 37);
+            this.btnBack.TabIndex = 63;
+            this.btnBack.Text = "Back";
+            this.btnBack.UseVisualStyleBackColor = false;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
             // confirmBtn
             // 
@@ -550,19 +544,16 @@
             this.confirmBtn.UseVisualStyleBackColor = false;
             this.confirmBtn.Click += new System.EventHandler(this.confirmBtn_Click);
             // 
-            // btnBack
+            // panel9
             // 
-            this.btnBack.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
-            this.btnBack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBack.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBack.ForeColor = System.Drawing.Color.White;
-            this.btnBack.Location = new System.Drawing.Point(192, 83);
-            this.btnBack.Name = "btnBack";
-            this.btnBack.Size = new System.Drawing.Size(92, 37);
-            this.btnBack.TabIndex = 63;
-            this.btnBack.Text = "Back";
-            this.btnBack.UseVisualStyleBackColor = false;
-            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.panel9.Controls.Add(this.label17);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(385, 35);
+            this.panel9.TabIndex = 64;
+            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
             // 
             // label17
             // 
@@ -574,6 +565,17 @@
             this.label17.Size = new System.Drawing.Size(71, 21);
             this.label17.TabIndex = 63;
             this.label17.Text = "Confirm";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(50, 44);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(294, 23);
+            this.label13.TabIndex = 63;
+            this.label13.Text = "Do you want to add this transaction?";
             // 
             // purchasingForm
             // 

@@ -37,8 +37,10 @@ namespace softeng1
             usernameLbl.Text = loginForm.name;
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
 
+            errorPanel.Visible = false;
             buyPanel.Visible = false;
             stockLbl.Visible = false;
+
             loadCustomer();
             loadProduct();            
         }
@@ -172,6 +174,11 @@ namespace softeng1
             }
         }
 
+        private void closePanel_Click(object sender, EventArgs e)
+        {
+            errorPanel.Hide();           
+        }
+
         //Filter for productnameTxt
         private void productnameTxt_TextChanged(object sender, EventArgs e)
         {           
@@ -203,17 +210,17 @@ namespace softeng1
         {
             if (orderDG.Rows.Count == 0)
             {
-                MessageBox.Show("Cannot check out because cart is empty", "Empty Cart", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                errorPanel.Visible = true;
+                errorPanel.Enabled = true;
             }
             else
             {
                 buyPanel.Visible = true;
                 buyPanel.Enabled = true;
-                BuydateLbl.Text = DateTime.Now.Date.ToString("MM-dd-yyyy");
+                BuydateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
             }
                 
         }
-
         //pass all data from Datagridview to textboxes
         private void orderDG_CellClick(object sender, DataGridViewCellEventArgs e)
         {
