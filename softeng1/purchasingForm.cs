@@ -274,11 +274,9 @@ namespace softeng1
         {
             int maxOrderId = 0;
             int OrderIncrement = 0;
-<<<<<<< HEAD
             int empId = loginForm.user_id;
             int supId;
-=======
->>>>>>> 14d4ce9856b12dddfb65453c1899e82de1a815c5
+
 
             conn.Open();
             //Get max id from sales_order
@@ -290,21 +288,14 @@ namespace softeng1
 
             String today = DateTime.Now.Date.ToString("MM-dd-yyyy");
 
-<<<<<<< HEAD
+
             MySqlCommand getSupID = new MySqlCommand("SELECT emp_id FROM supplier, person where(CONCAT(FIRSTNAME, ' ', LASTNAME) LIKE '%" + snameTxt.Text + "%') and person_type = 'supplier' and person_id = supplier_person_id ", conn);
             supId = Convert.ToInt16(getSupID.ExecuteScalar());
 
             foreach (DataGridViewRow row in dgProducts.Rows)
             {
                 conn.Open();
-                using (MySqlCommand addToPurchase = new MySqlCommand("INSERT INTO purchase(purchase_id, purchase_date, product_name, quantity, price, status, purchase_emp_id, purchase_supplier_id) VALUES('"+ OrderIncrement + "', '"+ today + "', @ProductName, @Quantity, @Price, 'To be delivered', '" + empId + "', '" + getSupID + "')", conn))
-=======
-            foreach (DataGridViewRow row in dgProducts.Rows)
-            {
-                conn.Open();
                 using (MySqlCommand addToPurchase = new MySqlCommand("INSERT INTO purchase(purchase_id, purchase_date, product_name, quantity, price, status, purchase_emp_id, purchase_supplier_id) VALUES('"+ OrderIncrement + "', '"+ today + "', @ProductName, @Quantity, @Price, 'To be delivered', 0, 0)", conn))
->>>>>>> 14d4ce9856b12dddfb65453c1899e82de1a815c5
-
                 {
                     addToPurchase.Parameters.AddWithValue("@ProductName", int.Parse(row.Cells[0].Value.ToString()));
                     addToPurchase.Parameters.AddWithValue("@Price", double.Parse(row.Cells[1].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
