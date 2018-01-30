@@ -204,6 +204,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="5.png" />
+    <None Include="Resources\error.png" />
     <None Include="Resources\settings-gears.png" />
     <None Include="Resources\add-to-cart1.png" />
     <None Include="Resources\add-to-cart.png" />

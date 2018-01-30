@@ -37,7 +37,7 @@ namespace softeng1
             usernameLbl.Text = loginForm.name;
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
 
-            errorPanel.Visible = false;
+            //errorPanel.Visible = false;           
             buyPanel.Visible = false;
             stockLbl.Visible = false;
 
@@ -45,7 +45,6 @@ namespace softeng1
             loadProduct();            
         }
      
-
         private void orderForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             fromOrder.Show();
@@ -212,6 +211,7 @@ namespace softeng1
             {
                 errorPanel.Visible = true;
                 errorPanel.Enabled = true;
+                errorPanel.Location = new Point(269, 185);
             }
             else
             {
@@ -382,7 +382,6 @@ namespace softeng1
                 MySqlCommand getQuantity = new MySqlCommand("select quantity from inventory, product where product_name = '" + productnameTxt.Text + "' and inventory_id = product_inv_id", conn);
                 availableStock = Convert.ToInt32(getQuantity.ExecuteScalar());
                 conn.Close();
-
 
                 if(availableStock >= int.Parse(pquant.Text.ToString()))
                 {

@@ -68,6 +68,12 @@ namespace softeng1
             this.totalpriceTxt = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.buyPanel = new System.Windows.Forms.Panel();
+            this.errorPanel = new System.Windows.Forms.Panel();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.closePanel = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buyBackBtn = new System.Windows.Forms.Button();
             this.confirmBtn = new System.Windows.Forms.Button();
             this.interestTxt = new System.Windows.Forms.TextBox();
@@ -90,12 +96,6 @@ namespace softeng1
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.stockLbl = new System.Windows.Forms.Label();
-            this.errorPanel = new System.Windows.Forms.Panel();
-            this.panel13 = new System.Windows.Forms.Panel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.closePanel = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -105,14 +105,14 @@ namespace softeng1
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
             this.buyPanel.SuspendLayout();
+            this.errorPanel.SuspendLayout();
+            this.panel13.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel12.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel11.SuspendLayout();
             this.panel9.SuspendLayout();
-            this.errorPanel.SuspendLayout();
-            this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -520,7 +520,6 @@ namespace softeng1
             // 
             // buyPanel
             // 
-            this.buyPanel.Controls.Add(this.errorPanel);
             this.buyPanel.Controls.Add(this.buyBackBtn);
             this.buyPanel.Controls.Add(this.confirmBtn);
             this.buyPanel.Controls.Add(this.interestTxt);
@@ -539,6 +538,75 @@ namespace softeng1
             this.buyPanel.Size = new System.Drawing.Size(418, 425);
             this.buyPanel.TabIndex = 28;
             this.buyPanel.Visible = false;
+            // 
+            // errorPanel
+            // 
+            this.errorPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
+            this.errorPanel.Controls.Add(this.panel13);
+            this.errorPanel.Controls.Add(this.label23);
+            this.errorPanel.Controls.Add(this.pictureBox1);
+            this.errorPanel.Enabled = false;
+            this.errorPanel.Location = new System.Drawing.Point(703, 178);
+            this.errorPanel.Name = "errorPanel";
+            this.errorPanel.Size = new System.Drawing.Size(384, 145);
+            this.errorPanel.TabIndex = 63;
+            this.errorPanel.Visible = false;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.panel13.Controls.Add(this.closePanel);
+            this.panel13.Controls.Add(this.label13);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(384, 35);
+            this.panel13.TabIndex = 64;
+            // 
+            // closePanel
+            // 
+            this.closePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(90)))), ((int)(((byte)(74)))));
+            this.closePanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closePanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closePanel.ForeColor = System.Drawing.Color.White;
+            this.closePanel.Location = new System.Drawing.Point(351, 3);
+            this.closePanel.Name = "closePanel";
+            this.closePanel.Size = new System.Drawing.Size(30, 25);
+            this.closePanel.TabIndex = 64;
+            this.closePanel.Text = "X";
+            this.closePanel.UseVisualStyleBackColor = false;
+            this.closePanel.Click += new System.EventHandler(this.closePanel_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label13.Location = new System.Drawing.Point(142, 7);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(100, 21);
+            this.label13.TabIndex = 63;
+            this.label13.Text = "Empty Cart";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label23.Location = new System.Drawing.Point(64, 66);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(317, 23);
+            this.label23.TabIndex = 63;
+            this.label23.Text = "Cannot check out because cart is empty.";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::softeng1.Properties.Resources.error;
+            this.pictureBox1.Location = new System.Drawing.Point(27, 61);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(45, 35);
+            this.pictureBox1.TabIndex = 65;
+            this.pictureBox1.TabStop = false;
             // 
             // buyBackBtn
             // 
@@ -780,75 +848,6 @@ namespace softeng1
             this.stockLbl.TabIndex = 52;
             this.stockLbl.Text = "-----";
             // 
-            // errorPanel
-            // 
-            this.errorPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
-            this.errorPanel.Controls.Add(this.panel13);
-            this.errorPanel.Controls.Add(this.label23);
-            this.errorPanel.Controls.Add(this.pictureBox1);
-            this.errorPanel.Enabled = false;
-            this.errorPanel.Location = new System.Drawing.Point(21, 79);
-            this.errorPanel.Name = "errorPanel";
-            this.errorPanel.Size = new System.Drawing.Size(384, 145);
-            this.errorPanel.TabIndex = 63;
-            this.errorPanel.Visible = false;
-            // 
-            // panel13
-            // 
-            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
-            this.panel13.Controls.Add(this.closePanel);
-            this.panel13.Controls.Add(this.label13);
-            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel13.Location = new System.Drawing.Point(0, 0);
-            this.panel13.Name = "panel13";
-            this.panel13.Size = new System.Drawing.Size(384, 35);
-            this.panel13.TabIndex = 64;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.label13.Location = new System.Drawing.Point(142, 7);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(100, 21);
-            this.label13.TabIndex = 63;
-            this.label13.Text = "Empty Cart";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.label23.Location = new System.Drawing.Point(64, 66);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(317, 23);
-            this.label23.TabIndex = 63;
-            this.label23.Text = "Cannot check out because cart is empty.";
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::softeng1.Properties.Resources.error;
-            this.pictureBox1.Location = new System.Drawing.Point(21, 62);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(45, 35);
-            this.pictureBox1.TabIndex = 65;
-            this.pictureBox1.TabStop = false;
-            // 
-            // closePanel
-            // 
-            this.closePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(90)))), ((int)(((byte)(74)))));
-            this.closePanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closePanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closePanel.ForeColor = System.Drawing.Color.White;
-            this.closePanel.Location = new System.Drawing.Point(351, 3);
-            this.closePanel.Name = "closePanel";
-            this.closePanel.Size = new System.Drawing.Size(30, 25);
-            this.closePanel.TabIndex = 64;
-            this.closePanel.Text = "X";
-            this.closePanel.UseVisualStyleBackColor = false;
-            this.closePanel.Click += new System.EventHandler(this.closePanel_Click);
-            // 
             // orderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -856,6 +855,7 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.errorPanel);
             this.Controls.Add(this.stockLbl);
             this.Controls.Add(this.buyPanel);
             this.Controls.Add(this.usernameLbl);
@@ -907,6 +907,11 @@ namespace softeng1
             this.panel7.PerformLayout();
             this.buyPanel.ResumeLayout(false);
             this.buyPanel.PerformLayout();
+            this.errorPanel.ResumeLayout(false);
+            this.errorPanel.PerformLayout();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel12.ResumeLayout(false);
             this.panel12.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -917,11 +922,6 @@ namespace softeng1
             this.panel11.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
-            this.errorPanel.ResumeLayout(false);
-            this.errorPanel.PerformLayout();
-            this.panel13.ResumeLayout(false);
-            this.panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
