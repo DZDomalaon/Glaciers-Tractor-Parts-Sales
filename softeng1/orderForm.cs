@@ -21,7 +21,7 @@ namespace softeng1
             conn = new MySqlConnection("SERVER=localhost; DATABASE=glaciers; uid = root; pwd = root");
             InitializeComponent();
         }
-        public static int customer_id, rowIndex, product_id, availableStock, quan, countProduct, quant;
+        public static int customer_id, rowIndex, product_id, availableStock, quan, countProduct, countCustomer, quant;
         public static String prod, price, ln, fn, getPrice;
         public static double tot, p, q;
 
@@ -37,9 +37,10 @@ namespace softeng1
             usernameLbl.Text = loginForm.name;
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
 
-            //errorPanel.Visible = false;           
+            errorPanel.Visible = false;           
             buyPanel.Visible = false;
             stockLbl.Visible = false;
+            custLbl.Visible = false;
 
             loadCustomer();
             loadProduct();            
@@ -178,6 +179,24 @@ namespace softeng1
             errorPanel.Hide();           
         }
 
+        private void custnameTxt_TextChanged(object sender, EventArgs e)
+        {
+            conn.Open();
+            MySqlCommand getCustomer = new MySqlCommand("SELECT COUNT(*) FROM PERSON WHERE CONCAT(FIRSTNAME, ' ', LASTNAME) = '" + custnameTxt.Text + "' AND PERSON_TYPE = 'CUSTOMER'", conn);
+            countCustomer = Convert.ToInt16(getCustomer.ExecuteScalar());
+            conn.Close();
+
+            if (custnameTxt.Text == "" || countCustomer == 0)
+            {
+                custLbl.Visible = true;
+                custLbl.Text = "This customer is not recognize";
+            }
+            else
+            {
+                custLbl.Visible = false;
+            }
+        }
+
         //Filter for productnameTxt
         private void productnameTxt_TextChanged(object sender, EventArgs e)
         {           
@@ -253,7 +272,7 @@ namespace softeng1
             maxPaymentId = Convert.ToInt16(maxIDPayment.ExecuteScalar());
             PaymentInc = maxPaymentId;
 
-            //Get customer id
+            //Get the id of selected customer
             MySqlCommand getCustomerID = new MySqlCommand("SELECT customer_id FROM customer, person where (CONCAT(FIRSTNAME, ' ', LASTNAME) LIKE '%" + custnameTxt.Text + "%') and person_type = 'customer' and person_id = customer_person_id ", conn);
             customer_id = Convert.ToInt16(getCustomerID.ExecuteScalar());
 
@@ -264,6 +283,7 @@ namespace softeng1
             foreach (DataGridViewRow row in orderDG.Rows)
             {
                 conn.Open();
+
                 //Get all product id
                 MySqlCommand getProduct_id = new MySqlCommand("SELECT PRODUCT_ID FROM PRODUCT WHERE (PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')", conn);
                 prod_id = Convert.ToInt32(getProduct_id.ExecuteScalar());                
@@ -279,9 +299,11 @@ namespace softeng1
                             MySqlCommand comm = new MySqlCommand(insertToPayment, conn);
                             comm.ExecuteNonQuery();                            
 
+                            //insert to database
                             using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO sales_order(order_id,ORDER_price, order_subtotal, order_total, order_subquantity, order_tquantity, order_date, order_status, order_customer_id, order_emp_id, order_payment_id, order_product_id) VALUES('" + OrderIncrement + "', @Price, @Subtotal, '" + total + "', @Quantity, '" + totalQuanatity() + "', '" + BuydateLbl.Text + "', 'Paid', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "', '" + prod_id + "')", conn))
                             {
-
+                                //Get data of price, subtotal, and quatity per row in the datagrid
+                                //@Price, @Subtotal, and @Quantity are the names of the columns
                                 addToSales.Parameters.AddWithValue("@Price", double.Parse(row.Cells[1].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
                                 addToSales.Parameters.AddWithValue("@Subtotal", double.Parse(row.Cells[2].Value.ToString()));
                                 addToSales.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[3].Value.ToString()));
@@ -311,15 +333,23 @@ namespace softeng1
                     }
                     else if(paymentCmb.Text == "Credit")
                     {
+                        //insert to database
                         using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO sales_order(order_id,ORDER_price, order_subtotal, order_total, order_subquantity, order_tquantity, order_date, order_status, order_customer_id, order_emp_id, order_payment_id, order_product_id) VALUES('" + OrderIncrement + "', @Price, @Subtotal, '" + total + "', @Quantity, '" + totalQuanatity() + "', '" + dateLbl.Text + "', 'Unpaid', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "', '" + prod_id + "')", conn))
                         {
-
+                            //Get data of price, subtotal, and quatity per row in the datagrid
+                            //@Price, @Subtotal, and @Quantity are the names of the columns
                             addToSales.Parameters.AddWithValue("@Price", double.Parse(row.Cells[1].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
                             addToSales.Parameters.AddWithValue("@Subtotal", double.Parse(row.Cells[2].Value.ToString()));
                             addToSales.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[3].Value.ToString()));
                             addToSales.ExecuteNonQuery();
                         }
-                        MessageBox.Show("Records inserted.");
+                        
+                        //deduct quantity
+                        quan = int.Parse(row.Cells[3].Value.ToString());
+                        string deductQuantity = "UPDATE INVENTORY SET QUANTITY = QUANTITY - '" + quan + "' WHERE INVENTORY_ID = (SELECT PRODUCT_INV_ID FROM PRODUCT WHERE PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')";
+                        MySqlCommand comm2 = new MySqlCommand(deductQuantity, conn);
+                        comm2.ExecuteNonQuery();
+                        MessageBox.Show("Trasaction complete");
 
                         custnameTxt.Clear();
                         buyPanel.Hide();
