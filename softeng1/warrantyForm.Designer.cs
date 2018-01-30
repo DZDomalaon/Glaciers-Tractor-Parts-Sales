@@ -38,12 +38,14 @@ namespace softeng1
             this.panel5 = new System.Windows.Forms.Panel();
             this.warrantyData = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.sDate = new System.Windows.Forms.Button();
-            this.wDate = new System.Windows.Forms.DateTimePicker();
+            this.fromDate = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.backBtn = new System.Windows.Forms.Button();
+            this.toDate = new System.Windows.Forms.DateTimePicker();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -143,41 +145,29 @@ namespace softeng1
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
-            this.panel2.Controls.Add(this.sDate);
-            this.panel2.Controls.Add(this.wDate);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Controls.Add(this.label3);
+            this.panel2.Controls.Add(this.toDate);
+            this.panel2.Controls.Add(this.fromDate);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(0, 272);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(222, 134);
             this.panel2.TabIndex = 39;
             // 
-            // sDate
+            // fromDate
             // 
-            this.sDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
-            this.sDate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sDate.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sDate.ForeColor = System.Drawing.Color.White;
-            this.sDate.Location = new System.Drawing.Point(5, 86);
-            this.sDate.Name = "sDate";
-            this.sDate.Size = new System.Drawing.Size(78, 30);
-            this.sDate.TabIndex = 40;
-            this.sDate.Text = "Search";
-            this.sDate.UseVisualStyleBackColor = false;
-            this.sDate.Click += new System.EventHandler(this.sDate_Click);
-            // 
-            // wDate
-            // 
-            this.wDate.CalendarFont = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wDate.CustomFormat = "";
-            this.wDate.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.wDate.Location = new System.Drawing.Point(5, 41);
-            this.wDate.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
-            this.wDate.MinDate = new System.DateTime(1960, 1, 1, 0, 0, 0, 0);
-            this.wDate.Name = "wDate";
-            this.wDate.Size = new System.Drawing.Size(211, 26);
-            this.wDate.TabIndex = 41;
-            this.wDate.Value = new System.DateTime(2017, 1, 7, 0, 0, 0, 0);
+            this.fromDate.CalendarFont = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fromDate.CustomFormat = "";
+            this.fromDate.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.fromDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.fromDate.Location = new System.Drawing.Point(86, 41);
+            this.fromDate.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
+            this.fromDate.MinDate = new System.DateTime(1960, 1, 1, 0, 0, 0, 0);
+            this.fromDate.Name = "fromDate";
+            this.fromDate.Size = new System.Drawing.Size(130, 26);
+            this.fromDate.TabIndex = 41;
+            this.fromDate.Value = new System.DateTime(2018, 1, 31, 0, 0, 0, 0);
             // 
             // label2
             // 
@@ -220,6 +210,42 @@ namespace softeng1
             this.backBtn.Text = "Back";
             this.backBtn.UseVisualStyleBackColor = false;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
+            // toDate
+            // 
+            this.toDate.CalendarFont = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toDate.CustomFormat = "";
+            this.toDate.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.toDate.Location = new System.Drawing.Point(86, 83);
+            this.toDate.MaxDate = new System.DateTime(2030, 12, 31, 0, 0, 0, 0);
+            this.toDate.MinDate = new System.DateTime(1960, 1, 1, 0, 0, 0, 0);
+            this.toDate.Name = "toDate";
+            this.toDate.Size = new System.Drawing.Size(128, 26);
+            this.toDate.TabIndex = 42;
+            this.toDate.Value = new System.DateTime(2018, 1, 31, 0, 0, 0, 0);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(12, 43);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(54, 22);
+            this.label3.TabIndex = 43;
+            this.label3.Text = "From";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(12, 85);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(30, 22);
+            this.label4.TabIndex = 44;
+            this.label4.Text = "To";
             // 
             // warrantyForm
             // 
@@ -269,8 +295,10 @@ namespace softeng1
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Button backBtn;
-        private System.Windows.Forms.Button sDate;
-        private System.Windows.Forms.DateTimePicker wDate;
+        private System.Windows.Forms.DateTimePicker fromDate;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DateTimePicker toDate;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
     }
 }

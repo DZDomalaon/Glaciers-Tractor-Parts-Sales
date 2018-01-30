@@ -26,8 +26,7 @@ namespace softeng1
         private void warrantyForm_Load(object sender, EventArgs e)
         {
             conn.Open();
-            MySqlCommand comm =
-                new MySqlCommand(
+            MySqlCommand comm = new MySqlCommand(
                     "SELECT firstname, lastname, order_warranty, product_name FROM person, sales_order, product, customer WHERE (firstname LIKE '%" +
                     custnameTxt.Text + "%' or lastname LIKE '%" + custnameTxt.Text + "%') AND person_type = 'CUSTOMER' and customer_person_id = person_id and product_id = order_product_id and customer_id = order_customer_id", conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -41,8 +40,7 @@ namespace softeng1
 
         private void warrantyForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            fromWarranty.Show();
-            loadWarranty();
+            fromWarranty.Show();            
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -98,7 +96,7 @@ namespace softeng1
 
         public void selectedCustomer()
         {
-            String query = "SELECT FIRSTNAME, LASTNAME, PRODUCT_NAME, ORDER_DATE, ORDER_WARRANTY FROM person, product, sales_order WHERE CONCAT(FIRSTNAME, ' ', LASTNAME) LIKE '%" + custnameTxt.Text + "' AND ORDER_PRODUCT_ID = PRODUCT_ID AND ORDER_STATUS = 'Paid'";
+            String query = "SELECT FIRSTNAME, LASTNAME, PRODUCT_NAME, ORDER_DATE, ORDER_WARRANTY FROM person, ,product, sales_order WHERE CONCAT(FIRSTNAME, ' ', LASTNAME) LIKE '%" + custnameTxt.Text + "%' AND ORDER_PRODUCT_ID = PRODUCT_ID AND ORDER_STATUS = 'Paid' AND PERSON_ID = CUSTOMER_PERSON_ID AND PERSON_TYPE = 'CUSTOMER'";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -119,8 +117,7 @@ namespace softeng1
 
         private void sDate_Click(object sender, EventArgs e)
         {
-            IsExpired();
-            String date = wDate.Text;
+            String date = fromDate.Text;
             String query =
                 "SELECT firstname, lastname, ORDER_warranty, product_name, ORDER_DATE FROM person, product, sales_order, CUSTOMER WHERE ORDER_CUSTOMER_ID = CUSTOMER_ID AND CUSTOMER_PERSON_ID = PERSON_ID AND ORDER_PRODUCT_ID = PRODUCT_ID AND ORDER_STATUS = 'Paid' and person_type = 'customer' AND ORDER_warranty LIKE '%" +
                 date + "%'";

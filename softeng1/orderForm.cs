@@ -158,6 +158,30 @@ namespace softeng1
             }
         }
 
+        //filter for customer
+        public void checkCustomer()
+        {
+            conn.Open();
+            MySqlCommand getCustomer = new MySqlCommand("SELECT COUNT(*) FROM PERSON, CUSTOMER WHERE CONCAT(FIRSTNAME, ' ', LASTNAME) = '" + custnameTxt.Text + "' AND PERSON_TYPE = 'CUSTOMER' AND PERSON_ID = CUSTOMER_PERSON_ID", conn);
+            countCustomer = Convert.ToInt16(getCustomer.ExecuteScalar());
+            conn.Close();
+
+            if (custnameTxt.Text == "" || countCustomer == 0)
+            {
+                custLbl.Visible = true;
+                this.custLbl.ForeColor = Color.Red;
+                custLbl.Text = "This customer is not recognize";
+            }
+            else
+            {
+                custLbl.Visible = true;
+                this.custLbl.ForeColor = Color.Green;
+                custLbl.Text = "Customer found";
+            }
+
+            
+        }
+
         private void cashTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -181,17 +205,9 @@ namespace softeng1
 
         private void custnameTxt_TextChanged(object sender, EventArgs e)
         {
-            conn.Open();
-            MySqlCommand getCustomer = new MySqlCommand("SELECT COUNT(*) FROM PERSON WHERE CONCAT(FIRSTNAME, ' ', LASTNAME) = '" + custnameTxt.Text + "' AND PERSON_TYPE = 'CUSTOMER'", conn);
-            countCustomer = Convert.ToInt16(getCustomer.ExecuteScalar());
-            conn.Close();
-
-            if (custnameTxt.Text == "" || countCustomer == 0)
-            {
-                custLbl.Visible = true;
-                custLbl.Text = "This customer is not recognize";
-            }
-            else
+            checkCustomer();
+            
+            if(custnameTxt.Text == "")
             {
                 custLbl.Visible = false;
             }
