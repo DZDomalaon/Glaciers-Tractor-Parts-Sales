@@ -284,28 +284,28 @@ namespace softeng1
             maxOrderId = Convert.ToInt16(maxIDOrder.ExecuteScalar());
             OrderIncrement = maxOrderId + 1;
 
-            double total = double.Parse(totalpriceTxt.Text.ToString());
-
             String today = DateTime.Now.Date.ToString("MM-dd-yyyy");
 
 
-            MySqlCommand getSupID = new MySqlCommand("SELECT emp_id FROM supplier, person where(CONCAT(FIRSTNAME, ' ', LASTNAME) LIKE '%" + snameTxt.Text + "%') and person_type = 'supplier' and person_id = supplier_person_id ", conn);
+            MySqlCommand getSupID = new MySqlCommand("SELECT supplier_id FROM supplier, person where(CONCAT(FIRSTNAME, ' ', LASTNAME) LIKE '%" + snameTxt.Text + "%') and person_type = 'supplier' and person_id = supplier_person_id ", conn);
             supId = Convert.ToInt16(getSupID.ExecuteScalar());
 
+            conn.Close();
+
+            double total = double.Parse(totalpriceTxt.Text.ToString());
             foreach (DataGridViewRow row in dgProducts.Rows)
             {
                 conn.Open();
-                using (MySqlCommand addToPurchase = new MySqlCommand("INSERT INTO purchase(purchase_id, purchase_date, product_name, quantity, price, status, purchase_emp_id, purchase_supplier_id) VALUES('"+ OrderIncrement + "', '"+ today + "', @ProductName, @Quantity, @Price, 'To be delivered', 0, 0)", conn))
+                using (MySqlCommand addToPurchase = new MySqlCommand("INSERT INTO purchase(purchase_id, purchase_date, product_name, quantity, price, status, purchase_emp_id, purchase_supplier_id) VALUES('" + OrderIncrement + "', '" + today + "', @ProductName, @Quantity, @Price, 'To be delivered', '" + empId + "', '" + supId + "')", conn))
                 {
-                    addToPurchase.Parameters.AddWithValue("@ProductName", int.Parse(row.Cells[0].Value.ToString()));
+                    addToPurchase.Parameters.AddWithValue("@ProductName", (row.Cells[0].Value.ToString()));
                     addToPurchase.Parameters.AddWithValue("@Price", double.Parse(row.Cells[1].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
                     addToPurchase.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[3].Value.ToString()));
                     addToPurchase.ExecuteNonQuery();
                 }
-
+                conn.Close();
             }
         }
-
         private void panel9_Paint(object sender, PaintEventArgs e)
         {
 
