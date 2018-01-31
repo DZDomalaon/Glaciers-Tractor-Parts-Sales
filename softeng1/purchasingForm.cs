@@ -284,7 +284,7 @@ namespace softeng1
             maxOrderId = Convert.ToInt16(maxIDOrder.ExecuteScalar());
             OrderIncrement = maxOrderId + 1;
 
-            String today = DateTime.Now.Date.ToString("MM-dd-yyyy");
+            String today = DateTime.Now.Date.ToString("yyyy-MM-dd");
 
 
             MySqlCommand getSupID = new MySqlCommand("SELECT supplier_id FROM supplier, person where(CONCAT(FIRSTNAME, ' ', LASTNAME) LIKE '%" + snameTxt.Text + "%') and person_type = 'supplier' and person_id = supplier_person_id ", conn);
