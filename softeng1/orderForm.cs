@@ -170,7 +170,7 @@ namespace softeng1
             {
                 custLbl.Visible = true;
                 this.custLbl.ForeColor = Color.Red;
-                custLbl.Text = "This customer is not recognize";
+                custLbl.Text = "This customer is not recognized.";
             }
             else
             {
