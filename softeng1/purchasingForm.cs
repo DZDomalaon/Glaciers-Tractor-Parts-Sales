@@ -305,6 +305,9 @@ namespace softeng1
                 }
                 conn.Close();
             }
+            oPanel.Enabled = true;
+            oPanel.Visible = true;
+            oPanel.Location = new Point(279, 191);
         }
         private void panel9_Paint(object sender, PaintEventArgs e)
         {
@@ -314,6 +317,11 @@ namespace softeng1
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void okBtn_Click(object sender, EventArgs e)
+        {
+            oPanel.Hide();
         }
 
         private void pquant_TextChanged(object sender, EventArgs e)

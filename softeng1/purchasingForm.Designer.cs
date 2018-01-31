@@ -72,6 +72,11 @@
             this.panel9 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.oPanel = new System.Windows.Forms.Panel();
+            this.okBtn = new System.Windows.Forms.Button();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -84,6 +89,8 @@
             this.panel7.SuspendLayout();
             this.cPanel.SuspendLayout();
             this.panel9.SuspendLayout();
+            this.oPanel.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -577,12 +584,73 @@
             this.label13.TabIndex = 63;
             this.label13.Text = "Do you want to add this transaction?";
             // 
+            // oPanel
+            // 
+            this.oPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
+            this.oPanel.Controls.Add(this.okBtn);
+            this.oPanel.Controls.Add(this.panel10);
+            this.oPanel.Controls.Add(this.label15);
+            this.oPanel.Enabled = false;
+            this.oPanel.Location = new System.Drawing.Point(279, 342);
+            this.oPanel.Name = "oPanel";
+            this.oPanel.Size = new System.Drawing.Size(385, 145);
+            this.oPanel.TabIndex = 65;
+            this.oPanel.Visible = false;
+            // 
+            // okBtn
+            // 
+            this.okBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
+            this.okBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.okBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.okBtn.ForeColor = System.Drawing.Color.White;
+            this.okBtn.Location = new System.Drawing.Point(152, 94);
+            this.okBtn.Name = "okBtn";
+            this.okBtn.Size = new System.Drawing.Size(92, 37);
+            this.okBtn.TabIndex = 63;
+            this.okBtn.Text = "Okay";
+            this.okBtn.UseVisualStyleBackColor = false;
+            this.okBtn.Click += new System.EventHandler(this.okBtn_Click);
+            this.okBtn.Enter += new System.EventHandler(this.okBtn_Click);
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.panel10.Controls.Add(this.label14);
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel10.Location = new System.Drawing.Point(0, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(385, 35);
+            this.panel10.TabIndex = 64;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.White;
+            this.label14.Location = new System.Drawing.Point(100, 10);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(184, 21);
+            this.label14.TabIndex = 63;
+            this.label14.Text = "Transaction Complete";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(112, 53);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(161, 23);
+            this.label15.TabIndex = 63;
+            this.label15.Text = "Successfully added!";
+            // 
             // purchasingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.oPanel);
             this.Controls.Add(this.cPanel);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.panel7);
@@ -638,6 +706,10 @@
             this.cPanel.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            this.oPanel.ResumeLayout(false);
+            this.oPanel.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -688,5 +760,10 @@
         private System.Windows.Forms.Button confirmBtn;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Panel oPanel;
+        private System.Windows.Forms.Button okBtn;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
     }
 }
