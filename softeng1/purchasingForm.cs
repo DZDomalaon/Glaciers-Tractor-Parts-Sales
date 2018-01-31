@@ -305,6 +305,8 @@ namespace softeng1
                 }
                 conn.Close();
             }
+            cPanel.Hide();
+            
             oPanel.Enabled = true;
             oPanel.Visible = true;
             oPanel.Location = new Point(279, 191);
