@@ -56,9 +56,6 @@
             this.addBtn = new System.Windows.Forms.Button();
             this.usernameLbl = new System.Windows.Forms.Label();
             this.dateLbl = new System.Windows.Forms.Label();
-            this.spanel = new System.Windows.Forms.Panel();
-            this.closename = new System.Windows.Forms.Button();
-            this.dgsname = new System.Windows.Forms.DataGridView();
             this.pname = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.totalpriceTxt = new System.Windows.Forms.Label();
@@ -77,6 +74,12 @@
             this.panel10 = new System.Windows.Forms.Panel();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.errorPanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel13 = new System.Windows.Forms.Panel();
+            this.closePanel = new System.Windows.Forms.Button();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -84,13 +87,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgProducts)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
-            this.spanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgsname)).BeginInit();
             this.panel7.SuspendLayout();
             this.cPanel.SuspendLayout();
             this.panel9.SuspendLayout();
             this.oPanel.SuspendLayout();
             this.panel10.SuspendLayout();
+            this.errorPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -102,7 +106,6 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(955, 47);
             this.panel3.TabIndex = 5;
-            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // panel1
             // 
@@ -389,47 +392,6 @@
             this.dateLbl.TabIndex = 53;
             this.dateLbl.Text = "-----";
             // 
-            // spanel
-            // 
-            this.spanel.Controls.Add(this.closename);
-            this.spanel.Controls.Add(this.dgsname);
-            this.spanel.Enabled = false;
-            this.spanel.Location = new System.Drawing.Point(434, 194);
-            this.spanel.Name = "spanel";
-            this.spanel.Size = new System.Drawing.Size(521, 103);
-            this.spanel.TabIndex = 55;
-            this.spanel.Visible = false;
-            // 
-            // closename
-            // 
-            this.closename.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
-            this.closename.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.closename.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.closename.ForeColor = System.Drawing.Color.White;
-            this.closename.Location = new System.Drawing.Point(636, 3);
-            this.closename.Name = "closename";
-            this.closename.Size = new System.Drawing.Size(40, 32);
-            this.closename.TabIndex = 3;
-            this.closename.Text = "X";
-            this.closename.UseVisualStyleBackColor = false;
-            this.closename.Click += new System.EventHandler(this.closename_Click);
-            // 
-            // dgsname
-            // 
-            this.dgsname.AllowUserToAddRows = false;
-            this.dgsname.AllowUserToDeleteRows = false;
-            this.dgsname.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgsname.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgsname.Location = new System.Drawing.Point(9, 38);
-            this.dgsname.Name = "dgsname";
-            this.dgsname.ReadOnly = true;
-            this.dgsname.RowHeadersVisible = false;
-            this.dgsname.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            this.dgsname.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgsname.Size = new System.Drawing.Size(667, 249);
-            this.dgsname.TabIndex = 0;
-            this.dgsname.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgsearchname_CellClick);
-            // 
             // pname
             // 
             this.pname.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -560,7 +522,6 @@
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(385, 35);
             this.panel9.TabIndex = 64;
-            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
             // 
             // label17
             // 
@@ -644,18 +605,86 @@
             this.label15.TabIndex = 63;
             this.label15.Text = "Successfully added!";
             // 
+            // errorPanel
+            // 
+            this.errorPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
+            this.errorPanel.Controls.Add(this.pictureBox1);
+            this.errorPanel.Controls.Add(this.panel13);
+            this.errorPanel.Controls.Add(this.label23);
+            this.errorPanel.Enabled = false;
+            this.errorPanel.Location = new System.Drawing.Point(26, 387);
+            this.errorPanel.Name = "errorPanel";
+            this.errorPanel.Size = new System.Drawing.Size(384, 145);
+            this.errorPanel.TabIndex = 65;
+            this.errorPanel.Visible = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::softeng1.Properties.Resources.error;
+            this.pictureBox1.Location = new System.Drawing.Point(71, 65);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(45, 35);
+            this.pictureBox1.TabIndex = 65;
+            this.pictureBox1.TabStop = false;
+            // 
+            // panel13
+            // 
+            this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.panel13.Controls.Add(this.closePanel);
+            this.panel13.Controls.Add(this.label16);
+            this.panel13.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel13.Location = new System.Drawing.Point(0, 0);
+            this.panel13.Name = "panel13";
+            this.panel13.Size = new System.Drawing.Size(384, 35);
+            this.panel13.TabIndex = 64;
+            // 
+            // closePanel
+            // 
+            this.closePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(90)))), ((int)(((byte)(74)))));
+            this.closePanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closePanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closePanel.ForeColor = System.Drawing.Color.White;
+            this.closePanel.Location = new System.Drawing.Point(351, 3);
+            this.closePanel.Name = "closePanel";
+            this.closePanel.Size = new System.Drawing.Size(30, 25);
+            this.closePanel.TabIndex = 64;
+            this.closePanel.Text = "X";
+            this.closePanel.UseVisualStyleBackColor = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label16.Location = new System.Drawing.Point(134, 7);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(132, 21);
+            this.label16.TabIndex = 63;
+            this.label16.Text = "Duplicate Data";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label23.Location = new System.Drawing.Point(115, 68);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(215, 23);
+            this.label23.TabIndex = 63;
+            this.label23.Text = "Cannot add duplicate data.";
+            // 
             // purchasingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.errorPanel);
             this.Controls.Add(this.oPanel);
             this.Controls.Add(this.cPanel);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.buyBtn);
-            this.Controls.Add(this.spanel);
             this.Controls.Add(this.dateLbl);
             this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.backBtn);
@@ -698,8 +727,6 @@
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
-            this.spanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgsname)).EndInit();
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
             this.cPanel.ResumeLayout(false);
@@ -710,6 +737,11 @@
             this.oPanel.PerformLayout();
             this.panel10.ResumeLayout(false);
             this.panel10.PerformLayout();
+            this.errorPanel.ResumeLayout(false);
+            this.errorPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel13.ResumeLayout(false);
+            this.panel13.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -744,9 +776,6 @@
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Label usernameLbl;
         private System.Windows.Forms.Label dateLbl;
-        private System.Windows.Forms.Panel spanel;
-        private System.Windows.Forms.Button closename;
-        private System.Windows.Forms.DataGridView dgsname;
         private System.Windows.Forms.TextBox pname;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label totalpriceTxt;
@@ -765,5 +794,11 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Panel errorPanel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Panel panel13;
+        private System.Windows.Forms.Button closePanel;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label label23;
     }
 }
