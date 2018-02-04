@@ -7,11 +7,15 @@ INSERT INTO `glaciers`.`inventory` (`INVENTORY_ID`, `QUANTITY`) VALUES ('1', '10
 
 INSERT INTO `glaciers`.`inventory` (`INVENTORY_ID`, `QUANTITY`) VALUES ('2', '20');
 
-INSERT INTO `glaciers`.`product_catalogue` (`PC_ID`, `PC_CATEGORY`, `PC_VARIANT`) VALUES ('1', 'wheel', 'size');
+INSERT INTO `glaciers`.`product_catalogue` (`PC_ID`, `PC_CATEGORY`, `PC_VARIANT`, `PC_TYPE`) VALUES ('1', 'wheel', 'size', 'medium');
 
-INSERT INTO `glaciers`.`product_catalogue` (`PC_ID`, `PC_CATEGORY`, `PC_VARIANT`) VALUES ('2', 'wheel', 'color');
 
-INSERT INTO `glaciers`.`product_catalogue` (`PC_ID`, `PC_CATEGORY`, `PC_VARIANT`) VALUES ('3', 'wheel', 'model');
+
+INSERT INTO `glaciers`.`product_catalogue` (`PC_ID`, `PC_CATEGORY`, `PC_VARIANT`, `PC_TYPE`) VALUES ('2', 'wheel', 'color', 'red');
+
+
+
+INSERT INTO `glaciers`.`product_catalogue` (`PC_ID`, `PC_CATEGORY`, `PC_VARIANT`, `PC_TYPE`) VALUES ('3', 'wheel', 'model', 'buak');
 
 INSERT INTO `glaciers`.`product` (`PRODUCT_NAME`, `DESCRIPTION`, `PRICE`, `SERIAL`, `PRODUCT_PC_ID`, `PRODUCT_INV_ID`) VALUES ('ligid', 'gamay', '100', '123', '2', '1');
 

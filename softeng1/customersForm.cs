@@ -75,7 +75,7 @@ namespace softeng1
 
         public void loadTransaction()
         {
-            String query = "SELECT ORDER_TOTAL, ORDER_DATE, ORDER_STATUS FROM SALES_ORDER WHERE ORDER_CUSTOMER_ID = '" + selected_cust_id + "'";
+            String query = "SELECT ORDER_TOTAL, ORDER_DATE, ORDER_STATUS FROM SALES_ORDER, SALES_ORDER_DETAILS WHERE ORDER_CUSTOMER_ID = '" + selected_cust_id + "' AND ORDER_ID = SO_ID GROUP BY ORDER_DATE";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -173,7 +173,7 @@ namespace softeng1
 
         private void editBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Do you want to update the data ?", "Confirm ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (MessageBox.Show("Do you want to update the data?", "Confirm ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 int gen = 0;
 

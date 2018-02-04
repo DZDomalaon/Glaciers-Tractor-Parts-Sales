@@ -29,37 +29,66 @@ namespace softeng1
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
             
             dgProducts.Columns.Add("ProductName", "Product Name");
+            dgProducts.Columns.Add("ProductCategory", "Category");
+            dgProducts.Columns.Add("ProductVariant", "Variant");
+            dgProducts.Columns.Add("ProductType", "Type");
             dgProducts.Columns.Add("Price", "Price");
             dgProducts.Columns.Add("SubTotal", "Sub Total");
             dgProducts.Columns.Add("Quantity", "Quantity");
-            loadsupplier();
+            loadSupplier();
 
-            
-
-            snameTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
-            snameTxt.AutoCompleteSource = AutoCompleteSource.ListItems;
-
-            dgProducts.Visible = true;           
+            dgProducts.Visible = true;
+            supLbl.Visible = false;
         }
-       
-        public void loadsupplier()
+
+        public void loadSupplier()
         {
-            String query = "SELECT firstname, lastname FROM person, supplier where person_id=supplier_person_id";
-             
+            AutoCompleteStringCollection namesCollection = new AutoCompleteStringCollection();
 
-
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            comm.CommandText = query;
             conn.Open();
+
+            String getCustomer = "SELECT firstname, lastname FROM person, supplier where (lastname like '%" + snameTxt.Text + "%' or firstname like '%" + snameTxt.Text + "%') and person_type = 'supplier' and person_id = supplier_person_id ";
+            MySqlCommand comm = new MySqlCommand(getCustomer, conn);
+            comm.CommandText = getCustomer;
             MySqlDataReader drd = comm.ExecuteReader();
 
-            snameTxt.Items.Clear();
-            while (drd.Read())
+            if (drd.HasRows == true)
             {
-
-                snameTxt.Items.Add(drd["firstname"].ToString() + " " + drd["lastname"].ToString());
+                while (drd.Read())
+                    namesCollection.Add(drd["firstname"].ToString() + " " + drd["lastname"].ToString());
             }
+
+            drd.Close();
             conn.Close();
+
+            snameTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            snameTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            snameTxt.AutoCompleteCustomSource = namesCollection;
+        }
+
+        public void checkSupplier()
+        {
+            conn.Close();
+            conn.Open();
+
+            int countSupplier;
+            MySqlCommand getCustomer = new MySqlCommand("SELECT COUNT(*) FROM PERSON, SUPPLIER WHERE CONCAT(FIRSTNAME, ' ', LASTNAME) = '" + snameTxt.Text + "' AND PERSON_TYPE = 'SUPPLIER' AND PERSON_ID = SUPPLIER_PERSON_ID", conn);
+            countSupplier = Convert.ToInt16(getCustomer.ExecuteScalar());
+
+            conn.Close();
+
+            if (snameTxt.Text == "" || countSupplier == 0)
+            {
+                supLbl.Visible = true;
+                this.supLbl.ForeColor = Color.Red;
+                supLbl.Text = "This supplier is not recognized.";
+            }
+            else
+            {
+                supLbl.Visible = true;
+                this.supLbl.ForeColor = Color.Green;
+                supLbl.Text = "Supplier found";
+            }
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -71,30 +100,7 @@ namespace softeng1
         private void purchasingForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             fromPurchasing.Show();
-        }
-
-        /*public void loadPurchase()
-        {
-            String query = "select * from purchase";
-
-            conn.Open();
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-            conn.Close();
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-
-            purchaseDG.DataSource = dt;
-
-            //purchaseDG.Columns["purchase_id"].Visible = false;
-            purchaseDG.Columns["product_name"].HeaderText = "Product Name";
-
-            purchaseDG.Columns["price"].HeaderText = "Price";
-            purchaseDG.Columns["quantity"].HeaderText = "Quantity";
-            purchaseDG.Columns["purchase_supplier_id"].HeaderText = "Supplier";
-            purchaseDG.Columns["purchase_emp_id"].HeaderText = "Employee";
-            purchaseDG.Columns["purchase_date"].HeaderText = "Purchase Date";
-        }*/
+        }     
 
         private void addBtn_Click(object sender, EventArgs e)
         {
@@ -102,11 +108,14 @@ namespace softeng1
             if (pname.Text != "" || priceTxt.Text != "" || pquant.Text != "" || ptotal.Text != "")
             {
                 string firstColumn = pname.Text;
-                string secondColumn = priceTxt.Text;
-                string thirdColumn = ptotal.Text;
-                string fourthColumn = pquant.Text;
+                string secondColumn = categTxt.Text;
+                string thirdColumn = variantTxt.Text;
+                string fourthColumn = typeTxt.Text;
+                string fifthColumn = priceTxt.Text;
+                string sixthColumn = ptotal.Text;
+                string seventhColumn = pquant.Text;
 
-                string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn };
+                string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn, sixthColumn, seventhColumn };
 
                 dgProducts.Rows.Add(row);
 
@@ -125,11 +134,7 @@ namespace softeng1
         public static int quant;
         public static double tot, p, q;
 
-        public static int rowIndex;
-        private void dgsearchprod_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        
         private void priceTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -145,21 +150,8 @@ namespace softeng1
                 e.Handled = true;
             }
         }
-        //private void pnameTxt_SelectedIndexChanged(object sender, EventArgs e)
-        //{
-        //    string sort = pname.Text;
-            
-
-        //    String query = "SELECT * FROM products WHERE client_name LIKE '%" + sort + "' ";
-
-
-        //    conn.Open();
-        //    MySqlCommand comm = new MySqlCommand(query, conn);
-        //    MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-        //    conn.Close();
-        //    DataTable dt = new DataTable();
-        //    adp.Fill(dt);
-        //}
+        
+        public static int rowIndex;
         private void pnameTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back))
@@ -207,9 +199,12 @@ namespace softeng1
             DataGridViewRow row = dgProducts.Rows[rowIndex];
 
             pname.Text = row.Cells[0].Value.ToString();
-            priceTxt.Text = row.Cells[1].Value.ToString();
-            ptotal.Text = row.Cells[2].Value.ToString();
-            pquant.Text = row.Cells[3].Value.ToString();
+            categTxt.Text = row.Cells[1].Value.ToString();
+            variantTxt.Text = row.Cells[2].Value.ToString();
+            typeTxt.Text = row.Cells[3].Value.ToString();
+            priceTxt.Text = row.Cells[4].Value.ToString();
+            ptotal.Text = row.Cells[5].Value.ToString();
+            pquant.Text = row.Cells[6].Value.ToString();
         }
 
         private void editBtn_Click(object sender, EventArgs e)
@@ -217,9 +212,12 @@ namespace softeng1
             DataGridViewRow updateRow = dgProducts.Rows[rowIndex];
 
             updateRow.Cells[0].Value = pname.Text;
-            updateRow.Cells[1].Value = priceTxt.Text;
-            updateRow.Cells[2].Value = ptotal.Text;
-            updateRow.Cells[3].Value = pquant.Text;
+            updateRow.Cells[1].Value = categTxt.Text;
+            updateRow.Cells[2].Value = variantTxt.Text;
+            updateRow.Cells[3].Value = typeTxt.Text;
+            updateRow.Cells[4].Value = priceTxt.Text;
+            updateRow.Cells[5].Value = ptotal.Text;
+            updateRow.Cells[6].Value = pquant.Text;
 
             calcSum();
         }
@@ -286,6 +284,17 @@ namespace softeng1
                 ptotal.Text = "";
             }
         }
+
+        private void snameTxt_TextChanged(object sender, EventArgs e)
+        {
+            checkSupplier();
+
+            if (snameTxt.Text == "")
+            {
+                supLbl.Visible = false;
+            }
+        }
+
         private void calcSum()
         {
             double a = 0, b = 0;

@@ -97,6 +97,7 @@ namespace softeng1
             this.stockLbl = new System.Windows.Forms.Label();
             this.buyBtn = new System.Windows.Forms.Button();
             this.custLbl = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -239,7 +240,7 @@ namespace softeng1
             // custnameTxt
             // 
             this.custnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.custnameTxt.Location = new System.Drawing.Point(139, 99);
+            this.custnameTxt.Location = new System.Drawing.Point(139, 108);
             this.custnameTxt.Name = "custnameTxt";
             this.custnameTxt.Size = new System.Drawing.Size(183, 27);
             this.custnameTxt.TabIndex = 8;
@@ -250,7 +251,7 @@ namespace softeng1
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(12, 102);
+            this.label4.Location = new System.Drawing.Point(12, 111);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(85, 23);
             this.label4.TabIndex = 9;
@@ -281,7 +282,7 @@ namespace softeng1
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(12, 211);
+            this.label6.Location = new System.Drawing.Point(12, 205);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(120, 23);
             this.label6.TabIndex = 12;
@@ -290,7 +291,7 @@ namespace softeng1
             // productnameTxt
             // 
             this.productnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productnameTxt.Location = new System.Drawing.Point(139, 207);
+            this.productnameTxt.Location = new System.Drawing.Point(139, 205);
             this.productnameTxt.Name = "productnameTxt";
             this.productnameTxt.Size = new System.Drawing.Size(183, 27);
             this.productnameTxt.TabIndex = 13;
@@ -301,7 +302,7 @@ namespace softeng1
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(12, 254);
+            this.label7.Location = new System.Drawing.Point(12, 257);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(113, 23);
             this.label7.TabIndex = 15;
@@ -310,7 +311,7 @@ namespace softeng1
             // ppriceTxt
             // 
             this.ppriceTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ppriceTxt.Location = new System.Drawing.Point(139, 250);
+            this.ppriceTxt.Location = new System.Drawing.Point(139, 253);
             this.ppriceTxt.Name = "ppriceTxt";
             this.ppriceTxt.Size = new System.Drawing.Size(183, 27);
             this.ppriceTxt.TabIndex = 16;
@@ -362,7 +363,7 @@ namespace softeng1
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.Black;
-            this.label10.Location = new System.Drawing.Point(12, 300);
+            this.label10.Location = new System.Drawing.Point(12, 303);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(78, 23);
             this.label10.TabIndex = 21;
@@ -413,7 +414,7 @@ namespace softeng1
             // pquant
             // 
             this.pquant.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pquant.Location = new System.Drawing.Point(139, 296);
+            this.pquant.Location = new System.Drawing.Point(139, 299);
             this.pquant.Name = "pquant";
             this.pquant.Size = new System.Drawing.Size(53, 27);
             this.pquant.TabIndex = 16;
@@ -422,7 +423,7 @@ namespace softeng1
             // ptotal
             // 
             this.ptotal.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ptotal.Location = new System.Drawing.Point(250, 296);
+            this.ptotal.Location = new System.Drawing.Point(250, 299);
             this.ptotal.Name = "ptotal";
             this.ptotal.Size = new System.Drawing.Size(72, 27);
             this.ptotal.TabIndex = 16;
@@ -432,7 +433,7 @@ namespace softeng1
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(198, 300);
+            this.label12.Location = new System.Drawing.Point(198, 303);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(46, 23);
             this.label12.TabIndex = 21;
@@ -827,7 +828,7 @@ namespace softeng1
             // 
             this.stockLbl.AutoSize = true;
             this.stockLbl.ForeColor = System.Drawing.Color.Red;
-            this.stockLbl.Location = new System.Drawing.Point(159, 329);
+            this.stockLbl.Location = new System.Drawing.Point(159, 332);
             this.stockLbl.Name = "stockLbl";
             this.stockLbl.Size = new System.Drawing.Size(22, 13);
             this.stockLbl.TabIndex = 52;
@@ -853,11 +854,22 @@ namespace softeng1
             // 
             this.custLbl.AutoSize = true;
             this.custLbl.ForeColor = System.Drawing.Color.Red;
-            this.custLbl.Location = new System.Drawing.Point(136, 129);
+            this.custLbl.Location = new System.Drawing.Point(136, 88);
             this.custLbl.Name = "custLbl";
             this.custLbl.Size = new System.Drawing.Size(22, 13);
             this.custLbl.TabIndex = 64;
             this.custLbl.Text = "-----";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.ForeColor = System.Drawing.Color.Red;
+            this.label24.Location = new System.Drawing.Point(136, 235);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(22, 13);
+            this.label24.TabIndex = 65;
+            this.label24.Text = "-----";
+            this.label24.Visible = false;
             // 
             // orderForm
             // 
@@ -866,9 +878,9 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.label24);
             this.Controls.Add(this.custLbl);
             this.Controls.Add(this.errorPanel);
-            this.Controls.Add(this.stockLbl);
             this.Controls.Add(this.buyPanel);
             this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.dateLbl);
@@ -895,6 +907,7 @@ namespace softeng1
             this.Controls.Add(this.ptotal);
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.orderDG);
+            this.Controls.Add(this.stockLbl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -1010,5 +1023,6 @@ namespace softeng1
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button closePanel;
         private System.Windows.Forms.Label custLbl;
+        private System.Windows.Forms.Label label24;
     }
 }

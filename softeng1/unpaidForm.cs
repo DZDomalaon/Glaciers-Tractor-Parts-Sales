@@ -38,7 +38,7 @@ namespace softeng1
         }
         public void loadUnpaidCustomer()
         {
-            String query = "SELECT CONCAT(FIRSTNAME , ' ', LASTNAME), ORDER_TOTAL, ORDER_DATE, (SELECT SUM(BALANCE) FROM CUSTOMER) AS BALANCE from sales_order, person, customer where order_status = 'Unpaid' and person_id = customer_person_id and person_type = 'customer' and order_customer_id = customer_id";
+            String query = "SELECT CONCAT(FIRSTNAME , ' ', LASTNAME), ORDER_TOTAL, DATE(ORDER_DATE), BALANCE from sales_order, sales_order_details, person, customer where order_status = 'Unpaid' and (person_id = customer_person_id and person_type = 'customer') and order_customer_id = customer_id and order_id = so_id group by order_date";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -50,7 +50,7 @@ namespace softeng1
             unpaidData.DataSource = dt;
             unpaidData.Columns["CONCAT(FIRSTNAME , ' ', LASTNAME)"].HeaderText = "Customer";
             unpaidData.Columns["ORDER_TOTAL"].HeaderText = "Total";
-            unpaidData.Columns["ORDER_DATE"].HeaderText = "Date";
+            unpaidData.Columns["DATE(ORDER_DATE)"].HeaderText = "Date";
             unpaidData.Columns["BALANCE"].HeaderText = "Balance";
         }
     }
