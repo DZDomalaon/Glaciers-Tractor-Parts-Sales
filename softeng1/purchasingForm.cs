@@ -34,6 +34,8 @@ namespace softeng1
             dgProducts.Columns.Add("Quantity", "Quantity");
             loadsupplier();
 
+            
+
             snameTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             snameTxt.AutoCompleteSource = AutoCompleteSource.ListItems;
 
@@ -96,81 +98,34 @@ namespace softeng1
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-                if (pname.Text != "" || priceTxt.Text != "" || pquant.Text != "" || ptotal.Text != "")
-                {
-                    string firstColumn = pname.Text;
-                    string secondColumn = priceTxt.Text;
-                    string thirdColumn = ptotal.Text;
-                    string fourthColumn = pquant.Text;
+            checkProduct();
+            if (pname.Text != "" || priceTxt.Text != "" || pquant.Text != "" || ptotal.Text != "")
+            {
+                string firstColumn = pname.Text;
+                string secondColumn = priceTxt.Text;
+                string thirdColumn = ptotal.Text;
+                string fourthColumn = pquant.Text;
 
-                    string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn };
+                string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn };
 
-                    dgProducts.Rows.Add(row);
+                dgProducts.Rows.Add(row);
 
-                    pname.Clear();
-                    priceTxt.Clear();
-                    pquant.Clear();
-                    ptotal.Clear();
+                pname.Clear();
+                priceTxt.Clear();
+                pquant.Clear();
+                ptotal.Clear();
 
-                    calcSum();
-                }
-                else
-                {
-                    MessageBox.Show("Please fill up all the data", "Add Purchase Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
+                calcSum();
             }
+            else
+            {
+                MessageBox.Show("Please fill up all the data", "Add Purchase Transaction", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
         public static int quant;
         public static double tot, p, q;
 
-        private void searchBtn_Click(object sender, EventArgs e)
-        {
-            spanel.Enabled = true;
-            spanel.Visible = true;
-            spanel.Location = new Point(140, 56);
-            spanel.Size = new Size(681, 297);
-
-            String query = "SELECT supplier_id, contact_person, organization FROM supplier, person where (contact_person like '%" + snameTxt.Text + "%' or contact_person like '%" + snameTxt.Text + "%') and person_type = 'Supplier' and supplier_person_id = person_id";
-            conn.Open();
-
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-            conn.Close();
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-
-            dgsname.DataSource = dt;
-
-            dgsname.Columns["supplier_id"].Visible = false;
-            dgsname.Columns["contact_person"].HeaderText = "Name";
-            dgsname.Columns["organization"].HeaderText = "Organization";
-        }
-
-        public static int supplier_id;
-        public static String name;
-        private int selected_supplier_id;
         public static int rowIndex;
-        private void dgsearchname_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex > -1)
-            {
-                supplier_id = int.Parse(dgsname.Rows[e.RowIndex].Cells["supplier_id"].Value.ToString());
-                name = dgsname.Rows[e.RowIndex].Cells["contact_person"].Value.ToString();
-                snameTxt.Text = name;
-
-                spanel.Enabled = false;
-                spanel.Visible = false;
-                spanel.Location = new Point(434, 85);
-                spanel.Size = new Size(521, 44);
-            }
-        }
-
-        private void closename_Click(object sender, EventArgs e)
-        {
-            spanel.Enabled = false;
-            spanel.Visible = false;
-            spanel.Location = new Point(434, 85);
-            spanel.Size = new Size(521, 44);
-        }
         private void dgsearchprod_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -190,22 +145,21 @@ namespace softeng1
                 e.Handled = true;
             }
         }
-        private void pnameTxt_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            string sort = pname.Text;
+        //private void pnameTxt_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    string sort = pname.Text;
             
 
-            String query = "SELECT * FROM products WHERE client_name LIKE '%" + sort + "' ";
+        //    String query = "SELECT * FROM products WHERE client_name LIKE '%" + sort + "' ";
 
 
-            conn.Open();
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-            conn.Close();
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-        }
-
+        //    conn.Open();
+        //    MySqlCommand comm = new MySqlCommand(query, conn);
+        //    MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+        //    conn.Close();
+        //    DataTable dt = new DataTable();
+        //    adp.Fill(dt);
+        //}
         private void pnameTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back))
@@ -284,7 +238,7 @@ namespace softeng1
             maxOrderId = Convert.ToInt16(maxIDOrder.ExecuteScalar());
             OrderIncrement = maxOrderId + 1;
 
-            String today = DateTime.Now.Date.ToString("MM-dd-yyyy");
+            String today = DateTime.Now.Date.ToString("yyyy-MM-dd");
 
 
             MySqlCommand getSupID = new MySqlCommand("SELECT supplier_id FROM supplier, person where(CONCAT(FIRSTNAME, ' ', LASTNAME) LIKE '%" + snameTxt.Text + "%') and person_type = 'supplier' and person_id = supplier_person_id ", conn);
@@ -305,18 +259,11 @@ namespace softeng1
                 }
                 conn.Close();
             }
+            cPanel.Hide();
+            
             oPanel.Enabled = true;
             oPanel.Visible = true;
             oPanel.Location = new Point(279, 191);
-        }
-        private void panel9_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void panel3_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void okBtn_Click(object sender, EventArgs e)
@@ -349,5 +296,21 @@ namespace softeng1
             }
             totalpriceTxt.Text = b.ToString("#,0.00");
         }
+        public void checkProduct()
+        {
+            string prodname = pname.Text;
+            double prodprice = double.Parse(priceTxt.Text.ToString());
+
+            foreach (DataGridViewRow row in dgProducts.Rows)
+            {
+                if(prodname == row.Cells[0].Value.ToString() && prodprice == double.Parse(row.Cells[1].Value.ToString()))
+                {
+                    //MessageBox.Show("Duplicate entry!");
+                    errorPanel.Enabled = true;
+                    errorPanel.Visible = true;
+                }
+            }
+        }
     }
 }
+

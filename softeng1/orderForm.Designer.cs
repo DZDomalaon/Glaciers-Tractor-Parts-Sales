@@ -89,12 +89,12 @@ namespace softeng1
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.errorPanel = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel13 = new System.Windows.Forms.Panel();
             this.closePanel = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.stockLbl = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buyBtn = new System.Windows.Forms.Button();
             this.custLbl = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
@@ -112,8 +112,8 @@ namespace softeng1
             this.panel11.SuspendLayout();
             this.panel9.SuspendLayout();
             this.errorPanel.SuspendLayout();
-            this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel13.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -194,7 +194,7 @@ namespace softeng1
             this.orderDG.AllowUserToAddRows = false;
             this.orderDG.AllowUserToDeleteRows = false;
             this.orderDG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.orderDG.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.orderDG.BackgroundColor = System.Drawing.Color.White;
             this.orderDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.orderDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.orderDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -613,7 +613,6 @@ namespace softeng1
             // 
             // paymentCmb
             // 
-            this.paymentCmb.Enabled = false;
             this.paymentCmb.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paymentCmb.FormattingEnabled = true;
             this.paymentCmb.Items.AddRange(new object[] {
@@ -768,6 +767,15 @@ namespace softeng1
             this.errorPanel.TabIndex = 63;
             this.errorPanel.Visible = false;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::softeng1.Properties.Resources.error;
+            this.pictureBox1.Location = new System.Drawing.Point(20, 63);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(45, 35);
+            this.pictureBox1.TabIndex = 65;
+            this.pictureBox1.TabStop = false;
+            // 
             // panel13
             // 
             this.panel13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
@@ -825,15 +833,6 @@ namespace softeng1
             this.stockLbl.TabIndex = 52;
             this.stockLbl.Text = "-----";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::softeng1.Properties.Resources.error;
-            this.pictureBox1.Location = new System.Drawing.Point(20, 63);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(45, 35);
-            this.pictureBox1.TabIndex = 65;
-            this.pictureBox1.TabStop = false;
-            // 
             // buyBtn
             // 
             this.buyBtn.BackColor = System.Drawing.Color.White;
@@ -854,7 +853,7 @@ namespace softeng1
             // 
             this.custLbl.AutoSize = true;
             this.custLbl.ForeColor = System.Drawing.Color.Red;
-            this.custLbl.Location = new System.Drawing.Point(159, 131);
+            this.custLbl.Location = new System.Drawing.Point(136, 129);
             this.custLbl.Name = "custLbl";
             this.custLbl.Size = new System.Drawing.Size(22, 13);
             this.custLbl.TabIndex = 64;
@@ -932,9 +931,9 @@ namespace softeng1
             this.panel9.PerformLayout();
             this.errorPanel.ResumeLayout(false);
             this.errorPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
