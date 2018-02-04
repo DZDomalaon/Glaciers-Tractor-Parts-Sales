@@ -51,7 +51,7 @@ namespace softeng1
 
         public void loadWarranty()
         {
-            String query = "SELECT firstname, lastname ,PRODUCT_NAME, ORDER_DATE, order_WARRANTY FROM PERSON, CUSTOMER, SALES_ORDER, PRODUCT WHERE ORDER_CUSTOMER_ID = CUSTOMER_ID AND CUSTOMER_PERSON_ID = PERSON_ID AND ORDER_PRODUCT_ID = PRODUCT_ID AND ORDER_STATUS = 'Paid' and person_type = 'customer'";
+            String query = "SELECT firstname, lastname ,PRODUCT_NAME, ORDER_DATE, order_WARRANTY, order_warranty_status FROM PERSON, CUSTOMER, SALES_ORDER, PRODUCT WHERE ORDER_CUSTOMER_ID = CUSTOMER_ID AND CUSTOMER_PERSON_ID = PERSON_ID AND ORDER_PRODUCT_ID = PRODUCT_ID AND ORDER_STATUS = 'Paid' and person_type = 'customer'";
             conn.Open();
 
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -66,6 +66,7 @@ namespace softeng1
             warrantyData.Columns["PRODUCT_NAME"].HeaderText = "Product Name";
             warrantyData.Columns["ORDER_DATE"].HeaderText = "Order Date";
             warrantyData.Columns["ORDER_WARRANTY"].HeaderText = "Warranty";
+            warrantyData.Columns["ORDER_WARRANTY_STATUS"].HeaderText = "Status";
         }
 
         //AutoComplete for customer
@@ -96,7 +97,7 @@ namespace softeng1
 
         public void selectedCustomer()
         {
-            String query = "SELECT FIRSTNAME, LASTNAME, PRODUCT_NAME, ORDER_DATE, ORDER_WARRANTY FROM person, ,product, sales_order WHERE CONCAT(FIRSTNAME, ' ', LASTNAME) LIKE '%" + custnameTxt.Text + "%' AND ORDER_PRODUCT_ID = PRODUCT_ID AND ORDER_STATUS = 'Paid' AND PERSON_ID = CUSTOMER_PERSON_ID AND PERSON_TYPE = 'CUSTOMER'";
+            String query = "SELECT FIRSTNAME, LASTNAME, PRODUCT_NAME, ORDER_DATE, ORDER_WARRANTY, ORDER_WARRANTY_STATUS FROM person, product, sales_order WHERE (CONCAT(FIRSTNAME,' ', LASTNAME) LIKE '%" + custnameTxt.Text + "%') AND ORDER_PRODUCT_ID = PRODUCT_ID AND ORDER_STATUS = 'Paid' AND PERSON_ID = CUSTOMER_PERSON_ID AND PERSON_TYPE = 'CUSTOMER'";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -104,7 +105,7 @@ namespace softeng1
             conn.Close();
 
             DataTable dt = new DataTable();
-            adp.Fill(dt);
+            //adp.Fill(dt);
 
             warrantyData.DataSource = dt;
 
@@ -113,6 +114,7 @@ namespace softeng1
             warrantyData.Columns["PRODUCT_NAME"].HeaderText = "Product Name";
             warrantyData.Columns["ORDER_DATE"].HeaderText = "Order Date";
             warrantyData.Columns["ORDER_WARRANTY"].HeaderText = "Warranty";
+            warrantyData.Columns["ORDER_WARRANTY_STATUS"].HeaderText = "Status";
         }
 
         private void sDate_Click(object sender, EventArgs e)
@@ -176,9 +178,10 @@ namespace softeng1
 
         private void custnameTxt_TextChanged(object sender, EventArgs e)
         {            
-            selectedCustomer();
+            //selectedCustomer();
+            loadCustomer();
 
-            if(custnameTxt.Text == "")
+            if (custnameTxt.Text == "")
             {
                 loadWarranty();
             }
