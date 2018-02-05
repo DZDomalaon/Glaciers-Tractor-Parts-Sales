@@ -27,7 +27,7 @@ namespace softeng1
         {
             usernameLbl.Text = loginForm.name;
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
-            
+
             dgProducts.Columns.Add("ProductName", "Product Name");
             dgProducts.Columns.Add("ProductCategory", "Category");
             dgProducts.Columns.Add("ProductVariant", "Variant");
@@ -100,7 +100,7 @@ namespace softeng1
         private void purchasingForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             fromPurchasing.Show();
-        }     
+        }
 
         private void addBtn_Click(object sender, EventArgs e)
         {
@@ -134,7 +134,7 @@ namespace softeng1
         public static int quant;
         public static double tot, p, q;
 
-        
+
         private void priceTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
@@ -150,7 +150,7 @@ namespace softeng1
                 e.Handled = true;
             }
         }
-        
+
         public static int rowIndex;
         private void pnameTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -188,17 +188,17 @@ namespace softeng1
 
             conn.Close();
 
-            if (snameTxt.Text == "" || countProd == 0)
+            if (pname.Text == "" || countProd == 0)
             {
-                prodLbl.Visible = true;
-                this.prodLbl.ForeColor = Color.Red;
-                prodLbl.Text = "This Product is not recognized.";
+                proLbl.Visible = true;
+                this.proLbl.ForeColor = Color.Red;
+                proLbl.Text = "This Product is not recognized.";
             }
             else
             {
-                prodLbl.Visible = true;
-                this.prodLbl.ForeColor = Color.Green;
-                prodLbl.Text = "Product found";
+                proLbl.Visible = true;
+                this.proLbl.ForeColor = Color.Green;
+                proLbl.Text = "Product found";
             }
         }
 
@@ -208,7 +208,7 @@ namespace softeng1
 
             if (snameTxt.Text == "")
             {
-                prodLbl.Visible = false;
+                proLbl.Visible = false;
             }
         }
 
@@ -288,7 +288,7 @@ namespace softeng1
                 conn.Close();
             }
             cPanel.Hide();
-            
+
             oPanel.Enabled = true;
             oPanel.Visible = true;
             oPanel.Location = new Point(279, 191);
@@ -352,7 +352,7 @@ namespace softeng1
 
             foreach (DataGridViewRow row in dgProducts.Rows)
             {
-                if(prodname == row.Cells[0].Value.ToString() && prodprice == double.Parse(row.Cells[1].Value.ToString()))
+                if (prodname == row.Cells[0].Value.ToString() && prodprice == double.Parse(row.Cells[1].Value.ToString()))
                 {
                     //MessageBox.Show("Duplicate entry!");
                     errorPanel.Enabled = true;
