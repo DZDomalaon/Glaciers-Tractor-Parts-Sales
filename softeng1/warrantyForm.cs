@@ -27,7 +27,7 @@ namespace softeng1
         {
             conn.Open();
             MySqlCommand comm = new MySqlCommand(
-                    "SELECT firstname, lastname, order_warranty, product_name FROM person, sales_order, product, customer WHERE (firstname LIKE '%" +
+                    "SELECT firstname, lastname, order_warranty, product_name FROM person, sales_order, sales_order_details, product, customer WHERE (firstname LIKE '%" +
                     custnameTxt.Text + "%' or lastname LIKE '%" + custnameTxt.Text + "%') AND person_type = 'CUSTOMER' and customer_person_id = person_id and product_id = order_product_id and customer_id = order_customer_id", conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
             conn.Close();
