@@ -177,9 +177,39 @@ namespace softeng1
             }
         }
 
+        public void checkSupProd()
+        {
+            conn.Close();
+            conn.Open();
+
+            int countProd;
+            MySqlCommand getProduct = new MySqlCommand("SELECT COUNT(*) FROM PRODUCT, SUPPLIER, PRODUCT_HAS_SUPPLIER WHERE PRODUCT_ID = PRODUCT_PRODUCT_ID", conn);
+            countProd = Convert.ToInt16(getProduct.ExecuteScalar());
+
+            conn.Close();
+
+            if (snameTxt.Text == "" || countProd == 0)
+            {
+                prodLbl.Visible = true;
+                this.prodLbl.ForeColor = Color.Red;
+                prodLbl.Text = "This Product is not recognized.";
+            }
+            else
+            {
+                prodLbl.Visible = true;
+                this.prodLbl.ForeColor = Color.Green;
+                prodLbl.Text = "Product found";
+            }
+        }
+
         private void pname_TextChanged(object sender, EventArgs e)
         {
+            checkSupProd();
 
+            if (snameTxt.Text == "")
+            {
+                prodLbl.Visible = false;
+            }
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -293,6 +323,16 @@ namespace softeng1
             {
                 supLbl.Visible = false;
             }
+        }
+
+        private void closePanel_Click(object sender, EventArgs e)
+        {
+            errorPanel.Hide();
+        }
+
+        private void errorPanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void calcSum()
