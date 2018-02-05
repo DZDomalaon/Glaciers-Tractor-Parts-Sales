@@ -87,6 +87,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.snameTxt = new System.Windows.Forms.TextBox();
             this.supLbl = new System.Windows.Forms.Label();
+            this.proLbl = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -478,7 +479,7 @@
             this.cPanel.Controls.Add(this.panel9);
             this.cPanel.Controls.Add(this.label13);
             this.cPanel.Enabled = false;
-            this.cPanel.Location = new System.Drawing.Point(279, 191);
+            this.cPanel.Location = new System.Drawing.Point(546, 191);
             this.cPanel.Name = "cPanel";
             this.cPanel.Size = new System.Drawing.Size(385, 145);
             this.cPanel.TabIndex = 62;
@@ -748,12 +749,23 @@
             this.supLbl.TabIndex = 73;
             this.supLbl.Text = "-----";
             // 
+            // proLbl
+            // 
+            this.proLbl.AutoSize = true;
+            this.proLbl.ForeColor = System.Drawing.Color.Red;
+            this.proLbl.Location = new System.Drawing.Point(319, 203);
+            this.proLbl.Name = "proLbl";
+            this.proLbl.Size = new System.Drawing.Size(22, 13);
+            this.proLbl.TabIndex = 73;
+            this.proLbl.Text = "-----";
+            // 
             // purchasingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.proLbl);
             this.Controls.Add(this.supLbl);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel5);
@@ -889,5 +901,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox snameTxt;
         private System.Windows.Forms.Label supLbl;
+        private System.Windows.Forms.Label prodLbl;
+        private System.Windows.Forms.Label proLbl;
     }
 }
