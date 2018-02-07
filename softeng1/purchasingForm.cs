@@ -383,7 +383,7 @@ namespace softeng1
             double a = 0, b = 0;
             foreach (DataGridViewRow row in dgProducts.Rows)
             {
-                a = Convert.ToDouble(row.Cells[2].Value);
+                a = Convert.ToDouble(row.Cells[4].Value);
                 b = b + a;
             }
             totalpriceTxt.Text = b.ToString("#,0.00");
