@@ -216,7 +216,7 @@ namespace softeng1
             {
                 proLbl.Visible = true;
                 this.proLbl.ForeColor = Color.Red;
-                proLbl.Text = "This Product is not recognized.";
+                proLbl.Text = "Not recognized.";
             }
             else
             {
@@ -376,6 +376,11 @@ namespace softeng1
         private void closePanel_Click_1(object sender, EventArgs e)
         {
             errorPanel.Hide();
+        }
+
+        private void proLbl_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void calcSum()

@@ -85,10 +85,10 @@
             this.supLbl = new System.Windows.Forms.Label();
             this.proLbl = new System.Windows.Forms.Label();
             this.invalidpanel = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel11 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label19 = new System.Windows.Forms.Label();
             this.pname = new System.Windows.Forms.TextBox();
             this.ptypeTxt = new System.Windows.Forms.ComboBox();
@@ -110,8 +110,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel13.SuspendLayout();
             this.invalidpanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -735,6 +735,7 @@
             this.proLbl.Size = new System.Drawing.Size(22, 13);
             this.proLbl.TabIndex = 73;
             this.proLbl.Text = "-----";
+            this.proLbl.Click += new System.EventHandler(this.proLbl_Click);
             // 
             // invalidpanel
             // 
@@ -748,15 +749,6 @@
             this.invalidpanel.Size = new System.Drawing.Size(384, 145);
             this.invalidpanel.TabIndex = 66;
             this.invalidpanel.Visible = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::softeng1.Properties.Resources.error;
-            this.pictureBox2.Location = new System.Drawing.Point(54, 65);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(45, 35);
-            this.pictureBox2.TabIndex = 65;
-            this.pictureBox2.TabStop = false;
             // 
             // panel11
             // 
@@ -793,6 +785,15 @@
             this.label18.Size = new System.Drawing.Size(100, 21);
             this.label18.TabIndex = 63;
             this.label18.Text = "Cart Empty";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::softeng1.Properties.Resources.error;
+            this.pictureBox2.Location = new System.Drawing.Point(54, 65);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(45, 35);
+            this.pictureBox2.TabIndex = 65;
+            this.pictureBox2.TabStop = false;
             // 
             // label19
             // 
@@ -935,9 +936,9 @@
             this.panel13.PerformLayout();
             this.invalidpanel.ResumeLayout(false);
             this.invalidpanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
