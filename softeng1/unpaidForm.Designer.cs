@@ -44,8 +44,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.ordernumTxt = new System.Windows.Forms.TextBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.prodTxt = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.quantityTxt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -53,6 +51,8 @@
             this.backBtn = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
+            this.prodTxt = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -229,25 +229,6 @@
             this.ordernumTxt.Size = new System.Drawing.Size(92, 27);
             this.ordernumTxt.TabIndex = 53;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(12, 309);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 23);
-            this.label8.TabIndex = 54;
-            this.label8.Text = "Product";
-            // 
-            // prodTxt
-            // 
-            this.prodTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.prodTxt.Location = new System.Drawing.Point(105, 309);
-            this.prodTxt.Name = "prodTxt";
-            this.prodTxt.Size = new System.Drawing.Size(157, 27);
-            this.prodTxt.TabIndex = 55;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -326,6 +307,25 @@
             this.addBtn.Text = "Add";
             this.addBtn.UseVisualStyleBackColor = false;
             // 
+            // prodTxt
+            // 
+            this.prodTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.prodTxt.Location = new System.Drawing.Point(105, 309);
+            this.prodTxt.Name = "prodTxt";
+            this.prodTxt.Size = new System.Drawing.Size(157, 27);
+            this.prodTxt.TabIndex = 55;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(12, 309);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 23);
+            this.label8.TabIndex = 54;
+            this.label8.Text = "Product";
+            // 
             // unpaidForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -392,8 +392,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox ordernumTxt;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox prodTxt;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox quantityTxt;
         private System.Windows.Forms.Label label10;
@@ -401,5 +399,7 @@
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Button addBtn;
+        private System.Windows.Forms.TextBox prodTxt;
+        private System.Windows.Forms.Label label8;
     }
 }

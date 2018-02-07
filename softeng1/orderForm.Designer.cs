@@ -614,6 +614,7 @@ namespace softeng1
             // 
             // paymentCmb
             // 
+            this.paymentCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.paymentCmb.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paymentCmb.FormattingEnabled = true;
             this.paymentCmb.Items.AddRange(new object[] {
@@ -828,7 +829,7 @@ namespace softeng1
             // 
             this.stockLbl.AutoSize = true;
             this.stockLbl.ForeColor = System.Drawing.Color.Red;
-            this.stockLbl.Location = new System.Drawing.Point(159, 332);
+            this.stockLbl.Location = new System.Drawing.Point(136, 333);
             this.stockLbl.Name = "stockLbl";
             this.stockLbl.Size = new System.Drawing.Size(22, 13);
             this.stockLbl.TabIndex = 52;
