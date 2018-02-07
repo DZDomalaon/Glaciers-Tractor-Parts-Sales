@@ -39,6 +39,30 @@ namespace softeng1
 
             dgProducts.Visible = true;
             supLbl.Visible = false;
+
+            AutoCompleteStringCollection prodCollection = new AutoCompleteStringCollection();
+
+            conn.Open();
+
+            String getPname = "SELECT PRODUCT_NAME, PRICE FROM PRODUCT, SUPPLIER, PRODUCT_HAS_SUPPLIER WHERE PRODUCT_ID = PRODUCT_PRODUCT_ID AND SUPPLIER_ID = SUPPLIER_SUPPLIER_ID";
+            MySqlCommand comm = new MySqlCommand(getPname, conn);
+            comm.CommandText = getPname;
+            MySqlDataReader drd = comm.ExecuteReader();
+
+            if (drd.HasRows == true)
+            {
+                while (drd.Read())
+                {
+                    prodCollection.Add(drd["PRODUCT_NAME"].ToString());
+                }
+            }
+
+            drd.Close();
+            conn.Close();
+            
+            pname.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
+            pname.AutoCompleteSource = AutoCompleteSource.CustomSource;
+            pname.AutoCompleteCustomSource = prodCollection;
         }
 
         public void loadSupplier()
@@ -200,6 +224,7 @@ namespace softeng1
                 this.proLbl.ForeColor = Color.Green;
                 proLbl.Text = "Product found";
             }
+
         }
 
         private void pname_TextChanged(object sender, EventArgs e)
@@ -219,8 +244,16 @@ namespace softeng1
 
         private void buyBtn_Click(object sender, EventArgs e)
         {
-            cPanel.Visible = true;
-            cPanel.Enabled = true;
+            if (double.Parse(totalpriceTxt.Text) > 0)
+            {
+                cPanel.Visible = true;
+                cPanel.Enabled = true;
+            } else if (double.Parse(totalpriceTxt.Text) == 0)
+            {
+                invalidpanel.Visible = true;
+                invalidpanel.Enabled = true;
+            }
+            
         }
 
         private void dgProducts_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -333,6 +366,16 @@ namespace softeng1
         private void errorPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            invalidpanel.Hide();
+        }
+
+        private void closePanel_Click_1(object sender, EventArgs e)
+        {
+            errorPanel.Hide();
         }
 
         private void calcSum()
