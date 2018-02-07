@@ -56,7 +56,6 @@
             this.addBtn = new System.Windows.Forms.Button();
             this.usernameLbl = new System.Windows.Forms.Label();
             this.dateLbl = new System.Windows.Forms.Label();
-            this.pname = new System.Windows.Forms.TextBox();
             this.panel7 = new System.Windows.Forms.Panel();
             this.totalpriceTxt = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -80,14 +79,21 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.categLbl = new System.Windows.Forms.Label();
-            this.categTxt = new System.Windows.Forms.TextBox();
             this.variantLbl = new System.Windows.Forms.Label();
-            this.variantTxt = new System.Windows.Forms.TextBox();
             this.typeTxt = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.snameTxt = new System.Windows.Forms.TextBox();
             this.supLbl = new System.Windows.Forms.Label();
             this.proLbl = new System.Windows.Forms.Label();
+            this.invalidpanel = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.pname = new System.Windows.Forms.TextBox();
+            this.ptypeTxt = new System.Windows.Forms.ComboBox();
+            this.variantTxt = new System.Windows.Forms.ComboBox();
+            this.categTxt = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -103,6 +109,9 @@
             this.errorPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel13.SuspendLayout();
+            this.invalidpanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
@@ -400,15 +409,6 @@
             this.dateLbl.TabIndex = 53;
             this.dateLbl.Text = "-----";
             // 
-            // pname
-            // 
-            this.pname.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pname.Location = new System.Drawing.Point(130, 193);
-            this.pname.Name = "pname";
-            this.pname.Size = new System.Drawing.Size(183, 27);
-            this.pname.TabIndex = 57;
-            this.pname.TextChanged += new System.EventHandler(this.pname_TextChanged);
-            // 
             // panel7
             // 
             this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
@@ -612,7 +612,7 @@
             this.errorPanel.Controls.Add(this.panel13);
             this.errorPanel.Controls.Add(this.label23);
             this.errorPanel.Enabled = false;
-            this.errorPanel.Location = new System.Drawing.Point(754, 367);
+            this.errorPanel.Location = new System.Drawing.Point(506, 291);
             this.errorPanel.Name = "errorPanel";
             this.errorPanel.Size = new System.Drawing.Size(384, 145);
             this.errorPanel.TabIndex = 65;
@@ -650,6 +650,7 @@
             this.closePanel.TabIndex = 64;
             this.closePanel.Text = "X";
             this.closePanel.UseVisualStyleBackColor = false;
+            this.closePanel.Click += new System.EventHandler(this.closePanel_Click_1);
             // 
             // label16
             // 
@@ -684,14 +685,6 @@
             this.categLbl.TabIndex = 66;
             this.categLbl.Text = "Category";
             // 
-            // categTxt
-            // 
-            this.categTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categTxt.Location = new System.Drawing.Point(130, 225);
-            this.categTxt.Name = "categTxt";
-            this.categTxt.Size = new System.Drawing.Size(183, 27);
-            this.categTxt.TabIndex = 67;
-            // 
             // variantLbl
             // 
             this.variantLbl.AutoSize = true;
@@ -703,14 +696,6 @@
             this.variantLbl.TabIndex = 68;
             this.variantLbl.Text = "Variant";
             // 
-            // variantTxt
-            // 
-            this.variantTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.variantTxt.Location = new System.Drawing.Point(130, 258);
-            this.variantTxt.Name = "variantTxt";
-            this.variantTxt.Size = new System.Drawing.Size(183, 27);
-            this.variantTxt.TabIndex = 69;
-            // 
             // typeTxt
             // 
             this.typeTxt.AutoSize = true;
@@ -721,14 +706,6 @@
             this.typeTxt.Size = new System.Drawing.Size(46, 23);
             this.typeTxt.TabIndex = 70;
             this.typeTxt.Text = "Type";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(130, 291);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(182, 27);
-            this.textBox1.TabIndex = 71;
             // 
             // snameTxt
             // 
@@ -759,21 +736,144 @@
             this.proLbl.TabIndex = 73;
             this.proLbl.Text = "-----";
             // 
+            // invalidpanel
+            // 
+            this.invalidpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
+            this.invalidpanel.Controls.Add(this.panel11);
+            this.invalidpanel.Controls.Add(this.pictureBox2);
+            this.invalidpanel.Controls.Add(this.label19);
+            this.invalidpanel.Enabled = false;
+            this.invalidpanel.Location = new System.Drawing.Point(345, 222);
+            this.invalidpanel.Name = "invalidpanel";
+            this.invalidpanel.Size = new System.Drawing.Size(384, 145);
+            this.invalidpanel.TabIndex = 66;
+            this.invalidpanel.Visible = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::softeng1.Properties.Resources.error;
+            this.pictureBox2.Location = new System.Drawing.Point(54, 65);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(45, 35);
+            this.pictureBox2.TabIndex = 65;
+            this.pictureBox2.TabStop = false;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.panel11.Controls.Add(this.button1);
+            this.panel11.Controls.Add(this.label18);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(384, 35);
+            this.panel11.TabIndex = 64;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(90)))), ((int)(((byte)(74)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(351, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 25);
+            this.button1.TabIndex = 64;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label18.Location = new System.Drawing.Point(134, 7);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(100, 21);
+            this.label18.TabIndex = 63;
+            this.label18.Text = "Cart Empty";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label19.Location = new System.Drawing.Point(105, 71);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(250, 23);
+            this.label19.TabIndex = 63;
+            this.label19.Text = "Cannot add data. Cart is empty.";
+            // 
+            // pname
+            // 
+            this.pname.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pname.Location = new System.Drawing.Point(130, 193);
+            this.pname.Name = "pname";
+            this.pname.Size = new System.Drawing.Size(183, 27);
+            this.pname.TabIndex = 57;
+            this.pname.TextChanged += new System.EventHandler(this.pname_TextChanged);
+            // 
+            // ptypeTxt
+            // 
+            this.ptypeTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ptypeTxt.FormattingEnabled = true;
+            this.ptypeTxt.Items.AddRange(new object[] {
+            "Cash",
+            "Credit"});
+            this.ptypeTxt.Location = new System.Drawing.Point(130, 294);
+            this.ptypeTxt.Name = "ptypeTxt";
+            this.ptypeTxt.Size = new System.Drawing.Size(183, 27);
+            this.ptypeTxt.TabIndex = 66;
+            // 
+            // variantTxt
+            // 
+            this.variantTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.variantTxt.FormattingEnabled = true;
+            this.variantTxt.Items.AddRange(new object[] {
+            "Color",
+            "Model",
+            "Size"});
+            this.variantTxt.Location = new System.Drawing.Point(129, 260);
+            this.variantTxt.Name = "variantTxt";
+            this.variantTxt.Size = new System.Drawing.Size(183, 27);
+            this.variantTxt.TabIndex = 67;
+            // 
+            // categTxt
+            // 
+            this.categTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categTxt.FormattingEnabled = true;
+            this.categTxt.Items.AddRange(new object[] {
+            "Ring Kit",
+            "Oil Kit",
+            "Lubricator",
+            "Wheel",
+            "Bearing",
+            "Throttle"});
+            this.categTxt.Location = new System.Drawing.Point(129, 227);
+            this.categTxt.Name = "categTxt";
+            this.categTxt.Size = new System.Drawing.Size(183, 27);
+            this.categTxt.TabIndex = 68;
+            // 
             // purchasingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.ptypeTxt);
+            this.Controls.Add(this.variantTxt);
+            this.Controls.Add(this.categTxt);
+            this.Controls.Add(this.invalidpanel);
             this.Controls.Add(this.proLbl);
             this.Controls.Add(this.supLbl);
+            this.Controls.Add(this.errorPanel);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.snameTxt);
             this.Controls.Add(this.typeTxt);
             this.Controls.Add(this.variantLbl);
             this.Controls.Add(this.categLbl);
-            this.Controls.Add(this.errorPanel);
             this.Controls.Add(this.oPanel);
             this.Controls.Add(this.cPanel);
             this.Controls.Add(this.editBtn);
@@ -798,9 +898,6 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.pname);
             this.Controls.Add(this.dgProducts);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.variantTxt);
-            this.Controls.Add(this.categTxt);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -836,6 +933,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
+            this.invalidpanel.ResumeLayout(false);
+            this.invalidpanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -870,7 +972,6 @@
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Label usernameLbl;
         private System.Windows.Forms.Label dateLbl;
-        private System.Windows.Forms.TextBox pname;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label totalpriceTxt;
         private System.Windows.Forms.Label label11;
@@ -894,14 +995,20 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label categLbl;
-        private System.Windows.Forms.TextBox categTxt;
         private System.Windows.Forms.Label variantLbl;
-        private System.Windows.Forms.TextBox variantTxt;
         private System.Windows.Forms.Label typeTxt;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox snameTxt;
         private System.Windows.Forms.Label supLbl;
-        private System.Windows.Forms.Label prodLbl;
         private System.Windows.Forms.Label proLbl;
+        private System.Windows.Forms.Panel invalidpanel;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.TextBox pname;
+        private System.Windows.Forms.ComboBox ptypeTxt;
+        private System.Windows.Forms.ComboBox variantTxt;
+        private System.Windows.Forms.ComboBox categTxt;
     }
 }
