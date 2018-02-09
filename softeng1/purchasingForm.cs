@@ -326,6 +326,8 @@ namespace softeng1
             priceTxt.Clear();
             pquant.Clear();
             ptotal.Clear();
+            snameTxt.Clear();
+            supLbl.Visible = false;
             proLbl.Visible = false;
 
             cPanel.Hide();
