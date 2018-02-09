@@ -311,15 +311,25 @@ namespace softeng1
             foreach (DataGridViewRow row in dgProducts.Rows)
             {
                 conn.Open();
-                using (MySqlCommand addToPurchase = new MySqlCommand("INSERT INTO purchase(purchase_id, purchase_date, product_name, quantity, price, status, purchase_emp_id, purchase_supplier_id) VALUES('" + OrderIncrement + "', '" + today + "', @ProductName, @Quantity, @Price, 'To be delivered', '" + empId + "', '" + supId + "')", conn))
+                using (MySqlCommand addToPurchase = new MySqlCommand("INSERT INTO purchase(purchase_id, purchase_date, status, purchase_emp_id, purchase_supplier_id) VALUES('" + OrderIncrement + "', '" + today + "', 'To be delivered', '" + empId + "', '" + supId + "')", conn))
                 {
-                    addToPurchase.Parameters.AddWithValue("@ProductName", (row.Cells[0].Value.ToString()));
-                    addToPurchase.Parameters.AddWithValue("@Price", double.Parse(row.Cells[4].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
-                    addToPurchase.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[6].Value.ToString()));
+                    //addToPurchase.Parameters.AddWithValue("@ProductName", (row.Cells[0].Value.ToString()));
+                    //addToPurchase.Parameters.AddWithValue("@Price", double.Parse(row.Cells[4].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
+                    //addToPurchase.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[6].Value.ToString()));
                     addToPurchase.ExecuteNonQuery();
                 }
                 conn.Close();
             }
+            categTxt.Text = "";
+            variantTxt.Text = "";
+            ptypeTxt.Text = "";
+            snameTxt.Clear();
+            priceTxt.Clear();
+            pquant.Clear();
+            ptotal.Clear();
+            supLbl.Visible = false;
+            proLbl.Visible = false;
+
             cPanel.Hide();
 
             oPanel.Enabled = true;
