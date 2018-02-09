@@ -323,11 +323,9 @@ namespace softeng1
             categTxt.Text = "";
             variantTxt.Text = "";
             ptypeTxt.Text = "";
-            snameTxt.Clear();
             priceTxt.Clear();
             pquant.Clear();
             ptotal.Clear();
-            supLbl.Visible = false;
             proLbl.Visible = false;
 
             cPanel.Hide();
