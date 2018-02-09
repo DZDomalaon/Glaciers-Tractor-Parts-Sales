@@ -318,6 +318,17 @@ namespace softeng1
                     //addToPurchase.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[6].Value.ToString()));
                     addToPurchase.ExecuteNonQuery();
                 }
+
+                using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO PURCHASE_DETAILS(PRODUCT_NAME, PRODUCT_UNIT_PRICE, PURCHASE_TOTAL, PURCHASE_SUBTOTAL, PURCHASE_TQUANTITY, PURCHASE_SUBQUANTITY, PROD_CATEGORY, PROD_VARIANT, PROD_TYPE, PD_PURCHASE_ID) VALUES('" + pname.Text + "', @Price, @Subtotal, '" + total + "',  @Quantity, '" + OrderIncrement + "')", conn))
+                {
+                    //Get data of price, subtotal, and quatity per row in the datagrid
+                    //@Price, @Subtotal, and @Quantity are the names of the columns
+                    addToSales.Parameters.AddWithValue("@Price", double.Parse(row.Cells[1].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
+                    addToSales.Parameters.AddWithValue("@Subtotal", double.Parse(row.Cells[2].Value.ToString()));
+                    addToSales.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[3].Value.ToString()));
+                    addToSales.ExecuteNonQuery();
+                }
+
                 conn.Close();
             }
             categTxt.Text = "";
