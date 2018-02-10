@@ -299,3 +299,4 @@ C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.settingsForm
 C:\Users\jtsbellezas\Documents\GitHub\SAD-2\softeng1\bin\Debug\MaterialSkin.dll
 C:\Users\jtsbellezas\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.settingsForm.resources
 C:\Users\mkopitoy\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.settingsForm.resources
+C:\Users\msilveo\Documents\GitHub\SAD-2\softeng1\obj\Debug\softeng1.transactionsForm.resources

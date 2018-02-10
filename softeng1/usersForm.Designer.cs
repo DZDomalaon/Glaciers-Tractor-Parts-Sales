@@ -227,7 +227,7 @@
             // 
             this.usersData.AllowUserToAddRows = false;
             this.usersData.AllowUserToDeleteRows = false;
-            this.usersData.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.usersData.BackgroundColor = System.Drawing.Color.White;
             this.usersData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.usersData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.usersData.Dock = System.Windows.Forms.DockStyle.Right;
