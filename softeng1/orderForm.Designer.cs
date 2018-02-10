@@ -69,8 +69,6 @@ namespace softeng1
             this.buyPanel = new System.Windows.Forms.Panel();
             this.buyBackBtn = new System.Windows.Forms.Button();
             this.confirmBtn = new System.Windows.Forms.Button();
-            this.interestTxt = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
             this.discountTxt = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.cashTxt = new System.Windows.Forms.TextBox();
@@ -509,8 +507,6 @@ namespace softeng1
             // 
             this.buyPanel.Controls.Add(this.buyBackBtn);
             this.buyPanel.Controls.Add(this.confirmBtn);
-            this.buyPanel.Controls.Add(this.interestTxt);
-            this.buyPanel.Controls.Add(this.label22);
             this.buyPanel.Controls.Add(this.discountTxt);
             this.buyPanel.Controls.Add(this.label21);
             this.buyPanel.Controls.Add(this.cashTxt);
@@ -522,7 +518,7 @@ namespace softeng1
             this.buyPanel.Enabled = false;
             this.buyPanel.Location = new System.Drawing.Point(269, 96);
             this.buyPanel.Name = "buyPanel";
-            this.buyPanel.Size = new System.Drawing.Size(418, 425);
+            this.buyPanel.Size = new System.Drawing.Size(418, 375);
             this.buyPanel.TabIndex = 28;
             this.buyPanel.Visible = false;
             // 
@@ -532,7 +528,7 @@ namespace softeng1
             this.buyBackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buyBackBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buyBackBtn.ForeColor = System.Drawing.Color.White;
-            this.buyBackBtn.Location = new System.Drawing.Point(213, 367);
+            this.buyBackBtn.Location = new System.Drawing.Point(213, 293);
             this.buyBackBtn.Name = "buyBackBtn";
             this.buyBackBtn.Size = new System.Drawing.Size(144, 37);
             this.buyBackBtn.TabIndex = 56;
@@ -546,32 +542,13 @@ namespace softeng1
             this.confirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmBtn.ForeColor = System.Drawing.Color.White;
-            this.confirmBtn.Location = new System.Drawing.Point(59, 367);
+            this.confirmBtn.Location = new System.Drawing.Point(59, 293);
             this.confirmBtn.Name = "confirmBtn";
             this.confirmBtn.Size = new System.Drawing.Size(144, 37);
             this.confirmBtn.TabIndex = 56;
             this.confirmBtn.Text = "Confirm";
             this.confirmBtn.UseVisualStyleBackColor = false;
             this.confirmBtn.Click += new System.EventHandler(this.confirmBtn_Click);
-            // 
-            // interestTxt
-            // 
-            this.interestTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.interestTxt.Location = new System.Drawing.Point(182, 286);
-            this.interestTxt.Name = "interestTxt";
-            this.interestTxt.Size = new System.Drawing.Size(183, 27);
-            this.interestTxt.TabIndex = 58;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(42, 290);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(71, 23);
-            this.label22.TabIndex = 57;
-            this.label22.Text = "Interest";
             // 
             // discountTxt
             // 
@@ -624,7 +601,6 @@ namespace softeng1
             this.paymentCmb.Name = "paymentCmb";
             this.paymentCmb.Size = new System.Drawing.Size(183, 27);
             this.paymentCmb.TabIndex = 48;
-            this.paymentCmb.TextChanged += new System.EventHandler(this.paymentCmb_TextChanged);
             // 
             // label19
             // 
@@ -1004,8 +980,6 @@ namespace softeng1
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button buyBackBtn;
         private System.Windows.Forms.Button confirmBtn;
-        private System.Windows.Forms.TextBox interestTxt;
-        private System.Windows.Forms.Label label22;
         private System.Windows.Forms.TextBox discountTxt;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox cashTxt;

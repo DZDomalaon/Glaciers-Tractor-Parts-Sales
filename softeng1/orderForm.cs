@@ -358,7 +358,6 @@ namespace softeng1
                     buyPanel.Hide();
                     cashTxt.Clear();
                     discountTxt.Clear();
-                    interestTxt.Clear();
                     paymentCmb.Text = " ";
                     this.orderDG.Rows.Clear();
                     calcSum();
@@ -432,29 +431,12 @@ namespace softeng1
                 buyPanel.Hide();
                 cashTxt.Clear();
                 discountTxt.Clear();
-                interestTxt.Clear();
                 paymentCmb.Text = " ";
                 this.orderDG.Rows.Clear();
                 calcSum();
                 MessageBox.Show("Trasaction complete");
             }            
             conn.Close();
-        }
-
-        private void paymentCmb_TextChanged(object sender, EventArgs e)
-        {
-            if (paymentCmb.Text == "Cash")
-            {
-                cashTxt.Enabled = true;
-                discountTxt.Enabled = true;
-                interestTxt.Enabled = false;
-            }
-            else if (paymentCmb.Text == "Credit")
-            {
-                cashTxt.Enabled = false;
-                discountTxt.Enabled = false;
-                interestTxt.Enabled = true;
-            }
         }
 
         private void buyBackBtn_Click(object sender, EventArgs e)
@@ -491,6 +473,9 @@ namespace softeng1
         //Add order to Datagrid
         private void addOrder_Click(object sender, EventArgs e)
         {
+            int quantity = int.Parse(pquant.Text.ToString());
+            double total_price = double.Parse(ptotal.Text.ToString()) / double.Parse(pquant.Text.ToString());
+
             if (custnameTxt.Text == "" || productnameTxt.Text == "" || ppriceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "")
             {
                 MessageBox.Show("Please fill up all the data", "Add Customer Order", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -502,15 +487,18 @@ namespace softeng1
                 availableStock = Convert.ToInt32(getQuantity.ExecuteScalar());
                 conn.Close();
 
-                if(availableStock >= int.Parse(pquant.Text.ToString()))
+                if(availableStock >= quantity)
                 {
-                    string firstColumn = productnameTxt.Text;
-                    string secondColumn = ppriceTxt.Text;
-                    string thirdColumn = ptotal.Text;
-                    string fourthColumn = pquant.Text;
-                    string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn };
+                    for(int i = 0; i < quantity; i++)
+                    {
+                        string firstColumn = productnameTxt.Text;
+                        string secondColumn = ppriceTxt.Text;
+                        string thirdColumn = total_price.ToString();
+                        string fourthColumn = "1";
+                        string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn };
 
-                    orderDG.Rows.Add(row);
+                        orderDG.Rows.Add(row);
+                    }                    
 
                     productnameTxt.Clear();
                     ppriceTxt.Clear();
