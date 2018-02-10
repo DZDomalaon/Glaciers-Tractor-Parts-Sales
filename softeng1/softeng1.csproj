@@ -115,6 +115,12 @@
     <Compile Include="supplierForm.Designer.cs">
       <DependentUpon>supplierForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="transactionsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="transactionsForm.Designer.cs">
+      <DependentUpon>transactionsForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="unpaidForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +179,9 @@
     <EmbeddedResource Include="supplierForm.resx">
       <DependentUpon>supplierForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="transactionsForm.resx">
+      <DependentUpon>transactionsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="unpaidForm.resx">
       <DependentUpon>unpaidForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +213,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="5.png" />
+    <None Include="Resources\calendar-with-a-clock-time-tools2.png" />
+    <None Include="Resources\calendar-with-a-clock-time-tools1.png" />
+    <None Include="Resources\calendar-with-a-clock-time-tools.png" />
     <None Include="Resources\error.png" />
     <None Include="Resources\settings-gears.png" />
     <None Include="Resources\add-to-cart1.png" />

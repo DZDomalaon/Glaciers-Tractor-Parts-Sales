@@ -170,5 +170,13 @@ namespace softeng1
             settingsForm.fromSettings = this;
             this.Hide();
         }
+
+        private void logBtn_Click(object sender, EventArgs e)
+        {
+            transactionsForm transactions = new transactionsForm();
+            transactions.Show();
+            transactionsForm.fromTransactions = this;
+            this.Hide();
+        }
     }
 }

@@ -153,6 +153,36 @@ namespace softeng1.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap calendar_with_a_clock_time_tools {
+            get {
+                object obj = ResourceManager.GetObject("calendar-with-a-clock-time-tools", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap calendar_with_a_clock_time_tools1 {
+            get {
+                object obj = ResourceManager.GetObject("calendar-with-a-clock-time-tools1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap calendar_with_a_clock_time_tools2 {
+            get {
+                object obj = ResourceManager.GetObject("calendar-with-a-clock-time-tools2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap car_parts {
             get {
                 object obj = ResourceManager.GetObject("car-parts", resourceCulture);
