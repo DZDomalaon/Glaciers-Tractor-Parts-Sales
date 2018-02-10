@@ -334,7 +334,7 @@
             // 
             this.unpaidDateLbl.AutoSize = true;
             this.unpaidDateLbl.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.unpaidDateLbl.Location = new System.Drawing.Point(186, 297);
+            this.unpaidDateLbl.Location = new System.Drawing.Point(12, 309);
             this.unpaidDateLbl.Name = "unpaidDateLbl";
             this.unpaidDateLbl.Size = new System.Drawing.Size(40, 23);
             this.unpaidDateLbl.TabIndex = 6;

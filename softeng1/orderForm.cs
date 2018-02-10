@@ -290,7 +290,7 @@ namespace softeng1
             int PaymentInc = 0;
             int prod_id = 0;
             DateTime theDate = DateTime.Now;
-            string formatForMySql = theDate.ToString("yyyy-MM-dd HH:mm:ss");
+            string formatForMySql = theDate.ToString("yyyy-MM-dd");
             double total = double.Parse(totalpriceTxt.Text.ToString());
 
             conn.Open();
