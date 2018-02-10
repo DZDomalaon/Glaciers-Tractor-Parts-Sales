@@ -71,6 +71,8 @@ namespace softeng1
                 this.Hide();
 
                 MessageBox.Show("Welcome, " + fname + "!", "WELCOME!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                unameTxt.Clear();
+                passwordTxt.Clear();
             }
             else
             {
