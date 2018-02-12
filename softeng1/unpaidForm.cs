@@ -87,5 +87,14 @@ namespace softeng1
                 e.Handled = true;
             }
         }
+        
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+            double payment = double.Parse(amountTxt.Text.ToString());
+
+            MySqlCommand updateBalance = new MySqlCommand("UPDATE CUSTOMER SET BALANCE = BALANCE - '" + payment + "' WHERE CUSTOMER_PERSON_ID = (SELECT PERSON_ID FROM PERSON WHERE CONCAT(FIRSTNAME, ' ', LASTNAME) = '" + custnameTxt.Text +"'", conn);
+            MySqlCommand updatePayment = new MySqlCommand("UPDATE CUSTOMER SET BALANCE = BALANCE - '" + payment + "' WHERE CUSTOMER_PERSON_ID = (SELECT PERSON_ID FROM PERSON WHERE CONCAT(FIRSTNAME, ' ', LASTNAME) = '" + custnameTxt.Text + "'", conn);
+
+        }
     }
 }
