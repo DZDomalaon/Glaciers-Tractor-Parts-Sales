@@ -323,9 +323,9 @@ namespace softeng1
                 {
                     //Get data of price, subtotal, and quatity per row in the datagrid
                     //@Price, @Subtotal, and @Quantity are the names of the columns
-                    addToSales.Parameters.AddWithValue("@Price", double.Parse(row.Cells[1].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
-                    addToSales.Parameters.AddWithValue("@Subtotal", double.Parse(row.Cells[2].Value.ToString()));
-                    addToSales.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[3].Value.ToString()));
+                    addToSales.Parameters.AddWithValue("@Price", double.Parse(row.Cells[4].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
+                    addToSales.Parameters.AddWithValue("@Subtotal", double.Parse(row.Cells[5].Value.ToString()));
+                    addToSales.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[6].Value.ToString()));
                     addToSales.ExecuteNonQuery();
                 }
 
