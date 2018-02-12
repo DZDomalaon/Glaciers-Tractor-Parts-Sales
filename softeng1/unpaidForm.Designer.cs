@@ -55,6 +55,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.unpaidDateLbl = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.remainingLbl = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -260,6 +262,7 @@
             this.editBtn.TabIndex = 62;
             this.editBtn.Text = "Edit";
             this.editBtn.UseVisualStyleBackColor = false;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // addBtn
             // 
@@ -353,12 +356,33 @@
             this.label11.TabIndex = 65;
             this.label11.Text = "Date";
             // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(303, 300);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(92, 27);
+            this.textBox1.TabIndex = 67;
+            // 
+            // remainingLbl
+            // 
+            this.remainingLbl.AutoSize = true;
+            this.remainingLbl.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.remainingLbl.ForeColor = System.Drawing.Color.Black;
+            this.remainingLbl.Location = new System.Drawing.Point(203, 300);
+            this.remainingLbl.Name = "remainingLbl";
+            this.remainingLbl.Size = new System.Drawing.Size(90, 23);
+            this.remainingLbl.TabIndex = 66;
+            this.remainingLbl.Text = "Remaining";
+            // 
             // unpaidForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.remainingLbl);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.unpaidDateLbl);
             this.Controls.Add(this.panel6);
@@ -384,7 +408,7 @@
             this.MinimizeBox = false;
             this.Name = "unpaidForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Glacier Tractor Parts & Sales | Unpaid Invoices";
+            this.Text = " ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.unpaidForm_FormClosing);
             this.Load += new System.EventHandler(this.unpaidForm_Load);
             this.panel3.ResumeLayout(false);
@@ -433,5 +457,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label unpaidDateLbl;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label remainingLbl;
     }
 }
