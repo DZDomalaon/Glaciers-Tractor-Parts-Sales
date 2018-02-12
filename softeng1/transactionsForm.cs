@@ -37,7 +37,7 @@ namespace softeng1
         }
         public void loadCustomers()
         {
-            String query = "SELECT * FROM PERSON, EMPLOYEE WHERE PERSON.PERSON_TYPE = 'EMPLOYEE' AND EMP_PERSON_ID = PERSON_ID";
+            String query = "SELECT concat(firstname,' ',lastname) as name, time_in, time_out, log_date, concat(firstname,' ',lastname) as cname FROM employee, person, customer, sales_order WHERE person.person_type = 'EMPLOYEE' AND emp_person_id = person_id";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -47,12 +47,11 @@ namespace softeng1
             adp.Fill(dt);
 
             customerData.DataSource = dt;
-            customerData.Columns["emp_id"].Visible = false;
-            customerData.Columns["person_id"].Visible = false;
-            customerData.Columns["username"].Visible = false;
-            customerData.Columns["password"].Visible = false;
-            customerData.Columns["time_in"].Visible = false;
-            customerData.Columns["time_out"].Visible = false;
+            customerData.Columns["name"].HeaderText = "Employee";
+            customerData.Columns["time_in"].HeaderText = "Time In";
+            customerData.Columns["time_out"].HeaderText = "Time Out";
+            customerData.Columns["log_date"].HeaderText = "Log Date";
+            customerData.Columns["cname"].HeaderText = "Customer"; //
         }
     }
 }
