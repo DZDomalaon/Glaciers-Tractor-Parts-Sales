@@ -147,6 +147,9 @@ namespace softeng1
                 priceTxt.Clear();
                 pquant.Clear();
                 ptotal.Clear();
+                categTxt.Text = "";
+                variantTxt.Text = "";
+                ptypeTxt.Text = "";
 
                 calcSum();
             }
@@ -207,7 +210,7 @@ namespace softeng1
             conn.Open();
 
             int countProd;
-            MySqlCommand getProduct = new MySqlCommand("SELECT COUNT(*) FROM PRODUCT, SUPPLIER, PRODUCT_HAS_SUPPLIER WHERE PRODUCT_ID = PRODUCT_PRODUCT_ID", conn);
+            MySqlCommand getProduct = new MySqlCommand("SELECT COUNT(*) FROM PRODUCT, SUPPLIER, PRODUCT_HAS_SUPPLIER WHERE PRODUCT_ID = PRODUCT_PRODUCT_ID AND SUPPLIER_SUPPLIER_ID = SUPPLIER_ID", conn);
             countProd = Convert.ToInt16(getProduct.ExecuteScalar());
 
             conn.Close();
@@ -284,14 +287,14 @@ namespace softeng1
 
             calcSum();
         }
-
+        
         private void confirmBtn_Click(object sender, EventArgs e)
         {
             int maxOrderId = 0;
             int OrderIncrement = 0;
             int empId = loginForm.user_id;
             int supId;
-
+            string product = pname.Text;
 
             conn.Open();
             //Get max id from sales_order
@@ -305,24 +308,23 @@ namespace softeng1
             MySqlCommand getSupID = new MySqlCommand("SELECT supplier_id FROM supplier, person where(CONCAT(FIRSTNAME, ' ', LASTNAME) LIKE '%" + snameTxt.Text + "%') and person_type = 'supplier' and person_id = supplier_person_id ", conn);
             supId = Convert.ToInt16(getSupID.ExecuteScalar());
 
+            string insertPurch = "INSERT INTO purchase(purchase_id, purchase_date, status, purchase_emp_id, purchase_supplier_id) VALUES('" + OrderIncrement + "', '" + today + "', 'To be delivered', '" + empId + "', '" + supId + "')";
+            MySqlCommand insertPurchComm = new MySqlCommand(insertPurch, conn);
+            insertPurchComm.ExecuteNonQuery();
+
             conn.Close();
 
             double total = double.Parse(totalpriceTxt.Text.ToString());
             foreach (DataGridViewRow row in dgProducts.Rows)
             {
                 conn.Open();
-                using (MySqlCommand addToPurchase = new MySqlCommand("INSERT INTO purchase(purchase_id, purchase_date, status, purchase_emp_id, purchase_supplier_id) VALUES('" + OrderIncrement + "', '" + today + "', 'To be delivered', '" + empId + "', '" + supId + "')", conn))
+                
+                using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO PURCHASE_DETAILS VALUES(@ProductName, @Price, '"+ double.Parse(totalpriceTxt.Text) + "', @Subtotal, @Quantity, 1, @ProductCategory, @ProductVariant , @ProductType, '"+ OrderIncrement +"')", conn))
                 {
-                    //addToPurchase.Parameters.AddWithValue("@ProductName", (row.Cells[0].Value.ToString()));
-                    //addToPurchase.Parameters.AddWithValue("@Price", double.Parse(row.Cells[4].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
-                    //addToPurchase.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[6].Value.ToString()));
-                    addToPurchase.ExecuteNonQuery();
-                }
-
-                using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO PURCHASE_DETAILS(PRODUCT_NAME, PRODUCT_UNIT_PRICE, PURCHASE_TOTAL, PURCHASE_SUBTOTAL, PURCHASE_TQUANTITY, PURCHASE_SUBQUANTITY, PROD_CATEGORY, PROD_VARIANT, PROD_TYPE, PD_PURCHASE_ID) VALUES('" + pname.Text + "', @Price, @Subtotal, '" + total + "',  @Quantity, '" + OrderIncrement + "')", conn))
-                {
-                    //Get data of price, subtotal, and quatity per row in the datagrid
-                    //@Price, @Subtotal, and @Quantity are the names of the columns
+                    addToSales.Parameters.AddWithValue("@ProductName", row.Cells[0].Value.ToString());
+                    addToSales.Parameters.AddWithValue("@ProductCategory", row.Cells[1].Value.ToString());
+                    addToSales.Parameters.AddWithValue("@ProductVariant", row.Cells[2].Value.ToString());
+                    addToSales.Parameters.AddWithValue("@ProductType", row.Cells[3].Value.ToString());
                     addToSales.Parameters.AddWithValue("@Price", double.Parse(row.Cells[4].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
                     addToSales.Parameters.AddWithValue("@Subtotal", double.Parse(row.Cells[5].Value.ToString()));
                     addToSales.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[6].Value.ToString()));
