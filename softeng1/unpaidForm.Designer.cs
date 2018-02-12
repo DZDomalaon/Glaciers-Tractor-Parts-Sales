@@ -43,7 +43,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.ordernumTxt = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.amountTxt = new System.Windows.Forms.TextBox();
             this.backBtn = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
@@ -54,6 +54,7 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.unpaidDateLbl = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -224,13 +225,14 @@
             this.label10.TabIndex = 58;
             this.label10.Text = "Amount";
             // 
-            // textBox1
+            // amountTxt
             // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(105, 391);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(92, 27);
-            this.textBox1.TabIndex = 59;
+            this.amountTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amountTxt.Location = new System.Drawing.Point(105, 391);
+            this.amountTxt.Name = "amountTxt";
+            this.amountTxt.Size = new System.Drawing.Size(92, 27);
+            this.amountTxt.TabIndex = 59;
+            this.amountTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.amountTxt_KeyPress);
             // 
             // backBtn
             // 
@@ -334,11 +336,22 @@
             // 
             this.unpaidDateLbl.AutoSize = true;
             this.unpaidDateLbl.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.unpaidDateLbl.Location = new System.Drawing.Point(12, 309);
+            this.unpaidDateLbl.Location = new System.Drawing.Point(101, 300);
             this.unpaidDateLbl.Name = "unpaidDateLbl";
             this.unpaidDateLbl.Size = new System.Drawing.Size(40, 23);
             this.unpaidDateLbl.TabIndex = 6;
             this.unpaidDateLbl.Text = "-----";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(12, 300);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(46, 23);
+            this.label11.TabIndex = 65;
+            this.label11.Text = "Date";
             // 
             // unpaidForm
             // 
@@ -346,12 +359,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.unpaidDateLbl);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.addBtn);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.amountTxt);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.balanceTxt);
             this.Controls.Add(this.label9);
@@ -407,7 +421,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox ordernumTxt;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox amountTxt;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Button addBtn;
@@ -418,5 +432,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label unpaidDateLbl;
+        private System.Windows.Forms.Label label11;
     }
 }
