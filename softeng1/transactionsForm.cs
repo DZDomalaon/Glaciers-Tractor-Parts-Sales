@@ -23,21 +23,16 @@ namespace softeng1
         private void transactionsForm_Load(object sender, EventArgs e)
         {
             loadCustomers();
+            //loadSuppliers();
         }
 
         private void transactionsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             fromTransactions.Show();
         }
-
-        private void addBtn_Click(object sender, EventArgs e)
-        {
-            cpanel.Visible = true;
-            cpanel.Enabled = true;
-        }
         public void loadCustomers()
         {
-            String query = "SELECT concat(firstname,' ',lastname) as name, time_in, time_out, log_date, concat(firstname,' ',lastname) as cname FROM employee, person, customer, sales_order WHERE person.person_type = 'EMPLOYEE' AND emp_person_id = person_id";
+            String query = "SELECT concat(firstname,' ',lastname) as cname, order_date, order_status FROM person, customer, sales_order WHERE order_customer_id = customer_id AND customer_person_id = person_id AND order_emp_id = (SELECT emp_id FROM employee, person WHERE (concat(firstname,' ',lastname) LIKE '%" + empnameTxt.Text + "%') AND emp_person_id = person_id)";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -47,11 +42,10 @@ namespace softeng1
             adp.Fill(dt);
 
             customerData.DataSource = dt;
-            customerData.Columns["name"].HeaderText = "Employee";
-            customerData.Columns["time_in"].HeaderText = "Time In";
-            customerData.Columns["time_out"].HeaderText = "Time Out";
-            customerData.Columns["log_date"].HeaderText = "Log Date";
-            customerData.Columns["cname"].HeaderText = "Customer"; //
+            //customerData.Columns[loginForm.name].HeaderText = "Employee";
+            customerData.Columns["order_date"].HeaderText = "Log Date";
+            customerData.Columns["cname"].HeaderText = "Customer";
+            customerData.Columns["order_status"].HeaderText = "Status"; 
         }
     }
 }
