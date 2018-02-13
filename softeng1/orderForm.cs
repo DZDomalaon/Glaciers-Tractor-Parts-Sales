@@ -292,6 +292,7 @@ namespace softeng1
             DateTime theDate = DateTime.Now;
             string formatForMySql = theDate.ToString("yyyy-MM-dd");
             double total = double.Parse(totalpriceTxt.Text.ToString());
+            double change = double.Parse(cashTxt.Text.ToString()) - double.Parse(totalpriceTxt.Text.ToString());
 
             conn.Open();
 
@@ -314,7 +315,7 @@ namespace softeng1
                     PaymentInc = maxPaymentId;
 
                     //Insert data to sales_order                    
-                    string insertToSO = "INSERT INTO sales_order(ORDER_DATE, ORDER_WARRANTY, ORDER_STATUS, WARRANTY_STATUS, order_customer_id, order_emp_id, order_payment_id) VALUES('" + formatForMySql + "', '" + formatForMySql + "', 'Paid', 'Valid', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "')";
+                    string insertToSO = "INSERT INTO sales_order(ORDER_DATE, ORDER_STATUS, PAYMENT_CHANGE, order_customer_id, order_emp_id, order_payment_id) VALUES('" + formatForMySql + "', 'Paid', '" + change + "', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "')";
                     MySqlCommand insertToSOComm = new MySqlCommand(insertToSO, conn);
                     insertToSOComm.ExecuteNonQuery();
 
@@ -386,7 +387,7 @@ namespace softeng1
                 PaymentInc = maxPaymentId;
 
                 //Insert data to sales_order                    
-                string insertToSO = "INSERT INTO sales_order(ORDER_DATE, ORDER_WARRANTY, ORDER_STATUS, WARRANTY_STATUS, order_customer_id, order_emp_id, order_payment_id) VALUES('" + formatForMySql + "', '" + formatForMySql + "', 'Unpaid', 'Valid', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "')";
+                string insertToSO = "INSERT INTO sales_order(ORDER_DATE, ORDER_STATUS, ORDER_BALANCE, order_customer_id, order_emp_id, order_payment_id) VALUES('" + formatForMySql + "', 'Unpaid', '" + total + "', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "')";
                 MySqlCommand insertToSOComm = new MySqlCommand(insertToSO, conn);
                 insertToSOComm.ExecuteNonQuery();                
 
