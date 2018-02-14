@@ -77,8 +77,6 @@ namespace softeng1
             purchaseData.Columns.Add("PurchaseDate", "Purchase Date");
             purchaseData.Columns.Add("Status", "Status");
             purchaseData.Columns.Add("Supplier", "Supplier");
-            loadSupplier();
-
             purchaseData.Visible = true;
 
         }
