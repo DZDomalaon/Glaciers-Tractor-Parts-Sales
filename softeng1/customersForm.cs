@@ -84,11 +84,11 @@ namespace softeng1
             DataTable dt = new DataTable();
             adp.Fill(dt);
 
-            dgtransactions.DataSource = dt;
+            dataGridView1.DataSource = dt;
 
-            dgtransactions.Columns["ORDER_TOTAL"].HeaderText = "Total Price";
-            dgtransactions.Columns["ORDER_DATE"].HeaderText = "Date";
-            dgtransactions.Columns["ORDER_STATUS"].HeaderText = "Status";
+            dataGridView1.Columns["ORDER_TOTAL"].HeaderText = "Total Price";
+            dataGridView1.Columns["ORDER_DATE"].HeaderText = "Date";
+            dataGridView1.Columns["ORDER_STATUS"].HeaderText = "Status";
         }
 
         private int selected_cust_id;

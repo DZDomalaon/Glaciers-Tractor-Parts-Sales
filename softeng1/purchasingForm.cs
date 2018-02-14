@@ -319,7 +319,7 @@ namespace softeng1
             {
                 conn.Open();
                 
-                using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO PURCHASE_DETAILS VALUES(@ProductName, @Price, '"+ double.Parse(totalpriceTxt.Text) + "', @Subtotal, @Quantity, 1, @ProductCategory, @ProductVariant , @ProductType, '"+ OrderIncrement +"')", conn))
+                using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO PURCHASE_DETAILS VALUES(@ProductName, @Price, '"+ double.Parse(totalpriceTxt.Text) + "', @Subtotal, '"+ totalQuantity() +"', @Quantity, @ProductCategory, @ProductVariant , @ProductType, '"+ OrderIncrement +"')", conn))
                 {
                     addToSales.Parameters.AddWithValue("@ProductName", row.Cells[0].Value.ToString());
                     addToSales.Parameters.AddWithValue("@ProductCategory", row.Cells[1].Value.ToString());
@@ -348,6 +348,17 @@ namespace softeng1
             oPanel.Enabled = true;
             oPanel.Visible = true;
             oPanel.Location = new Point(279, 191);
+        }
+
+        private int totalQuantity()
+        {
+            int a = 0, b = 0;
+            foreach (DataGridViewRow row in dgProducts.Rows)
+            {
+                a = int.Parse(row.Cells[6].Value.ToString());
+                b = b + a;
+            }
+            return b;
         }
 
         private void okBtn_Click(object sender, EventArgs e)
@@ -406,12 +417,27 @@ namespace softeng1
 
         }
 
+        private void supLbl_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void errorPanel_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void totalpriceTxt_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void calcSum()
         {
             double a = 0, b = 0;
             foreach (DataGridViewRow row in dgProducts.Rows)
             {
-                a = Convert.ToDouble(row.Cells[4].Value);
+                a = Convert.ToDouble(row.Cells[5].Value);
                 b = b + a;
             }
             totalpriceTxt.Text = b.ToString("#,0.00");
