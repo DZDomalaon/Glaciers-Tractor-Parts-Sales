@@ -45,7 +45,7 @@ namespace softeng1
             this.Hide();
         }
 
-        public void loadSupplier()
+        public void loadPurchase()
         {
             AutoCompleteStringCollection namesCollection = new AutoCompleteStringCollection();
 
@@ -71,7 +71,7 @@ namespace softeng1
         }
         private void deliveryForm_Load_1(object sender, EventArgs e)
         {
-            loadSupplier();
+            loadPurchase();
             supLbl.Visible = false;
 
             purchaseData.Columns.Add("PurchaseDate", "Purchase Date");
