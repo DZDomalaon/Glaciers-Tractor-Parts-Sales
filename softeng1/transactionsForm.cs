@@ -23,6 +23,7 @@ namespace softeng1
         private void transactionsForm_Load(object sender, EventArgs e)
         {
             loadEmployee();
+            loadSuppliers();
         }
         private void transactionsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -91,6 +92,12 @@ namespace softeng1
         {
             loadCustomers();
             loadSuppliers();
+        }
+
+        private void backBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            fromTransactions.Show();
         }
     }
 }
