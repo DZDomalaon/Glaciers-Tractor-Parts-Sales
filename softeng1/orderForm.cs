@@ -25,6 +25,8 @@ namespace softeng1
         public static int customer_id, rowIndex, product_id, availableStock, quan, countProduct, countCustomer, quant;
         public static String prod, price, ln, fn, getPrice;
         public static double tot, p, q;
+        public static int getSer;
+
 
         public static homeForm fromOrder { get; set; }
 
@@ -189,22 +191,6 @@ namespace softeng1
             }
         }
 
-        private void cashTxt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
-            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
-            {
-                e.Handled = true;
-            }
-            if (Regex.IsMatch(cashTxt.Text, @"\.\d\d") && e.KeyChar != 8)
-            {
-                e.Handled = true;
-            }
-        }
-
         private void closePanel_Click(object sender, EventArgs e)
         {
             errorPanel.Hide();           
@@ -219,6 +205,7 @@ namespace softeng1
                 custLbl.Visible = false;
             }
         }
+
 
         //Filter for productnameTxt
         private void productnameTxt_TextChanged(object sender, EventArgs e)
@@ -262,8 +249,9 @@ namespace softeng1
                 BuydateLbl.Text = DateTime.Now.Date.ToString("yyyy/MM/dd");
 
                 DateTime theDate = DateTime.Now;
-                
-                MessageBox.Show(theDate.ToString("yyyy-MM-dd"));
+
+
+                MessageBox.Show(theDate.ToString(toIntSerial + " " + customer_id));
             }
                 
         }
@@ -292,16 +280,17 @@ namespace softeng1
             DateTime theDate = DateTime.Now;
             string formatForMySql = theDate.ToString("yyyy-MM-dd");
             double total = double.Parse(totalpriceTxt.Text.ToString());
-            double change = double.Parse(cashTxt.Text.ToString()) - double.Parse(totalpriceTxt.Text.ToString());
+            
 
             conn.Open();
 
             //Get the id of selected customer
             MySqlCommand getCustomerID = new MySqlCommand("SELECT customer_id FROM customer, person where (CONCAT(FIRSTNAME, ' ', LASTNAME) LIKE '%" + custnameTxt.Text + "%') and person_type = 'customer' and person_id = customer_person_id ", conn);
-            customer_id = Convert.ToInt16(getCustomerID.ExecuteScalar());            
+            customer_id = Convert.ToInt16(getCustomerID.ExecuteScalar());
 
             if (paymentCmb.Text == "Cash")
             {
+                double change = double.Parse(cashTxt.Text.ToString()) - double.Parse(totalpriceTxt.Text.ToString());
                 if (double.Parse(cashTxt.Text.ToString()) >= total)
                 {
                     //insert payment amount
@@ -336,13 +325,14 @@ namespace softeng1
                         using (conn)
                         {
                             //insert to database
-                            using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO SALES_ORDER_DETAILS(ORDER_PRODUCT_ID, ORDER_UNIT_PRICE, ORDER_SUBTOTAL, ORDER_TOTAL, ORDER_TQUANTITY, ORDER_SUBQUANTITY, SO_ID) VALUES('" + prod_id + "', @Price, @Subtotal, '" + total + "', '" + totalQuanatity() + "', @Quantity, '" + OrderIncrement + "')", conn))
+                            using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO SALES_ORDER_DETAILS(ORDER_PRODUCT_ID, ORDER_UNIT_PRICE, ORDER_SUBTOTAL, ORDER_TOTAL, ORDER_TQUANTITY, ORDER_SUBQUANTITY, ORDER_SERIAL_NO, SO_ID) VALUES('" + prod_id + "', @Price, @Subtotal, '" + total + "', '" + totalQuanatity() + "', @Quantity, @Serial, '" + OrderIncrement + "')", conn))
                             {
                                 //Get data of price, subtotal, and quatity per row in the datagrid
                                 //@Price, @Subtotal, and @Quantity are the names of the columns
                                 addToSales.Parameters.AddWithValue("@Price", double.Parse(row.Cells[1].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
                                 addToSales.Parameters.AddWithValue("@Subtotal", double.Parse(row.Cells[2].Value.ToString()));
                                 addToSales.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[3].Value.ToString()));
+                                addToSales.Parameters.AddWithValue("@Serial", row.Cells[4].Value.ToString());
                                 addToSales.ExecuteNonQuery();
                             }
 
@@ -351,6 +341,11 @@ namespace softeng1
                             string deductQuantity = "UPDATE INVENTORY SET QUANTITY = QUANTITY - '" + quan + "' WHERE INVENTORY_ID = (SELECT PRODUCT_INV_ID FROM PRODUCT WHERE PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')";
                             MySqlCommand comm2 = new MySqlCommand(deductQuantity, conn);
                             comm2.ExecuteNonQuery();
+
+                            //update serial
+                            String updateSerial = "update product set serial_no = '" + getSer + "' where product_name = '" + productnameTxt.Text + "'";
+                            MySqlCommand updateSerialComm = new MySqlCommand(updateSerial, conn);
+                            updateSerialComm.ExecuteNonQuery();
                         }
                     }
                     conn.Close();
@@ -372,12 +367,12 @@ namespace softeng1
             else if (paymentCmb.Text == "Credit")
             {
                 //Insert total to balance
-                string insertToCustomer = "UPDATE CUSTOMER SET BALANCE = BALANCE + '" + total + "' where CUSTOMER_ID = '" + customer_id + "'";
-                MySqlCommand insertToCustomerComm = new MySqlCommand(insertToCustomer, conn);
-                insertToCustomerComm.ExecuteNonQuery();
+                string updateBalance = "UPDATE CUSTOMER SET BALANCE = BALANCE + '" + total + "' where CUSTOMER_ID = '" + customer_id + "'";
+                MySqlCommand updateBalanceComm = new MySqlCommand(updateBalance, conn);
+                updateBalanceComm.ExecuteNonQuery();
 
                 //insert payment amount
-                String insertToPayment = "INSERT INTO PAYMENT(AMOUNT, PAYMENT_DATE, TYPE) VALUES('" + total + "', '" + formatForMySql + "', 'Credit')";
+                String insertToPayment = "INSERT INTO PAYMENT(PAYMENT_DATE, TYPE) VALUES('"+ formatForMySql + "', 'Credit')";
                 MySqlCommand comm = new MySqlCommand(insertToPayment, conn);
                 comm.ExecuteNonQuery();
 
@@ -409,21 +404,27 @@ namespace softeng1
                     using (conn)
                     {
                         //insert to database
-                        using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO SALES_ORDER_DETAILS(ORDER_PRODUCT_ID, ORDER_UNIT_PRICE, ORDER_SUBTOTAL, ORDER_TOTAL, ORDER_TQUANTITY, ORDER_SUBQUANTITY, SO_ID) VALUES('" + prod_id + "', @Price, @Subtotal, '" + total + "', '" + totalQuanatity() + "', @Quantity, '" + OrderIncrement + "')", conn))
+                        using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO SALES_ORDER_DETAILS(ORDER_PRODUCT_ID, ORDER_UNIT_PRICE, ORDER_SUBTOTAL, ORDER_TOTAL, ORDER_TQUANTITY, ORDER_SUBQUANTITY, ORDER_SERIAL_NO, SO_ID) VALUES('" + prod_id + "', @Price, @Subtotal, '" + total + "', '" + totalQuanatity() + "', @Quantity, @Serial, '" + OrderIncrement + "')", conn))
                         {
                             //Get data of price, subtotal, and quatity per row in the datagrid
                             //@Price, @Subtotal, and @Quantity are the names of the columns
-                            addToSales.Parameters.AddWithValue("@Price", double.Parse(row.Cells[1].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
+                            addToSales.Parameters.AddWithValue("@Price", double.Parse(row.Cells[1].Value.ToString()));
                             addToSales.Parameters.AddWithValue("@Subtotal", double.Parse(row.Cells[2].Value.ToString()));
                             addToSales.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[3].Value.ToString()));
+                            addToSales.Parameters.AddWithValue("@Serial", row.Cells[4].Value.ToString());
                             addToSales.ExecuteNonQuery();
                         }
 
                         //deduct quantity
                         quan = int.Parse(row.Cells[3].Value.ToString());
                         string deductQuantity = "UPDATE INVENTORY SET QUANTITY = QUANTITY - '" + quan + "' WHERE INVENTORY_ID = (SELECT PRODUCT_INV_ID FROM PRODUCT WHERE PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')";
-                        MySqlCommand comm2 = new MySqlCommand(deductQuantity, conn);
+                        MySqlCommand comm2 = new MySqlCommand(deductQuantity, conn);                        
                         comm2.ExecuteNonQuery();
+
+                        //update serial
+                        String updateSerial = "update product set serial_no = '" + getSer + "' where product_name = '" + productnameTxt.Text + "'";
+                        MySqlCommand updateSerialComm = new MySqlCommand(updateSerial, conn);
+                        updateSerialComm.ExecuteNonQuery();
                     }
                 }
                 conn.Close();
@@ -436,7 +437,7 @@ namespace softeng1
                 this.orderDG.Rows.Clear();
                 calcSum();
                 MessageBox.Show("Trasaction complete");
-            }            
+            }
             conn.Close();
         }
 
@@ -472,9 +473,11 @@ namespace softeng1
         }
 
         //Add order to Datagrid
+        public static int toIntSerial;       
+        public static string serial = "";
         private void addOrder_Click(object sender, EventArgs e)
         {
-            int quantity = int.Parse(pquant.Text.ToString());
+            int quantity = int.Parse(pquant.Text.ToString());            
             double total_price = double.Parse(ptotal.Text.ToString()) / double.Parse(pquant.Text.ToString());
 
             if (custnameTxt.Text == "" || productnameTxt.Text == "" || ppriceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "")
@@ -486,26 +489,50 @@ namespace softeng1
                 conn.Open();
                 MySqlCommand getQuantity = new MySqlCommand("select quantity from inventory, product where product_name = '" + productnameTxt.Text + "' and inventory_id = product_inv_id", conn);
                 availableStock = Convert.ToInt32(getQuantity.ExecuteScalar());
+
+                //Getting serial
+                String getSerial = "select serial from product where product_name = '" + productnameTxt.Text + "'";
+                MySqlCommand comm = new MySqlCommand(getSerial, conn);
+                comm.CommandText = getSerial;
+                MySqlDataReader drd = comm.ExecuteReader();
+
+                if (drd.HasRows == true)
+                {
+                    while (drd.Read())
+                       serial = drd["serial"].ToString();
+                }
                 conn.Close();
 
-                if(availableStock >= quantity)
+                conn.Open();
+                MySqlCommand getIntSerial = new MySqlCommand("select serial_no from product where product_name = '" + productnameTxt.Text + "'", conn);
+                toIntSerial = Convert.ToInt32(getIntSerial.ExecuteScalar());
+                conn.Close();
+
+                if (availableStock >= quantity)
                 {
-                    for(int i = 0; i < quantity; i++)
+                    for (int i = 0; i < quantity; i++)
                     {
-                        string firstColumn = productnameTxt.Text;
+                        string serialNo = serial + toIntSerial;
+
+                        string firstColumn = productnameTxt.Text;   
                         string secondColumn = ppriceTxt.Text;
                         string thirdColumn = total_price.ToString();
                         string fourthColumn = "1";
-                        string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn };
+                        string fifthColumn = serialNo;
+                        string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn };
+
+                        toIntSerial = toIntSerial + 1;
 
                         orderDG.Rows.Add(row);
-                    }                    
+                    }
 
                     productnameTxt.Clear();
                     ppriceTxt.Clear();
                     pquant.Clear();
                     ptotal.Clear();
                     calcSum();
+
+                    getSer = toIntSerial;
 
                     editOrderBtn.Enabled = true;
                     stockLbl.Visible = false;
@@ -514,6 +541,8 @@ namespace softeng1
                 {
                     MessageBox.Show("The available stock is only " + availableStock, "Not enough stock", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+                
+                
             }
         }
         //Remove the selected row

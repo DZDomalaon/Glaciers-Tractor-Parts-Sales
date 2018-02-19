@@ -37,10 +37,11 @@ namespace softeng1
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.orderDG = new System.Windows.Forms.DataGridView();
-            this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProductPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProductName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Product_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Serial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.custnameTxt = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -96,6 +97,7 @@ namespace softeng1
             this.buyBtn = new System.Windows.Forms.Button();
             this.custLbl = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -197,10 +199,11 @@ namespace softeng1
             this.orderDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.orderDG.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.orderDG.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ProdName,
-            this.ProductPrice,
+            this.ProductName,
+            this.Product_Price,
             this.SubTotal,
-            this.ProdQuantity});
+            this.Quantity,
+            this.Serial});
             this.orderDG.Location = new System.Drawing.Point(434, 85);
             this.orderDG.Name = "orderDG";
             this.orderDG.ReadOnly = true;
@@ -211,17 +214,17 @@ namespace softeng1
             this.orderDG.TabIndex = 7;
             this.orderDG.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.orderDG_CellClick);
             // 
-            // ProdName
+            // ProductName
             // 
-            this.ProdName.HeaderText = "Product";
-            this.ProdName.Name = "ProdName";
-            this.ProdName.ReadOnly = true;
+            this.ProductName.HeaderText = "Product Name";
+            this.ProductName.Name = "ProductName";
+            this.ProductName.ReadOnly = true;
             // 
-            // ProductPrice
+            // Product_Price
             // 
-            this.ProductPrice.HeaderText = "Price";
-            this.ProductPrice.Name = "ProductPrice";
-            this.ProductPrice.ReadOnly = true;
+            this.Product_Price.HeaderText = "Price";
+            this.Product_Price.Name = "Product_Price";
+            this.Product_Price.ReadOnly = true;
             // 
             // SubTotal
             // 
@@ -229,11 +232,17 @@ namespace softeng1
             this.SubTotal.Name = "SubTotal";
             this.SubTotal.ReadOnly = true;
             // 
-            // ProdQuantity
+            // Quantity
             // 
-            this.ProdQuantity.HeaderText = "Quantity";
-            this.ProdQuantity.Name = "ProdQuantity";
-            this.ProdQuantity.ReadOnly = true;
+            this.Quantity.HeaderText = "Quantity";
+            this.Quantity.Name = "Quantity";
+            this.Quantity.ReadOnly = true;
+            // 
+            // Serial
+            // 
+            this.Serial.HeaderText = "Serial";
+            this.Serial.Name = "Serial";
+            this.Serial.ReadOnly = true;
             // 
             // custnameTxt
             // 
@@ -576,7 +585,6 @@ namespace softeng1
             this.cashTxt.Name = "cashTxt";
             this.cashTxt.Size = new System.Drawing.Size(183, 27);
             this.cashTxt.TabIndex = 54;
-            this.cashTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cashTxt_KeyPress);
             // 
             // label20
             // 
@@ -848,6 +856,12 @@ namespace softeng1
             this.label24.Text = "-----";
             this.label24.Visible = false;
             // 
+            // ProdName
+            // 
+            this.ProdName.HeaderText = "Product";
+            this.ProdName.Name = "ProdName";
+            this.ProdName.Width = 130;
+            // 
             // orderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -986,10 +1000,6 @@ namespace softeng1
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.ComboBox paymentCmb;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProdName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProductPrice;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProdQuantity;
         private System.Windows.Forms.Label stockLbl;
         private System.Windows.Forms.Panel errorPanel;
         private System.Windows.Forms.Panel panel13;
@@ -999,5 +1009,11 @@ namespace softeng1
         private System.Windows.Forms.Button closePanel;
         private System.Windows.Forms.Label custLbl;
         private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProdName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProductName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Product_Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Serial;
     }
 }

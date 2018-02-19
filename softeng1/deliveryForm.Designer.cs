@@ -34,12 +34,10 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.custData = new System.Windows.Forms.DataGridView();
+            this.purchaseData = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.deliveryDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
-            this.stockinBtn = new System.Windows.Forms.RadioButton();
-            this.repBtn = new System.Windows.Forms.RadioButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -52,10 +50,12 @@
             this.addBtn = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.snameTxt = new System.Windows.Forms.TextBox();
+            this.supLbl = new System.Windows.Forms.Label();
+            this.statustxt = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.custData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseData)).BeginInit();
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,16 +122,16 @@
             this.label2.Text = "Delivery Details";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // custData
+            // purchaseData
             // 
-            this.custData.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.custData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.custData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.custData.Dock = System.Windows.Forms.DockStyle.Right;
-            this.custData.Location = new System.Drawing.Point(434, 85);
-            this.custData.Name = "custData";
-            this.custData.Size = new System.Drawing.Size(521, 502);
-            this.custData.TabIndex = 64;
+            this.purchaseData.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.purchaseData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.purchaseData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.purchaseData.Dock = System.Windows.Forms.DockStyle.Right;
+            this.purchaseData.Location = new System.Drawing.Point(434, 85);
+            this.purchaseData.Name = "purchaseData";
+            this.purchaseData.Size = new System.Drawing.Size(521, 502);
+            this.purchaseData.TabIndex = 64;
             // 
             // label4
             // 
@@ -162,30 +162,6 @@
             this.label5.Size = new System.Drawing.Size(73, 46);
             this.label5.TabIndex = 67;
             this.label5.Text = "Delivery\r\nStatus";
-            // 
-            // stockinBtn
-            // 
-            this.stockinBtn.AutoSize = true;
-            this.stockinBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.stockinBtn.Location = new System.Drawing.Point(139, 151);
-            this.stockinBtn.Name = "stockinBtn";
-            this.stockinBtn.Size = new System.Drawing.Size(77, 23);
-            this.stockinBtn.TabIndex = 68;
-            this.stockinBtn.TabStop = true;
-            this.stockinBtn.Text = "Stock-in";
-            this.stockinBtn.UseVisualStyleBackColor = true;
-            // 
-            // repBtn
-            // 
-            this.repBtn.AutoSize = true;
-            this.repBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.repBtn.Location = new System.Drawing.Point(232, 151);
-            this.repBtn.Name = "repBtn";
-            this.repBtn.Size = new System.Drawing.Size(122, 23);
-            this.repBtn.TabIndex = 69;
-            this.repBtn.TabStop = true;
-            this.repBtn.Text = "To be replaced";
-            this.repBtn.UseVisualStyleBackColor = true;
             // 
             // panel5
             // 
@@ -316,6 +292,32 @@
             this.snameTxt.Name = "snameTxt";
             this.snameTxt.Size = new System.Drawing.Size(234, 27);
             this.snameTxt.TabIndex = 79;
+            this.snameTxt.TextChanged += new System.EventHandler(this.snameTxt_TextChanged);
+            // 
+            // supLbl
+            // 
+            this.supLbl.AutoSize = true;
+            this.supLbl.ForeColor = System.Drawing.Color.Red;
+            this.supLbl.Location = new System.Drawing.Point(141, 245);
+            this.supLbl.Name = "supLbl";
+            this.supLbl.Size = new System.Drawing.Size(22, 13);
+            this.supLbl.TabIndex = 80;
+            this.supLbl.Text = "-----";
+            // 
+            // statustxt
+            // 
+            this.statustxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.statustxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.statustxt.FormattingEnabled = true;
+            this.statustxt.Items.AddRange(new object[] {
+            "Stock-in",
+            "Incomplete",
+            "To be delivered",
+            "To be replaced"});
+            this.statustxt.Location = new System.Drawing.Point(139, 159);
+            this.statustxt.Name = "statustxt";
+            this.statustxt.Size = new System.Drawing.Size(234, 27);
+            this.statustxt.TabIndex = 81;
             // 
             // deliveryForm
             // 
@@ -323,6 +325,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.statustxt);
+            this.Controls.Add(this.supLbl);
             this.Controls.Add(this.snameTxt);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.backBtn);
@@ -334,12 +338,10 @@
             this.Controls.Add(this.pnameTxt);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.panel5);
-            this.Controls.Add(this.repBtn);
-            this.Controls.Add(this.stockinBtn);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.deliveryDate);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.custData);
+            this.Controls.Add(this.purchaseData);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -355,7 +357,7 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.custData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseData)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.ResumeLayout(false);
@@ -371,12 +373,10 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView custData;
+        private System.Windows.Forms.DataGridView purchaseData;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DateTimePicker deliveryDate;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RadioButton stockinBtn;
-        private System.Windows.Forms.RadioButton repBtn;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
@@ -389,5 +389,7 @@
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox snameTxt;
+        private System.Windows.Forms.Label supLbl;
+        private System.Windows.Forms.ComboBox statustxt;
     }
 }

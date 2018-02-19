@@ -430,6 +430,7 @@
             this.totalpriceTxt.Size = new System.Drawing.Size(48, 22);
             this.totalpriceTxt.TabIndex = 1;
             this.totalpriceTxt.Text = "0.00";
+            this.totalpriceTxt.Click += new System.EventHandler(this.totalpriceTxt_Click);
             // 
             // label11
             // 
@@ -617,6 +618,7 @@
             this.errorPanel.Size = new System.Drawing.Size(384, 145);
             this.errorPanel.TabIndex = 65;
             this.errorPanel.Visible = false;
+            this.errorPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.errorPanel_Paint_1);
             // 
             // pictureBox1
             // 
@@ -725,6 +727,7 @@
             this.supLbl.Size = new System.Drawing.Size(22, 13);
             this.supLbl.TabIndex = 73;
             this.supLbl.Text = "-----";
+            this.supLbl.Click += new System.EventHandler(this.supLbl_Click);
             // 
             // proLbl
             // 

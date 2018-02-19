@@ -45,18 +45,15 @@
             this.label10 = new System.Windows.Forms.Label();
             this.amountTxt = new System.Windows.Forms.TextBox();
             this.backBtn = new System.Windows.Forms.Button();
-            this.editBtn = new System.Windows.Forms.Button();
-            this.addBtn = new System.Windows.Forms.Button();
             this.totalTxt = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.balanceTxt = new System.Windows.Forms.TextBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
-            this.unpaidDateLbl = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.remainingTxt = new System.Windows.Forms.TextBox();
             this.remainingLbl = new System.Windows.Forms.Label();
+            this.editBtn = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -250,33 +247,6 @@
             this.backBtn.UseVisualStyleBackColor = false;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
-            // editBtn
-            // 
-            this.editBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
-            this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editBtn.ForeColor = System.Drawing.Color.White;
-            this.editBtn.Location = new System.Drawing.Point(170, 459);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(92, 37);
-            this.editBtn.TabIndex = 62;
-            this.editBtn.Text = "Edit";
-            this.editBtn.UseVisualStyleBackColor = false;
-            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
-            // 
-            // addBtn
-            // 
-            this.addBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(186)))), ((int)(((byte)(0)))));
-            this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.addBtn.ForeColor = System.Drawing.Color.White;
-            this.addBtn.Location = new System.Drawing.Point(72, 459);
-            this.addBtn.Name = "addBtn";
-            this.addBtn.Size = new System.Drawing.Size(92, 37);
-            this.addBtn.TabIndex = 61;
-            this.addBtn.Text = "Add";
-            this.addBtn.UseVisualStyleBackColor = false;
-            // 
             // totalTxt
             // 
             this.totalTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -335,45 +305,38 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "Payment Details";
             // 
-            // unpaidDateLbl
+            // remainingTxt
             // 
-            this.unpaidDateLbl.AutoSize = true;
-            this.unpaidDateLbl.Font = new System.Drawing.Font("Calibri", 14.25F);
-            this.unpaidDateLbl.Location = new System.Drawing.Point(101, 300);
-            this.unpaidDateLbl.Name = "unpaidDateLbl";
-            this.unpaidDateLbl.Size = new System.Drawing.Size(40, 23);
-            this.unpaidDateLbl.TabIndex = 6;
-            this.unpaidDateLbl.Text = "-----";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(12, 300);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(46, 23);
-            this.label11.TabIndex = 65;
-            this.label11.Text = "Date";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(303, 300);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(92, 27);
-            this.textBox1.TabIndex = 67;
+            this.remainingTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.remainingTxt.Location = new System.Drawing.Point(105, 300);
+            this.remainingTxt.Name = "remainingTxt";
+            this.remainingTxt.Size = new System.Drawing.Size(92, 27);
+            this.remainingTxt.TabIndex = 67;
             // 
             // remainingLbl
             // 
             this.remainingLbl.AutoSize = true;
             this.remainingLbl.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.remainingLbl.ForeColor = System.Drawing.Color.Black;
-            this.remainingLbl.Location = new System.Drawing.Point(203, 300);
+            this.remainingLbl.Location = new System.Drawing.Point(12, 300);
             this.remainingLbl.Name = "remainingLbl";
             this.remainingLbl.Size = new System.Drawing.Size(90, 23);
             this.remainingLbl.TabIndex = 66;
             this.remainingLbl.Text = "Remaining";
+            // 
+            // editBtn
+            // 
+            this.editBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
+            this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editBtn.ForeColor = System.Drawing.Color.White;
+            this.editBtn.Location = new System.Drawing.Point(105, 459);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(157, 37);
+            this.editBtn.TabIndex = 62;
+            this.editBtn.Text = "Add Payment";
+            this.editBtn.UseVisualStyleBackColor = false;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // unpaidForm
             // 
@@ -381,14 +344,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.remainingTxt);
             this.Controls.Add(this.remainingLbl);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.unpaidDateLbl);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.editBtn);
-            this.Controls.Add(this.addBtn);
             this.Controls.Add(this.amountTxt);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.balanceTxt);
@@ -447,17 +407,14 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox amountTxt;
         private System.Windows.Forms.Button backBtn;
-        private System.Windows.Forms.Button editBtn;
-        private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.TextBox totalTxt;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox balanceTxt;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label unpaidDateLbl;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox remainingTxt;
         private System.Windows.Forms.Label remainingLbl;
+        private System.Windows.Forms.Button editBtn;
     }
 }
