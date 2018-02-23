@@ -188,12 +188,12 @@
             this.settingsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
             this.settingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.settingsBtn.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingsBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.settingsBtn.ForeColor = System.Drawing.SystemColors.Control;
             this.settingsBtn.Image = global::softeng1.Properties.Resources.settings_gears;
             this.settingsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.settingsBtn.Location = new System.Drawing.Point(864, 1);
+            this.settingsBtn.Location = new System.Drawing.Point(862, 2);
             this.settingsBtn.Name = "settingsBtn";
-            this.settingsBtn.Size = new System.Drawing.Size(91, 47);
+            this.settingsBtn.Size = new System.Drawing.Size(91, 43);
             this.settingsBtn.TabIndex = 13;
             this.settingsBtn.Text = "Settings";
             this.settingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
