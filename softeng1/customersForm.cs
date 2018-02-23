@@ -84,41 +84,15 @@ namespace softeng1
             DataTable dt = new DataTable();
             adp.Fill(dt);
 
-            dataGridView1.DataSource = dt;
+            dgtransactions.DataSource = dt;
 
-            dataGridView1.Columns["ORDER_TOTAL"].HeaderText = "Total Price";
-            dataGridView1.Columns["ORDER_DATE"].HeaderText = "Date";
-            dataGridView1.Columns["ORDER_STATUS"].HeaderText = "Status";
+            dgtransactions.Columns["ORDER_TOTAL"].HeaderText = "Total Price";
+            dgtransactions.Columns["ORDER_DATE"].HeaderText = "Date";
+            dgtransactions.Columns["ORDER_STATUS"].HeaderText = "Status";
         }
 
         private int selected_cust_id;
         private int selected_person_id;
-        private void custData_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            addBtn.Enabled = false;
-            editBtn.Enabled = true;
-            if (e.RowIndex > -1)
-            {
-                selected_cust_id = int.Parse(custData.Rows[e.RowIndex].Cells["customer_id"].Value.ToString());
-                selected_person_id = int.Parse(custData.Rows[e.RowIndex].Cells["person_id"].Value.ToString());
-                fnameTxt.Text = custData.Rows[e.RowIndex].Cells["firstname"].Value.ToString();
-                lnameTxt.Text = custData.Rows[e.RowIndex].Cells["lastname"].Value.ToString();          
-                emailTxt.Text = custData.Rows[e.RowIndex].Cells["email"].Value.ToString();
-                addressTxt.Text = custData.Rows[e.RowIndex].Cells["address"].Value.ToString();
-                cnumTxt.Text = custData.Rows[e.RowIndex].Cells["contact_num"].Value.ToString();
-                creditTxt.Text = custData.Rows[e.RowIndex].Cells["credit_limit"].Value.ToString();
-                int gen = int.Parse(custData.Rows[e.RowIndex].Cells["gender"].Value.ToString());
-                if (gen == 1)
-                {
-                    rbMale.Checked = true;
-                }
-                else
-                {
-                    rbFemale.Checked = true;
-                }
-            }
-            loadTransaction();
-        }
 
         private void addBtn_Click(object sender, EventArgs e)
         {
@@ -191,7 +165,7 @@ namespace softeng1
                 MySqlCommand comm = new MySqlCommand(updateCustomer, conn);
                 comm.ExecuteNonQuery();
 
-                String updateCreditLimit = "Update PERSON, CUSTOMER SET CREDIT_LIMIT = '" + int.Parse(creditTxt.Text.ToString()) + "'";
+                String updateCreditLimit = "Update PERSON, CUSTOMER SET CREDIT_LIMIT = '" + double.Parse(creditTxt.Text.ToString()) + "'";
                 MySqlCommand comm2 = new MySqlCommand(updateCreditLimit, conn);
                 comm.ExecuteNonQuery();
 
@@ -223,6 +197,33 @@ namespace softeng1
             {
                 MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
             }
+        }
+
+        private void custData_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            addBtn.Enabled = false;
+            editBtn.Enabled = true;
+            if (e.RowIndex > -1)
+            {
+                selected_cust_id = int.Parse(custData.Rows[e.RowIndex].Cells["customer_id"].Value.ToString());
+                selected_person_id = int.Parse(custData.Rows[e.RowIndex].Cells["person_id"].Value.ToString());
+                fnameTxt.Text = custData.Rows[e.RowIndex].Cells["firstname"].Value.ToString();
+                lnameTxt.Text = custData.Rows[e.RowIndex].Cells["lastname"].Value.ToString();
+                emailTxt.Text = custData.Rows[e.RowIndex].Cells["email"].Value.ToString();
+                addressTxt.Text = custData.Rows[e.RowIndex].Cells["address"].Value.ToString();
+                cnumTxt.Text = custData.Rows[e.RowIndex].Cells["contact_num"].Value.ToString();
+                creditTxt.Text = custData.Rows[e.RowIndex].Cells["credit_limit"].Value.ToString();
+                int gen = int.Parse(custData.Rows[e.RowIndex].Cells["gender"].Value.ToString());
+                if (gen == 1)
+                {
+                    rbMale.Checked = true;
+                }
+                else
+                {
+                    rbFemale.Checked = true;
+                }
+            }
+            loadTransaction();
         }
     }
 }

@@ -418,6 +418,7 @@
             this.custData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.custData.Size = new System.Drawing.Size(522, 240);
             this.custData.TabIndex = 96;
+            this.custData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.custData_CellClick_1);
             // 
             // dgtransactions
             // 
