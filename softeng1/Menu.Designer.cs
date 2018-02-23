@@ -57,6 +57,7 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.panel3.Controls.Add(this.settingsBtn);
             this.panel3.Controls.Add(this.panel1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
@@ -100,7 +101,7 @@
             this.homePanel.Controls.Add(this.supplierBtn);
             this.homePanel.Controls.Add(this.usersBtn);
             this.homePanel.Dock = System.Windows.Forms.DockStyle.Right;
-            this.homePanel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homePanel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.homePanel.ForeColor = System.Drawing.Color.White;
             this.homePanel.Location = new System.Drawing.Point(0, 47);
             this.homePanel.Name = "homePanel";
@@ -174,7 +175,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
-            this.panel2.Controls.Add(this.settingsBtn);
             this.panel2.Controls.Add(this.nameTxt);
             this.panel2.Controls.Add(this.loginAs);
             this.panel2.Controls.Add(this.label2);
@@ -187,12 +187,13 @@
             // 
             this.settingsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
             this.settingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settingsBtn.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsBtn.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsBtn.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.settingsBtn.Image = global::softeng1.Properties.Resources.settings_gears;
             this.settingsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.settingsBtn.Location = new System.Drawing.Point(869, -2);
+            this.settingsBtn.Location = new System.Drawing.Point(864, 1);
             this.settingsBtn.Name = "settingsBtn";
-            this.settingsBtn.Size = new System.Drawing.Size(91, 32);
+            this.settingsBtn.Size = new System.Drawing.Size(91, 47);
             this.settingsBtn.TabIndex = 13;
             this.settingsBtn.Text = "Settings";
             this.settingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -280,6 +281,7 @@
             this.salesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(114)))), ((int)(((byte)(182)))));
             this.salesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.salesBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.salesBtn.ForeColor = System.Drawing.Color.Transparent;
             this.salesBtn.Image = global::softeng1.Properties.Resources.bar_chart;
             this.salesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.salesBtn.Location = new System.Drawing.Point(407, 61);
