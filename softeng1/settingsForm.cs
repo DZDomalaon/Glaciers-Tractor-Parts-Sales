@@ -84,7 +84,7 @@ namespace softeng1
                 if (opsswrdTxt.Text != loginForm.userp)
                 {
                     psswrdLbl.Visible = true;
-                    psswrdLbl.Text = "Enter your Old password correctly!";
+                    psswrdLbl.Text = "Old password Incorrect!";
                 }
                 else
                 {
@@ -98,7 +98,7 @@ namespace softeng1
 
                         psswrdLbl.Visible = true;
                         psswrdLbl.ForeColor = Color.FromArgb(128, 255, 128);
-                        psswrdLbl.Text = "Password changed! Please log out to see changes.";
+                        psswrdLbl.Text = "Password changed! Log out to see changes.";
                     }
                     else
                     {
