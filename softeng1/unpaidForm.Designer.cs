@@ -172,7 +172,7 @@
             this.custnameTxt.Location = new System.Drawing.Point(105, 106);
             this.custnameTxt.Name = "custnameTxt";
             this.custnameTxt.Size = new System.Drawing.Size(223, 27);
-            this.custnameTxt.TabIndex = 48;
+            this.custnameTxt.TabIndex = 1;
             // 
             // panel5
             // 
@@ -211,7 +211,7 @@
             this.ordernumTxt.Location = new System.Drawing.Point(105, 261);
             this.ordernumTxt.Name = "ordernumTxt";
             this.ordernumTxt.Size = new System.Drawing.Size(92, 27);
-            this.ordernumTxt.TabIndex = 53;
+            this.ordernumTxt.TabIndex = 3;
             // 
             // label10
             // 
@@ -230,7 +230,7 @@
             this.amountTxt.Location = new System.Drawing.Point(105, 391);
             this.amountTxt.Name = "amountTxt";
             this.amountTxt.Size = new System.Drawing.Size(92, 27);
-            this.amountTxt.TabIndex = 59;
+            this.amountTxt.TabIndex = 6;
             this.amountTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.amountTxt_KeyPress);
             // 
             // backBtn
@@ -253,7 +253,7 @@
             this.totalTxt.Location = new System.Drawing.Point(303, 261);
             this.totalTxt.Name = "totalTxt";
             this.totalTxt.Size = new System.Drawing.Size(92, 27);
-            this.totalTxt.TabIndex = 55;
+            this.totalTxt.TabIndex = 4;
             // 
             // label8
             // 
@@ -283,7 +283,7 @@
             this.balanceTxt.Location = new System.Drawing.Point(105, 149);
             this.balanceTxt.Name = "balanceTxt";
             this.balanceTxt.Size = new System.Drawing.Size(223, 27);
-            this.balanceTxt.TabIndex = 57;
+            this.balanceTxt.TabIndex = 2;
             // 
             // panel6
             // 
@@ -311,7 +311,7 @@
             this.remainingTxt.Location = new System.Drawing.Point(105, 300);
             this.remainingTxt.Name = "remainingTxt";
             this.remainingTxt.Size = new System.Drawing.Size(92, 27);
-            this.remainingTxt.TabIndex = 67;
+            this.remainingTxt.TabIndex = 5;
             // 
             // remainingLbl
             // 

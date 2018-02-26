@@ -250,7 +250,7 @@ namespace softeng1
             this.custnameTxt.Location = new System.Drawing.Point(139, 108);
             this.custnameTxt.Name = "custnameTxt";
             this.custnameTxt.Size = new System.Drawing.Size(183, 27);
-            this.custnameTxt.TabIndex = 8;
+            this.custnameTxt.TabIndex = 1;
             this.custnameTxt.TextChanged += new System.EventHandler(this.custnameTxt_TextChanged);
             // 
             // label4
@@ -301,7 +301,7 @@ namespace softeng1
             this.productnameTxt.Location = new System.Drawing.Point(139, 205);
             this.productnameTxt.Name = "productnameTxt";
             this.productnameTxt.Size = new System.Drawing.Size(183, 27);
-            this.productnameTxt.TabIndex = 13;
+            this.productnameTxt.TabIndex = 2;
             this.productnameTxt.TextChanged += new System.EventHandler(this.productnameTxt_TextChanged);
             // 
             // label7
@@ -321,7 +321,7 @@ namespace softeng1
             this.ppriceTxt.Location = new System.Drawing.Point(139, 253);
             this.ppriceTxt.Name = "ppriceTxt";
             this.ppriceTxt.Size = new System.Drawing.Size(183, 27);
-            this.ppriceTxt.TabIndex = 16;
+            this.ppriceTxt.TabIndex = 3;
             // 
             // panel6
             // 
@@ -385,7 +385,7 @@ namespace softeng1
             this.addOrder.Location = new System.Drawing.Point(23, 488);
             this.addOrder.Name = "addOrder";
             this.addOrder.Size = new System.Drawing.Size(92, 37);
-            this.addOrder.TabIndex = 23;
+            this.addOrder.TabIndex = 6;
             this.addOrder.Text = "Add";
             this.addOrder.UseVisualStyleBackColor = false;
             this.addOrder.Click += new System.EventHandler(this.addOrder_Click);
@@ -399,7 +399,7 @@ namespace softeng1
             this.removeOrder.Location = new System.Drawing.Point(121, 488);
             this.removeOrder.Name = "removeOrder";
             this.removeOrder.Size = new System.Drawing.Size(92, 37);
-            this.removeOrder.TabIndex = 24;
+            this.removeOrder.TabIndex = 7;
             this.removeOrder.Text = "Remove";
             this.removeOrder.UseVisualStyleBackColor = false;
             this.removeOrder.Click += new System.EventHandler(this.removeOrder_Click);
@@ -413,7 +413,7 @@ namespace softeng1
             this.backToMenu.Location = new System.Drawing.Point(317, 488);
             this.backToMenu.Name = "backToMenu";
             this.backToMenu.Size = new System.Drawing.Size(92, 37);
-            this.backToMenu.TabIndex = 25;
+            this.backToMenu.TabIndex = 9;
             this.backToMenu.Text = "Back";
             this.backToMenu.UseVisualStyleBackColor = false;
             this.backToMenu.Click += new System.EventHandler(this.backBtn_Click);
@@ -424,7 +424,7 @@ namespace softeng1
             this.pquant.Location = new System.Drawing.Point(139, 299);
             this.pquant.Name = "pquant";
             this.pquant.Size = new System.Drawing.Size(53, 27);
-            this.pquant.TabIndex = 16;
+            this.pquant.TabIndex = 4;
             this.pquant.TextChanged += new System.EventHandler(this.pquant_TextChanged);
             // 
             // ptotal
@@ -433,7 +433,7 @@ namespace softeng1
             this.ptotal.Location = new System.Drawing.Point(250, 299);
             this.ptotal.Name = "ptotal";
             this.ptotal.Size = new System.Drawing.Size(72, 27);
-            this.ptotal.TabIndex = 16;
+            this.ptotal.TabIndex = 5;
             // 
             // label12
             // 
@@ -455,7 +455,7 @@ namespace softeng1
             this.editOrderBtn.Location = new System.Drawing.Point(219, 488);
             this.editOrderBtn.Name = "editOrderBtn";
             this.editOrderBtn.Size = new System.Drawing.Size(92, 37);
-            this.editOrderBtn.TabIndex = 49;
+            this.editOrderBtn.TabIndex = 8;
             this.editOrderBtn.Text = "Edit";
             this.editOrderBtn.UseVisualStyleBackColor = false;
             this.editOrderBtn.Click += new System.EventHandler(this.editOrderBtn_Click);
