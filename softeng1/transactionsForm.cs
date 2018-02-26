@@ -109,7 +109,7 @@ namespace softeng1
         {
             String date = dateTxt.Text;
             String query =
-                "SELECT concat(firstname,' ',lastname) as cname, order_date, order_status FROM person, customer, sales_order, employee WHERE order_date LIKE '%" + date + "%' AND order_customer_id = customer_id AND customer_person_id = person_id AND order_emp_id = (SELECT emp_id FROM employee, person WHERE (concat(firstname,' ',lastname) = '" + empnameTxt.Text + "') AND person_id = emp_person_id)";
+                "SELECT concat(firstname,' ',lastname) as cname, order_date, order_status FROM person, customer, sales_order, employee WHERE order_date LIKE '%" + date + "%' AND order_customer_id = customer_id AND customer_person_id = person_id AND order_emp_id = (SELECT emp_id FROM employee, person WHERE (concat(firstname,' ',lastname) like '%" + empnameTxt.Text + "%') AND person_id = emp_person_id)";
 
             conn.Open();
 

@@ -161,7 +161,7 @@
             this.backBtn.Location = new System.Drawing.Point(310, 493);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(92, 37);
-            this.backBtn.TabIndex = 82;
+            this.backBtn.TabIndex = 12;
             this.backBtn.Text = "Back";
             this.backBtn.UseVisualStyleBackColor = false;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
@@ -175,7 +175,7 @@
             this.editBtn.Location = new System.Drawing.Point(212, 493);
             this.editBtn.Name = "editBtn";
             this.editBtn.Size = new System.Drawing.Size(92, 37);
-            this.editBtn.TabIndex = 81;
+            this.editBtn.TabIndex = 11;
             this.editBtn.Text = "Edit";
             this.editBtn.UseVisualStyleBackColor = false;
             this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
@@ -189,7 +189,7 @@
             this.resetBtn.Location = new System.Drawing.Point(114, 493);
             this.resetBtn.Name = "resetBtn";
             this.resetBtn.Size = new System.Drawing.Size(92, 37);
-            this.resetBtn.TabIndex = 80;
+            this.resetBtn.TabIndex = 10;
             this.resetBtn.Text = "Reset";
             this.resetBtn.UseVisualStyleBackColor = false;
             this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
@@ -203,7 +203,7 @@
             this.addBtn.Location = new System.Drawing.Point(16, 493);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(92, 37);
-            this.addBtn.TabIndex = 79;
+            this.addBtn.TabIndex = 9;
             this.addBtn.Text = "Add";
             this.addBtn.UseVisualStyleBackColor = false;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
@@ -214,7 +214,7 @@
             this.pdescTxt.Location = new System.Drawing.Point(165, 156);
             this.pdescTxt.Name = "pdescTxt";
             this.pdescTxt.Size = new System.Drawing.Size(223, 27);
-            this.pdescTxt.TabIndex = 77;
+            this.pdescTxt.TabIndex = 2;
             // 
             // label5
             // 
@@ -245,7 +245,7 @@
             this.pnameTxt.Location = new System.Drawing.Point(166, 114);
             this.pnameTxt.Name = "pnameTxt";
             this.pnameTxt.Size = new System.Drawing.Size(223, 27);
-            this.pnameTxt.TabIndex = 75;
+            this.pnameTxt.TabIndex = 1;
             this.pnameTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pnameTxt_KeyPress);
             // 
             // label6
@@ -265,7 +265,7 @@
             this.priceTxt.Location = new System.Drawing.Point(166, 375);
             this.priceTxt.Name = "priceTxt";
             this.priceTxt.Size = new System.Drawing.Size(223, 27);
-            this.priceTxt.TabIndex = 84;
+            this.priceTxt.TabIndex = 7;
             this.priceTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceTxt_KeyPress);
             // 
             // label9
@@ -297,7 +297,7 @@
             this.categTxt.Location = new System.Drawing.Point(166, 286);
             this.categTxt.Name = "categTxt";
             this.categTxt.Size = new System.Drawing.Size(223, 27);
-            this.categTxt.TabIndex = 92;
+            this.categTxt.TabIndex = 5;
             // 
             // asd
             // 
@@ -316,7 +316,7 @@
             this.quantityTxt.Location = new System.Drawing.Point(166, 199);
             this.quantityTxt.Name = "quantityTxt";
             this.quantityTxt.Size = new System.Drawing.Size(223, 27);
-            this.quantityTxt.TabIndex = 94;
+            this.quantityTxt.TabIndex = 3;
             this.quantityTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.quantityTxt_KeyPress);
             // 
             // quantityLbl
@@ -336,7 +336,7 @@
             this.serialTxt.Location = new System.Drawing.Point(165, 242);
             this.serialTxt.Name = "serialTxt";
             this.serialTxt.Size = new System.Drawing.Size(223, 27);
-            this.serialTxt.TabIndex = 95;
+            this.serialTxt.TabIndex = 4;
             // 
             // SupplierCmb
             // 
@@ -345,7 +345,7 @@
             this.SupplierCmb.Location = new System.Drawing.Point(165, 418);
             this.SupplierCmb.Name = "SupplierCmb";
             this.SupplierCmb.Size = new System.Drawing.Size(223, 27);
-            this.SupplierCmb.TabIndex = 97;
+            this.SupplierCmb.TabIndex = 8;
             // 
             // SupplierLbl
             // 
@@ -365,7 +365,7 @@
             this.variantTxt.Location = new System.Drawing.Point(165, 331);
             this.variantTxt.Name = "variantTxt";
             this.variantTxt.Size = new System.Drawing.Size(223, 27);
-            this.variantTxt.TabIndex = 98;
+            this.variantTxt.TabIndex = 6;
             // 
             // productsForm
             // 

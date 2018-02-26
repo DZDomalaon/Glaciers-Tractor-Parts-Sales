@@ -116,7 +116,7 @@
             this.positionCmb.Location = new System.Drawing.Point(105, 207);
             this.positionCmb.Name = "positionCmb";
             this.positionCmb.Size = new System.Drawing.Size(223, 27);
-            this.positionCmb.TabIndex = 36;
+            this.positionCmb.TabIndex = 3;
             // 
             // label6
             // 
@@ -135,8 +135,7 @@
             this.lnameTxt.Location = new System.Drawing.Point(104, 158);
             this.lnameTxt.Name = "lnameTxt";
             this.lnameTxt.Size = new System.Drawing.Size(223, 27);
-            this.lnameTxt.TabIndex = 34;
-            this.lnameTxt.TextChanged += new System.EventHandler(this.lnameTxt_TextChanged);
+            this.lnameTxt.TabIndex = 2;
             // 
             // label5
             // 
@@ -186,8 +185,7 @@
             this.fnameTxt.Location = new System.Drawing.Point(105, 106);
             this.fnameTxt.Name = "fnameTxt";
             this.fnameTxt.Size = new System.Drawing.Size(223, 27);
-            this.fnameTxt.TabIndex = 32;
-            this.fnameTxt.TextChanged += new System.EventHandler(this.fnameTxt_TextChanged);
+            this.fnameTxt.TabIndex = 1;
             // 
             // panel3
             // 
@@ -221,7 +219,7 @@
             this.statusCmb.Location = new System.Drawing.Point(105, 295);
             this.statusCmb.Name = "statusCmb";
             this.statusCmb.Size = new System.Drawing.Size(223, 27);
-            this.statusCmb.TabIndex = 46;
+            this.statusCmb.TabIndex = 6;
             // 
             // usersData
             // 
@@ -304,7 +302,7 @@
             this.emailTxt.Location = new System.Drawing.Point(104, 390);
             this.emailTxt.Name = "emailTxt";
             this.emailTxt.Size = new System.Drawing.Size(223, 27);
-            this.emailTxt.TabIndex = 50;
+            this.emailTxt.TabIndex = 8;
             // 
             // Email
             // 
@@ -334,7 +332,7 @@
             this.addressTxt.Location = new System.Drawing.Point(104, 435);
             this.addressTxt.Name = "addressTxt";
             this.addressTxt.Size = new System.Drawing.Size(223, 27);
-            this.addressTxt.TabIndex = 52;
+            this.addressTxt.TabIndex = 9;
             // 
             // Address
             // 
@@ -392,7 +390,7 @@
             this.numberTxt.Name = "numberTxt";
             this.numberTxt.PromptChar = '0';
             this.numberTxt.Size = new System.Drawing.Size(222, 27);
-            this.numberTxt.TabIndex = 69;
+            this.numberTxt.TabIndex = 7;
             this.numberTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numberTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberTxt_KeyPress);
             // 

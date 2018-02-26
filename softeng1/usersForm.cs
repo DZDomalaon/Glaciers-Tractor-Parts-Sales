@@ -185,35 +185,6 @@ namespace softeng1
             
         }
 
-        private void fnameTxt_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!System.Text.RegularExpressions.Regex.IsMatch(fnameTxt.Text, "^[a-zA-Z]"))
-                {
-                    MessageBox.Show("Firstname textbox accepts only alphabetical characters", "Invalid input");
-                    fnameTxt.Text.Remove(fnameTxt.Text.Length - 1);
-                }
-            }
-            catch
-            { }
-            
-        }
-
-        private void lnameTxt_TextChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                if (!System.Text.RegularExpressions.Regex.IsMatch(lnameTxt.Text, "^[a-zA-Z]"))
-                    {
-                        MessageBox.Show("Lastname textbox accepts only alphabetical characters", "Invalid input");
-                        fnameTxt.Text.Remove(lnameTxt.Text.Length - 1);
-                    }
-            }
-            catch
-            { }
-            
-        }
 
         private void salaryTxt_KeyPress(object sender, KeyPressEventArgs e)
         {

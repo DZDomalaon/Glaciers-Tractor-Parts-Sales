@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel3 = new System.Windows.Forms.Panel();
+            this.settingsBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.homePanel = new System.Windows.Forms.Panel();
@@ -37,7 +38,6 @@
             this.purchasingBtn = new System.Windows.Forms.Button();
             this.exitBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.settingsBtn = new System.Windows.Forms.Button();
             this.nameTxt = new System.Windows.Forms.Label();
             this.loginAs = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -64,6 +64,23 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(955, 47);
             this.panel3.TabIndex = 3;
+            // 
+            // settingsBtn
+            // 
+            this.settingsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
+            this.settingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsBtn.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.settingsBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.settingsBtn.Image = global::softeng1.Properties.Resources.settings_gears;
+            this.settingsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.settingsBtn.Location = new System.Drawing.Point(862, 2);
+            this.settingsBtn.Name = "settingsBtn";
+            this.settingsBtn.Size = new System.Drawing.Size(91, 43);
+            this.settingsBtn.TabIndex = 12;
+            this.settingsBtn.Text = "Settings";
+            this.settingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.settingsBtn.UseVisualStyleBackColor = false;
+            this.settingsBtn.Click += new System.EventHandler(this.settingsBtn_Click);
             // 
             // panel1
             // 
@@ -118,7 +135,7 @@
             this.logBtn.Location = new System.Drawing.Point(407, 320);
             this.logBtn.Name = "logBtn";
             this.logBtn.Size = new System.Drawing.Size(175, 112);
-            this.logBtn.TabIndex = 13;
+            this.logBtn.TabIndex = 9;
             this.logBtn.Text = "Log\r\nTransactions";
             this.logBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.logBtn.UseVisualStyleBackColor = false;
@@ -134,7 +151,7 @@
             this.invoiceBtn.Location = new System.Drawing.Point(202, 61);
             this.invoiceBtn.Name = "invoiceBtn";
             this.invoiceBtn.Size = new System.Drawing.Size(199, 162);
-            this.invoiceBtn.TabIndex = 0;
+            this.invoiceBtn.TabIndex = 1;
             this.invoiceBtn.Text = "Create New\r\nInvoice";
             this.invoiceBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.invoiceBtn.UseVisualStyleBackColor = false;
@@ -150,7 +167,7 @@
             this.purchasingBtn.Location = new System.Drawing.Point(588, 149);
             this.purchasingBtn.Name = "purchasingBtn";
             this.purchasingBtn.Size = new System.Drawing.Size(174, 74);
-            this.purchasingBtn.TabIndex = 12;
+            this.purchasingBtn.TabIndex = 4;
             this.purchasingBtn.Text = "Purchasing";
             this.purchasingBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.purchasingBtn.UseVisualStyleBackColor = false;
@@ -182,23 +199,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(955, 28);
             this.panel2.TabIndex = 9;
-            // 
-            // settingsBtn
-            // 
-            this.settingsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
-            this.settingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.settingsBtn.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.settingsBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.settingsBtn.Image = global::softeng1.Properties.Resources.settings_gears;
-            this.settingsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.settingsBtn.Location = new System.Drawing.Point(862, 2);
-            this.settingsBtn.Name = "settingsBtn";
-            this.settingsBtn.Size = new System.Drawing.Size(91, 43);
-            this.settingsBtn.TabIndex = 13;
-            this.settingsBtn.Text = "Settings";
-            this.settingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.settingsBtn.UseVisualStyleBackColor = false;
-            this.settingsBtn.Click += new System.EventHandler(this.settingsBtn_Click);
             // 
             // nameTxt
             // 
@@ -238,7 +238,7 @@
             this.delivBtn.Location = new System.Drawing.Point(587, 229);
             this.delivBtn.Name = "delivBtn";
             this.delivBtn.Size = new System.Drawing.Size(174, 85);
-            this.delivBtn.TabIndex = 8;
+            this.delivBtn.TabIndex = 7;
             this.delivBtn.Text = "Delivery\r\nReports";
             this.delivBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.delivBtn.UseVisualStyleBackColor = false;
@@ -254,7 +254,7 @@
             this.custBtn.Location = new System.Drawing.Point(202, 320);
             this.custBtn.Name = "custBtn";
             this.custBtn.Size = new System.Drawing.Size(199, 112);
-            this.custBtn.TabIndex = 7;
+            this.custBtn.TabIndex = 8;
             this.custBtn.Text = "Customer";
             this.custBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.custBtn.UseVisualStyleBackColor = false;
@@ -270,7 +270,7 @@
             this.prodBtn.Location = new System.Drawing.Point(407, 229);
             this.prodBtn.Name = "prodBtn";
             this.prodBtn.Size = new System.Drawing.Size(174, 85);
-            this.prodBtn.TabIndex = 5;
+            this.prodBtn.TabIndex = 6;
             this.prodBtn.Text = "Products";
             this.prodBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.prodBtn.UseVisualStyleBackColor = false;
@@ -287,7 +287,7 @@
             this.salesBtn.Location = new System.Drawing.Point(407, 61);
             this.salesBtn.Name = "salesBtn";
             this.salesBtn.Size = new System.Drawing.Size(174, 162);
-            this.salesBtn.TabIndex = 4;
+            this.salesBtn.TabIndex = 2;
             this.salesBtn.Text = "Sales";
             this.salesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.salesBtn.UseVisualStyleBackColor = false;
@@ -319,7 +319,7 @@
             this.supplierBtn.Location = new System.Drawing.Point(202, 229);
             this.supplierBtn.Name = "supplierBtn";
             this.supplierBtn.Size = new System.Drawing.Size(199, 85);
-            this.supplierBtn.TabIndex = 2;
+            this.supplierBtn.TabIndex = 5;
             this.supplierBtn.Text = "Supplier";
             this.supplierBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.supplierBtn.UseVisualStyleBackColor = false;
@@ -335,7 +335,7 @@
             this.usersBtn.Location = new System.Drawing.Point(588, 320);
             this.usersBtn.Name = "usersBtn";
             this.usersBtn.Size = new System.Drawing.Size(174, 54);
-            this.usersBtn.TabIndex = 1;
+            this.usersBtn.TabIndex = 10;
             this.usersBtn.Text = "Users";
             this.usersBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.usersBtn.UseVisualStyleBackColor = false;

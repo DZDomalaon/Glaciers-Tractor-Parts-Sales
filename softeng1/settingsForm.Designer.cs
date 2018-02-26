@@ -79,7 +79,7 @@
             this.unameTxt.Location = new System.Drawing.Point(170, 56);
             this.unameTxt.Name = "unameTxt";
             this.unameTxt.Size = new System.Drawing.Size(211, 26);
-            this.unameTxt.TabIndex = 41;
+            this.unameTxt.TabIndex = 1;
             // 
             // label7
             // 
@@ -139,7 +139,7 @@
             this.userBtn.Location = new System.Drawing.Point(425, 49);
             this.userBtn.Name = "userBtn";
             this.userBtn.Size = new System.Drawing.Size(78, 35);
-            this.userBtn.TabIndex = 36;
+            this.userBtn.TabIndex = 2;
             this.userBtn.Text = "Update";
             this.userBtn.UseVisualStyleBackColor = false;
             this.userBtn.Click += new System.EventHandler(this.userBtn_Click);
@@ -218,7 +218,7 @@
             this.backBtn.Location = new System.Drawing.Point(425, 110);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(78, 37);
-            this.backBtn.TabIndex = 46;
+            this.backBtn.TabIndex = 7;
             this.backBtn.Text = "Back";
             this.backBtn.UseVisualStyleBackColor = false;
             this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
@@ -230,7 +230,7 @@
             this.cpsswrdTxt.Location = new System.Drawing.Point(170, 122);
             this.cpsswrdTxt.Name = "cpsswrdTxt";
             this.cpsswrdTxt.Size = new System.Drawing.Size(211, 26);
-            this.cpsswrdTxt.TabIndex = 43;
+            this.cpsswrdTxt.TabIndex = 6;
             // 
             // npsswrdTxt
             // 
@@ -239,7 +239,7 @@
             this.npsswrdTxt.Location = new System.Drawing.Point(170, 90);
             this.npsswrdTxt.Name = "npsswrdTxt";
             this.npsswrdTxt.Size = new System.Drawing.Size(211, 26);
-            this.npsswrdTxt.TabIndex = 42;
+            this.npsswrdTxt.TabIndex = 5;
             // 
             // passBtn
             // 
@@ -250,7 +250,7 @@
             this.passBtn.Location = new System.Drawing.Point(425, 52);
             this.passBtn.Name = "passBtn";
             this.passBtn.Size = new System.Drawing.Size(78, 35);
-            this.passBtn.TabIndex = 36;
+            this.passBtn.TabIndex = 4;
             this.passBtn.Text = "Update";
             this.passBtn.UseVisualStyleBackColor = false;
             this.passBtn.Click += new System.EventHandler(this.passBtn_Click);
@@ -274,7 +274,7 @@
             this.opsswrdTxt.Location = new System.Drawing.Point(170, 58);
             this.opsswrdTxt.Name = "opsswrdTxt";
             this.opsswrdTxt.Size = new System.Drawing.Size(211, 26);
-            this.opsswrdTxt.TabIndex = 41;
+            this.opsswrdTxt.TabIndex = 3;
             // 
             // settingsForm
             // 
