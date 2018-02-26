@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -35,7 +38,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.prodData = new System.Windows.Forms.DataGridView();
             this.backBtn = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
             this.resetBtn = new System.Windows.Forms.Button();
@@ -56,6 +58,7 @@
             this.SupplierCmb = new System.Windows.Forms.ComboBox();
             this.SupplierLbl = new System.Windows.Forms.Label();
             this.variantTxt = new System.Windows.Forms.ComboBox();
+            this.prodData = new System.Windows.Forms.DataGridView();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -105,7 +108,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(81)))));
             this.panel4.Controls.Add(this.label3);
             this.panel4.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.ForeColor = System.Drawing.Color.White;
@@ -134,23 +137,6 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Product Details";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // prodData
-            // 
-            this.prodData.AllowUserToAddRows = false;
-            this.prodData.AllowUserToDeleteRows = false;
-            this.prodData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.prodData.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.prodData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.prodData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.prodData.Location = new System.Drawing.Point(434, 85);
-            this.prodData.Name = "prodData";
-            this.prodData.ReadOnly = true;
-            this.prodData.RowHeadersVisible = false;
-            this.prodData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.prodData.Size = new System.Drawing.Size(521, 502);
-            this.prodData.TabIndex = 64;
-            this.prodData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prodData_CellClick_1);
             // 
             // backBtn
             // 
@@ -367,12 +353,52 @@
             this.variantTxt.Size = new System.Drawing.Size(223, 27);
             this.variantTxt.TabIndex = 98;
             // 
+            // prodData
+            // 
+            this.prodData.AllowUserToAddRows = false;
+            this.prodData.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.prodData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.prodData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.prodData.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.prodData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.prodData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.prodData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.prodData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.prodData.DefaultCellStyle = dataGridViewCellStyle3;
+            this.prodData.EnableHeadersVisualStyles = false;
+            this.prodData.Location = new System.Drawing.Point(434, 85);
+            this.prodData.Name = "prodData";
+            this.prodData.ReadOnly = true;
+            this.prodData.RowHeadersVisible = false;
+            this.prodData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.prodData.Size = new System.Drawing.Size(521, 502);
+            this.prodData.TabIndex = 99;
+            // 
             // productsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.prodData);
             this.Controls.Add(this.variantTxt);
             this.Controls.Add(this.SupplierCmb);
             this.Controls.Add(this.SupplierLbl);
@@ -381,7 +407,6 @@
             this.Controls.Add(this.editBtn);
             this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.addBtn);
-            this.Controls.Add(this.prodData);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.quantityTxt);
@@ -425,7 +450,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView prodData;
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button editBtn;
         private System.Windows.Forms.Button resetBtn;
@@ -446,5 +470,6 @@
         private System.Windows.Forms.ComboBox SupplierCmb;
         private System.Windows.Forms.Label SupplierLbl;
         private System.Windows.Forms.ComboBox variantTxt;
+        private System.Windows.Forms.DataGridView prodData;
     }
 }
