@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.backBtn = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
@@ -42,7 +45,6 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.label9 = new System.Windows.Forms.Label();
             this.statusCmb = new System.Windows.Forms.ComboBox();
-            this.usersData = new System.Windows.Forms.DataGridView();
             this.resetBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -57,11 +59,12 @@
             this.rbMale = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.numberTxt = new System.Windows.Forms.MaskedTextBox();
+            this.usersData = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.usersData)).BeginInit();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usersData)).BeginInit();
             this.SuspendLayout();
             // 
             // backBtn
@@ -221,23 +224,6 @@
             this.statusCmb.Size = new System.Drawing.Size(223, 27);
             this.statusCmb.TabIndex = 6;
             // 
-            // usersData
-            // 
-            this.usersData.AllowUserToAddRows = false;
-            this.usersData.AllowUserToDeleteRows = false;
-            this.usersData.BackgroundColor = System.Drawing.Color.White;
-            this.usersData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.usersData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.usersData.Dock = System.Windows.Forms.DockStyle.Right;
-            this.usersData.Location = new System.Drawing.Point(434, 85);
-            this.usersData.Name = "usersData";
-            this.usersData.ReadOnly = true;
-            this.usersData.RowHeadersVisible = false;
-            this.usersData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.usersData.Size = new System.Drawing.Size(521, 502);
-            this.usersData.TabIndex = 30;
-            this.usersData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.usersData_CellClick);
-            // 
             // resetBtn
             // 
             this.resetBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(242)))), ((int)(((byte)(80)))), ((int)(((byte)(34)))));
@@ -265,7 +251,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(81)))));
             this.panel4.Controls.Add(this.label3);
             this.panel4.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.ForeColor = System.Drawing.Color.White;
@@ -394,12 +380,52 @@
             this.numberTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numberTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberTxt_KeyPress);
             // 
+            // usersData
+            // 
+            this.usersData.AllowUserToAddRows = false;
+            this.usersData.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.usersData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.usersData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.usersData.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.usersData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.usersData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.usersData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.usersData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.usersData.DefaultCellStyle = dataGridViewCellStyle3;
+            this.usersData.EnableHeadersVisualStyles = false;
+            this.usersData.Location = new System.Drawing.Point(434, 85);
+            this.usersData.Name = "usersData";
+            this.usersData.ReadOnly = true;
+            this.usersData.RowHeadersVisible = false;
+            this.usersData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.usersData.Size = new System.Drawing.Size(521, 502);
+            this.usersData.TabIndex = 100;
+            // 
             // usersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.usersData);
             this.Controls.Add(this.numberTxt);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.rbFemale);
@@ -420,7 +446,6 @@
             this.Controls.Add(this.lnameTxt);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.usersData);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.fnameTxt);
             this.Controls.Add(this.panel3);
@@ -435,11 +460,11 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.usersData)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.usersData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -461,7 +486,6 @@
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox statusCmb;
-        private System.Windows.Forms.DataGridView usersData;
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel4;
@@ -476,5 +500,6 @@
         private System.Windows.Forms.RadioButton rbMale;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.MaskedTextBox numberTxt;
+        private System.Windows.Forms.DataGridView usersData;
     }
 }

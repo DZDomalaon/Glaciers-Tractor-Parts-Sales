@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(purchasingForm));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,7 +39,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgProducts = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.pquant = new System.Windows.Forms.TextBox();
@@ -94,11 +96,11 @@
             this.ptypeTxt = new System.Windows.Forms.ComboBox();
             this.variantTxt = new System.Windows.Forms.ComboBox();
             this.categTxt = new System.Windows.Forms.ComboBox();
+            this.dgProducts = new System.Windows.Forms.DataGridView();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgProducts)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -112,6 +114,7 @@
             this.invalidpanel.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProducts)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -158,7 +161,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(81)))));
             this.panel4.Controls.Add(this.label3);
             this.panel4.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.ForeColor = System.Drawing.Color.White;
@@ -186,23 +189,6 @@
             this.label2.Size = new System.Drawing.Size(127, 21);
             this.label2.TabIndex = 5;
             this.label2.Text = "Supplier Details";
-            // 
-            // dgProducts
-            // 
-            this.dgProducts.AllowUserToAddRows = false;
-            this.dgProducts.AllowUserToDeleteRows = false;
-            this.dgProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgProducts.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.dgProducts.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgProducts.Location = new System.Drawing.Point(436, 85);
-            this.dgProducts.Name = "dgProducts";
-            this.dgProducts.ReadOnly = true;
-            this.dgProducts.RowHeadersVisible = false;
-            this.dgProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgProducts.Size = new System.Drawing.Size(519, 465);
-            this.dgProducts.TabIndex = 8;
-            this.dgProducts.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProducts_CellClick);
             // 
             // label12
             // 
@@ -411,7 +397,7 @@
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(81)))));
             this.panel7.Controls.Add(this.totalpriceTxt);
             this.panel7.Controls.Add(this.label11);
             this.panel7.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -859,6 +845,45 @@
             this.categTxt.Size = new System.Drawing.Size(183, 27);
             this.categTxt.TabIndex = 68;
             // 
+            // dgProducts
+            // 
+            this.dgProducts.AllowUserToAddRows = false;
+            this.dgProducts.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.dgProducts.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgProducts.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgProducts.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.dgProducts.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dgProducts.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgProducts.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgProducts.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgProducts.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgProducts.EnableHeadersVisualStyles = false;
+            this.dgProducts.Location = new System.Drawing.Point(435, 83);
+            this.dgProducts.Name = "dgProducts";
+            this.dgProducts.ReadOnly = true;
+            this.dgProducts.RowHeadersVisible = false;
+            this.dgProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgProducts.Size = new System.Drawing.Size(522, 466);
+            this.dgProducts.TabIndex = 100;
+            // 
             // purchasingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -917,7 +942,6 @@
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgProducts)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
@@ -942,6 +966,7 @@
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProducts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -956,7 +981,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dgProducts;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox pquant;
@@ -1014,5 +1038,6 @@
         private System.Windows.Forms.ComboBox ptypeTxt;
         private System.Windows.Forms.ComboBox variantTxt;
         private System.Windows.Forms.ComboBox categTxt;
+        private System.Windows.Forms.DataGridView dgProducts;
     }
 }
