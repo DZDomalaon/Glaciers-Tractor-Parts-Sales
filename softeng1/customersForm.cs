@@ -8,6 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
+
+
 
 namespace softeng1
 {
@@ -24,6 +27,7 @@ namespace softeng1
         private void customersForm_Load(object sender, EventArgs e)
         {
             editBtn.Enabled = false;
+            emailLbl.Visible = false;
             loadCustomerData();
         }
         private void backBtn_Click(object sender, EventArgs e)
@@ -174,32 +178,24 @@ namespace softeng1
             MessageBox.Show("Customer data has been updated successfully", "Updated Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             loadCustomerData();
         }
-        private void cnumTxt_KeyPress(object sender, KeyPressEventArgs e)
+
+        private void fnameTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
-                (e.KeyChar != '.'))
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
             {
                 e.Handled = true;
             }
         }
 
-        private void fnameTxt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back))
-            {
-                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
-            }
-        }
-
         private void lnameTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back))
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
             {
-                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
+                e.Handled = true;
             }
         }
 
-        private void custData_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        private void custData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             addBtn.Enabled = false;
             editBtn.Enabled = true;
@@ -224,6 +220,40 @@ namespace softeng1
                 }
             }
             loadTransaction();
+        }
+
+        private void emailTxt_TextChanged(object sender, EventArgs e)
+        {
+            string pattern = null;
+            pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+
+            if(emailTxt.Text == "")
+            {
+                emailLbl.Visible = false;
+            }
+            else
+            {
+                if (Regex.IsMatch(emailTxt.Text, pattern))
+                {
+                    emailLbl.Visible = true;
+                    emailLbl.Text = "This email is valid";
+                    this.emailLbl.ForeColor = Color.Green;
+                }
+                else
+                {
+                    emailLbl.Visible = true;
+                    emailLbl.Text = "Invalid email";
+                    this.emailLbl.ForeColor = Color.Red;
+                }
+            }
+        }
+
+        private void creditTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }                
         }
     }
 }

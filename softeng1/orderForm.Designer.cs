@@ -98,6 +98,7 @@ namespace softeng1
             this.custLbl = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.resetBtn = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -252,6 +253,7 @@ namespace softeng1
             this.custnameTxt.Size = new System.Drawing.Size(183, 27);
             this.custnameTxt.TabIndex = 1;
             this.custnameTxt.TextChanged += new System.EventHandler(this.custnameTxt_TextChanged);
+            this.custnameTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.custnameTxt_KeyPress);
             // 
             // label4
             // 
@@ -426,6 +428,7 @@ namespace softeng1
             this.pquant.Size = new System.Drawing.Size(53, 27);
             this.pquant.TabIndex = 4;
             this.pquant.TextChanged += new System.EventHandler(this.pquant_TextChanged);
+            this.pquant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pquant_KeyPress);
             // 
             // ptotal
             // 
@@ -862,6 +865,20 @@ namespace softeng1
             this.ProdName.Name = "ProdName";
             this.ProdName.Width = 130;
             // 
+            // resetBtn
+            // 
+            this.resetBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(74)))), ((int)(((byte)(71)))));
+            this.resetBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.resetBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.resetBtn.ForeColor = System.Drawing.Color.White;
+            this.resetBtn.Location = new System.Drawing.Point(169, 531);
+            this.resetBtn.Name = "resetBtn";
+            this.resetBtn.Size = new System.Drawing.Size(92, 37);
+            this.resetBtn.TabIndex = 66;
+            this.resetBtn.Text = "Clear";
+            this.resetBtn.UseVisualStyleBackColor = false;
+            this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
+            // 
             // orderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -869,6 +886,7 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.custLbl);
             this.Controls.Add(this.errorPanel);
@@ -1015,5 +1033,6 @@ namespace softeng1
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn Serial;
+        private System.Windows.Forms.Button resetBtn;
     }
 }

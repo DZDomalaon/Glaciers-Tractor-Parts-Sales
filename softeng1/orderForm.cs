@@ -206,6 +206,32 @@ namespace softeng1
             }
         }
 
+        private void resetBtn_Click(object sender, EventArgs e)
+        {            
+            productnameTxt.Clear();
+            ppriceTxt.Clear();
+            pquant.Clear();
+            ptotal.Clear();
+            addOrder.Enabled = true;
+            editOrderBtn.Enabled = false;
+        }
+
+        private void pquant_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }                
+        }
+
+        private void custnameTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
+            {
+                e.Handled = true;
+            }                
+        }
+
 
         //Filter for productnameTxt
         private void productnameTxt_TextChanged(object sender, EventArgs e)
@@ -490,22 +516,22 @@ namespace softeng1
                 MySqlCommand getQuantity = new MySqlCommand("select quantity from inventory, product where product_name = '" + productnameTxt.Text + "' and inventory_id = product_inv_id", conn);
                 availableStock = Convert.ToInt32(getQuantity.ExecuteScalar());
 
-                //Getting serial
-                String getSerial = "select serial from product where product_name = '" + productnameTxt.Text + "'";
-                MySqlCommand comm = new MySqlCommand(getSerial, conn);
-                comm.CommandText = getSerial;
-                MySqlDataReader drd = comm.ExecuteReader();
+                ////Getting serial
+                //String getSerial = "select serial from product where product_name = '" + productnameTxt.Text + "'";
+                //MySqlCommand comm = new MySqlCommand(getSerial, conn);
+                //comm.CommandText = getSerial;
+                //MySqlDataReader drd = comm.ExecuteReader();
 
-                if (drd.HasRows == true)
-                {
-                    while (drd.Read())
-                       serial = drd["serial"].ToString();
-                }
-                conn.Close();
+                //if (drd.HasRows == true)
+                //{
+                //    while (drd.Read())
+                //       serial = drd["serial"].ToString();
+                //}
+                //conn.Close();
 
-                conn.Open();
-                MySqlCommand getIntSerial = new MySqlCommand("select serial_no from product where product_name = '" + productnameTxt.Text + "'", conn);
-                toIntSerial = Convert.ToInt32(getIntSerial.ExecuteScalar());
+                //conn.Open();
+                //MySqlCommand getIntSerial = new MySqlCommand("select serial_no from product where product_name = '" + productnameTxt.Text + "'", conn);
+                //toIntSerial = Convert.ToInt32(getIntSerial.ExecuteScalar());
                 conn.Close();
 
                 if (availableStock >= quantity)

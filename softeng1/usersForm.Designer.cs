@@ -60,6 +60,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.numberTxt = new System.Windows.Forms.MaskedTextBox();
             this.usersData = new System.Windows.Forms.DataGridView();
+            this.staffLbl = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -111,6 +112,7 @@
             // 
             // positionCmb
             // 
+            this.positionCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.positionCmb.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.positionCmb.FormattingEnabled = true;
             this.positionCmb.Items.AddRange(new object[] {
@@ -139,6 +141,7 @@
             this.lnameTxt.Name = "lnameTxt";
             this.lnameTxt.Size = new System.Drawing.Size(223, 27);
             this.lnameTxt.TabIndex = 2;
+            this.lnameTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lnameTxt_KeyPress);
             // 
             // label5
             // 
@@ -189,6 +192,7 @@
             this.fnameTxt.Name = "fnameTxt";
             this.fnameTxt.Size = new System.Drawing.Size(223, 27);
             this.fnameTxt.TabIndex = 1;
+            this.fnameTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.fnameTxt_KeyPress);
             // 
             // panel3
             // 
@@ -289,6 +293,7 @@
             this.emailTxt.Name = "emailTxt";
             this.emailTxt.Size = new System.Drawing.Size(223, 27);
             this.emailTxt.TabIndex = 8;
+            this.emailTxt.TextChanged += new System.EventHandler(this.emailTxt_TextChanged);
             // 
             // Email
             // 
@@ -378,7 +383,6 @@
             this.numberTxt.Size = new System.Drawing.Size(222, 27);
             this.numberTxt.TabIndex = 7;
             this.numberTxt.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numberTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.numberTxt_KeyPress);
             // 
             // usersData
             // 
@@ -419,12 +423,23 @@
             this.usersData.Size = new System.Drawing.Size(521, 502);
             this.usersData.TabIndex = 100;
             // 
+            // staffLbl
+            // 
+            this.staffLbl.AutoSize = true;
+            this.staffLbl.ForeColor = System.Drawing.Color.Red;
+            this.staffLbl.Location = new System.Drawing.Point(333, 404);
+            this.staffLbl.Name = "staffLbl";
+            this.staffLbl.Size = new System.Drawing.Size(22, 13);
+            this.staffLbl.TabIndex = 111;
+            this.staffLbl.Text = "-----";
+            // 
             // usersForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.staffLbl);
             this.Controls.Add(this.usersData);
             this.Controls.Add(this.numberTxt);
             this.Controls.Add(this.label7);
@@ -501,5 +516,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.MaskedTextBox numberTxt;
         private System.Windows.Forms.DataGridView usersData;
+        private System.Windows.Forms.Label staffLbl;
     }
 }

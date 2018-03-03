@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using System.Text.RegularExpressions;
+
 
 namespace softeng1
 {
@@ -47,6 +49,7 @@ namespace softeng1
 
         private void supplierForm_Load(object sender, EventArgs e)
         {
+            supplierLbl.Visible = false;
             loadSupplierData();
         }
         
@@ -185,19 +188,52 @@ namespace softeng1
             loadSupplierData();
         }
 
-        private void fnameTxt_KeyPress(object sender, KeyPressEventArgs e)
+        private void lnameTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back))
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
             {
-                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
+                e.Handled = true;
             }
         }
 
-        private void lnameTxt_KeyPress(object sender, KeyPressEventArgs e)
+        private void fnameTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back))
+            if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
             {
-                MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
+                e.Handled = true;
+            }                
+        }
+        private void cnumTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void emailTxt_TextChanged(object sender, EventArgs e)
+        {
+            string pattern = null;
+            pattern = "^([0-9a-zA-Z]([-\\.\\w]*[0-9a-zA-Z])*@([0-9a-zA-Z][-\\w]*[0-9a-zA-Z]\\.)+[a-zA-Z]{2,9})$";
+
+            if (emailTxt.Text == "")
+            {
+                supplierLbl.Visible = false;
+            }
+            else
+            {
+                if (Regex.IsMatch(emailTxt.Text, pattern))
+                {
+                    supplierLbl.Visible = true;
+                    supplierLbl.Text = "This email is valid";
+                    this.supplierLbl.ForeColor = Color.Green;
+                }
+                else
+                {
+                    supplierLbl.Visible = true;
+                    supplierLbl.Text = "Invalid email";
+                    this.supplierLbl.ForeColor = Color.Red;
+                }
             }
         }
     }

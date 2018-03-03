@@ -43,7 +43,7 @@ namespace softeng1
         }
         public void loadprod()
         {
-            String query = "SELECT product_id, product_name, description, Quantity, price, pc_category , pc_variant FROM product, inventory, product_catalogue where product_inv_id = inventory_id and PRODUCT_PC_ID = pc_id";
+            String query = "SELECT product_id, product_name, description, Quantity, price, pc_category , pc_variant, pc_type FROM product, inventory, product_catalogue where product_inv_id = inventory_id and PRODUCT_PC_ID = pc_id";
 
 
             conn.Open();
@@ -61,6 +61,8 @@ namespace softeng1
             prodData.Columns["price"].HeaderText = "Price";
             prodData.Columns["pc_category"].HeaderText = "Category";
             prodData.Columns["pc_variant"].HeaderText = "Variant";
+            prodData.Columns["pc_type"].HeaderText = "Type";
+
 
         }
         
@@ -153,6 +155,8 @@ namespace softeng1
                 priceTxt.Text = prodData.Rows[e.RowIndex].Cells["price"].Value.ToString();
                 categTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_category"].Value.ToString();
                 variantTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_variant"].Value.ToString();
+                typeTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_type"].Value.ToString();
+
             }
         }
     }
