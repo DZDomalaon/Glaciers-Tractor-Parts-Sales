@@ -43,7 +43,7 @@ namespace softeng1
         }
         public void loadprod()
         {
-            String query = "SELECT product_id, product_name, description, Quantity, price, pc_category , pc_variant, pc_type FROM product, inventory, product_catalogue where product_inv_id = inventory_id and PRODUCT_PC_ID = pc_id";
+            String query = "SELECT product_id, product_name, description, price, pc_category , pc_variant, pc_type FROM product, inventory, product_catalogue where product_inv_id = inventory_id and PRODUCT_PC_ID = pc_id";
 
 
             conn.Open();
@@ -57,7 +57,6 @@ namespace softeng1
             prodData.Columns["product_id"].Visible = false;
             prodData.Columns["product_name"].HeaderText = "Product Name";
             prodData.Columns["description"].HeaderText = "Description";
-            prodData.Columns["quantity"].HeaderText = "Quantity";
             prodData.Columns["price"].HeaderText = "Price";
             prodData.Columns["pc_category"].HeaderText = "Category";
             prodData.Columns["pc_variant"].HeaderText = "Variant";
@@ -83,21 +82,28 @@ namespace softeng1
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-            string query = "INSERT INTO product(product_name, description, price, warranty)" +
-                    "VALUES ('" + pnameTxt.Text + "','" + pdescTxt.Text + "','" + priceTxt.Text + "')";
+            if (pnameTxt.Text == "" || pdescTxt.Text == "" || serialTxt.Text == "" || categTxt.Text == "" || variantTxt.Text == "" || typeTxt.Text == "" || priceTxt.Text == "" || SupplierCmb.Text == "")
+            {
+                invalidpanel.Visible = true;
+                invalidpanel.Enabled = true;
+            }
+            else
+            {
+                string query = "INSERT INTO product(product_name, description, price)" +
+                 "VALUES ('" + pnameTxt.Text + "','" + pdescTxt.Text + "','" + priceTxt.Text + "')";
 
-            conn.Open();
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            comm.ExecuteNonQuery();
-            conn.Close();
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                conn.Close();
 
-            loadprod();
+                loadprod();
 
-            pnameTxt.Text = "";
-            pdescTxt.Text = "";
-            categTxt.Text = "";
-            priceTxt.Text = "";
-           
+                pnameTxt.Text = "";
+                pdescTxt.Text = "";
+                categTxt.Text = "";
+                priceTxt.Text = "";
+            }         
         }
 
         private void resetBtn_Click(object sender, EventArgs e)
@@ -109,13 +115,6 @@ namespace softeng1
             priceTxt.Text = "";
             categTxt.Text = "";
             variantTxt.Text = "";
-        }
-        private void quantityTxt_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
-            {
-                e.Handled = true;
-            }
         }
         private void priceTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -151,13 +150,17 @@ namespace softeng1
                 selected_prod_id = int.Parse(prodData.Rows[e.RowIndex].Cells["product_id"].Value.ToString());
                 pnameTxt.Text = prodData.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
                 pdescTxt.Text = prodData.Rows[e.RowIndex].Cells["description"].Value.ToString();
-                quantityTxt.Text = prodData.Rows[e.RowIndex].Cells["quantity"].Value.ToString();
                 priceTxt.Text = prodData.Rows[e.RowIndex].Cells["price"].Value.ToString();
                 categTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_category"].Value.ToString();
                 variantTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_variant"].Value.ToString();
                 typeTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_type"].Value.ToString();
 
             }
+        }
+
+        private void closePanel_Click(object sender, EventArgs e)
+        {
+            closePanel.Hide();
         }
     }
 }

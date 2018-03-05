@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -35,7 +38,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.unpaidData = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.custnameTxt = new System.Windows.Forms.TextBox();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -54,13 +56,14 @@
             this.remainingTxt = new System.Windows.Forms.TextBox();
             this.remainingLbl = new System.Windows.Forms.Label();
             this.editBtn = new System.Windows.Forms.Button();
+            this.unpaidData = new System.Windows.Forms.DataGridView();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.unpaidData)).BeginInit();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.unpaidData)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -107,7 +110,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(81)))));
             this.panel4.Controls.Add(this.label3);
             this.panel4.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.ForeColor = System.Drawing.Color.White;
@@ -136,24 +139,6 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Customer Details";
             this.label2.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // unpaidData
-            // 
-            this.unpaidData.AllowUserToAddRows = false;
-            this.unpaidData.AllowUserToDeleteRows = false;
-            this.unpaidData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.unpaidData.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.unpaidData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.unpaidData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.unpaidData.Dock = System.Windows.Forms.DockStyle.Right;
-            this.unpaidData.Location = new System.Drawing.Point(434, 85);
-            this.unpaidData.Name = "unpaidData";
-            this.unpaidData.ReadOnly = true;
-            this.unpaidData.RowHeadersVisible = false;
-            this.unpaidData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.unpaidData.Size = new System.Drawing.Size(521, 502);
-            this.unpaidData.TabIndex = 33;
-            this.unpaidData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.unpaidData_CellClick);
             // 
             // label4
             // 
@@ -338,12 +323,52 @@
             this.editBtn.UseVisualStyleBackColor = false;
             this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
+            // unpaidData
+            // 
+            this.unpaidData.AllowUserToAddRows = false;
+            this.unpaidData.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.unpaidData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.unpaidData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.unpaidData.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.unpaidData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.unpaidData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.unpaidData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.unpaidData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.unpaidData.DefaultCellStyle = dataGridViewCellStyle3;
+            this.unpaidData.EnableHeadersVisualStyles = false;
+            this.unpaidData.Location = new System.Drawing.Point(434, 85);
+            this.unpaidData.Name = "unpaidData";
+            this.unpaidData.ReadOnly = true;
+            this.unpaidData.RowHeadersVisible = false;
+            this.unpaidData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.unpaidData.Size = new System.Drawing.Size(521, 502);
+            this.unpaidData.TabIndex = 101;
+            // 
             // unpaidForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.unpaidData);
             this.Controls.Add(this.remainingTxt);
             this.Controls.Add(this.remainingLbl);
             this.Controls.Add(this.panel6);
@@ -360,7 +385,6 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.custnameTxt);
-            this.Controls.Add(this.unpaidData);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -378,11 +402,11 @@
             this.panel2.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.unpaidData)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.unpaidData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -397,7 +421,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView unpaidData;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox custnameTxt;
         private System.Windows.Forms.Panel panel5;
@@ -416,5 +439,6 @@
         private System.Windows.Forms.TextBox remainingTxt;
         private System.Windows.Forms.Label remainingLbl;
         private System.Windows.Forms.Button editBtn;
+        private System.Windows.Forms.DataGridView unpaidData;
     }
 }
