@@ -129,7 +129,8 @@ namespace softeng1
         {
             if (fnameTxt.Text == "" || lnameTxt.Text == "" || emailTxt.Text == "" || cnumTxt.Text == "" || addressTxt.Text == "")
             {
-                MessageBox.Show("Please fill up all the data", "Employee Registration", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                invalidpanel.Visible = true;
+                invalidpanel.Enabled = true;
             }
             else
             {
@@ -235,6 +236,11 @@ namespace softeng1
                     this.supplierLbl.ForeColor = Color.Red;
                 }
             }
+        }
+
+        private void closePanel_Click(object sender, EventArgs e)
+        {
+            invalidpanel.Hide();
         }
     }
 }
