@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 
+
 namespace softeng1
 {
     public partial class transactionsForm : Form
@@ -132,6 +133,13 @@ namespace softeng1
         {
             this.Hide();
             fromTransactions.Show();
+        }
+
+        private void printBtn_Click(object sender, EventArgs e)
+        {
+            reportForm report = new reportForm();
+            report.Show();
+            reportForm.fromReportTransactions = this;
         }
     }
 }
