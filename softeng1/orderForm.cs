@@ -262,7 +262,7 @@ namespace softeng1
 
         private void buyBtn_Click(object sender, EventArgs e)
         {
-            if (orderForm.Rows.Count == 0)
+            if (orderDG.Rows.Count == 0)
             {
                 errorPanel.Visible = true;
                 errorPanel.Enabled = true;
@@ -287,7 +287,7 @@ namespace softeng1
             addOrder.Enabled = false;
             editOrderBtn.Enabled = true;
             rowIndex = e.RowIndex; 
-            DataGridViewRow row = orderForm.Rows[rowIndex];
+            DataGridViewRow row = orderDG.Rows[rowIndex];
 
             productnameTxt.Text = row.Cells[0].Value.ToString();
             ppriceTxt.Text = row.Cells[1].Value.ToString();            
@@ -341,7 +341,7 @@ namespace softeng1
 
                     conn.Close();
 
-                    foreach (DataGridViewRow row in orderForm.Rows)
+                    foreach (DataGridViewRow row in orderDG.Rows)
                     {
                         conn.Open();
                         //Get all product id
@@ -419,7 +419,7 @@ namespace softeng1
 
                 conn.Close();
 
-                foreach (DataGridViewRow row in orderForm.Rows)
+                foreach (DataGridViewRow row in orderDG.Rows)
                 {
                     conn.Open();
 
@@ -481,7 +481,7 @@ namespace softeng1
             }
             else
             {
-                DataGridViewRow updRow = orderForm.Rows[rowIndex];
+                DataGridViewRow updRow = orderDG.Rows[rowIndex];
 
                 updRow.Cells[0].Value = productnameTxt.Text;
                 updRow.Cells[1].Value = ppriceTxt.Text;
@@ -549,7 +549,7 @@ namespace softeng1
 
                         toIntSerial = toIntSerial + 1;
 
-                        orderForm.Rows.Add(row);
+                        orderDG.Rows.Add(row);
                     }
 
                     productnameTxt.Clear();
@@ -576,7 +576,7 @@ namespace softeng1
         {
             foreach (DataGridViewRow item in this.orderDG.SelectedRows)
             {
-                orderForm.Rows.RemoveAt(item.Index);                
+                orderDG.Rows.RemoveAt(item.Index);                
             }
             calcSum();
         }
@@ -585,7 +585,7 @@ namespace softeng1
         private void calcSum()
         {
             double a = 0, b = 0;
-            foreach (DataGridViewRow row in orderForm.Rows)
+            foreach (DataGridViewRow row in orderDG.Rows)
             {
                 a = Convert.ToDouble(row.Cells[2].Value);
                 b = b + a;
@@ -597,7 +597,7 @@ namespace softeng1
         private int totalQuanatity()
         {
             int a = 0, b = 0;
-            foreach (DataGridViewRow row in orderForm.Rows)
+            foreach (DataGridViewRow row in orderDG.Rows)
             {
                 a = int.Parse(row.Cells[3].Value.ToString());
                 b = b + a;
