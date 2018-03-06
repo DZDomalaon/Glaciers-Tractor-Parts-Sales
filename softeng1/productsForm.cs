@@ -58,11 +58,10 @@ namespace softeng1
             prodData.Columns["product_name"].HeaderText = "Product Name";
             prodData.Columns["description"].HeaderText = "Description";
             prodData.Columns["price"].HeaderText = "Price";
+            prodData.Columns["serial"].HeaderText = "Serial";
             prodData.Columns["pc_category"].HeaderText = "Category";
             prodData.Columns["pc_variant"].HeaderText = "Variant";
             prodData.Columns["pc_type"].HeaderText = "Type";
-
-
         }
         
         private void editBtn_Click(object sender, EventArgs e)
@@ -89,8 +88,9 @@ namespace softeng1
             }
             else
             {
-                string query = "INSERT INTO product(product_name, description, price)" +
-                 "VALUES ('" + pnameTxt.Text + "','" + pdescTxt.Text + "','" + priceTxt.Text + "')";
+                string query = "INSERT INTO product(product_name, description, price, serial)" +
+                 "VALUES ('" + pnameTxt.Text + "','" + pdescTxt.Text + "','" + priceTxt.Text + "','" + serialTxt.Text + "'); INSERT INTO product_catalogue" +
+                 "(pc_category, pc_variant, pc_type) VALUES ('" + categTxt + "','" + variantTxt.Text + "','" + typeTxt.Text + "')";
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
@@ -101,20 +101,22 @@ namespace softeng1
 
                 pnameTxt.Text = "";
                 pdescTxt.Text = "";
-                categTxt.Text = "";
                 priceTxt.Text = "";
+                serialTxt.Text = "";
+                categTxt.Text = "";
+                variantTxt.Text = "";
+                typeTxt.Text = "";
             }         
         }
-
         private void resetBtn_Click(object sender, EventArgs e)
         {
             pnameTxt.Text = "";
             pdescTxt.Text = "";
-            categTxt.Text = "";
-            priceTxt.Text = ""; 
             priceTxt.Text = "";
             categTxt.Text = "";
+            serialTxt.Text = "";
             variantTxt.Text = "";
+            typeTxt.Text = "";
         }
         private void priceTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -151,16 +153,20 @@ namespace softeng1
                 pnameTxt.Text = prodData.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
                 pdescTxt.Text = prodData.Rows[e.RowIndex].Cells["description"].Value.ToString();
                 priceTxt.Text = prodData.Rows[e.RowIndex].Cells["price"].Value.ToString();
+                serialTxt.Text = prodData.Rows[e.RowIndex].Cells["serial"].Value.ToString();
                 categTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_category"].Value.ToString();
                 variantTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_variant"].Value.ToString();
                 typeTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_type"].Value.ToString();
-
             }
         }
-
         private void closePanel_Click(object sender, EventArgs e)
         {
             closePanel.Hide();
+        }
+
+        private void okBtn_Click(object sender, EventArgs e)
+        {
+            updPanel.Hide();
         }
     }
 }
