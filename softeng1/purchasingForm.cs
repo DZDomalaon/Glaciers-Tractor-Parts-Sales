@@ -37,6 +37,7 @@ namespace softeng1
             dgProducts.Columns.Add("Quantity", "Quantity");
             loadSupplier();
 
+            proLbl.Visible = false;
             dgProducts.Visible = true;
             supLbl.Visible = false;
 

@@ -53,7 +53,7 @@ namespace softeng1
             unpaidData.Columns["CUSTOMER_ID"].Visible = false;
             unpaidData.Columns["CONCAT(FIRSTNAME , ' ', LASTNAME)"].HeaderText = "Customer";
             unpaidData.Columns["ORDER_TOTAL"].HeaderText = "Total";
-            unpaidData.Columns["BALANCE"].HeaderText = "Order Balance";
+            unpaidData.Columns["ORDER_BALANCE"].HeaderText = "Order Balance";
             unpaidData.Columns["DATE(ORDER_DATE)"].HeaderText = "Date";
             unpaidData.Columns["BALANCE"].HeaderText = "Balance";
 

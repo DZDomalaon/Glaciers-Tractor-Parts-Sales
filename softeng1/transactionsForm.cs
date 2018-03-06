@@ -21,16 +21,19 @@ namespace softeng1
             InitializeComponent();
         }
         public static homeForm fromTransactions { get; set; }
+
         private void transactionsForm_Load(object sender, EventArgs e)
         {
             loadEmployee();
             loadSuppliers();
-            loadCustData();
+            loadCustData();                 
         }
+
         private void transactionsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             fromTransactions.Show();
         }
+
         public void loadCustomers()
         {
             String query = "SELECT concat(firstname,' ',lastname) as cname, order_date, order_status FROM person, customer, sales_order WHERE order_customer_id = customer_id AND customer_person_id = person_id AND order_emp_id = (SELECT emp_id FROM employee, person WHERE (concat(firstname,' ',lastname) LIKE '%" + empnameTxt.Text + "%') AND emp_person_id = person_id)";
@@ -50,7 +53,11 @@ namespace softeng1
         }
         public void loadSuppliers()
         {
-            String query = "SELECT concat(firstname,' ',lastname) as sname, purchase_date, status FROM person, supplier, purchase WHERE purchase_supplier_id = supplier_id AND supplier_person_id = person_id AND purchase_emp_id = (SELECT emp_id FROM employee, person WHERE (concat(firstname,' ',lastname) LIKE '%" + empnameTxt.Text + "%') AND emp_person_id = person_id)";
+            String query = "SELECT concat(firstname,' ',lastname) as sname, purchase_date, status " + 
+                           "FROM person inner join supplier on supplier_person_id = person_id " +
+                           "inner join purchase on purchase_supplier_id = supplier_id " +
+                           "AND purchase_emp_id = (SELECT emp_id FROM employee, person " +
+                           "WHERE(concat(firstname, ' ', lastname) LIKE '%" + empnameTxt.Text + "%') AND emp_person_id = person_id)";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -92,8 +99,7 @@ namespace softeng1
 
         private void empnameTxt_TextChanged(object sender, EventArgs e)
         {
-            loadCustomers();
-            loadSuppliers();
+            loadEmployee();
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -140,6 +146,12 @@ namespace softeng1
             reportForm report = new reportForm();
             report.Show();
             reportForm.fromReportTransactions = this;
+        }
+
+        private void empnameTxt_Enter(object sender, EventArgs e)
+        {
+            loadCustomers();
+            loadSuppliers();
         }
     }
 }

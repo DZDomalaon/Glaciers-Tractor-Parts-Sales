@@ -252,6 +252,7 @@ namespace softeng1
         {
             if (!(char.IsLetter(e.KeyChar) || e.KeyChar == (char)Keys.Back))
             {
+                e.Handled = true;
                 MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
             }
         }

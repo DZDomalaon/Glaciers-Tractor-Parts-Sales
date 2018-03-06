@@ -119,7 +119,6 @@ namespace softeng1
             fromUsers.Show();
         }
 
-
         private int selected_emp_id;
         private int selected_person_id;
         private void usersData_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -133,7 +132,7 @@ namespace softeng1
                 fnameTxt.Text = usersData.Rows[e.RowIndex].Cells["firstname"].Value.ToString();
                 lnameTxt.Text = usersData.Rows[e.RowIndex].Cells["lastname"].Value.ToString();
                 positionCmb.Text = usersData.Rows[e.RowIndex].Cells["position"].Value.ToString();
-                statusCmb.Text = usersData.Rows[e.RowIndex].Cells["status"].Value.ToString();               
+                statusCmb.Text = usersData.Rows[e.RowIndex].Cells["status"].Value.ToString();
                 emailTxt.Text = usersData.Rows[e.RowIndex].Cells["email"].Value.ToString();
                 addressTxt.Text = usersData.Rows[e.RowIndex].Cells["address"].Value.ToString();
                 numberTxt.Text = usersData.Rows[e.RowIndex].Cells["contact_num"].Value.ToString();
@@ -233,6 +232,6 @@ namespace softeng1
         private void closePanel_Click(object sender, EventArgs e)
         {
             invalidpanel.Hide();
-        }
+        }        
     }
 }
