@@ -100,9 +100,11 @@ namespace softeng1
 
         private void addBtn_Click(object sender, EventArgs e)
         {
+
             if (fnameTxt.Text == "" || lnameTxt.Text == "" || emailTxt.Text == "" || cnumTxt.Text == "" || addressTxt.Text == "")
             {
-                MessageBox.Show("Please fill up all the data", "Employee Registration", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                invalidpanel.Visible = true;
+                invalidpanel.Enabled = true;
             }
             else
             {
@@ -254,6 +256,11 @@ namespace softeng1
             {
                 e.Handled = true;
             }                
+        }
+
+        private void closePanel_Click(object sender, EventArgs e)
+        {
+            invalidpanel.Hide();
         }
     }
 }
