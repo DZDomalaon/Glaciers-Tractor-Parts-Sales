@@ -166,7 +166,7 @@ namespace softeng1
 
         private void okBtn_Click(object sender, EventArgs e)
         {
-            updPanel.Hide();
+            //updPanel.Hide();
         }
     }
 }

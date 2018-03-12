@@ -50,7 +50,7 @@ namespace softeng1
 
             loadCustomer();
             loadProduct();
-            //
+            
         }
      
         private void orderForm_FormClosing(object sender, FormClosingEventArgs e)
