@@ -93,10 +93,10 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label19 = new System.Windows.Forms.Label();
             this.pname = new System.Windows.Forms.TextBox();
-            this.ptypeTxt = new System.Windows.Forms.ComboBox();
             this.variantTxt = new System.Windows.Forms.ComboBox();
             this.categTxt = new System.Windows.Forms.ComboBox();
             this.dgProducts = new System.Windows.Forms.DataGridView();
+            this.ptypeTxt = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -466,7 +466,7 @@
             this.cPanel.Controls.Add(this.panel9);
             this.cPanel.Controls.Add(this.label13);
             this.cPanel.Enabled = false;
-            this.cPanel.Location = new System.Drawing.Point(344, 136);
+            this.cPanel.Location = new System.Drawing.Point(282, 197);
             this.cPanel.Name = "cPanel";
             this.cPanel.Size = new System.Drawing.Size(385, 145);
             this.cPanel.TabIndex = 62;
@@ -804,18 +804,6 @@
             this.pname.TabIndex = 57;
             this.pname.TextChanged += new System.EventHandler(this.pname_TextChanged);
             // 
-            // ptypeTxt
-            // 
-            this.ptypeTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ptypeTxt.FormattingEnabled = true;
-            this.ptypeTxt.Items.AddRange(new object[] {
-            "Cash",
-            "Credit"});
-            this.ptypeTxt.Location = new System.Drawing.Point(130, 294);
-            this.ptypeTxt.Name = "ptypeTxt";
-            this.ptypeTxt.Size = new System.Drawing.Size(183, 27);
-            this.ptypeTxt.TabIndex = 66;
-            // 
             // variantTxt
             // 
             this.variantTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -834,12 +822,9 @@
             this.categTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.categTxt.FormattingEnabled = true;
             this.categTxt.Items.AddRange(new object[] {
-            "Ring Kit",
-            "Oil Kit",
-            "Lubricator",
-            "Wheel",
-            "Bearing",
-            "Throttle"});
+            "Tractor Part",
+            "Equipment",
+            "Appliance"});
             this.categTxt.Location = new System.Drawing.Point(129, 227);
             this.categTxt.Name = "categTxt";
             this.categTxt.Size = new System.Drawing.Size(183, 27);
@@ -884,6 +869,15 @@
             this.dgProducts.Size = new System.Drawing.Size(522, 466);
             this.dgProducts.TabIndex = 100;
             // 
+            // ptypeTxt
+            // 
+            this.ptypeTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ptypeTxt.Location = new System.Drawing.Point(129, 293);
+            this.ptypeTxt.Name = "ptypeTxt";
+            this.ptypeTxt.Size = new System.Drawing.Size(183, 27);
+            this.ptypeTxt.TabIndex = 26;
+            this.ptypeTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceTxt_KeyPress);
+            // 
             // purchasingForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -894,7 +888,6 @@
             this.Controls.Add(this.cPanel);
             this.Controls.Add(this.invalidpanel);
             this.Controls.Add(this.oPanel);
-            this.Controls.Add(this.ptypeTxt);
             this.Controls.Add(this.variantTxt);
             this.Controls.Add(this.categTxt);
             this.Controls.Add(this.proLbl);
@@ -919,6 +912,7 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pquant);
+            this.Controls.Add(this.ptypeTxt);
             this.Controls.Add(this.priceTxt);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -1035,9 +1029,9 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox pname;
-        private System.Windows.Forms.ComboBox ptypeTxt;
         private System.Windows.Forms.ComboBox variantTxt;
         private System.Windows.Forms.ComboBox categTxt;
         private System.Windows.Forms.DataGridView dgProducts;
+        private System.Windows.Forms.TextBox ptypeTxt;
     }
 }
