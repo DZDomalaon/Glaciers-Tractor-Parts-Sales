@@ -169,9 +169,9 @@ namespace softeng1
 
 
             //update status (isa pa lang)
-            String updstatus = "update purchase set status = 'Incomplete' where purchase_id = '" + product_id + "'";
-            MySqlCommand upd_status = new MySqlCommand(updstatus, conn);
-            upd_status.ExecuteNonQuery();
+            //String updstatus = "update purchase set status = 'Incomplete' where purchase_id = '" + product_id + "'";
+            //MySqlCommand upd_status = new MySqlCommand(updstatus, conn);
+            //upd_status.ExecuteNonQuery();
 
             succPanel.Visible = true;
             succPanel.Enabled = true;
