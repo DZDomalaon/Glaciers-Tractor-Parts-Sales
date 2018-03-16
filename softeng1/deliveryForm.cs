@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -133,6 +133,53 @@ namespace softeng1
             {
                 e.Handled = true;
             }
+        }
+
+        private void okBtn_Click(object sender, EventArgs e)
+        {
+            succPanel.Hide();
+        }
+        public static int product_id, maxinv, quantity, updquant;
+        private void addBtn_Click(object sender, EventArgs e)
+        {
+            conn.Open();
+            MySqlCommand getProductID = new MySqlCommand("SELECT product_id FROM product where product_name LIKE '%" + pnameTxt.Text + "%'", conn);
+            product_id = Convert.ToInt16(getProductID.ExecuteScalar());
+
+            MySqlCommand maxID = new MySqlCommand("SELECT MAX(si_inventory_id) FROM stock_in", conn);
+            maxinv = Convert.ToInt16(maxID.ExecuteScalar());
+
+            String insertToStock_in = "INSERT INTO stock_in(si_quantity,si_product_id, si_inventory_id) VALUES('" + pquantTxt.Text + "', '" + product_id + "', '" + (maxinv+1) + "')";
+            MySqlCommand insert_si = new MySqlCommand(insertToStock_in, conn);
+            insert_si.ExecuteNonQuery();
+
+            //select quantity from inventory
+            MySqlCommand getquant = new MySqlCommand("SELECT quantity FROM inventory where inventory_id = '" + product_id + "'", conn);
+            quantity = Convert.ToInt16(getquant.ExecuteScalar());
+
+            //add quantity to inv
+            updquant = quantity + int.Parse(pquantTxt.Text);
+            
+            //update to inventory
+            String updInventory = "update inventory set quantity = '" + updquant + "' where inventory_id = '" + product_id + "'";
+            MySqlCommand upd_in = new MySqlCommand(updInventory, conn);
+            upd_in.ExecuteNonQuery();
+
+            //look for purchase_id
+
+
+            //update status (isa pa lang)
+            String updstatus = "update purchase set status = 'Incomplete' where purchase_id = '" + product_id + "'";
+            MySqlCommand upd_status = new MySqlCommand(updstatus, conn);
+            upd_status.ExecuteNonQuery();
+
+            succPanel.Visible = true;
+            succPanel.Enabled = true;
+            statustxt.Text = "";
+            snameTxt.Text = "";
+            pnameTxt.Text = "";
+            pquantTxt.Text = "";
+            conn.Close();
         }
     }
 }
