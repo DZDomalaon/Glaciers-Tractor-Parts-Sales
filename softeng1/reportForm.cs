@@ -39,8 +39,12 @@ namespace softeng1
 
             SalesReport salesRep = new SalesReport();
             salesRep.SetDataSource(dt);
+
             crystalReportViewer1.ReportSource = salesRep;
             crystalReportViewer1.Refresh();
+
+            SalesReport rpt = new softeng1.SalesReport();
+            crystalReportViewer1.ReportSource = rpt;
         }
     }
 }
