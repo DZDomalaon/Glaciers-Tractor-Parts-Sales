@@ -143,7 +143,17 @@ namespace softeng1
         }
 
         private int selected_prod_id;
-        private void prodData_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        private void closePanel_Click(object sender, EventArgs e)
+        {
+            invalidpanel.Hide();
+        }
+
+        private void okBtn_Click(object sender, EventArgs e)
+        {
+            //updPanel.Hide();
+        }
+
+        private void prodData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             addBtn.Enabled = false;
             editBtn.Enabled = true;
@@ -158,15 +168,6 @@ namespace softeng1
                 variantTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_variant"].Value.ToString();
                 typeTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_type"].Value.ToString();
             }
-        }
-        private void closePanel_Click(object sender, EventArgs e)
-        {
-            invalidpanel.Hide();
-        }
-
-        private void okBtn_Click(object sender, EventArgs e)
-        {
-            //updPanel.Hide();
         }
     }
 }

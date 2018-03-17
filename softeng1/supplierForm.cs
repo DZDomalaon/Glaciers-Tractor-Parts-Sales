@@ -96,35 +96,6 @@ namespace softeng1
         private int selected_sup_id;
         private int selected_person_id;
 
-        private void supplierData_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            addBtn.Enabled = false;
-            editBtn.Enabled = true;
-            organizationTxt.Enabled = true;
-
-            if (e.RowIndex > -1)
-            {
-                selected_sup_id = int.Parse(supplierData.Rows[e.RowIndex].Cells["supplier_id"].Value.ToString());
-                selected_person_id = int.Parse(supplierData.Rows[e.RowIndex].Cells["person_id"].Value.ToString());
-                fnameTxt.Text = supplierData.Rows[e.RowIndex].Cells["firstname"].Value.ToString();
-                lnameTxt.Text = supplierData.Rows[e.RowIndex].Cells["lastname"].Value.ToString();
-                emailTxt.Text = supplierData.Rows[e.RowIndex].Cells["email"].Value.ToString();
-                addressTxt.Text = supplierData.Rows[e.RowIndex].Cells["address"].Value.ToString();
-                cnumTxt.Text = supplierData.Rows[e.RowIndex].Cells["contact_num"].Value.ToString();                
-                organizationTxt.Text = supplierData.Rows[e.RowIndex].Cells["organization"].Value.ToString();
-                int gen = int.Parse(supplierData.Rows[e.RowIndex].Cells["gender"].Value.ToString());
-                if (gen == 1)
-                {
-                    rbMale.Checked = true;
-                }
-                else
-                {
-                    rbFemale.Checked = true;
-                }
-
-                availableProducts();
-            }
-        }
         private void addBtn_Click(object sender, EventArgs e)
         {
             if (fnameTxt.Text == "" || lnameTxt.Text == "" || emailTxt.Text == "" || cnumTxt.Text == "" || addressTxt.Text == "")
@@ -241,6 +212,36 @@ namespace softeng1
         private void closePanel_Click(object sender, EventArgs e)
         {
             invalidpanel.Hide();
+        }
+
+        private void supplierData_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            addBtn.Enabled = false;
+            editBtn.Enabled = true;
+            organizationTxt.Enabled = true;
+
+            if (e.RowIndex > -1)
+            {
+                selected_sup_id = int.Parse(supplierData.Rows[e.RowIndex].Cells["supplier_id"].Value.ToString());
+                selected_person_id = int.Parse(supplierData.Rows[e.RowIndex].Cells["person_id"].Value.ToString());
+                fnameTxt.Text = supplierData.Rows[e.RowIndex].Cells["firstname"].Value.ToString();
+                lnameTxt.Text = supplierData.Rows[e.RowIndex].Cells["lastname"].Value.ToString();
+                emailTxt.Text = supplierData.Rows[e.RowIndex].Cells["email"].Value.ToString();
+                addressTxt.Text = supplierData.Rows[e.RowIndex].Cells["address"].Value.ToString();
+                cnumTxt.Text = supplierData.Rows[e.RowIndex].Cells["contact_num"].Value.ToString();
+                organizationTxt.Text = supplierData.Rows[e.RowIndex].Cells["organization"].Value.ToString();
+                int gen = int.Parse(supplierData.Rows[e.RowIndex].Cells["gender"].Value.ToString());
+                if (gen == 1)
+                {
+                    rbMale.Checked = true;
+                }
+                else
+                {
+                    rbFemale.Checked = true;
+                }
+
+                availableProducts();
+            }
         }
     }
 }
