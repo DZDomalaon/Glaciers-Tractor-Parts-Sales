@@ -22,6 +22,7 @@ namespace softeng1
             InitializeComponent();
         }
         public static transactionsForm fromReportTransactions { get; set; }
+
         private void reportForm_Load(object sender, EventArgs e)
         {
             String getSalesTransaction = "SELECT FIRSTNAME, LASTNAME, ORDER_DISCOUNT, ORDER_DATE, ORDER_STATUS, PRODUCT_NAME, ORDER_UNIT_PRICE, ORDER_TQUANTITY, ORDER_TOTAL " +
@@ -35,16 +36,11 @@ namespace softeng1
             conn.Close();
 
             DataSet dt = new DataSet();
-            adp.Fill(dt);
+            adp.Fill(dt);        
 
-            SalesReport salesRep = new SalesReport();
-            salesRep.SetDataSource(dt);
-
-            crystalReportViewer1.ReportSource = salesRep;
-            crystalReportViewer1.Refresh();
-
-            SalesReport rpt = new softeng1.SalesReport();
-            crystalReportViewer1.ReportSource = rpt;
-        }
+            SalesReport cryRpt = new SalesReport();
+            cryRpt.SetDataSource(dt);
+            crystalReportViewer1.ReportSource = cryRpt;
+        }        
     }
 }

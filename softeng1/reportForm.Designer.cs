@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
-            this.SalesReport1 = new softeng1.SalesReport();
+            this.SalesReport = new softeng1.SalesReport();
             this.SuspendLayout();
             // 
             // crystalReportViewer1
@@ -59,6 +59,6 @@
         #endregion
 
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
-        private SalesReport SalesReport1;
+        private SalesReport SalesReport;
     }
 }
