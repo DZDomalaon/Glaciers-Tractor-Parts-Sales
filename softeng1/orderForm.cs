@@ -275,6 +275,11 @@ namespace softeng1
             }
         }
 
+        private void calculateBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
         //Filter for productnameTxt
         private void productnameTxt_TextChanged(object sender, EventArgs e)
