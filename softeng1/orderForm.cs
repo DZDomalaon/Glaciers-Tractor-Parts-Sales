@@ -258,6 +258,23 @@ namespace softeng1
             }
         }
 
+        private void paymentCmb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void paymentCmb_TextChanged(object sender, EventArgs e)
+        {
+            if(paymentCmb.Text == "Cash")
+            {
+                discountTxt.Enabled = true;
+            }
+            else
+            {
+                discountTxt.Enabled = false;
+            }
+        }
+
 
         //Filter for productnameTxt
         private void productnameTxt_TextChanged(object sender, EventArgs e)
@@ -342,6 +359,7 @@ namespace softeng1
 
             if (paymentCmb.Text == "Cash")
             {
+
                 double change = double.Parse(cashTxt.Text.ToString()) - double.Parse(totalpriceTxt.Text.ToString());
                 if (double.Parse(cashTxt.Text.ToString()) >= total)
                 {

@@ -174,11 +174,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(189, 8);
+            this.label3.Location = new System.Drawing.Point(206, 8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(193, 22);
+            this.label3.Size = new System.Drawing.Size(114, 22);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Products Purchased";
+            this.label3.Text = "Product List";
             // 
             // label2
             // 

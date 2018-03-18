@@ -172,7 +172,7 @@ namespace softeng1
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(81)))));
             this.panel4.Controls.Add(this.label3);
             this.panel4.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel4.ForeColor = System.Drawing.Color.White;
@@ -185,11 +185,11 @@ namespace softeng1
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(166, 8);
+            this.label3.Location = new System.Drawing.Point(216, 8);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(174, 22);
+            this.label3.Size = new System.Drawing.Size(114, 22);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Products Ordered";
+            this.label3.Text = "Product List";
             // 
             // custnameTxt
             // 
@@ -453,7 +453,7 @@ namespace softeng1
             // 
             // panel7
             // 
-            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(229)))), ((int)(((byte)(126)))), ((int)(((byte)(49)))));
+            this.panel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(64)))), ((int)(((byte)(81)))));
             this.panel7.Controls.Add(this.totalpriceTxt);
             this.panel7.Controls.Add(this.label11);
             this.panel7.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -550,7 +550,6 @@ namespace softeng1
             // 
             // paymentCmb
             // 
-            this.paymentCmb.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.paymentCmb.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.paymentCmb.FormattingEnabled = true;
             this.paymentCmb.Items.AddRange(new object[] {
@@ -560,6 +559,8 @@ namespace softeng1
             this.paymentCmb.Name = "paymentCmb";
             this.paymentCmb.Size = new System.Drawing.Size(183, 27);
             this.paymentCmb.TabIndex = 48;
+            this.paymentCmb.TextChanged += new System.EventHandler(this.paymentCmb_TextChanged);
+            this.paymentCmb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.paymentCmb_KeyPress);
             // 
             // label19
             // 
