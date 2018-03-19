@@ -140,7 +140,7 @@ namespace softeng1
         {
             conn.Open();
 
-            MySqlCommand getQuantity = new MySqlCommand("select quantity from inventory, product where product_name = '" + productnameTxt.Text + "' and inventory_id = product_inv_id", conn);
+            MySqlCommand getQuantity = new MySqlCommand("select quantity from inventory, product where product_name = '" + productnameTxt.Text + "' and inv_product_id = product_id", conn);
             availableStock = Convert.ToInt32(getQuantity.ExecuteScalar());
 
             conn.Close();
@@ -335,9 +335,6 @@ namespace softeng1
                 BuydateLbl.Text = DateTime.Now.Date.ToString("yyyy/MM/dd");
 
                 DateTime theDate = DateTime.Now;
-
-
-                MessageBox.Show(theDate.ToString(toIntSerial + " " + customer_id));
             }
                 
         }
@@ -391,7 +388,7 @@ namespace softeng1
                     PaymentInc = maxPaymentId;
 
                     //Insert data to sales_order                    
-                    string insertToSO = "INSERT INTO sales_order(ORDER_DATE, ORDER_STATUS, PAYMENT_CHANGE, order_customer_id, order_emp_id, order_payment_id) VALUES('" + formatForMySql + "', 'Paid', '" + change + "', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "')";
+                    string insertToSO = "INSERT INTO sales_order(ORDER_DICOUNT, ORDER_DATE, ORDER_STATUS, PAYMENT_CHANGE, order_customer_id, order_emp_id, order_payment_id) VALUES('" + double.Parse(discountTxt.Text.ToString()) + "','" + formatForMySql + "', 'Paid', '" + change + "', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "')";
                     MySqlCommand insertToSOComm = new MySqlCommand(insertToSO, conn);
                     insertToSOComm.ExecuteNonQuery();
 
@@ -409,17 +406,29 @@ namespace softeng1
                         MySqlCommand getProduct_id = new MySqlCommand("SELECT PRODUCT_ID FROM PRODUCT WHERE (PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')", conn);
                         prod_id = Convert.ToInt32(getProduct_id.ExecuteScalar());
 
+                        string serial = "";
+                        String getSerial = "SELECT SERIAL FROM PRODUCT WHERE (PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')";
+                        MySqlCommand getSerialcomm = new MySqlCommand(getSerial, conn);
+                        comm.CommandText = getSerial;
+                        MySqlDataReader drd = comm.ExecuteReader();
+
+                        if (drd.HasRows == true)
+                        {
+                            while (drd.Read())
+                                serial = drd["SERIAL"].ToString();
+                        }
+                        drd.Close();
+
                         using (conn)
                         {
                             //insert to database
-                            using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO SALES_ORDER_DETAILS(ORDER_PRODUCT_ID, ORDER_UNIT_PRICE, ORDER_SUBTOTAL, ORDER_TOTAL, ORDER_TQUANTITY, ORDER_SUBQUANTITY, ORDER_SERIAL_NO, SO_ID) VALUES('" + prod_id + "', @Price, @Subtotal, '" + total + "', '" + totalQuanatity() + "', @Quantity, @Serial, '" + OrderIncrement + "')", conn))
+                            using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO SALES_ORDER_DETAILS(ORDER_PRODUCT_ID, ORDER_UNIT_PRICE, ORDER_SUBTOTAL, ORDER_TOTAL, ORDER_TQUANTITY, ORDER_SUBQUANTITY, ORDER_SERIAL_NO, SO_ID) VALUES('" + prod_id + "', @Price, @Subtotal, '" + total + "', '" + totalQuanatity() + "', @Quantity, '" + serial + "', '" + OrderIncrement + "')", conn))
                             {
                                 //Get data of price, subtotal, and quatity per row in the datagrid
                                 //@Price, @Subtotal, and @Quantity are the names of the columns
                                 addToSales.Parameters.AddWithValue("@Price", double.Parse(row.Cells[1].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
                                 addToSales.Parameters.AddWithValue("@Subtotal", double.Parse(row.Cells[2].Value.ToString()));
-                                addToSales.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[3].Value.ToString()));
-                                addToSales.Parameters.AddWithValue("@Serial", row.Cells[4].Value.ToString());
+                                addToSales.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[3].Value.ToString()));                                
                                 addToSales.ExecuteNonQuery();
                             }
 
@@ -498,7 +507,6 @@ namespace softeng1
                             addToSales.Parameters.AddWithValue("@Price", double.Parse(row.Cells[1].Value.ToString()));
                             addToSales.Parameters.AddWithValue("@Subtotal", double.Parse(row.Cells[2].Value.ToString()));
                             addToSales.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[3].Value.ToString()));
-                            addToSales.Parameters.AddWithValue("@Serial", row.Cells[4].Value.ToString());
                             addToSales.ExecuteNonQuery();
                         }
 
@@ -560,55 +568,35 @@ namespace softeng1
         }
 
         //Add order to Datagrid
-        public static int toIntSerial;       
-        public static string serial = "";
         private void addOrder_Click(object sender, EventArgs e)
-        {
-            int quantity = int.Parse(pquant.Text.ToString());            
-            double total_price = double.Parse(ptotal.Text.ToString()) / double.Parse(pquant.Text.ToString());
-
+        {           
             if (custnameTxt.Text == "" || productnameTxt.Text == "" || ppriceTxt.Text == "" || pquant.Text == "" || ptotal.Text == "")
             {
                 MessageBox.Show("Please fill up all the data", "Add Customer Order", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
+                int quantity = int.Parse(pquant.Text.ToString());
+                double total_price = double.Parse(ptotal.Text.ToString()) / double.Parse(pquant.Text.ToString());
+
                 conn.Open();
-                MySqlCommand getQuantity = new MySqlCommand("select quantity from inventory, product where product_name = '" + productnameTxt.Text + "' and inventory_id = product_inv_id", conn);
-                availableStock = Convert.ToInt32(getQuantity.ExecuteScalar());
-
-                ////Getting serial
-                //String getSerial = "select serial from product where product_name = '" + productnameTxt.Text + "'";
-                //MySqlCommand comm = new MySqlCommand(getSerial, conn);
-                //comm.CommandText = getSerial;
-                //MySqlDataReader drd = comm.ExecuteReader();
-
-                //if (drd.HasRows == true)
-                //{
-                //    while (drd.Read())
-                //       serial = drd["serial"].ToString();
-                //}
-                //conn.Close();
-
-                //conn.Open();
-                //MySqlCommand getIntSerial = new MySqlCommand("select serial_no from product where product_name = '" + productnameTxt.Text + "'", conn);
-                //toIntSerial = Convert.ToInt32(getIntSerial.ExecuteScalar());
+                MySqlCommand getQuantity = new MySqlCommand("select quantity from inventory, product where product_name = '" + productnameTxt.Text + "' and inv_product_id = product_id", conn);
+                availableStock = Convert.ToInt32(getQuantity.ExecuteScalar());    
                 conn.Close();
 
                 if (availableStock >= quantity)
                 {
                     for (int i = 0; i < quantity; i++)
-                    {
-                        string serialNo = serial + toIntSerial;
-
+                    {                        
                         string firstColumn = productnameTxt.Text;   
                         string secondColumn = ppriceTxt.Text;
                         string thirdColumn = total_price.ToString();
                         string fourthColumn = "1";
-                        string fifthColumn = serialNo;
-                        string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn, fifthColumn };
 
-                        toIntSerial = toIntSerial + 1;
+                        Random rand = new Random();
+
+                            
+                        string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn};
 
                         orderDG.Rows.Add(row);
                     }
@@ -618,8 +606,6 @@ namespace softeng1
                     pquant.Clear();
                     ptotal.Clear();
                     calcSum();
-
-                    getSer = toIntSerial;
 
                     editOrderBtn.Enabled = true;
                     stockLbl.Visible = false;

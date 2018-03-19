@@ -103,6 +103,7 @@ namespace softeng1
             this.Product_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ProdSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -569,6 +570,7 @@ namespace softeng1
             this.discountTxt.Name = "discountTxt";
             this.discountTxt.Size = new System.Drawing.Size(183, 27);
             this.discountTxt.TabIndex = 56;
+            this.discountTxt.Text = "0.0";
             // 
             // label21
             // 
@@ -894,7 +896,8 @@ namespace softeng1
             this.Product_Name,
             this.Product_Price,
             this.SubTotal,
-            this.Quantity});
+            this.Quantity,
+            this.ProdSerial});
             this.orderDG.Location = new System.Drawing.Point(434, 85);
             this.orderDG.Name = "orderDG";
             this.orderDG.ReadOnly = true;
@@ -928,6 +931,12 @@ namespace softeng1
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.Name = "Quantity";
             this.Quantity.ReadOnly = true;
+            // 
+            // ProdSerial
+            // 
+            this.ProdSerial.HeaderText = "Serial";
+            this.ProdSerial.Name = "ProdSerial";
+            this.ProdSerial.ReadOnly = true;
             // 
             // orderForm
             // 
@@ -1079,13 +1088,14 @@ namespace softeng1
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdName;
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.DataGridView orderDG;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product_Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Product_Price;
-        private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.Button calculateBtn;
         private System.Windows.Forms.Label totalP;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label discountEx;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Product_Name;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Product_Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ProdSerial;
     }
 }

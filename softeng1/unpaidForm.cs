@@ -39,7 +39,7 @@ namespace softeng1
         }
         public void loadUnpaidCustomer()
         {
-            String query = "SELECT CONCAT(FIRSTNAME , ' ', LASTNAME), ORDER_TOTAL, DATE(ORDER_DATE), BALANCE, ORDER_ID, ORDER_BALANCE, CUSTOMER_ID from sales_order, sales_order_details, person, customer where order_status = 'Unpaid' and (person_id = customer_person_id and person_type = 'customer') and order_customer_id = customer_id and order_id = so_id GROUP BY ORDER_TOTAL";
+            String query = "SELECT CONCAT(FIRSTNAME , ' ', LASTNAME), ORDER_TOTAL, DATE(ORDER_DATE), BALANCE, ORDER_ID, ORDER_BALANCE, ORDER_PAYMENT_ID, CUSTOMER_ID from sales_order, sales_order_details, person, customer where order_status = 'Unpaid' and (person_id = customer_person_id and person_type = 'customer') and order_customer_id = customer_id and order_id = so_id GROUP BY ORDER_TOTAL";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -51,6 +51,7 @@ namespace softeng1
             unpaidData.DataSource = dt;
             unpaidData.Columns["ORDER_ID"].Visible = false;
             unpaidData.Columns["CUSTOMER_ID"].Visible = false;
+            unpaidData.Columns["ORDER_PAYMENT_ID"].Visible = false; 
             unpaidData.Columns["CONCAT(FIRSTNAME , ' ', LASTNAME)"].HeaderText = "Customer";
             unpaidData.Columns["ORDER_TOTAL"].HeaderText = "Total";
             unpaidData.Columns["ORDER_BALANCE"].HeaderText = "Order Balance";
@@ -60,15 +61,17 @@ namespace softeng1
         }
         public static int getOrderId;
         public static int getCustomerId;
+        public static int getPayment;
         private void unpaidData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             getOrderId = int.Parse(unpaidData.Rows[e.RowIndex].Cells["ORDER_ID"].Value.ToString());
             getCustomerId = int.Parse(unpaidData.Rows[e.RowIndex].Cells["CUSTOMER_ID"].Value.ToString());
+            getPayment = int.Parse(unpaidData.Rows[e.RowIndex].Cells["ORDER_PAYMENT_ID"].Value.ToString());
             custnameTxt.Text = unpaidData.Rows[e.RowIndex].Cells["CONCAT(FIRSTNAME , ' ', LASTNAME)"].Value.ToString();
             balanceTxt.Text = unpaidData.Rows[e.RowIndex].Cells["BALANCE"].Value.ToString();
             ordernumTxt.Text = unpaidData.Rows[e.RowIndex].Cells["ORDER_ID"].Value.ToString();
             totalTxt.Text = unpaidData.Rows[e.RowIndex].Cells["ORDER_TOTAL"].Value.ToString();
-            remainingTxt.Text = unpaidData.Rows[e.RowIndex].Cells["ORDER_BALANCE"].Value.ToString();
+            remainingTxt.Text = unpaidData.Rows[e.RowIndex].Cells["ORDER_BALANCE"].Value.ToString();            
         }
         
         private void amountTxt_KeyPress(object sender, KeyPressEventArgs e)
@@ -92,7 +95,7 @@ namespace softeng1
             }
         }
         
-        private void editBtn_Click(object sender, EventArgs e)
+        private void paymentBtn_Click(object sender, EventArgs e)
         {
             double payment = double.Parse(amountTxt.Text.ToString());
 
@@ -104,6 +107,10 @@ namespace softeng1
             string updateOrderBal = "UPDATE SALES_ORDER SET ORDER_BALANCE = ORDER_BALANCE - '" + payment + "' WHERE ORDER_ID = '" + getOrderId + "'";
             MySqlCommand updateOrderBalcomm = new MySqlCommand(updateOrderBal, conn);
             updateOrderBalcomm.ExecuteNonQuery();
+
+            string updatePayment = "UPDATE PAYMENT SET AMOUNT = AMOUNT + '" + payment + "' WHERE PAYMENT_ID = '" + getPayment+ "'";
+            MySqlCommand updatePaymentcomm = new MySqlCommand(updatePayment, conn);
+            updatePaymentcomm.ExecuteNonQuery();
 
             string balance = "";
             String getBalance = "select order_balance from sales_order where order_id = '" + getOrderId + "'";

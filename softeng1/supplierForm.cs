@@ -79,7 +79,10 @@ namespace softeng1
         }
         public void availableProducts()
         {
-            string query = "select product_name, price from product, supplier, product_has_supplier where product_id = phs_product_id and phs_supplier_id = '" + selected_sup_id + "'";
+            string query = "select product_name, price from product " +
+                           "inner join product_has_supplier on phs_product_id = product_id " +
+                           "inner join supplier on supplier_id = phs_supplier_id " +
+                           "where supplier_id = '" + selected_sup_id + "'";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);

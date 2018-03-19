@@ -55,7 +55,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.remainingTxt = new System.Windows.Forms.TextBox();
             this.remainingLbl = new System.Windows.Forms.Label();
-            this.editBtn = new System.Windows.Forms.Button();
+            this.paymentBtn = new System.Windows.Forms.Button();
             this.unpaidData = new System.Windows.Forms.DataGridView();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -309,19 +309,19 @@
             this.remainingLbl.TabIndex = 66;
             this.remainingLbl.Text = "Remaining";
             // 
-            // editBtn
+            // paymentBtn
             // 
-            this.editBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
-            this.editBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editBtn.ForeColor = System.Drawing.Color.White;
-            this.editBtn.Location = new System.Drawing.Point(105, 459);
-            this.editBtn.Name = "editBtn";
-            this.editBtn.Size = new System.Drawing.Size(157, 37);
-            this.editBtn.TabIndex = 62;
-            this.editBtn.Text = "Add Payment";
-            this.editBtn.UseVisualStyleBackColor = false;
-            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
+            this.paymentBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
+            this.paymentBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.paymentBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.paymentBtn.ForeColor = System.Drawing.Color.White;
+            this.paymentBtn.Location = new System.Drawing.Point(105, 459);
+            this.paymentBtn.Name = "paymentBtn";
+            this.paymentBtn.Size = new System.Drawing.Size(157, 37);
+            this.paymentBtn.TabIndex = 62;
+            this.paymentBtn.Text = "Add Payment";
+            this.paymentBtn.UseVisualStyleBackColor = false;
+            this.paymentBtn.Click += new System.EventHandler(this.paymentBtn_Click);
             // 
             // unpaidData
             // 
@@ -373,7 +373,7 @@
             this.Controls.Add(this.remainingLbl);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.backBtn);
-            this.Controls.Add(this.editBtn);
+            this.Controls.Add(this.paymentBtn);
             this.Controls.Add(this.amountTxt);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.balanceTxt);
@@ -438,7 +438,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox remainingTxt;
         private System.Windows.Forms.Label remainingLbl;
-        private System.Windows.Forms.Button editBtn;
+        private System.Windows.Forms.Button paymentBtn;
         private System.Windows.Forms.DataGridView unpaidData;
     }
 }
