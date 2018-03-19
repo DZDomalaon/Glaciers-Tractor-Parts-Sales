@@ -111,7 +111,7 @@ namespace softeng1
             productnameTxt.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             productnameTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
             productnameTxt.AutoCompleteCustomSource = productsCollection;
-        }
+        }        
         
         //Load product price
         public void productPrice()

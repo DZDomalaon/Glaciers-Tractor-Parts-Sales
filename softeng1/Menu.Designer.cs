@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel3 = new System.Windows.Forms.Panel();
             this.settingsBtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -48,6 +49,7 @@
             this.unpaidBtn = new System.Windows.Forms.Button();
             this.supplierBtn = new System.Windows.Forms.Button();
             this.usersBtn = new System.Windows.Forms.Button();
+            this.glacierToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.homePanel.SuspendLayout();
@@ -388,5 +390,6 @@
         private System.Windows.Forms.Button purchasingBtn;
         private System.Windows.Forms.Button settingsBtn;
         private System.Windows.Forms.Button logBtn;
+        private System.Windows.Forms.ToolTip glacierToolTip;
     }
 }

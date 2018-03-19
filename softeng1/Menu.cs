@@ -23,7 +23,75 @@ namespace softeng1
         public static loginForm previousForm { get; set; }
         private void Form2_Load(object sender, EventArgs e)
         {
+            ToolTip salesOrder = new ToolTip();
+            salesOrder.UseFading = true;
+            salesOrder.UseAnimation = true;
+            salesOrder.IsBalloon = true;
+            salesOrder.ShowAlways = true;
+            salesOrder.SetToolTip(invoiceBtn, "Create new sales order");
 
+            ToolTip unpaidInvoice = new ToolTip();
+            unpaidInvoice.UseFading = true;
+            unpaidInvoice.UseAnimation = true;
+            unpaidInvoice.IsBalloon = true;
+            unpaidInvoice.ShowAlways = true;
+            unpaidInvoice.SetToolTip(unpaidBtn, "Check customers unpaid invoices");
+
+            ToolTip purchasing = new ToolTip();
+            purchasing.UseFading = true;
+            purchasing.UseAnimation = true;
+            purchasing.IsBalloon = true;
+            purchasing.ShowAlways = true;
+            purchasing.SetToolTip(purchasingBtn, "Create new purchase order");
+
+            ToolTip deliveryRep = new ToolTip();
+            deliveryRep.UseFading = true;
+            deliveryRep.UseAnimation = true;
+            deliveryRep.IsBalloon = true;
+            deliveryRep.ShowAlways = true;
+            deliveryRep.SetToolTip(delivBtn, "Check delivered products");
+
+            ToolTip products = new ToolTip();
+            products.UseFading = true;
+            products.UseAnimation = true;
+            products.IsBalloon = true;
+            products.ShowAlways = true;
+            products.SetToolTip(prodBtn, "Create, view, and update product details");
+
+            ToolTip supplier = new ToolTip();
+            supplier.UseFading = true;
+            supplier.UseAnimation = true;
+            supplier.IsBalloon = true;
+            supplier.ShowAlways = true;
+            supplier.SetToolTip(supplierBtn, "Create, view, and update supplier details");
+
+            ToolTip customer = new ToolTip();
+            customer.UseFading = true;
+            customer.UseAnimation = true;
+            customer.IsBalloon = true;
+            customer.ShowAlways = true;
+            customer.SetToolTip(custBtn, "Create, view, and update customer details");
+
+            ToolTip transactions = new ToolTip();
+            transactions.UseFading = true;
+            transactions.UseAnimation = true;
+            transactions.IsBalloon = true;
+            transactions.ShowAlways = true;
+            transactions.SetToolTip(logBtn, "View customer and supplier transactions");
+
+            ToolTip staff = new ToolTip();
+            staff.UseFading = true;
+            staff.UseAnimation = true;
+            staff.IsBalloon = true;
+            staff.ShowAlways = true;
+            staff.SetToolTip(usersBtn, "Create, view, and update staff details");
+
+            ToolTip exit = new ToolTip();
+            exit.UseFading = true;
+            exit.UseAnimation = true;
+            exit.IsBalloon = true;
+            exit.ShowAlways = true;
+            exit.SetToolTip(exitBtn, "Back to login form");
         }      
         private void exitBtn_Click(object sender, EventArgs e)
         {          

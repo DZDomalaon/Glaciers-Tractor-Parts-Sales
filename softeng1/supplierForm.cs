@@ -98,6 +98,9 @@ namespace softeng1
 
         private void addBtn_Click(object sender, EventArgs e)
         {
+            int getSupplier = 0;
+            int MaxSup = 0;
+
             if (fnameTxt.Text == "" || lnameTxt.Text == "" || emailTxt.Text == "" || cnumTxt.Text == "" || addressTxt.Text == "")
             {
                 invalidpanel.Visible = true;
@@ -116,20 +119,31 @@ namespace softeng1
                     gen = 0;
                 }
                 string query = "INSERT INTO PERSON(FIRSTNAME, LASTNAME, CONTACT_NUM, EMAIL, ADDRESS, GENDER, PERSON_TYPE)" +
-                    "VALUES ('" + fnameTxt.Text + "','" + lnameTxt.Text + "','" + cnumTxt.Text + "','" + emailTxt.Text + "','" + addressTxt.Text + "','" + gen + "','Supplier')";
+                    "VALUES ('" + fnameTxt.Text + "','" + lnameTxt.Text + "','" + cnumTxt.Text + "','" + emailTxt.Text + "','" + addressTxt.Text + "','" + gen + "','Supplier')";                
 
-                conn.Open();
+
+
+                conn.Open();               
                 MySqlCommand comm = new MySqlCommand(query, conn);
                 comm.ExecuteNonQuery();
+
+                MySqlCommand getSupplierMID = new MySqlCommand("select max(supplier_id) from supplier", conn);
+                getSupplier = Convert.ToInt32(getSupplierMID.ExecuteScalar());
+                MaxSup = getSupplier;
+
+                string updateSup = "update supplier set organization = '" + organizationTxt.Text + "' where supplier_id = '" + MaxSup + "'";
+                MySqlCommand updateSupComm = new MySqlCommand(updateSup, conn);
+                updateSupComm.ExecuteNonQuery();
                 conn.Close();
 
                 loadSupplierData();
 
-                fnameTxt.Text = "";
-                lnameTxt.Text = "";
-                emailTxt.Text = "";
-                cnumTxt.Text = "";
-                addressTxt.Text = "";
+                fnameTxt.Clear();
+                lnameTxt.Clear();
+                emailTxt.Clear();
+                cnumTxt.Clear();
+                addressTxt.Clear();
+                organizationTxt.Clear();
                 rbMale.Checked = false;
                 rbFemale.Checked = false;            
             }

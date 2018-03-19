@@ -25,6 +25,7 @@ namespace softeng1
         private void productsForm_Load(object sender, EventArgs e)
         {
             loadprod();
+            loadSupplierData();
         }
         private void backBtn_Click(object sender, EventArgs e)
         {
@@ -36,14 +37,32 @@ namespace softeng1
             fromProduct.Show();
         }
 
-
-        private void label4_Click(object sender, EventArgs e)
+        //load supplier
+        public void loadSupplierData()
         {
+            String query = "SELECT firstname, lastname FROM person, supplier where person_id = supplier_person_id";
 
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            comm.CommandText = query;
+            conn.Open();
+            MySqlDataReader drd = comm.ExecuteReader();
+
+            SupplierCmb.Items.Clear();
+            while (drd.Read())
+            {
+
+                SupplierCmb.Items.Add(drd["firstname"].ToString() + " " + drd["lastname"].ToString());
+            }
+            conn.Close();
         }
+
         public void loadprod()
         {
-            String query = "SELECT product_id, product_name, description, price, pc_category , pc_variant, pc_type, serial FROM product, inventory, product_catalogue where inv_product_id = product_id and PRODUCT_PC_ID = pc_id";
+            String query = "SELECT concat(firstname, ' ', lastname) as supplier, product_id, product_name, description, price, pc_category , pc_variant, pc_type, serial FROM product " +
+                           "inner join product_catalogue on PRODUCT_PC_ID = pc_id " +
+                           "inner join product_has_supplier on product_id = PHS_PRODUCT_ID " +
+                           "inner join supplier on PHS_SUPPLIER_ID = SUPPLIER_ID " +
+                           "inner join person on SUPPLIER_PERSON_ID = person_id";
 
 
             conn.Open();
@@ -55,6 +74,7 @@ namespace softeng1
 
             prodData.DataSource = dt;
             prodData.Columns["product_id"].Visible = false;
+            prodData.Columns["supplier"].Visible = false;
             prodData.Columns["product_name"].HeaderText = "Product Name";
             prodData.Columns["description"].HeaderText = "Description";
             prodData.Columns["price"].HeaderText = "Price";
@@ -118,13 +138,14 @@ namespace softeng1
         }
         private void resetBtn_Click(object sender, EventArgs e)
         {
-            pnameTxt.Text = "";
-            pdescTxt.Text = "";
-            priceTxt.Text = "";
+            pnameTxt.Clear();
+            pdescTxt.Clear();
+            priceTxt.Clear();
             categTxt.Text = "";
-            serialTxt.Text = "";
+            serialTxt.Clear();
             variantTxt.Text = "";
             typeTxt.Text = "";
+            SupplierCmb.Text = "";
         }
         private void priceTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -175,6 +196,7 @@ namespace softeng1
                 categTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_category"].Value.ToString();
                 variantTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_variant"].Value.ToString();
                 typeTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_type"].Value.ToString();
+                SupplierCmb.Text = prodData.Rows[e.RowIndex].Cells["supplier"].Value.ToString();
             }
         }
     }
