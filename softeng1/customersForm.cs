@@ -69,7 +69,7 @@ namespace softeng1
             custData.Columns["customer_person_id"].Visible = false;
             custData.Columns["gender"].Visible = false;
             custData.Columns["balance"].Visible = false;
-            custData.Columns["credit_limit"].Visible = false;
+            custData.Columns["credit_limit"].HeaderText = "Credit Limit";
             custData.Columns["firstname"].HeaderText = "Firstname";
             custData.Columns["lastname"].HeaderText = "Lastname";
             custData.Columns["contact_num"].HeaderText = "Contact Number";

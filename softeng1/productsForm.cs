@@ -43,7 +43,7 @@ namespace softeng1
         }
         public void loadprod()
         {
-            String query = "SELECT product_id, product_name, description, price, pc_category , pc_variant, pc_type, serial FROM product, inventory, product_catalogue where product_inv_id = inventory_id and PRODUCT_PC_ID = pc_id";
+            String query = "SELECT product_id, product_name, description, price, pc_category , pc_variant, pc_type, serial FROM product, inventory, product_catalogue where inv_product_id = product_id and PRODUCT_PC_ID = pc_id";
 
 
             conn.Open();
@@ -88,13 +88,21 @@ namespace softeng1
             }
             else
             {
+                int supId = 0;
+                string selectSupplier = "SELECT SUPPLIER_ID FROM SUPPLIER, PERSON WHERE CONCAT(FIRSTNAME, ' ', LASTNAME) = '"+ SupplierCmb.Text +"'";
+                
                 string query = "INSERT INTO product(product_name, description, price, serial)" +
-                 "VALUES ('" + pnameTxt.Text + "','" + pdescTxt.Text + "','" + priceTxt.Text + "','" + serialTxt.Text + "'); INSERT INTO product_catalogue" +
-                 "(pc_category, pc_variant, pc_type) VALUES ('" + categTxt + "','" + variantTxt.Text + "','" + typeTxt.Text + "')";
-
+                 "VALUES ('" + pnameTxt.Text + "','" + pdescTxt.Text + "','" + priceTxt.Text + "','" + serialTxt.Text + "'); " +
+                 "INSERT INTO product_catalogue (pc_category, pc_variant, pc_type) VALUES ('" + categTxt + "','" + variantTxt.Text + "','" + typeTxt.Text + "')";
+                
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
                 comm.ExecuteNonQuery();
+
+                MySqlCommand selectSuppliercomm = new MySqlCommand(selectSupplier, conn);
+                supId = Convert.ToInt32(selectSuppliercomm.ExecuteScalar());
+
+                MySqlCommand insertToPHS = new MySqlCommand("INSERT INTO PRODUCT_HAS_SUPPLIER(PHS_PRODUCT_ID, PHS_SUPPLIER_ID) VALUES('" + selected_prod_id + "', '" + supId + "')", conn);
                 conn.Close();
 
                 loadprod();
@@ -141,8 +149,7 @@ namespace softeng1
                 MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
             }
         }
-
-        private int selected_prod_id;
+        
         private void closePanel_Click(object sender, EventArgs e)
         {
             invalidpanel.Hide();
@@ -153,6 +160,7 @@ namespace softeng1
             //updPanel.Hide();
         }
 
+        private int selected_prod_id;
         private void prodData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             addBtn.Enabled = false;

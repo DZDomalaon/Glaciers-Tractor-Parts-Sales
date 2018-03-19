@@ -79,7 +79,7 @@ namespace softeng1
         }
         public void availableProducts()
         {
-            string query = "select product_name, price from product, supplier, product_has_supplier where product_id = product_product_id and supplier_supplier_id = '" + selected_sup_id + "'";
+            string query = "select product_name, price from product, supplier, product_has_supplier where product_id = phs_product_id and phs_supplier_id = '" + selected_sup_id + "'";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -149,7 +149,7 @@ namespace softeng1
                 {
                     gen = 0;
                 }
-                String query = "Update PERSON, SUPPLIER SET PERSON.FIRSTNAME = '" + fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text + "', PERSON.GENDER = '" + gen + "', PERSON.CONTACT_NUM = '" + cnumTxt.Text + "', PERSON.EMAIL = '" + emailTxt.Text + "', PERSON.ADDRESS ='" + addressTxt.Text + "', ORGANIZATION = '" + organizationTxt.Text + "', CONTACT_PERSON = CONCAT('" + fnameTxt.Text + "',' ','" + lnameTxt.Text + "') WHERE SUPPLIER_ID = '" + selected_sup_id + "' AND PERSON_ID = '" + selected_person_id + "'";
+                String query = "Update PERSON, SUPPLIER SET PERSON.FIRSTNAME = '" + fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text + "', PERSON.GENDER = '" + gen + "', PERSON.CONTACT_NUM = '" + cnumTxt.Text + "', PERSON.EMAIL = '" + emailTxt.Text + "', PERSON.ADDRESS ='" + addressTxt.Text + "', ORGANIZATION = '" + organizationTxt.Text + "' WHERE SUPPLIER_ID = '" + selected_sup_id + "' AND PERSON_ID = '" + selected_person_id + "'";
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);

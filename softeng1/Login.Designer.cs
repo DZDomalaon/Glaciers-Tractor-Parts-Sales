@@ -48,7 +48,6 @@
             this.time.Size = new System.Drawing.Size(199, 73);
             this.time.TabIndex = 8;
             this.time.Text = "00:00";
-            this.time.Click += new System.EventHandler(this.time_Click);
             // 
             // loginBtn
             // 

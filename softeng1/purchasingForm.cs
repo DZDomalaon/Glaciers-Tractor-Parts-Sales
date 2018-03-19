@@ -45,7 +45,7 @@ namespace softeng1
 
             conn.Open();
 
-            String getPname = "SELECT PRODUCT_NAME, PRICE FROM PRODUCT, SUPPLIER, PRODUCT_HAS_SUPPLIER WHERE PRODUCT_ID = PRODUCT_PRODUCT_ID AND SUPPLIER_ID = SUPPLIER_SUPPLIER_ID";
+            String getPname = "SELECT PRODUCT_NAME, PRICE FROM PRODUCT, SUPPLIER, PRODUCT_HAS_SUPPLIER WHERE PRODUCT_ID = PHS_PRODUCT_ID AND SUPPLIER_ID = PHS_SUPPLIER_ID";
             MySqlCommand comm = new MySqlCommand(getPname, conn);
             comm.CommandText = getPname;
             MySqlDataReader drd = comm.ExecuteReader();
@@ -211,7 +211,7 @@ namespace softeng1
             conn.Open();
 
             int countProd;
-            MySqlCommand getProduct = new MySqlCommand("SELECT COUNT(*) FROM PRODUCT, SUPPLIER, PRODUCT_HAS_SUPPLIER WHERE PRODUCT_ID = PRODUCT_PRODUCT_ID AND SUPPLIER_SUPPLIER_ID = SUPPLIER_ID", conn);
+            MySqlCommand getProduct = new MySqlCommand("SELECT COUNT(*) FROM PRODUCT, SUPPLIER, PRODUCT_HAS_SUPPLIER WHERE PRODUCT_ID = PHS_PRODUCT_ID AND PHS_SUPPLIER_ID = SUPPLIER_ID", conn);
             countProd = Convert.ToInt16(getProduct.ExecuteScalar());
 
             conn.Close();

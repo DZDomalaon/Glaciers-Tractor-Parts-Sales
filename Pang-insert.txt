@@ -3,11 +3,18 @@ INSERT INTO PERSON(FIRSTNAME, LASTNAME, CONTACT_NUM, EMAIL, ADDRESS, GENDER, PER
 ('Kristina', 'Pitoy', '09154843947', 'mkopitoy@addu.edu.ph', 'SA PUSO NI RJ', '0', 'CUSTOMER'),
 ('Jusane', 'Bellezas', '09154843947', 'jtsbellezas@addu.edu.ph', 'SA PUSO NG JOLLIBEE', '0', 'SUPPLIER');
 
-INSERT INTO `glaciers`.`inventory` (`INVENTORY_ID`, `QUANTITY`) VALUES ('1', '10');
 
-INSERT INTO `glaciers`.`inventory` (`INVENTORY_ID`, `QUANTITY`) VALUES ('2', '20');
+INSERT INTO `glaciers`.`inventory` (`INVENTORY_ID`, `QUANTITY`, `INV_PRODUCT_ID`) VALUES ('1', '10', '2');
+
+
+
+INSERT INTO `glaciers`.`inventory` (`INVENTORY_ID`, `QUANTITY`, `INV_PRODUCT_ID`) VALUES ('2', '20', '3');
+
+
 
 INSERT INTO `glaciers`.`product_catalogue` (`PC_ID`, `PC_CATEGORY`, `PC_VARIANT`, `PC_TYPE`) VALUES ('1', 'wheel', 'size', 'medium');
+
+
 
 
 
@@ -15,12 +22,23 @@ INSERT INTO `glaciers`.`product_catalogue` (`PC_ID`, `PC_CATEGORY`, `PC_VARIANT`
 
 
 
+
+
 INSERT INTO `glaciers`.`product_catalogue` (`PC_ID`, `PC_CATEGORY`, `PC_VARIANT`, `PC_TYPE`) VALUES ('3', 'wheel', 'model', 'buak');
 
-INSERT INTO `glaciers`.`product` (`PRODUCT_NAME`, `DESCRIPTION`, `PRICE`, `PRODUCT_PC_ID`, `PRODUCT_INV_ID`) VALUES ('ligid', 'gamay', '100', '2', '1');
 
-INSERT INTO `glaciers`.`product` (`PRODUCT_NAME`, `DESCRIPTION`, `PRICE`, `PRODUCT_PC_ID`, `PRODUCT_INV_ID`) VALUES ('ligid1', 'dako', '200', '3', '1');
 
-INSERT INTO `glaciers`.`product` (`PRODUCT_NAME`, `DESCRIPTION`, `PRICE`, `PRODUCT_PC_ID`, `PRODUCT_INV_ID`) VALUES ('bearing', 'blue', '500', '2', '2');
 
-INSERT INTO `glaciers`.`product` (`PRODUCT_NAME`, `DESCRIPTION`, `PRICE`, `PRODUCT_PC_ID`, `PRODUCT_INV_ID`) VALUES ('wrench', 'pula', '120', '3', '1');
+INSERT INTO `glaciers`.`product` (`PRODUCT_NAME`, `DESCRIPTION`, `PRICE`, `PRODUCT_PC_ID`) VALUES ('ligid', 'gamay', '100', '2');
+
+
+
+INSERT INTO `glaciers`.`product` (`PRODUCT_NAME`, `DESCRIPTION`, `PRICE`, `PRODUCT_PC_ID`) VALUES ('ligid1', 'dako', '200', '3');
+
+
+
+INSERT INTO `glaciers`.`product` (`PRODUCT_NAME`, `DESCRIPTION`, `PRICE`, `PRODUCT_PC_ID`) VALUES ('bearing', 'blue', '500', '2');
+
+
+
+INSERT INTO `glaciers`.`product` (`PRODUCT_NAME`, `DESCRIPTION`, `PRICE`, `PRODUCT_PC_ID`) VALUES ('wrench', 'pula', '120', '3');

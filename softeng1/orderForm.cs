@@ -41,7 +41,8 @@ namespace softeng1
             usernameLbl.Text = loginForm.name;
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
 
-            errorPanel.Visible = false;           
+            errorPanel.Visible = false;
+            calculateBtn.Visible = false;
             buyPanel.Visible = false;
             stockLbl.Visible = false;
             custLbl.Visible = false;
@@ -132,8 +133,6 @@ namespace softeng1
 
             drd.Close();
             conn.Close();
-
-
         }
 
         //Check product quantity
@@ -268,16 +267,29 @@ namespace softeng1
             if(paymentCmb.Text == "Cash")
             {
                 discountTxt.Enabled = true;
+                calculateBtn.Visible = true;
             }
             else
             {
                 discountTxt.Enabled = false;
+                calculateBtn.Visible = false;
             }
         }
 
         private void calculateBtn_Click(object sender, EventArgs e)
         {
+            if(discountTxt.Text == "")
+            {
+                MessageBox.Show("Please input the discount rate", "Empty discount rate", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                double dis = double.Parse(discountTxt.Text);
+                double totalPrice = double.Parse(totalpriceTxt.Text);
+                double total = totalPrice * (1 - dis);
 
+                totalP.Text = total.ToString("0.00");
+            }            
         }
 
 

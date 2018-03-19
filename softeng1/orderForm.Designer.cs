@@ -63,6 +63,10 @@ namespace softeng1
             this.totalpriceTxt = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.buyPanel = new System.Windows.Forms.Panel();
+            this.discountEx = new System.Windows.Forms.Label();
+            this.calculateBtn = new System.Windows.Forms.Button();
+            this.totalP = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
             this.buyBackBtn = new System.Windows.Forms.Button();
             this.confirmBtn = new System.Windows.Forms.Button();
             this.discountTxt = new System.Windows.Forms.TextBox();
@@ -99,10 +103,6 @@ namespace softeng1
             this.Product_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.totalP = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.calculateBtn = new System.Windows.Forms.Button();
-            this.discountEx = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -364,7 +364,7 @@ namespace softeng1
             this.backToMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backToMenu.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backToMenu.ForeColor = System.Drawing.Color.White;
-            this.backToMenu.Location = new System.Drawing.Point(317, 488);
+            this.backToMenu.Location = new System.Drawing.Point(168, 538);
             this.backToMenu.Name = "backToMenu";
             this.backToMenu.Size = new System.Drawing.Size(92, 37);
             this.backToMenu.TabIndex = 9;
@@ -489,6 +489,50 @@ namespace softeng1
             this.buyPanel.Size = new System.Drawing.Size(418, 375);
             this.buyPanel.TabIndex = 28;
             this.buyPanel.Visible = false;
+            // 
+            // discountEx
+            // 
+            this.discountEx.AutoSize = true;
+            this.discountEx.ForeColor = System.Drawing.Color.Green;
+            this.discountEx.Location = new System.Drawing.Point(180, 253);
+            this.discountEx.Name = "discountEx";
+            this.discountEx.Size = new System.Drawing.Size(88, 13);
+            this.discountEx.TabIndex = 60;
+            this.discountEx.Text = "Ex: 0.05, 0.1, 0.6";
+            // 
+            // calculateBtn
+            // 
+            this.calculateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(139)))), ((int)(((byte)(245)))));
+            this.calculateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.calculateBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.calculateBtn.ForeColor = System.Drawing.Color.White;
+            this.calculateBtn.Location = new System.Drawing.Point(143, 273);
+            this.calculateBtn.Name = "calculateBtn";
+            this.calculateBtn.Size = new System.Drawing.Size(113, 37);
+            this.calculateBtn.TabIndex = 59;
+            this.calculateBtn.Text = "Calculate";
+            this.calculateBtn.UseVisualStyleBackColor = false;
+            this.calculateBtn.Click += new System.EventHandler(this.calculateBtn_Click);
+            // 
+            // totalP
+            // 
+            this.totalP.AutoSize = true;
+            this.totalP.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.totalP.Location = new System.Drawing.Point(208, 94);
+            this.totalP.Name = "totalP";
+            this.totalP.Size = new System.Drawing.Size(48, 23);
+            this.totalP.TabIndex = 58;
+            this.totalP.Text = "0.00";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label25.Location = new System.Drawing.Point(139, 94);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(64, 23);
+            this.label25.TabIndex = 57;
+            this.label25.Text = "Total: ";
             // 
             // buyBackBtn
             // 
@@ -828,7 +872,7 @@ namespace softeng1
             this.resetBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.resetBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resetBtn.ForeColor = System.Drawing.Color.White;
-            this.resetBtn.Location = new System.Drawing.Point(169, 531);
+            this.resetBtn.Location = new System.Drawing.Point(317, 488);
             this.resetBtn.Name = "resetBtn";
             this.resetBtn.Size = new System.Drawing.Size(92, 37);
             this.resetBtn.TabIndex = 66;
@@ -884,50 +928,6 @@ namespace softeng1
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.Name = "Quantity";
             this.Quantity.ReadOnly = true;
-            // 
-            // totalP
-            // 
-            this.totalP.AutoSize = true;
-            this.totalP.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.totalP.Location = new System.Drawing.Point(208, 94);
-            this.totalP.Name = "totalP";
-            this.totalP.Size = new System.Drawing.Size(48, 23);
-            this.totalP.TabIndex = 58;
-            this.totalP.Text = "0.00";
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.Location = new System.Drawing.Point(139, 94);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(64, 23);
-            this.label25.TabIndex = 57;
-            this.label25.Text = "Total: ";
-            // 
-            // calculateBtn
-            // 
-            this.calculateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(139)))), ((int)(((byte)(245)))));
-            this.calculateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.calculateBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calculateBtn.ForeColor = System.Drawing.Color.White;
-            this.calculateBtn.Location = new System.Drawing.Point(143, 273);
-            this.calculateBtn.Name = "calculateBtn";
-            this.calculateBtn.Size = new System.Drawing.Size(113, 37);
-            this.calculateBtn.TabIndex = 59;
-            this.calculateBtn.Text = "Calculate";
-            this.calculateBtn.UseVisualStyleBackColor = false;
-            this.calculateBtn.Click += new System.EventHandler(this.calculateBtn_Click);
-            // 
-            // discountEx
-            // 
-            this.discountEx.AutoSize = true;
-            this.discountEx.ForeColor = System.Drawing.Color.Green;
-            this.discountEx.Location = new System.Drawing.Point(180, 253);
-            this.discountEx.Name = "discountEx";
-            this.discountEx.Size = new System.Drawing.Size(88, 13);
-            this.discountEx.TabIndex = 60;
-            this.discountEx.Text = "Ex: 0.05, 0.1, 0.6";
             // 
             // orderForm
             // 

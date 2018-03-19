@@ -26,15 +26,7 @@ namespace softeng1
 
         }      
         private void exitBtn_Click(object sender, EventArgs e)
-        {
-            String timeOut_query = "UPDATE employee SET time_OUT = TIME(NOW()) where emp_id ='" + loginForm.user_id + "'";
-
-
-            conn.Open();
-            MySqlCommand comm = new MySqlCommand(timeOut_query, conn);
-            comm.ExecuteNonQuery();
-            conn.Close();
-
+        {          
             this.Hide();
             previousForm.Show();
         }
@@ -58,6 +50,7 @@ namespace softeng1
             salesForm.fromSales = this;
             this.Hide();
         }
+
         private void invoiceBtn_Click(object sender, EventArgs e)
         {
             orderForm order = new orderForm();

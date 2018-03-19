@@ -44,9 +44,6 @@ namespace softeng1
             usersData.Columns["person_id"].Visible = false;
             usersData.Columns["username"].Visible = false;
             usersData.Columns["password"].Visible = false;
-            usersData.Columns["time_in"].Visible = false;
-            usersData.Columns["time_out"].Visible = false;
-            usersData.Columns["log_date"].Visible = false;
             usersData.Columns["person_type"].Visible = false;
             usersData.Columns["emp_person_id"].Visible = false;
             usersData.Columns["gender"].Visible = false;
