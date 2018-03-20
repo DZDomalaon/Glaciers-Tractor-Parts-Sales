@@ -69,17 +69,44 @@ namespace softeng1
             snameTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
             snameTxt.AutoCompleteCustomSource = namesCollection;
         }
+
+        public void loadPurchaseData()
+        {
+            String query = "select purchase_id, purchase_date, concat(firstname, ' ', lastname)as supplier, product_name, purchase_subquantity from purchase_details, purchase, supplier, person where  pd_purchase_id = purchase_id and supplier_id = PURCHASE_SUPPLIER_ID and PERSON_ID = SUPPLIER_PERSON_ID";
+
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            purchaseData.DataSource = dt;
+
+            purchaseData.Columns["purchase_id"].Visible = true;
+            purchaseData.Columns["purchase_date"].Visible = true;
+            purchaseData.Columns["supplier"].Visible = true;
+            purchaseData.Columns["product_name"].Visible = true;
+            purchaseData.Columns["purchase_subquantity"].Visible = true;
+            purchaseData.Columns["purchase_id"].HeaderText = "Purchase ID";
+            purchaseData.Columns["purchase_date"].HeaderText = "Date of Purchase";
+            purchaseData.Columns["supplier"].HeaderText = "Supplier";
+            purchaseData.Columns["product_name"].HeaderText = "Product Name";
+            purchaseData.Columns["purchase_subquantity"].HeaderText = "Total Quantity";
+        }
+
         private void deliveryForm_Load_1(object sender, EventArgs e)
         {
             loadPurchase();
             loadDelivery();
+            loadPurchaseData();
             supLbl.Visible = false;
 
         }
 
         public void loadDelivery()
         {
-            String query = "SELECT delivery_date, product_name, total_quantity FROM delivery";
+            String query = "SELECT delivery_date, concat(firstname, ' ', lastname)as supplier, delivery.product_name, total_quantity, purchase_subquantity FROM delivery, purchase_details, person, purchase, supplier where  pd_purchase_id = purchase_id and supplier_id = PURCHASE_SUPPLIER_ID and PERSON_ID = SUPPLIER_PERSON_ID and delivery.product_name = purchase_details.PRODUCT_NAME";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -91,11 +118,15 @@ namespace softeng1
             deliveryData.DataSource = dt;
 
             deliveryData.Columns["delivery_date"].Visible = true;
+            deliveryData.Columns["supplier"].Visible = true;
             deliveryData.Columns["product_name"].Visible = true;
             deliveryData.Columns["total_quantity"].Visible = true;
+            deliveryData.Columns["purchase_subquantity"].Visible = true;
             deliveryData.Columns["delivery_date"].HeaderText = "Delivery Date";
+            deliveryData.Columns["supplier"].HeaderText = "Supplier";
             deliveryData.Columns["product_name"].HeaderText = "Product Name";
-            deliveryData.Columns["total_quantity"].HeaderText = "Total Quantity";
+            deliveryData.Columns["total_quantity"].HeaderText = "Quantity Delivered";
+            deliveryData.Columns["purchase_subquantity"].HeaderText = "Expected Quantity";
         }
 
         private void deliveryForm_FormClosing_1(object sender, FormClosingEventArgs e)
@@ -226,7 +257,6 @@ namespace softeng1
             //upd_status.ExecuteNonQuery();
             succPanel.Visible = true;
             succPanel.Enabled = true;
-            statustxt.Text = "";
             snameTxt.Text = "";
             pnameTxt.Text = "";
             pquantTxt.Text = "";
