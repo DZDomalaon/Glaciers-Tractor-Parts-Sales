@@ -214,7 +214,7 @@ namespace softeng1
             MySqlCommand getProduct = new MySqlCommand("SELECT COUNT(*) FROM PRODUCT, SUPPLIER, PRODUCT_HAS_SUPPLIER WHERE PRODUCT_ID = PHS_PRODUCT_ID AND PHS_SUPPLIER_ID = SUPPLIER_ID", conn);
             countProd = Convert.ToInt16(getProduct.ExecuteScalar());
 
-            conn.Close();
+            
 
             if (pname.Text == "" || countProd == 0)
             {
@@ -228,7 +228,10 @@ namespace softeng1
                 this.proLbl.ForeColor = Color.Green;
                 proLbl.Text = "Product found";
 
+
+
             }
+            conn.Close();
 
         }
 
@@ -239,6 +242,33 @@ namespace softeng1
             if (snameTxt.Text == "")
             {
                 proLbl.Visible = false;
+            }
+            else
+            {
+                conn.Open();
+                int prodID;
+                MySqlCommand getID = new MySqlCommand("SELECT product_id FROM PRODUCT WHERE PRODUCT_NAME = '" + pname.Text + "'", conn);
+                prodID = Convert.ToInt16(getID.ExecuteScalar());
+
+                String getProdData = "select pc_category, pc_variant, pc_type, price from product_catalogue, product where pc_id = product_id and pc_id = '" + prodID + "'";
+                MySqlCommand comm = new MySqlCommand(getProdData, conn);
+                comm.CommandText = getProdData;
+                MySqlDataReader drd = comm.ExecuteReader();
+
+                if (drd.HasRows == true)
+                {
+                    while (drd.Read())
+                    {
+                        categTxt.Text = drd["pc_category"].ToString();
+                        variantTxt.Text = drd["pc_variant"].ToString();
+                        ptypeTxt.Text = drd["pc_type"].ToString();
+                        priceTxt.Text = drd["PRICE"].ToString();
+
+                    }
+                }
+
+                drd.Close();
+                conn.Close();
             }
 
         }

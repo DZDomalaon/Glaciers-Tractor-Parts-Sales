@@ -341,15 +341,20 @@ namespace softeng1
         //pass all data from Datagridview to textboxes
         private void orderDG_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            addOrder.Enabled = false;
-            editOrderBtn.Enabled = true;
-            rowIndex = e.RowIndex; 
-            DataGridViewRow row = orderDG.Rows[rowIndex];
+            try
+            {
+                addOrder.Enabled = false;
+                editOrderBtn.Enabled = true;
+                rowIndex = e.RowIndex;
+                DataGridViewRow row = orderDG.Rows[rowIndex];
 
-            productnameTxt.Text = row.Cells[0].Value.ToString();
-            ppriceTxt.Text = row.Cells[1].Value.ToString();            
-            ptotal.Text = row.Cells[2].Value.ToString();
-            pquant.Text = row.Cells[3].Value.ToString();
+                productnameTxt.Text = row.Cells[0].Value.ToString();
+                ppriceTxt.Text = row.Cells[1].Value.ToString();
+                ptotal.Text = row.Cells[2].Value.ToString();
+                pquant.Text = row.Cells[3].Value.ToString();
+            }
+            catch { }
+            
         }
 
         //Confirm order
