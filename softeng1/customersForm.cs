@@ -286,6 +286,7 @@ namespace softeng1
                 emailTxt.Text = "";
                 cnumTxt.Text = "";
                 addressTxt.Text = "";
+                creditTxt.Text = "";
                 rbMale.Checked = true;
 
                 cPanel.Visible = false;
@@ -294,6 +295,18 @@ namespace softeng1
                 oPanel.Visible = true;
                 oPanel.Enabled = true;
             }
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            cPanel.Hide();
+            cPanel.Enabled = false;
+        }
+
+        private void closePanel2_Click(object sender, EventArgs e)
+        {
+            cPanel.Hide();
+            cPanel.Enabled = false;
         }
     }
 }
