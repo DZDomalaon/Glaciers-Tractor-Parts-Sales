@@ -60,8 +60,6 @@
             this.cnumTxt = new System.Windows.Forms.MaskedTextBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label10 = new System.Windows.Forms.Label();
-            this.rbMale = new MaterialSkin.Controls.MaterialRadioButton();
-            this.rbFemale = new MaterialSkin.Controls.MaterialRadioButton();
             this.supplierData = new System.Windows.Forms.DataGridView();
             this.dgproduct = new System.Windows.Forms.DataGridView();
             this.supplierLbl = new System.Windows.Forms.Label();
@@ -71,6 +69,8 @@
             this.label18 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.rbMale = new System.Windows.Forms.RadioButton();
+            this.rbFemale = new System.Windows.Forms.RadioButton();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -366,40 +366,6 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Products";
             // 
-            // rbMale
-            // 
-            this.rbMale.AutoSize = true;
-            this.rbMale.Depth = 0;
-            this.rbMale.Font = new System.Drawing.Font("Roboto", 10F);
-            this.rbMale.Location = new System.Drawing.Point(128, 226);
-            this.rbMale.Margin = new System.Windows.Forms.Padding(0);
-            this.rbMale.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.rbMale.MouseState = MaterialSkin.MouseState.HOVER;
-            this.rbMale.Name = "rbMale";
-            this.rbMale.Ripple = true;
-            this.rbMale.Size = new System.Drawing.Size(59, 30);
-            this.rbMale.TabIndex = 106;
-            this.rbMale.TabStop = true;
-            this.rbMale.Text = "Male";
-            this.rbMale.UseVisualStyleBackColor = true;
-            // 
-            // rbFemale
-            // 
-            this.rbFemale.AutoSize = true;
-            this.rbFemale.Depth = 0;
-            this.rbFemale.Font = new System.Drawing.Font("Roboto", 10F);
-            this.rbFemale.Location = new System.Drawing.Point(212, 226);
-            this.rbFemale.Margin = new System.Windows.Forms.Padding(0);
-            this.rbFemale.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.rbFemale.MouseState = MaterialSkin.MouseState.HOVER;
-            this.rbFemale.Name = "rbFemale";
-            this.rbFemale.Ripple = true;
-            this.rbFemale.Size = new System.Drawing.Size(74, 30);
-            this.rbFemale.TabIndex = 107;
-            this.rbFemale.TabStop = true;
-            this.rbFemale.Text = "Female";
-            this.rbFemale.UseVisualStyleBackColor = true;
-            // 
             // supplierData
             // 
             this.supplierData.AllowUserToAddRows = false;
@@ -558,18 +524,45 @@
             this.label19.TabIndex = 63;
             this.label19.Text = "Cannot add supplier.\r\nYou must fill in all of the fields.\r\n";
             // 
+            // rbMale
+            // 
+            this.rbMale.AutoSize = true;
+            this.rbMale.BackColor = System.Drawing.Color.Transparent;
+            this.rbMale.Font = new System.Drawing.Font("Calibri", 12F);
+            this.rbMale.ForeColor = System.Drawing.Color.Black;
+            this.rbMale.Location = new System.Drawing.Point(128, 226);
+            this.rbMale.Name = "rbMale";
+            this.rbMale.Size = new System.Drawing.Size(60, 23);
+            this.rbMale.TabIndex = 66;
+            this.rbMale.TabStop = true;
+            this.rbMale.Text = "Male";
+            this.rbMale.UseVisualStyleBackColor = false;
+            // 
+            // rbFemale
+            // 
+            this.rbFemale.AutoSize = true;
+            this.rbFemale.Font = new System.Drawing.Font("Calibri", 12F);
+            this.rbFemale.ForeColor = System.Drawing.Color.Black;
+            this.rbFemale.Location = new System.Drawing.Point(205, 226);
+            this.rbFemale.Name = "rbFemale";
+            this.rbFemale.Size = new System.Drawing.Size(74, 23);
+            this.rbFemale.TabIndex = 114;
+            this.rbFemale.TabStop = true;
+            this.rbFemale.Text = "Female";
+            this.rbFemale.UseVisualStyleBackColor = true;
+            // 
             // supplierForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
+            this.Controls.Add(this.rbFemale);
+            this.Controls.Add(this.rbMale);
             this.Controls.Add(this.invalidpanel);
             this.Controls.Add(this.supplierLbl);
             this.Controls.Add(this.dgproduct);
             this.Controls.Add(this.supplierData);
-            this.Controls.Add(this.rbFemale);
-            this.Controls.Add(this.rbMale);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.cnumTxt);
             this.Controls.Add(this.backBtn);
@@ -647,8 +640,6 @@
         private System.Windows.Forms.MaskedTextBox cnumTxt;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label10;
-        private MaterialSkin.Controls.MaterialRadioButton rbMale;
-        private MaterialSkin.Controls.MaterialRadioButton rbFemale;
         private System.Windows.Forms.DataGridView supplierData;
         private System.Windows.Forms.DataGridView dgproduct;
         private System.Windows.Forms.Label supplierLbl;
@@ -658,5 +649,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.RadioButton rbMale;
+        private System.Windows.Forms.RadioButton rbFemale;
     }
 }

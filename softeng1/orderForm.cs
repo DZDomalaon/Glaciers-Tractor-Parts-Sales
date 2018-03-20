@@ -47,7 +47,7 @@ namespace softeng1
             stockLbl.Visible = false;
             custLbl.Visible = false;
             addOrder.Enabled = true;
-            editOrderBtn.Enabled = false;
+            //editOrderBtn.Enabled = false;
 
             loadCustomer();
             loadProduct();
@@ -213,7 +213,7 @@ namespace softeng1
             pquant.Clear();
             ptotal.Clear();
             addOrder.Enabled = true;
-            editOrderBtn.Enabled = false;
+            //editOrderBtn.Enabled = false;
         }
 
         private void pquant_KeyPress(object sender, KeyPressEventArgs e)
@@ -344,7 +344,7 @@ namespace softeng1
             try
             {
                 addOrder.Enabled = false;
-                editOrderBtn.Enabled = true;
+                //editOrderBtn.Enabled = true;
                 rowIndex = e.RowIndex;
                 DataGridViewRow row = orderDG.Rows[rowIndex];
 
@@ -548,30 +548,30 @@ namespace softeng1
         }
 
         //update the values of data from Datagrid
-        private void editOrderBtn_Click(object sender, EventArgs e)
-        {
-            if(productnameTxt.Text == "" && ppriceTxt.Text == "" && pquant.Text == "" && ptotal.Text == "")
-            {
-                MessageBox.Show("There's no data selected", "Empty textboxes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                DataGridViewRow updRow = orderDG.Rows[rowIndex];
+        //private void editOrderBtn_Click(object sender, EventArgs e)
+        //{
+        //    if(productnameTxt.Text == "" && ppriceTxt.Text == "" && pquant.Text == "" && ptotal.Text == "")
+        //    {
+        //        MessageBox.Show("There's no data selected", "Empty textboxes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    }
+        //    else
+        //    {
+        //        DataGridViewRow updRow = orderDG.Rows[rowIndex];
 
-                updRow.Cells[0].Value = productnameTxt.Text;
-                updRow.Cells[1].Value = ppriceTxt.Text;
-                updRow.Cells[2].Value = ptotal.Text;
-                updRow.Cells[3].Value = pquant.Text;
+        //        updRow.Cells[0].Value = productnameTxt.Text;
+        //        updRow.Cells[1].Value = ppriceTxt.Text;
+        //        updRow.Cells[2].Value = ptotal.Text;
+        //        updRow.Cells[3].Value = pquant.Text;
 
-                productnameTxt.Clear();
-                ppriceTxt.Clear();
-                pquant.Clear();
-                ptotal.Clear();
-                addOrder.Enabled = true;
-                editOrderBtn.Enabled = false;
-            }
-            calcSum();
-        }
+        //        productnameTxt.Clear();
+        //        ppriceTxt.Clear();
+        //        pquant.Clear();
+        //        ptotal.Clear();
+        //        addOrder.Enabled = true;
+        //        editOrderBtn.Enabled = false;
+        //    }
+        //    calcSum();
+        //}
 
         //Add order to Datagrid
         private void addOrder_Click(object sender, EventArgs e)

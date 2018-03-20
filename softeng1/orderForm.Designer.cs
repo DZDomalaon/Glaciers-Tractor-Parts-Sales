@@ -29,7 +29,7 @@ namespace softeng1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(orderForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -56,7 +56,6 @@ namespace softeng1
             this.pquant = new System.Windows.Forms.TextBox();
             this.ptotal = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.editOrderBtn = new System.Windows.Forms.Button();
             this.dateLbl = new System.Windows.Forms.Label();
             this.usernameLbl = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -97,7 +96,6 @@ namespace softeng1
             this.custLbl = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.resetBtn = new System.Windows.Forms.Button();
             this.orderDG = new System.Windows.Forms.DataGridView();
             this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Product_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -337,7 +335,7 @@ namespace softeng1
             this.addOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addOrder.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addOrder.ForeColor = System.Drawing.Color.White;
-            this.addOrder.Location = new System.Drawing.Point(23, 488);
+            this.addOrder.Location = new System.Drawing.Point(64, 490);
             this.addOrder.Name = "addOrder";
             this.addOrder.Size = new System.Drawing.Size(92, 37);
             this.addOrder.TabIndex = 6;
@@ -351,7 +349,7 @@ namespace softeng1
             this.removeOrder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.removeOrder.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.removeOrder.ForeColor = System.Drawing.Color.White;
-            this.removeOrder.Location = new System.Drawing.Point(121, 488);
+            this.removeOrder.Location = new System.Drawing.Point(162, 490);
             this.removeOrder.Name = "removeOrder";
             this.removeOrder.Size = new System.Drawing.Size(92, 37);
             this.removeOrder.TabIndex = 7;
@@ -365,7 +363,7 @@ namespace softeng1
             this.backToMenu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backToMenu.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backToMenu.ForeColor = System.Drawing.Color.White;
-            this.backToMenu.Location = new System.Drawing.Point(168, 538);
+            this.backToMenu.Location = new System.Drawing.Point(260, 490);
             this.backToMenu.Name = "backToMenu";
             this.backToMenu.Size = new System.Drawing.Size(92, 37);
             this.backToMenu.TabIndex = 9;
@@ -401,20 +399,6 @@ namespace softeng1
             this.label12.Size = new System.Drawing.Size(46, 23);
             this.label12.TabIndex = 21;
             this.label12.Text = "Total";
-            // 
-            // editOrderBtn
-            // 
-            this.editOrderBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(185)))), ((int)(((byte)(0)))));
-            this.editOrderBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editOrderBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.editOrderBtn.ForeColor = System.Drawing.Color.White;
-            this.editOrderBtn.Location = new System.Drawing.Point(219, 488);
-            this.editOrderBtn.Name = "editOrderBtn";
-            this.editOrderBtn.Size = new System.Drawing.Size(92, 37);
-            this.editOrderBtn.TabIndex = 8;
-            this.editOrderBtn.Text = "Edit";
-            this.editOrderBtn.UseVisualStyleBackColor = false;
-            this.editOrderBtn.Click += new System.EventHandler(this.editOrderBtn_Click);
             // 
             // dateLbl
             // 
@@ -507,7 +491,7 @@ namespace softeng1
             this.calculateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.calculateBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.calculateBtn.ForeColor = System.Drawing.Color.White;
-            this.calculateBtn.Location = new System.Drawing.Point(143, 273);
+            this.calculateBtn.Location = new System.Drawing.Point(29, 315);
             this.calculateBtn.Name = "calculateBtn";
             this.calculateBtn.Size = new System.Drawing.Size(113, 37);
             this.calculateBtn.TabIndex = 59;
@@ -541,9 +525,9 @@ namespace softeng1
             this.buyBackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buyBackBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buyBackBtn.ForeColor = System.Drawing.Color.White;
-            this.buyBackBtn.Location = new System.Drawing.Point(213, 320);
+            this.buyBackBtn.Location = new System.Drawing.Point(274, 315);
             this.buyBackBtn.Name = "buyBackBtn";
-            this.buyBackBtn.Size = new System.Drawing.Size(144, 37);
+            this.buyBackBtn.Size = new System.Drawing.Size(120, 37);
             this.buyBackBtn.TabIndex = 56;
             this.buyBackBtn.Text = "Back";
             this.buyBackBtn.UseVisualStyleBackColor = false;
@@ -555,9 +539,9 @@ namespace softeng1
             this.confirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmBtn.ForeColor = System.Drawing.Color.White;
-            this.confirmBtn.Location = new System.Drawing.Point(59, 320);
+            this.confirmBtn.Location = new System.Drawing.Point(148, 315);
             this.confirmBtn.Name = "confirmBtn";
-            this.confirmBtn.Size = new System.Drawing.Size(144, 37);
+            this.confirmBtn.Size = new System.Drawing.Size(120, 37);
             this.confirmBtn.TabIndex = 56;
             this.confirmBtn.Text = "Confirm";
             this.confirmBtn.UseVisualStyleBackColor = false;
@@ -868,26 +852,12 @@ namespace softeng1
             this.ProdName.Name = "ProdName";
             this.ProdName.Width = 130;
             // 
-            // resetBtn
-            // 
-            this.resetBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(74)))), ((int)(((byte)(71)))));
-            this.resetBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.resetBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.resetBtn.ForeColor = System.Drawing.Color.White;
-            this.resetBtn.Location = new System.Drawing.Point(317, 488);
-            this.resetBtn.Name = "resetBtn";
-            this.resetBtn.Size = new System.Drawing.Size(92, 37);
-            this.resetBtn.TabIndex = 66;
-            this.resetBtn.Text = "Clear";
-            this.resetBtn.UseVisualStyleBackColor = false;
-            this.resetBtn.Click += new System.EventHandler(this.resetBtn_Click);
-            // 
             // orderDG
             // 
             this.orderDG.AllowUserToAddRows = false;
             this.orderDG.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.orderDG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.orderDG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.orderDG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.orderDG.BackgroundColor = System.Drawing.Color.White;
             this.orderDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -945,14 +915,12 @@ namespace softeng1
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(955, 587);
-            this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.custLbl);
             this.Controls.Add(this.errorPanel);
             this.Controls.Add(this.buyPanel);
             this.Controls.Add(this.usernameLbl);
             this.Controls.Add(this.dateLbl);
-            this.Controls.Add(this.editOrderBtn);
             this.Controls.Add(this.buyBtn);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
@@ -1048,7 +1016,6 @@ namespace softeng1
         private System.Windows.Forms.TextBox pquant;
         private System.Windows.Forms.TextBox ptotal;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button editOrderBtn;
         private System.Windows.Forms.Label dateLbl;
         private System.Windows.Forms.Label usernameLbl;
 
@@ -1086,7 +1053,6 @@ namespace softeng1
         private System.Windows.Forms.Label custLbl;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdName;
-        private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.DataGridView orderDG;
         private System.Windows.Forms.Button calculateBtn;
         private System.Windows.Forms.Label totalP;
