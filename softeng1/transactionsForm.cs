@@ -99,7 +99,11 @@ namespace softeng1
 
         private void empnameTxt_TextChanged(object sender, EventArgs e)
         {
-            loadEmployee();
+            try
+            {
+                loadEmployee();
+            }
+            catch { }
         }
 
         private void backBtn_Click(object sender, EventArgs e)
