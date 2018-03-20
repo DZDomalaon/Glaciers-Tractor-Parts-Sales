@@ -78,7 +78,7 @@ namespace softeng1
 
             conn.Open();
 
-            String getEmp = "SELECT firstname, lastname FROM person, employee where (lastname like '%" + empnameTxt.Text + "%' or firstname like '%" + empnameTxt.Text + "%') and person_type = 'EMPLOYEE' and person_id = emp_person_id ";
+            String getEmp = "SELECT firstname, lastname FROM person, employee where (lastname like '%" + empnameTxt.Text + "%' or firstname like '%" + empnameTxt.Text + "%') and person_id = emp_person_id ";
             MySqlCommand comm = new MySqlCommand(getEmp, conn);
             comm.CommandText = getEmp;
             MySqlDataReader drd = comm.ExecuteReader();
@@ -99,7 +99,11 @@ namespace softeng1
 
         private void empnameTxt_TextChanged(object sender, EventArgs e)
         {
-            loadEmployee();
+            try
+            {
+                loadEmployee();
+            }
+            catch { }
         }
 
         private void backBtn_Click(object sender, EventArgs e)

@@ -75,29 +75,27 @@ namespace softeng1
             loadDelivery();
             supLbl.Visible = false;
 
-            deliveryData.Columns.Add("DeliveryDate", "Delivery Date");
-            deliveryData.Columns.Add("Product", "Product");
-            deliveryData.Columns.Add("Quantity", "Quantity");
-            deliveryData.Visible = true;
-
         }
 
         public void loadDelivery()
         {
-            //String query = "SELECT delivery_date, product_name, total_quantity FROM delivery";
+            String query = "SELECT delivery_date, product_name, total_quantity FROM delivery";
 
-            //conn.Open();
-            //MySqlCommand comm = new MySqlCommand(query, conn);
-            //MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-            //conn.Close();
-            //DataTable dt = new DataTable();
-            //adp.Fill(dt);
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
 
-            //deliveryData.DataSource = dt;
+            deliveryData.DataSource = dt;
 
-            //deliveryData.Columns["delivery_date"].Visible = true;
-            //deliveryData.Columns["product_name"].Visible = true;
-            //deliveryData.Columns["total_quantity"].Visible = true;
+            deliveryData.Columns["delivery_date"].Visible = true;
+            deliveryData.Columns["product_name"].Visible = true;
+            deliveryData.Columns["total_quantity"].Visible = true;
+            deliveryData.Columns["delivery_date"].HeaderText = "Delivery Date";
+            deliveryData.Columns["product_name"].HeaderText = "Product Name";
+            deliveryData.Columns["total_quantity"].HeaderText = "Total Quantity";
         }
 
         private void deliveryForm_FormClosing_1(object sender, FormClosingEventArgs e)
@@ -156,9 +154,49 @@ namespace softeng1
 
         private void okBtn_Click(object sender, EventArgs e)
         {
-            //succPanel.Hide();
+            succPanel.Hide();
+            succPanel.Enabled = false;
         }
         public static int product_id, maxinv, quantity, updquant;
+
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            confirmPanel.Hide();
+            confirmPanel.Enabled = false;
+            succPanel.Show();
+            succPanel.Enabled = true;
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            confirmPanel.Hide();
+            confirmPanel.Enabled = false;
+        }
+
+        private void okBtn_Click_1(object sender, EventArgs e)
+        {
+            snameTxt.Text = "";
+            pnameTxt.Text = "";
+            pquantTxt.Text = "";
+            succPanel.Hide();
+            succPanel.Enabled = false;
+        }
+
+        private void addBtn_Click_1(object sender, EventArgs e)
+        {
+            confirmPanel.Show();
+            confirmPanel.Enabled = true;
+        }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
