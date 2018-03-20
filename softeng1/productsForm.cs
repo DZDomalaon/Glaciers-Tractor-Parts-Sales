@@ -108,7 +108,7 @@ namespace softeng1
             }
             else
             {
-                int supId = 0;
+                int maxProdID, supId = 0;
                 string selectSupplier = "SELECT SUPPLIER_ID FROM SUPPLIER, PERSON WHERE CONCAT(FIRSTNAME, ' ', LASTNAME) = '"+ SupplierCmb.Text +"'";
                 
                 string query = "INSERT INTO product(product_name, description, price, serial)" +
@@ -121,6 +121,15 @@ namespace softeng1
 
                 MySqlCommand selectSuppliercomm = new MySqlCommand(selectSupplier, conn);
                 supId = Convert.ToInt32(selectSuppliercomm.ExecuteScalar());
+
+                //max product ID
+                MySqlCommand maxID = new MySqlCommand("SELECT MAX(product_id) FROM product", conn);
+                maxProdID = Convert.ToInt16(maxID.ExecuteScalar());
+
+                //insert product to inventory
+                string insertPurch = "INSERT INTO inventory(quantity, inv_product_id VALUES(0, '" + maxProdID + "')";
+                MySqlCommand insertPurchComm = new MySqlCommand(insertPurch, conn);
+                insertPurchComm.ExecuteNonQuery();
 
                 MySqlCommand insertToPHS = new MySqlCommand("INSERT INTO PRODUCT_HAS_SUPPLIER(PHS_PRODUCT_ID, PHS_SUPPLIER_ID) VALUES('" + selected_prod_id + "', '" + supId + "')", conn);
                 conn.Close();
