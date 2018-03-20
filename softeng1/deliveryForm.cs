@@ -161,8 +161,8 @@ namespace softeng1
             //String updstatus = "update purchase set status = 'Incomplete' where purchase_id = '" + product_id + "'";
             //MySqlCommand upd_status = new MySqlCommand(updstatus, conn);
             //upd_status.ExecuteNonQuery();
-            //succPanel.Visible = true;
-            //succPanel.Enabled = true;
+            succPanel.Visible = true;
+            succPanel.Enabled = true;
             statustxt.Text = "";
             snameTxt.Text = "";
             pnameTxt.Text = "";
