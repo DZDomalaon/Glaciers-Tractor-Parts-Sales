@@ -29,7 +29,7 @@ namespace softeng1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(orderForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -101,7 +101,6 @@ namespace softeng1
             this.Product_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ProdSerial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -856,8 +855,8 @@ namespace softeng1
             // 
             this.orderDG.AllowUserToAddRows = false;
             this.orderDG.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.orderDG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.orderDG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.orderDG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.orderDG.BackgroundColor = System.Drawing.Color.White;
             this.orderDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -866,8 +865,7 @@ namespace softeng1
             this.Product_Name,
             this.Product_Price,
             this.SubTotal,
-            this.Quantity,
-            this.ProdSerial});
+            this.Quantity});
             this.orderDG.Location = new System.Drawing.Point(434, 85);
             this.orderDG.Name = "orderDG";
             this.orderDG.ReadOnly = true;
@@ -901,12 +899,6 @@ namespace softeng1
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.Name = "Quantity";
             this.Quantity.ReadOnly = true;
-            // 
-            // ProdSerial
-            // 
-            this.ProdSerial.HeaderText = "Serial";
-            this.ProdSerial.Name = "ProdSerial";
-            this.ProdSerial.ReadOnly = true;
             // 
             // orderForm
             // 
@@ -1062,6 +1054,5 @@ namespace softeng1
         private System.Windows.Forms.DataGridViewTextBoxColumn Product_Price;
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ProdSerial;
     }
 }
