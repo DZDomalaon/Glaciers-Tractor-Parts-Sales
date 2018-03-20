@@ -54,7 +54,7 @@
             this.snameTxt = new System.Windows.Forms.TextBox();
             this.supLbl = new System.Windows.Forms.Label();
             this.statustxt = new System.Windows.Forms.ComboBox();
-            this.purchaseData = new System.Windows.Forms.DataGridView();
+            this.deliveryData = new System.Windows.Forms.DataGridView();
             this.succPanel = new System.Windows.Forms.Panel();
             this.okBtn = new System.Windows.Forms.Button();
             this.panel10 = new System.Windows.Forms.Panel();
@@ -64,7 +64,7 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseData)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deliveryData)).BeginInit();
             this.succPanel.SuspendLayout();
             this.panel10.SuspendLayout();
             this.SuspendLayout();
@@ -78,6 +78,7 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(955, 47);
             this.panel3.TabIndex = 31;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             // 
             // panel1
             // 
@@ -320,19 +321,19 @@
             this.statustxt.Size = new System.Drawing.Size(234, 27);
             this.statustxt.TabIndex = 81;
             // 
-            // purchaseData
+            // deliveryData
             // 
-            this.purchaseData.AllowUserToAddRows = false;
-            this.purchaseData.AllowUserToDeleteRows = false;
+            this.deliveryData.AllowUserToAddRows = false;
+            this.deliveryData.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.purchaseData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.purchaseData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.purchaseData.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.purchaseData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.purchaseData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.deliveryData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.deliveryData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.deliveryData.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.deliveryData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.deliveryData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -340,8 +341,8 @@
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.purchaseData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.purchaseData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.deliveryData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.deliveryData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -349,15 +350,15 @@
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.purchaseData.DefaultCellStyle = dataGridViewCellStyle3;
-            this.purchaseData.EnableHeadersVisualStyles = false;
-            this.purchaseData.Location = new System.Drawing.Point(434, 85);
-            this.purchaseData.Name = "purchaseData";
-            this.purchaseData.ReadOnly = true;
-            this.purchaseData.RowHeadersVisible = false;
-            this.purchaseData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.purchaseData.Size = new System.Drawing.Size(521, 502);
-            this.purchaseData.TabIndex = 100;
+            this.deliveryData.DefaultCellStyle = dataGridViewCellStyle3;
+            this.deliveryData.EnableHeadersVisualStyles = false;
+            this.deliveryData.Location = new System.Drawing.Point(434, 85);
+            this.deliveryData.Name = "deliveryData";
+            this.deliveryData.ReadOnly = true;
+            this.deliveryData.RowHeadersVisible = false;
+            this.deliveryData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.deliveryData.Size = new System.Drawing.Size(521, 502);
+            this.deliveryData.TabIndex = 100;
             // 
             // succPanel
             // 
@@ -424,7 +425,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(955, 587);
             this.Controls.Add(this.succPanel);
-            this.Controls.Add(this.purchaseData);
+            this.Controls.Add(this.deliveryData);
             this.Controls.Add(this.statustxt);
             this.Controls.Add(this.supLbl);
             this.Controls.Add(this.snameTxt);
@@ -458,7 +459,7 @@
             this.panel2.PerformLayout();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.purchaseData)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deliveryData)).EndInit();
             this.succPanel.ResumeLayout(false);
             this.succPanel.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -493,7 +494,7 @@
         private System.Windows.Forms.TextBox snameTxt;
         private System.Windows.Forms.Label supLbl;
         private System.Windows.Forms.ComboBox statustxt;
-        private System.Windows.Forms.DataGridView purchaseData;
+        private System.Windows.Forms.DataGridView deliveryData;
         private System.Windows.Forms.Panel succPanel;
         private System.Windows.Forms.Button okBtn;
         private System.Windows.Forms.Panel panel10;

@@ -93,10 +93,10 @@
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label19 = new System.Windows.Forms.Label();
             this.pname = new System.Windows.Forms.TextBox();
-            this.variantTxt = new System.Windows.Forms.ComboBox();
-            this.categTxt = new System.Windows.Forms.ComboBox();
             this.dgProducts = new System.Windows.Forms.DataGridView();
             this.ptypeTxt = new System.Windows.Forms.TextBox();
+            this.variantTxt = new System.Windows.Forms.TextBox();
+            this.categTxt = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -226,6 +226,7 @@
             this.priceTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.priceTxt.Location = new System.Drawing.Point(130, 324);
             this.priceTxt.Name = "priceTxt";
+            this.priceTxt.ReadOnly = true;
             this.priceTxt.Size = new System.Drawing.Size(183, 27);
             this.priceTxt.TabIndex = 26;
             this.priceTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceTxt_KeyPress);
@@ -257,6 +258,7 @@
             this.ptotal.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ptotal.Location = new System.Drawing.Point(241, 358);
             this.ptotal.Name = "ptotal";
+            this.ptotal.ReadOnly = true;
             this.ptotal.Size = new System.Drawing.Size(72, 27);
             this.ptotal.TabIndex = 27;
             // 
@@ -466,7 +468,7 @@
             this.cPanel.Controls.Add(this.panel9);
             this.cPanel.Controls.Add(this.label13);
             this.cPanel.Enabled = false;
-            this.cPanel.Location = new System.Drawing.Point(282, 197);
+            this.cPanel.Location = new System.Drawing.Point(322, 219);
             this.cPanel.Name = "cPanel";
             this.cPanel.Size = new System.Drawing.Size(385, 145);
             this.cPanel.TabIndex = 62;
@@ -504,6 +506,7 @@
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
             this.panel9.Controls.Add(this.label17);
+            this.panel9.Controls.Add(this.invalidpanel);
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
@@ -733,7 +736,7 @@
             this.invalidpanel.Controls.Add(this.pictureBox2);
             this.invalidpanel.Controls.Add(this.label19);
             this.invalidpanel.Enabled = false;
-            this.invalidpanel.Location = new System.Drawing.Point(305, 232);
+            this.invalidpanel.Location = new System.Drawing.Point(12, 23);
             this.invalidpanel.Name = "invalidpanel";
             this.invalidpanel.Size = new System.Drawing.Size(384, 145);
             this.invalidpanel.TabIndex = 66;
@@ -804,32 +807,6 @@
             this.pname.TabIndex = 57;
             this.pname.TextChanged += new System.EventHandler(this.pname_TextChanged);
             // 
-            // variantTxt
-            // 
-            this.variantTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.variantTxt.FormattingEnabled = true;
-            this.variantTxt.Items.AddRange(new object[] {
-            "Color",
-            "Model",
-            "Size"});
-            this.variantTxt.Location = new System.Drawing.Point(129, 260);
-            this.variantTxt.Name = "variantTxt";
-            this.variantTxt.Size = new System.Drawing.Size(183, 27);
-            this.variantTxt.TabIndex = 67;
-            // 
-            // categTxt
-            // 
-            this.categTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.categTxt.FormattingEnabled = true;
-            this.categTxt.Items.AddRange(new object[] {
-            "Tractor Part",
-            "Equipment",
-            "Appliance"});
-            this.categTxt.Location = new System.Drawing.Point(129, 227);
-            this.categTxt.Name = "categTxt";
-            this.categTxt.Size = new System.Drawing.Size(183, 27);
-            this.categTxt.TabIndex = 68;
-            // 
             // dgProducts
             // 
             this.dgProducts.AllowUserToAddRows = false;
@@ -874,9 +851,30 @@
             this.ptypeTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ptypeTxt.Location = new System.Drawing.Point(129, 293);
             this.ptypeTxt.Name = "ptypeTxt";
+            this.ptypeTxt.ReadOnly = true;
             this.ptypeTxt.Size = new System.Drawing.Size(183, 27);
             this.ptypeTxt.TabIndex = 26;
             this.ptypeTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceTxt_KeyPress);
+            // 
+            // variantTxt
+            // 
+            this.variantTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.variantTxt.Location = new System.Drawing.Point(129, 258);
+            this.variantTxt.Name = "variantTxt";
+            this.variantTxt.ReadOnly = true;
+            this.variantTxt.Size = new System.Drawing.Size(183, 27);
+            this.variantTxt.TabIndex = 26;
+            this.variantTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceTxt_KeyPress);
+            // 
+            // categTxt
+            // 
+            this.categTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.categTxt.Location = new System.Drawing.Point(129, 227);
+            this.categTxt.Name = "categTxt";
+            this.categTxt.ReadOnly = true;
+            this.categTxt.Size = new System.Drawing.Size(183, 27);
+            this.categTxt.TabIndex = 26;
+            this.categTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceTxt_KeyPress);
             // 
             // purchasingForm
             // 
@@ -886,10 +884,7 @@
             this.ClientSize = new System.Drawing.Size(955, 587);
             this.Controls.Add(this.errorPanel);
             this.Controls.Add(this.cPanel);
-            this.Controls.Add(this.invalidpanel);
             this.Controls.Add(this.oPanel);
-            this.Controls.Add(this.variantTxt);
-            this.Controls.Add(this.categTxt);
             this.Controls.Add(this.proLbl);
             this.Controls.Add(this.supLbl);
             this.Controls.Add(this.label4);
@@ -912,6 +907,8 @@
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.pquant);
+            this.Controls.Add(this.categTxt);
+            this.Controls.Add(this.variantTxt);
             this.Controls.Add(this.ptypeTxt);
             this.Controls.Add(this.priceTxt);
             this.Controls.Add(this.label7);
@@ -1029,9 +1026,9 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox pname;
-        private System.Windows.Forms.ComboBox variantTxt;
-        private System.Windows.Forms.ComboBox categTxt;
         private System.Windows.Forms.DataGridView dgProducts;
         private System.Windows.Forms.TextBox ptypeTxt;
+        private System.Windows.Forms.TextBox variantTxt;
+        private System.Windows.Forms.TextBox categTxt;
     }
 }

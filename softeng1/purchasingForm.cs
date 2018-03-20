@@ -227,6 +227,7 @@ namespace softeng1
                 proLbl.Visible = true;
                 this.proLbl.ForeColor = Color.Green;
                 proLbl.Text = "Product found";
+
             }
 
         }
@@ -239,6 +240,7 @@ namespace softeng1
             {
                 proLbl.Visible = false;
             }
+
         }
 
         private void btnBack_Click(object sender, EventArgs e)

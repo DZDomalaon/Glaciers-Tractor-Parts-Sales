@@ -72,13 +72,32 @@ namespace softeng1
         private void deliveryForm_Load_1(object sender, EventArgs e)
         {
             loadPurchase();
+            loadDelivery();
             supLbl.Visible = false;
 
-            purchaseData.Columns.Add("PurchaseDate", "Purchase Date");
-            purchaseData.Columns.Add("Status", "Status");
-            purchaseData.Columns.Add("Supplier", "Supplier");
-            purchaseData.Visible = true;
+            deliveryData.Columns.Add("DeliveryDate", "Delivery Date");
+            deliveryData.Columns.Add("Product", "Product");
+            deliveryData.Columns.Add("Quantity", "Quantity");
+            deliveryData.Visible = true;
 
+        }
+
+        public void loadDelivery()
+        {
+            //String query = "SELECT delivery_date, product_name, total_quantity FROM delivery";
+
+            //conn.Open();
+            //MySqlCommand comm = new MySqlCommand(query, conn);
+            //MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            //conn.Close();
+            //DataTable dt = new DataTable();
+            //adp.Fill(dt);
+
+            //deliveryData.DataSource = dt;
+
+            //deliveryData.Columns["delivery_date"].Visible = true;
+            //deliveryData.Columns["product_name"].Visible = true;
+            //deliveryData.Columns["total_quantity"].Visible = true;
         }
 
         private void deliveryForm_FormClosing_1(object sender, FormClosingEventArgs e)
@@ -140,6 +159,12 @@ namespace softeng1
             //succPanel.Hide();
         }
         public static int product_id, maxinv, quantity, updquant;
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void addBtn_Click(object sender, EventArgs e)
         {
             conn.Open();
