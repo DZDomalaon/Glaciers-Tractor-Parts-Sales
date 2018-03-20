@@ -83,12 +83,12 @@ namespace softeng1
             prodData.Columns["pc_variant"].HeaderText = "Variant";
             prodData.Columns["pc_type"].HeaderText = "Type";
         }
-        
+
         private void editBtn_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Do you want to update the data ?", "Confirm ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                String query = "Update product, product_catalogue SET product_name = '" + pnameTxt.Text + "', description = '" + pdescTxt.Text + "', serial = '" + serialTxt.Text + "', product_catalogue.pc_category = '" + categTxt.Text + "', product_catalogue.pc_variant = '" + variantTxt.Text + "', price = '" + priceTxt.Text +"' WHERE product_id = '" + selected_prod_id + "'";
+                String query = "Update product, product_catalogue SET product_name = '" + pnameTxt.Text + "', description = '" + pdescTxt.Text + "', serial = '" + serialTxt.Text + "', product_catalogue.pc_category = '" + categTxt.Text + "', product_catalogue.pc_variant = '" + variantTxt.Text + "', price = '" + priceTxt.Text + "' WHERE product_id = '" + selected_prod_id + "'";
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
@@ -108,30 +108,45 @@ namespace softeng1
             }
             else
             {
-                int maxProdID, supId = 0;
-                string selectSupplier = "SELECT SUPPLIER_ID FROM SUPPLIER, PERSON WHERE CONCAT(FIRSTNAME, ' ', LASTNAME) = '"+ SupplierCmb.Text +"'";
-                
-                string query = "INSERT INTO product(product_name, description, price, serial)" +
-                 "VALUES ('" + pnameTxt.Text + "','" + pdescTxt.Text + "','" + priceTxt.Text + "','" + serialTxt.Text + "'); " +
-                 "INSERT INTO product_catalogue (pc_category, pc_variant, pc_type) VALUES ('" + categTxt + "','" + variantTxt.Text + "','" + typeTxt.Text + "')";
-                
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand(query, conn);
-                comm.ExecuteNonQuery();
+                int maxProdID, ProdCatID, supId;
 
+                conn.Open();
+
+                //SuppID
+                string selectSupplier = "SELECT SUPPLIER_ID FROM SUPPLIER, PERSON WHERE CONCAT(FIRSTNAME, ' ', LASTNAME) = '" + SupplierCmb.Text + "'";
                 MySqlCommand selectSuppliercomm = new MySqlCommand(selectSupplier, conn);
                 supId = Convert.ToInt32(selectSuppliercomm.ExecuteScalar());
+
+                //insert pROD CATALOGUE
+                string insertPC = "INSERT INTO product_catalogue(pc_category, pc_variant, pc_type) VALUES('" + categTxt.Text + "', '" + variantTxt.Text + "', '" + typeTxt.Text + "')";
+                MySqlCommand insertPCComm = new MySqlCommand(insertPC, conn);
+                insertPCComm.ExecuteNonQuery();
+
+                //max PC_ID
+                MySqlCommand maxPcId = new MySqlCommand("SELECT MAX(pc_id) FROM product_catalogue", conn);
+                ProdCatID = Convert.ToInt16(maxPcId.ExecuteScalar());
+
+                //insert product
+                string query = "INSERT INTO product(product_name, description, price, serial, product_pc_id)" +
+                 "VALUES ('" + pnameTxt.Text + "','" + pdescTxt.Text + "','" + double.Parse(priceTxt.Text) + "','" + serialTxt.Text + "', '" + ProdCatID + "')";
+                MySqlCommand comm = new MySqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+                
 
                 //max product ID
                 MySqlCommand maxID = new MySqlCommand("SELECT MAX(product_id) FROM product", conn);
                 maxProdID = Convert.ToInt16(maxID.ExecuteScalar());
 
                 //insert product to inventory
-                string insertPurch = "INSERT INTO inventory(quantity, inv_product_id VALUES(0, '" + maxProdID + "')";
+                string insertPurch = "INSERT INTO inventory(quantity, inv_product_id) VALUES(0, '" + maxProdID + "')";
                 MySqlCommand insertPurchComm = new MySqlCommand(insertPurch, conn);
                 insertPurchComm.ExecuteNonQuery();
 
-                MySqlCommand insertToPHS = new MySqlCommand("INSERT INTO PRODUCT_HAS_SUPPLIER(PHS_PRODUCT_ID, PHS_SUPPLIER_ID) VALUES('" + selected_prod_id + "', '" + supId + "')", conn);
+                //insert tp PHS
+                string insertPhs = "INSERT INTO PRODUCT_HAS_SUPPLIER VALUES('" + maxProdID + "', '" + supId + "')";
+                MySqlCommand insertPhsComm = new MySqlCommand(insertPhs, conn);
+                insertPhsComm.ExecuteNonQuery();
+
                 conn.Close();
 
                 loadprod();
@@ -143,7 +158,11 @@ namespace softeng1
                 categTxt.Text = "";
                 variantTxt.Text = "";
                 typeTxt.Text = "";
-            }         
+                SupplierCmb.Text = "";
+
+                loadprod();
+                loadSupplierData();
+            }
         }
         private void resetBtn_Click(object sender, EventArgs e)
         {
@@ -179,7 +198,7 @@ namespace softeng1
                 MessageBox.Show("This textbox accepts only alphabetical characters", "Invalid input");
             }
         }
-        
+
         private void closePanel_Click(object sender, EventArgs e)
         {
             invalidpanel.Hide();
