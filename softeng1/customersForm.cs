@@ -100,45 +100,9 @@ namespace softeng1
 
         private void addBtn_Click(object sender, EventArgs e)
         {
-
-            if (fnameTxt.Text == "" || lnameTxt.Text == "" || emailTxt.Text == "" || cnumTxt.Text == "" || addressTxt.Text == "")
-            {
-                invalidpanel.Visible = true;
-                invalidpanel.Enabled = true;
-            }
-            else
-            {
-                int gen = 0;
-
-                if (rbMale.Checked == true)
-                {
-                    gen = 1;
-                }
-                else if (rbFemale.Checked == true)
-                {
-                    gen = 0;
-                }
-                string query = "INSERT INTO PERSON(FIRSTNAME, LASTNAME, CONTACT_NUM, EMAIL, ADDRESS, GENDER, PERSON_TYPE)" +
-                    "VALUES ('" + fnameTxt.Text + "','" + lnameTxt.Text + "','" + cnumTxt.Text + "','" + emailTxt.Text + "','" + addressTxt.Text + "','" + gen + "','Customer')";
-
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand(query, conn);
-                comm.ExecuteNonQuery();
-                
-                conn.Close();
-                
-
-                loadCustomerData();
-
-                fnameTxt.Text = "";
-                lnameTxt.Text = "";
-                emailTxt.Text = "";
-                cnumTxt.Text = "";
-                addressTxt.Text = "";
-                rbMale.Checked = true;
-            }
+            cPanel.Visible = true;
+            cPanel.Enabled = true;
         }
-
         private void resetBtn_Click(object sender, EventArgs e)
         {
             fnameTxt.Text = "";
@@ -252,15 +216,84 @@ namespace softeng1
 
         private void creditTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
             {
                 e.Handled = true;
-            }                
+            }
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+            //if (Regex.IsMatch(creditTxt.Text, @"\.\d\d") && e.KeyChar != 8)
+            //{
+            //    e.Handled = true;
+            //}
         }
 
         private void closePanel_Click(object sender, EventArgs e)
         {
             invalidpanel.Hide();
+        }
+
+        private void okBtn_Click(object sender, EventArgs e)
+        {
+            oPanel.Hide();
+        }
+
+        private void confirmBtn_Click(object sender, EventArgs e)
+        {
+            int getCustomer = 0;
+            int maxCust = 0;
+
+            if (fnameTxt.Text == "" || lnameTxt.Text == "" || emailTxt.Text == "" || cnumTxt.Text == "" || addressTxt.Text == "")
+            {
+                invalidpanel.Visible = true;
+                invalidpanel.Enabled = true;
+            }
+            else
+            {
+                int gen = 0;
+
+                if (rbMale.Checked == true)
+                {
+                    gen = 1;
+                }
+                else if (rbFemale.Checked == true)
+                {
+                    gen = 0;
+                }
+                string query = "INSERT INTO PERSON(FIRSTNAME, LASTNAME, CONTACT_NUM, EMAIL, ADDRESS, GENDER, PERSON_TYPE)" +
+                    "VALUES ('" + fnameTxt.Text + "','" + lnameTxt.Text + "','" + cnumTxt.Text + "','" + emailTxt.Text + "','" + addressTxt.Text + "','" + gen + "','Customer')";
+
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+
+                MySqlCommand getCustomerMID = new MySqlCommand("select max(customer_id) from customer", conn);
+                getCustomer = Convert.ToInt32(getCustomerMID.ExecuteScalar());
+                maxCust = getCustomer;
+
+                string updateCust = "update customer set credit_limit = '" + int.Parse(creditTxt.Text.ToString()) + "' where customer_id = '" + maxCust + "'";
+                MySqlCommand updateCustComm = new MySqlCommand(updateCust, conn);
+                updateCustComm.ExecuteNonQuery();
+
+                conn.Close();
+
+                loadCustomerData();
+
+                fnameTxt.Text = "";
+                lnameTxt.Text = "";
+                emailTxt.Text = "";
+                cnumTxt.Text = "";
+                addressTxt.Text = "";
+                rbMale.Checked = true;
+
+                cPanel.Visible = false;
+                cPanel.Enabled = false;
+
+                oPanel.Visible = true;
+                oPanel.Enabled = true;
+            }
         }
     }
 }

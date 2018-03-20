@@ -35,6 +35,15 @@
             this.unameTxt = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.showPassword = new System.Windows.Forms.CheckBox();
+            this.incorrectpanel = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.closePanel = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.incorrectpanel.SuspendLayout();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // time
@@ -124,6 +133,75 @@
             this.showPassword.UseVisualStyleBackColor = true;
             this.showPassword.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
+            // incorrectpanel
+            // 
+            this.incorrectpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
+            this.incorrectpanel.Controls.Add(this.panel11);
+            this.incorrectpanel.Controls.Add(this.pictureBox2);
+            this.incorrectpanel.Controls.Add(this.label19);
+            this.incorrectpanel.Enabled = false;
+            this.incorrectpanel.Location = new System.Drawing.Point(112, 98);
+            this.incorrectpanel.Name = "incorrectpanel";
+            this.incorrectpanel.Size = new System.Drawing.Size(384, 145);
+            this.incorrectpanel.TabIndex = 115;
+            this.incorrectpanel.Visible = false;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.panel11.Controls.Add(this.closePanel);
+            this.panel11.Controls.Add(this.label18);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(384, 35);
+            this.panel11.TabIndex = 64;
+            // 
+            // closePanel
+            // 
+            this.closePanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(90)))), ((int)(((byte)(74)))));
+            this.closePanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.closePanel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.closePanel.ForeColor = System.Drawing.Color.White;
+            this.closePanel.Location = new System.Drawing.Point(351, 3);
+            this.closePanel.Name = "closePanel";
+            this.closePanel.Size = new System.Drawing.Size(30, 25);
+            this.closePanel.TabIndex = 64;
+            this.closePanel.Text = "X";
+            this.closePanel.UseVisualStyleBackColor = false;
+            this.closePanel.Click += new System.EventHandler(this.closePanel_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label18.Location = new System.Drawing.Point(142, 3);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(82, 21);
+            this.label18.TabIndex = 63;
+            this.label18.Text = "Incorrect";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::softeng1.Properties.Resources.error;
+            this.pictureBox2.Location = new System.Drawing.Point(54, 65);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(45, 35);
+            this.pictureBox2.TabIndex = 65;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label19.Location = new System.Drawing.Point(105, 54);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(162, 46);
+            this.label19.TabIndex = 63;
+            this.label19.Text = "Incorrect username\r\nor password.";
+            // 
             // loginForm
             // 
             this.AcceptButton = this.loginBtn;
@@ -132,6 +210,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(609, 341);
+            this.Controls.Add(this.incorrectpanel);
             this.Controls.Add(this.showPassword);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.cancelBtn);
@@ -145,6 +224,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Glacier Tractor Parts & Sales | Login";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.incorrectpanel.ResumeLayout(false);
+            this.incorrectpanel.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,6 +242,12 @@
         private System.Windows.Forms.TextBox unameTxt;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.CheckBox showPassword;
+        private System.Windows.Forms.Panel incorrectpanel;
+        private System.Windows.Forms.Panel panel11;
+        private System.Windows.Forms.Button closePanel;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label19;
     }
 }
 

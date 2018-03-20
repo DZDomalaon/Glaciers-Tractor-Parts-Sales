@@ -66,13 +66,14 @@ namespace softeng1
                 homeForm.previousForm = this;
                 this.Hide();
 
-                MessageBox.Show("Welcome, " + fname + "!", "WELCOME!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Welcome, " + fname + "!", "WELCOME!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 unameTxt.Clear();
                 passwdTxt.Clear();                
             }
             else
             {
-                MessageBox.Show("Incorrect username or password", "Incorrect", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                incorrectpanel.Visible = true;
+                incorrectpanel.Enabled = true;
             }            
         }
 
@@ -92,6 +93,11 @@ namespace softeng1
             {
                 passwdTxt.PasswordChar = '*';
             }
+        }
+
+        private void closePanel_Click(object sender, EventArgs e)
+        {
+            incorrectpanel.Hide();
         }
     }
 }

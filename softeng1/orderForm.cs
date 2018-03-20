@@ -458,6 +458,7 @@ namespace softeng1
                     paymentCmb.Text = " ";
                     this.orderDG.Rows.Clear();
                     calcSum();
+                    //PANEL GUROW
                     MessageBox.Show("Trasaction complete");
                 }
                 else if (double.Parse(cashTxt.Text.ToString()) < total)
