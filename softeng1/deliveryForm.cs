@@ -95,6 +95,19 @@ namespace softeng1
             purchaseData.Columns["purchase_subquantity"].HeaderText = "Total Quantity";
         }
 
+        private void purchaseData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                if (e.RowIndex > -1)
+                {
+                    purchaseIDtxt.Text = purchaseData.Rows[e.RowIndex].Cells["purchase_id"].Value.ToString();
+                    snameTxt.Text = purchaseData.Rows[e.RowIndex].Cells["supplier"].Value.ToString();
+                    pnameTxt.Text = purchaseData.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
+                }
+            }
+        }
+
         private void deliveryForm_Load_1(object sender, EventArgs e)
         {
             loadPurchase();
@@ -208,6 +221,12 @@ namespace softeng1
             confirmPanel.Enabled = false;
             succPanel.Show();
             succPanel.Enabled = true;
+
+            conn.Open();
+            string insertDelivery = "INSERT INTO delivery(product_name, total_quantity, delivery_date, delivery_purchase_id) VALUES('" + pnameTxt.Text + "', '" + pquantTxt.Text + "', '" + deliveryDate.Text + "', '" + purchaseIDtxt.Text + "')";
+            MySqlCommand insertDelComm = new MySqlCommand(insertDelivery, conn);
+            insertDelComm.ExecuteNonQuery();
+            conn.Close();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -221,8 +240,16 @@ namespace softeng1
             snameTxt.Text = "";
             pnameTxt.Text = "";
             pquantTxt.Text = "";
+            purchaseIDtxt.Text = "";
             succPanel.Hide();
             succPanel.Enabled = false;
+
+            loadPurchase();
+            loadDelivery();
+            loadPurchaseData();
+
+
+
         }
 
         private void addBtn_Click_1(object sender, EventArgs e)
