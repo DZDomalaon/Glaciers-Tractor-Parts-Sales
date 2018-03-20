@@ -262,7 +262,7 @@ namespace softeng1
                         categTxt.Text = drd["pc_category"].ToString();
                         variantTxt.Text = drd["pc_variant"].ToString();
                         ptypeTxt.Text = drd["pc_type"].ToString();
-                        priceTxt.Text = drd["PRICE"].ToString();
+                        priceTxt.Text = drd["price"].ToString();
 
                     }
                 }
