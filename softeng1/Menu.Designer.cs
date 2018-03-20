@@ -45,7 +45,6 @@
             this.delivBtn = new System.Windows.Forms.Button();
             this.custBtn = new System.Windows.Forms.Button();
             this.prodBtn = new System.Windows.Forms.Button();
-            this.salesBtn = new System.Windows.Forms.Button();
             this.unpaidBtn = new System.Windows.Forms.Button();
             this.supplierBtn = new System.Windows.Forms.Button();
             this.usersBtn = new System.Windows.Forms.Button();
@@ -115,7 +114,6 @@
             this.homePanel.Controls.Add(this.delivBtn);
             this.homePanel.Controls.Add(this.custBtn);
             this.homePanel.Controls.Add(this.prodBtn);
-            this.homePanel.Controls.Add(this.salesBtn);
             this.homePanel.Controls.Add(this.unpaidBtn);
             this.homePanel.Controls.Add(this.supplierBtn);
             this.homePanel.Controls.Add(this.usersBtn);
@@ -152,7 +150,7 @@
             this.invoiceBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.invoiceBtn.Location = new System.Drawing.Point(202, 61);
             this.invoiceBtn.Name = "invoiceBtn";
-            this.invoiceBtn.Size = new System.Drawing.Size(199, 162);
+            this.invoiceBtn.Size = new System.Drawing.Size(199, 135);
             this.invoiceBtn.TabIndex = 1;
             this.invoiceBtn.Text = "Create New\r\nInvoice";
             this.invoiceBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -166,9 +164,9 @@
             this.purchasingBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.purchasingBtn.Image = global::softeng1.Properties.Resources.add_to_cart1;
             this.purchasingBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.purchasingBtn.Location = new System.Drawing.Point(588, 149);
+            this.purchasingBtn.Location = new System.Drawing.Point(407, 61);
             this.purchasingBtn.Name = "purchasingBtn";
-            this.purchasingBtn.Size = new System.Drawing.Size(174, 74);
+            this.purchasingBtn.Size = new System.Drawing.Size(174, 135);
             this.purchasingBtn.TabIndex = 4;
             this.purchasingBtn.Text = "Purchasing";
             this.purchasingBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -182,9 +180,9 @@
             this.exitBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.exitBtn.Image = global::softeng1.Properties.Resources.exit1;
             this.exitBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.exitBtn.Location = new System.Drawing.Point(588, 380);
+            this.exitBtn.Location = new System.Drawing.Point(588, 377);
             this.exitBtn.Name = "exitBtn";
-            this.exitBtn.Size = new System.Drawing.Size(174, 52);
+            this.exitBtn.Size = new System.Drawing.Size(174, 55);
             this.exitBtn.TabIndex = 11;
             this.exitBtn.Text = "Exit";
             this.exitBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -237,9 +235,9 @@
             this.delivBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.delivBtn.Image = global::softeng1.Properties.Resources.verification_of_delivery_list_clipboard_symbol;
             this.delivBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.delivBtn.Location = new System.Drawing.Point(587, 229);
+            this.delivBtn.Location = new System.Drawing.Point(587, 162);
             this.delivBtn.Name = "delivBtn";
-            this.delivBtn.Size = new System.Drawing.Size(174, 85);
+            this.delivBtn.Size = new System.Drawing.Size(174, 122);
             this.delivBtn.TabIndex = 7;
             this.delivBtn.Text = "Delivery\r\nReports";
             this.delivBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -269,31 +267,14 @@
             this.prodBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.prodBtn.Image = global::softeng1.Properties.Resources.shopping_bag;
             this.prodBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.prodBtn.Location = new System.Drawing.Point(407, 229);
+            this.prodBtn.Location = new System.Drawing.Point(407, 202);
             this.prodBtn.Name = "prodBtn";
-            this.prodBtn.Size = new System.Drawing.Size(174, 85);
+            this.prodBtn.Size = new System.Drawing.Size(174, 112);
             this.prodBtn.TabIndex = 6;
             this.prodBtn.Text = "Products";
             this.prodBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.prodBtn.UseVisualStyleBackColor = false;
             this.prodBtn.Click += new System.EventHandler(this.prodBtn_Click_1);
-            // 
-            // salesBtn
-            // 
-            this.salesBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(114)))), ((int)(((byte)(182)))));
-            this.salesBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.salesBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.salesBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.salesBtn.Image = global::softeng1.Properties.Resources.bar_chart;
-            this.salesBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.salesBtn.Location = new System.Drawing.Point(407, 61);
-            this.salesBtn.Name = "salesBtn";
-            this.salesBtn.Size = new System.Drawing.Size(174, 162);
-            this.salesBtn.TabIndex = 2;
-            this.salesBtn.Text = "Sales";
-            this.salesBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.salesBtn.UseVisualStyleBackColor = false;
-            this.salesBtn.Click += new System.EventHandler(this.salesBtn_Click);
             // 
             // unpaidBtn
             // 
@@ -302,9 +283,9 @@
             this.unpaidBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.unpaidBtn.Image = global::softeng1.Properties.Resources.give_money;
             this.unpaidBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.unpaidBtn.Location = new System.Drawing.Point(588, 61);
+            this.unpaidBtn.Location = new System.Drawing.Point(587, 61);
             this.unpaidBtn.Name = "unpaidBtn";
-            this.unpaidBtn.Size = new System.Drawing.Size(174, 82);
+            this.unpaidBtn.Size = new System.Drawing.Size(174, 95);
             this.unpaidBtn.TabIndex = 3;
             this.unpaidBtn.Text = "Unpaid\r\nInvoices";
             this.unpaidBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -318,9 +299,9 @@
             this.supplierBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.supplierBtn.Image = global::softeng1.Properties.Resources.hotel_supplier;
             this.supplierBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.supplierBtn.Location = new System.Drawing.Point(202, 229);
+            this.supplierBtn.Location = new System.Drawing.Point(202, 202);
             this.supplierBtn.Name = "supplierBtn";
-            this.supplierBtn.Size = new System.Drawing.Size(199, 85);
+            this.supplierBtn.Size = new System.Drawing.Size(199, 112);
             this.supplierBtn.TabIndex = 5;
             this.supplierBtn.Text = "Supplier";
             this.supplierBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -334,9 +315,9 @@
             this.usersBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usersBtn.Image = global::softeng1.Properties.Resources.businessman1;
             this.usersBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.usersBtn.Location = new System.Drawing.Point(588, 320);
+            this.usersBtn.Location = new System.Drawing.Point(587, 290);
             this.usersBtn.Name = "usersBtn";
-            this.usersBtn.Size = new System.Drawing.Size(174, 54);
+            this.usersBtn.Size = new System.Drawing.Size(174, 81);
             this.usersBtn.TabIndex = 10;
             this.usersBtn.Text = "Users";
             this.usersBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -376,7 +357,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button prodBtn;
-        private System.Windows.Forms.Button salesBtn;
         private System.Windows.Forms.Button unpaidBtn;
         private System.Windows.Forms.Button supplierBtn;
         private System.Windows.Forms.Button usersBtn;
