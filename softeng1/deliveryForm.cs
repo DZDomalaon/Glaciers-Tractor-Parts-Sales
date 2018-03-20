@@ -119,7 +119,7 @@ namespace softeng1
 
         public void loadDelivery()
         {
-            String query = "SELECT delivery_date, concat(firstname, ' ', lastname)as supplier, delivery.product_name, total_quantity, purchase_subquantity, delivery.status FROM delivery, purchase_details, person, purchase, supplier where  pd_purchase_id = purchase_id and supplier_id = PURCHASE_SUPPLIER_ID and PERSON_ID = SUPPLIER_PERSON_ID and delivery.product_name = purchase_details.PRODUCT_NAME";
+            String query = "SELECT delivery_date, concat(firstname, ' ', lastname)as supplier, delivery.product_name, total_quantity, purchase_subquantity FROM delivery, purchase_details, person, purchase, supplier where  pd_purchase_id = purchase_id and supplier_id = PURCHASE_SUPPLIER_ID and PERSON_ID = SUPPLIER_PERSON_ID and delivery.product_name = purchase_details.PRODUCT_NAME";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -135,13 +135,11 @@ namespace softeng1
             deliveryData.Columns["product_name"].Visible = true;
             deliveryData.Columns["total_quantity"].Visible = true;
             deliveryData.Columns["purchase_subquantity"].Visible = true;
-            deliveryData.Columns["status"].Visible = true;
             deliveryData.Columns["delivery_date"].HeaderText = "Delivery Date";
             deliveryData.Columns["supplier"].HeaderText = "Supplier";
             deliveryData.Columns["product_name"].HeaderText = "Product Name";
             deliveryData.Columns["total_quantity"].HeaderText = "Quantity Delivered";
             deliveryData.Columns["purchase_subquantity"].HeaderText = "Expected Quantity";
-            deliveryData.Columns["status"].HeaderText = "Status";
         }
 
         private void deliveryForm_FormClosing_1(object sender, FormClosingEventArgs e)
