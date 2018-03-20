@@ -68,54 +68,18 @@ namespace softeng1
         }
         private void addBtn_Click(object sender, EventArgs e)
         {
-            if (fnameTxt.Text == "" || lnameTxt.Text == "" || emailTxt.Text == "" || numberTxt.Text == "" || addressTxt.Text == "")
-            {
-                invalidpanel.Visible = true;
-                invalidpanel.Enabled = true;
-            }
-            else
-            {
-                int gen = 0;
-
-                if (rbMale.Checked == true)
-                {
-                    gen = 1;
-                }
-                else if (rbFemale.Checked == true)
-                {
-                    gen = 0;
-                }
-                string query = "INSERT INTO PERSON(FIRSTNAME, LASTNAME, CONTACT_NUM, EMAIL, ADDRESS, GENDER, PERSON_TYPE)" +
-                    "VALUES ('" + fnameTxt.Text + "','" + lnameTxt.Text + "','" + numberTxt.Text + "','" + emailTxt.Text + "','" + addressTxt.Text + "','"+ gen + "','Employee')";
-
-                conn.Open();
-                MySqlCommand comm = new MySqlCommand(query, conn);
-                comm.ExecuteNonQuery();
-                conn.Close();
-
-                loadEmployeeData();
-
-                fnameTxt.Text = "";
-                lnameTxt.Text = "";
-                positionCmb.Text = "";
-                statusCmb.Text = "";
-                emailTxt.Text = "";
-                numberTxt.Text = "";
-                addressTxt.Text = "";
-                rbMale.Checked = true;
-            }
+            cPanel.Visible = true;
+            cPanel.Enabled = true;
         }
         private void backBtn_Click_1(object sender, EventArgs e)
         {
             fromUsers.Show();
             this.Hide();
-        }
-        
+        }      
         private void usersForm_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             fromUsers.Show();
         }
-
         private int selected_emp_id;
         private int selected_person_id;
         private void usersData_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -144,7 +108,6 @@ namespace softeng1
                 }
             }
         }
-
         private void resetBtn_Click(object sender, EventArgs e)
         {
             fnameTxt.Text = "";
@@ -157,7 +120,6 @@ namespace softeng1
             addBtn.Enabled = true;
             editBtn.Enabled = false;
         }
-
         private void editBtn_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Do you want to update the data ?", "Confirm ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -172,7 +134,7 @@ namespace softeng1
                 {
                     gen = 0;
                 }
-                String query = "Update PERSON, EMPLOYEE SET PERSON.FIRSTNAME = '" + fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text + "', POSITION = '" + positionCmb.Text + "', PERSON.GENDER = '" + gen + "', STATUS = '" + statusCmb.Text + "', PERSON.CONTACT_NUM = '" + numberTxt.Text + "', PERSON.EMAIL = '" + emailTxt.Text + "', PERSON.ADDRESS ='" + addressTxt.Text + "' WHERE EMP_ID = '" + selected_emp_id + "' AND PERSON_ID = '" + selected_person_id + "'";
+                String query = "Update PERSON, EMPLOYEE SET PERSON.FIRSTNAME = '" + fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text + "', EMPLOYEE.POSITION = '" + positionCmb.Text + "', PERSON.GENDER = '" + gen + "', STATUS = '" + statusCmb.Text + "', PERSON.CONTACT_NUM = '" + numberTxt.Text + "', PERSON.EMAIL = '" + emailTxt.Text + "', PERSON.ADDRESS ='" + addressTxt.Text + "' WHERE EMP_ID = '" + selected_emp_id + "' AND PERSON_ID = '" + selected_person_id + "'";
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
@@ -183,7 +145,6 @@ namespace softeng1
             MessageBox.Show("Your data has been updated successfully", "Updated Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
             
         }
-
         private void fnameTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
@@ -191,7 +152,6 @@ namespace softeng1
                 e.Handled = true;
             }
         }
-
         private void lnameTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsLetter(e.KeyChar) && !char.IsControl(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar))
@@ -199,7 +159,6 @@ namespace softeng1
                 e.Handled = true;
             }
         }
-
         private void emailTxt_TextChanged(object sender, EventArgs e)
         {
             string pattern = null;
@@ -225,10 +184,77 @@ namespace softeng1
                 }
             }
         }
-
         private void closePanel_Click(object sender, EventArgs e)
         {
             invalidpanel.Hide();
-        }        
+        }
+        private void confirmBtn_Click(object sender, EventArgs e)
+        {
+            int getEmp = 0;
+            int maxEmp = 0;
+
+            if (fnameTxt.Text == "" || lnameTxt.Text == "" || emailTxt.Text == "" || numberTxt.Text == "" || addressTxt.Text == "")
+            {
+                invalidpanel.Visible = true;
+                invalidpanel.Enabled = true;
+            }
+            else
+            {
+                int gen = 0;
+
+                if (rbMale.Checked == true)
+                {
+                    gen = 1;
+                }
+                else if (rbFemale.Checked == true)
+                {
+                    gen = 0;
+                }
+                string query = "INSERT INTO PERSON(FIRSTNAME, LASTNAME, CONTACT_NUM, EMAIL, ADDRESS, GENDER, PERSON_TYPE)" +
+                    "VALUES ('" + fnameTxt.Text + "','" + lnameTxt.Text + "','" + numberTxt.Text + "','" + emailTxt.Text + "','" + addressTxt.Text + "','" + gen + "','Employee')";
+
+                conn.Open();
+                MySqlCommand comm = new MySqlCommand(query, conn);
+                comm.ExecuteNonQuery();
+
+                MySqlCommand getEmployeeMID = new MySqlCommand("select max(emp_id) from employee", conn);
+                getEmp = Convert.ToInt32(getEmployeeMID.ExecuteScalar());
+                maxEmp = getEmp;
+
+                string updateEmp = "update employee set position = '" + positionCmb.Text + "' where emp_id = '" + maxEmp + "'";
+                MySqlCommand updateEmpComm = new MySqlCommand(updateEmp, conn);
+                updateEmpComm.ExecuteNonQuery();
+
+                conn.Close();
+
+                cPanel.Visible = false;
+                cPanel.Enabled = false;
+                oPanel.Visible = true;
+                oPanel.Enabled = true;
+
+                loadEmployeeData();
+
+                fnameTxt.Text = "";
+                lnameTxt.Text = "";
+                positionCmb.Text = "";
+                statusCmb.Text = "";
+                emailTxt.Text = "";
+                numberTxt.Text = "";
+                addressTxt.Text = "";
+                rbMale.Checked = true;
+            }
+        }
+        private void okBtn_Click(object sender, EventArgs e)
+        {
+            oPanel.Hide();
+        }
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            cPanel.Hide();
+        }
+        private void closePanel2_Click(object sender, EventArgs e)
+        {
+            cPanel.Hide();
+        }
     }
 }

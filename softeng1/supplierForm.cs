@@ -122,11 +122,9 @@ namespace softeng1
                     gen = 0;
                 }
                 string query = "INSERT INTO PERSON(FIRSTNAME, LASTNAME, CONTACT_NUM, EMAIL, ADDRESS, GENDER, PERSON_TYPE)" +
-                    "VALUES ('" + fnameTxt.Text + "','" + lnameTxt.Text + "','" + cnumTxt.Text + "','" + emailTxt.Text + "','" + addressTxt.Text + "','" + gen + "','Supplier')";                
+                    "VALUES ('" + fnameTxt.Text + "','" + lnameTxt.Text + "','" + cnumTxt.Text + "','" + emailTxt.Text + "','" + addressTxt.Text + "','" + gen + "','Supplier')";
 
-
-
-                conn.Open();               
+                conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
                 comm.ExecuteNonQuery();
 
@@ -148,7 +146,7 @@ namespace softeng1
                 addressTxt.Clear();
                 organizationTxt.Clear();
                 rbMale.Checked = false;
-                rbFemale.Checked = false;            
+                rbFemale.Checked = false;
             }
         }
 
