@@ -219,12 +219,28 @@ namespace softeng1
             confirmPanel.Enabled = false;
             succPanel.Show();
             succPanel.Enabled = true;
-
+            int prodID, prodQuant, updQuant;
             conn.Open();
             string insertDelivery = "INSERT INTO delivery(product_name, total_quantity, delivery_date, delivery_purchase_id) VALUES('" + pnameTxt.Text + "', '" + pquantTxt.Text + "', '" + deliveryDate.Text + "', '" + purchaseIDtxt.Text + "')";
             MySqlCommand insertDelComm = new MySqlCommand(insertDelivery, conn);
             insertDelComm.ExecuteNonQuery();
+
+            //kuha product id
+            MySqlCommand pID = new MySqlCommand("SELECT product_id FROM product where product_name = '" + pnameTxt.Text+ "'", conn);
+            prodID = Convert.ToInt16(pID.ExecuteScalar());
+
+            //kuha quantity from inv
+            MySqlCommand pQuant = new MySqlCommand("SELECT quantity FROM inventory where inv_product_id = '" + prodID + "'", conn);
+            prodQuant = Convert.ToInt16(pQuant.ExecuteScalar());
+            updQuant = prodQuant + int.Parse(pquantTxt.Text);
+
+            //update quant
+            string updQuantity = "update inventory set quantity = '" + updQuant + "'";
+            MySqlCommand updQuantityComm = new MySqlCommand(updQuantity, conn);
+            updQuantityComm.ExecuteNonQuery();
+
             conn.Close();
+            
         }
 
         private void btnBack_Click(object sender, EventArgs e)

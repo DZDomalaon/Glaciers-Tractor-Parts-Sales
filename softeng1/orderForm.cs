@@ -393,7 +393,7 @@ namespace softeng1
                     PaymentInc = maxPaymentId;
 
                     //Insert data to sales_order                    
-                    string insertToSO = "INSERT INTO sales_order(ORDER_DICOUNT, ORDER_DATE, ORDER_STATUS, PAYMENT_CHANGE, order_customer_id, order_emp_id, order_payment_id) VALUES('" + double.Parse(discountTxt.Text.ToString()) + "','" + formatForMySql + "', 'Paid', '" + change + "', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "')";
+                    string insertToSO = "INSERT INTO sales_order(ORDER_DISCOUNT, ORDER_DATE, ORDER_STATUS, PAYMENT_CHANGE, order_customer_id, order_emp_id, order_payment_id) VALUES('" + double.Parse(discountTxt.Text.ToString()) + "','" + formatForMySql + "', 'Paid', '" + change + "', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "')";
                     MySqlCommand insertToSOComm = new MySqlCommand(insertToSO, conn);
                     insertToSOComm.ExecuteNonQuery();
 
