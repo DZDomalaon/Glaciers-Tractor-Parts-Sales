@@ -49,7 +49,7 @@ namespace softeng1
             deliveryRep.UseAnimation = true;
             deliveryRep.IsBalloon = true;
             deliveryRep.ShowAlways = true;
-            deliveryRep.SetToolTip(delivBtn, "Check Delivered Products");
+            deliveryRep.SetToolTip(delivBtn, "Add or Check Delivered Products");
 
             ToolTip products = new ToolTip();
             products.UseFading = true;

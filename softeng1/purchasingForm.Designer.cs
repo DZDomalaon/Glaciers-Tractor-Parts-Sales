@@ -68,6 +68,12 @@
             this.confirmBtn = new System.Windows.Forms.Button();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
+            this.invalidpanel = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label18 = new System.Windows.Forms.Label();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.oPanel = new System.Windows.Forms.Panel();
             this.okBtn = new System.Windows.Forms.Button();
@@ -86,12 +92,6 @@
             this.snameTxt = new System.Windows.Forms.TextBox();
             this.supLbl = new System.Windows.Forms.Label();
             this.proLbl = new System.Windows.Forms.Label();
-            this.invalidpanel = new System.Windows.Forms.Panel();
-            this.panel11 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.pname = new System.Windows.Forms.TextBox();
             this.dgProducts = new System.Windows.Forms.DataGridView();
             this.ptypeTxt = new System.Windows.Forms.TextBox();
@@ -106,14 +106,14 @@
             this.panel7.SuspendLayout();
             this.cPanel.SuspendLayout();
             this.panel9.SuspendLayout();
+            this.invalidpanel.SuspendLayout();
+            this.panel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.oPanel.SuspendLayout();
             this.panel10.SuspendLayout();
             this.errorPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel13.SuspendLayout();
-            this.invalidpanel.SuspendLayout();
-            this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgProducts)).BeginInit();
             this.SuspendLayout();
             // 
@@ -524,6 +524,75 @@
             this.label17.TabIndex = 63;
             this.label17.Text = "Confirm";
             // 
+            // invalidpanel
+            // 
+            this.invalidpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
+            this.invalidpanel.Controls.Add(this.panel11);
+            this.invalidpanel.Controls.Add(this.pictureBox2);
+            this.invalidpanel.Controls.Add(this.label19);
+            this.invalidpanel.Enabled = false;
+            this.invalidpanel.Location = new System.Drawing.Point(12, 23);
+            this.invalidpanel.Name = "invalidpanel";
+            this.invalidpanel.Size = new System.Drawing.Size(384, 145);
+            this.invalidpanel.TabIndex = 66;
+            this.invalidpanel.Visible = false;
+            // 
+            // panel11
+            // 
+            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.panel11.Controls.Add(this.button1);
+            this.panel11.Controls.Add(this.label18);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel11.Location = new System.Drawing.Point(0, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(384, 35);
+            this.panel11.TabIndex = 64;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(90)))), ((int)(((byte)(74)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(351, 3);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 25);
+            this.button1.TabIndex = 64;
+            this.button1.Text = "X";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label18.Location = new System.Drawing.Point(134, 7);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(100, 21);
+            this.label18.TabIndex = 63;
+            this.label18.Text = "Cart Empty";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::softeng1.Properties.Resources.error;
+            this.pictureBox2.Location = new System.Drawing.Point(54, 65);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(45, 35);
+            this.pictureBox2.TabIndex = 65;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label19.Location = new System.Drawing.Point(105, 71);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(250, 23);
+            this.label19.TabIndex = 63;
+            this.label19.Text = "Cannot add data. Cart is empty.";
+            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -729,75 +798,6 @@
             this.proLbl.Text = "-----";
             this.proLbl.Click += new System.EventHandler(this.proLbl_Click);
             // 
-            // invalidpanel
-            // 
-            this.invalidpanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
-            this.invalidpanel.Controls.Add(this.panel11);
-            this.invalidpanel.Controls.Add(this.pictureBox2);
-            this.invalidpanel.Controls.Add(this.label19);
-            this.invalidpanel.Enabled = false;
-            this.invalidpanel.Location = new System.Drawing.Point(12, 23);
-            this.invalidpanel.Name = "invalidpanel";
-            this.invalidpanel.Size = new System.Drawing.Size(384, 145);
-            this.invalidpanel.TabIndex = 66;
-            this.invalidpanel.Visible = false;
-            // 
-            // panel11
-            // 
-            this.panel11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
-            this.panel11.Controls.Add(this.button1);
-            this.panel11.Controls.Add(this.label18);
-            this.panel11.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel11.Location = new System.Drawing.Point(0, 0);
-            this.panel11.Name = "panel11";
-            this.panel11.Size = new System.Drawing.Size(384, 35);
-            this.panel11.TabIndex = 64;
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(215)))), ((int)(((byte)(90)))), ((int)(((byte)(74)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(351, 3);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(30, 25);
-            this.button1.TabIndex = 64;
-            this.button1.Text = "X";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.label18.Location = new System.Drawing.Point(134, 7);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(100, 21);
-            this.label18.TabIndex = 63;
-            this.label18.Text = "Cart Empty";
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::softeng1.Properties.Resources.error;
-            this.pictureBox2.Location = new System.Drawing.Point(54, 65);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(45, 35);
-            this.pictureBox2.TabIndex = 65;
-            this.pictureBox2.TabStop = false;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.label19.Location = new System.Drawing.Point(105, 71);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(250, 23);
-            this.label19.TabIndex = 63;
-            this.label19.Text = "Cannot add data. Cart is empty.";
-            // 
             // pname
             // 
             this.pname.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -943,6 +943,11 @@
             this.cPanel.PerformLayout();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
+            this.invalidpanel.ResumeLayout(false);
+            this.invalidpanel.PerformLayout();
+            this.panel11.ResumeLayout(false);
+            this.panel11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.oPanel.ResumeLayout(false);
             this.oPanel.PerformLayout();
             this.panel10.ResumeLayout(false);
@@ -952,11 +957,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            this.invalidpanel.ResumeLayout(false);
-            this.invalidpanel.PerformLayout();
-            this.panel11.ResumeLayout(false);
-            this.panel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgProducts)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

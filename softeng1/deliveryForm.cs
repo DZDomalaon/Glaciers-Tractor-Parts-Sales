@@ -154,9 +154,49 @@ namespace softeng1
 
         private void okBtn_Click(object sender, EventArgs e)
         {
-            //succPanel.Hide();
+            succPanel.Hide();
+            succPanel.Enabled = false;
         }
         public static int product_id, maxinv, quantity, updquant;
+
+        private void resetBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnConfirm_Click(object sender, EventArgs e)
+        {
+            confirmPanel.Hide();
+            confirmPanel.Enabled = false;
+            succPanel.Show();
+            succPanel.Enabled = true;
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            confirmPanel.Hide();
+            confirmPanel.Enabled = false;
+        }
+
+        private void okBtn_Click_1(object sender, EventArgs e)
+        {
+            snameTxt.Text = "";
+            pnameTxt.Text = "";
+            pquantTxt.Text = "";
+            succPanel.Hide();
+            succPanel.Enabled = false;
+        }
+
+        private void addBtn_Click_1(object sender, EventArgs e)
+        {
+            confirmPanel.Show();
+            confirmPanel.Enabled = true;
+        }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
