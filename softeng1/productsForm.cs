@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.Text.RegularExpressions;
+using Microsoft.VisualBasic;
 
 namespace softeng1
 {
@@ -26,6 +27,7 @@ namespace softeng1
         {
             loadprod();
             loadSupplierData();
+            loadDamadeg();
         }
         private void backBtn_Click(object sender, EventArgs e)
         {
@@ -58,11 +60,13 @@ namespace softeng1
 
         public void loadprod()
         {
-            String query = "SELECT concat(firstname, ' ', lastname) as supplier, product_id, product_name, description, price, pc_category , pc_variant, pc_type, serial FROM product " +
+            String query = "SELECT concat(firstname, ' ', lastname) as supplier, product_id, inventory_id, product_name, description, price, pc_category , pc_variant, pc_type, serial FROM product " +
                            "inner join product_catalogue on PRODUCT_PC_ID = pc_id " +
                            "inner join product_has_supplier on product_id = PHS_PRODUCT_ID " +
                            "inner join supplier on PHS_SUPPLIER_ID = SUPPLIER_ID " +
-                           "inner join person on SUPPLIER_PERSON_ID = person_id";
+                           "inner join person on SUPPLIER_PERSON_ID = person_id " +
+                           "inner join inventory on inv_product_id = product_id";
+
 
 
             conn.Open();
@@ -75,6 +79,7 @@ namespace softeng1
             prodData.DataSource = dt;
             prodData.Columns["product_id"].Visible = false;
             prodData.Columns["supplier"].Visible = false;
+            prodData.Columns["inventory_id"].Visible = false;
             prodData.Columns["product_name"].HeaderText = "Product Name";
             prodData.Columns["description"].HeaderText = "Description";
             prodData.Columns["price"].HeaderText = "Price";
@@ -210,13 +215,15 @@ namespace softeng1
         }
 
         private int selected_prod_id;
+        public int selected_inv_id;
         private void prodData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            addBtn.Enabled = false;
+            addBtn.Enabled = true;
             editBtn.Enabled = true;
             if (e.RowIndex > -1)
             {
                 selected_prod_id = int.Parse(prodData.Rows[e.RowIndex].Cells["product_id"].Value.ToString());
+                selected_inv_id = int.Parse(prodData.Rows[e.RowIndex].Cells["inventory_id"].Value.ToString());
                 pnameTxt.Text = prodData.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
                 pdescTxt.Text = prodData.Rows[e.RowIndex].Cells["description"].Value.ToString();
                 priceTxt.Text = prodData.Rows[e.RowIndex].Cells["price"].Value.ToString();
@@ -226,6 +233,48 @@ namespace softeng1
                 typeTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_type"].Value.ToString();
                 SupplierCmb.Text = prodData.Rows[e.RowIndex].Cells["supplier"].Value.ToString();
             }
+        }
+
+        private void addDmg_Click(object sender, EventArgs e)
+        {
+            DateTime theDate = DateTime.Now;
+            string formatForMySql = theDate.ToString("yyyy-MM-dd");
+
+            string query = "INSERT INTO DAMAGED_ITEMS(DI_QUANTITY, DI_DATE, PRODUCT_PRODUCT_ID, INVENTORY_INVENTORY_ID)" +
+                    "VALUES ('" + int.Parse(numberDmg.Value.ToString()) + "','" + formatForMySql + "','" + selected_prod_id + "','" + selected_inv_id + "')";
+
+            string updateDmg = "Update inventory set quantity = quantity - '" + int.Parse(numberDmg.Value.ToString()) + "' where inventory_id = '" + selected_inv_id + "'";                   
+
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            comm.ExecuteNonQuery();
+
+            MySqlCommand updateDmgcomm = new MySqlCommand(updateDmg, conn);
+            updateDmgcomm.ExecuteNonQuery();
+            conn.Close();
+
+            loadDamadeg();
+        }
+        public void loadDamadeg()
+        {
+        
+        String query = "SELECT product_name, di_quantity, di_date FROM product " +
+                        "inner join damaged_items on PRODUCT_PRODUCT_ID = PRODUCT_ID " +
+                        "inner join product_has_supplier on phs_product_id = product_id";
+
+
+
+        conn.Open();
+        MySqlCommand comm = new MySqlCommand(query, conn);
+        MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+        conn.Close();
+        DataTable dt = new DataTable();
+        adp.Fill(dt);
+
+        dprodData.DataSource = dt;
+        dprodData.Columns["product_name"].HeaderText = "Product Name";
+        dprodData.Columns["di_quantity"].HeaderText = "Quantity";
+        dprodData.Columns["di_date"].HeaderText = "Date Stocked out";     
         }
     }
 }
