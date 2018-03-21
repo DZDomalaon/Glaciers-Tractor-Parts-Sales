@@ -232,10 +232,10 @@ namespace softeng1
             //kuha quantity from inv
             MySqlCommand pQuant = new MySqlCommand("SELECT quantity FROM inventory where inv_product_id = '" + prodID + "'", conn);
             prodQuant = Convert.ToInt16(pQuant.ExecuteScalar());
-            updQuant = prodQuant + int.Parse(pquantTxt.Text);
+            updQuant = prodQuant + int.Parse(pquantTxt.Text.ToString());
 
             //update quant
-            string updQuantity = "update inventory set quantity = '" + updQuant + "'";
+            string updQuantity = "update inventory set quantity = quantity + '" + updQuant + "' where inv_product_id = '" + prodID + "'";
             MySqlCommand updQuantityComm = new MySqlCommand(updQuantity, conn);
             updQuantityComm.ExecuteNonQuery();
 
