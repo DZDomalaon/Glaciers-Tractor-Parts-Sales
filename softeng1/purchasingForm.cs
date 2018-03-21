@@ -483,8 +483,7 @@ namespace softeng1
             foreach (DataGridViewRow row in dgProducts.Rows)
             {
                 if (prodname == row.Cells[0].Value.ToString() && prodprice == double.Parse(row.Cells[1].Value.ToString()))
-                {
-                    //MessageBox.Show("Duplicate entry!");
+                {                    
                     errorPanel.Enabled = true;
                     errorPanel.Visible = true;
                 }
