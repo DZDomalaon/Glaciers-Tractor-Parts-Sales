@@ -47,7 +47,7 @@ namespace softeng1
             stockLbl.Visible = false;
             custLbl.Visible = false;
             addOrder.Enabled = true;
-            editOrderBtn.Enabled = false;
+            //editOrderBtn.Enabled = false;
 
             loadCustomer();
             loadProduct();
@@ -213,7 +213,7 @@ namespace softeng1
             pquant.Clear();
             ptotal.Clear();
             addOrder.Enabled = true;
-            editOrderBtn.Enabled = false;
+            //editOrderBtn.Enabled = false;
         }
 
         private void pquant_KeyPress(object sender, KeyPressEventArgs e)
@@ -266,11 +266,13 @@ namespace softeng1
         {
             if(paymentCmb.Text == "Cash")
             {
+                cashTxt.Enabled = true;
                 discountTxt.Enabled = true;
                 calculateBtn.Visible = true;
             }
             else
             {
+                cashTxt.Enabled = false;
                 discountTxt.Enabled = false;
                 calculateBtn.Visible = false;
             }
@@ -344,7 +346,7 @@ namespace softeng1
             try
             {
                 addOrder.Enabled = false;
-                editOrderBtn.Enabled = true;
+                //editOrderBtn.Enabled = true;
                 rowIndex = e.RowIndex;
                 DataGridViewRow row = orderDG.Rows[rowIndex];
 
@@ -367,7 +369,7 @@ namespace softeng1
             int prod_id = 0;
             DateTime theDate = DateTime.Now;
             string formatForMySql = theDate.ToString("yyyy-MM-dd");
-            double total = double.Parse(totalpriceTxt.Text.ToString());
+            double total = double.Parse(totalP.Text.ToString());
             
 
             conn.Open();
@@ -378,7 +380,6 @@ namespace softeng1
 
             if (paymentCmb.Text == "Cash")
             {
-
                 double change = double.Parse(cashTxt.Text.ToString()) - double.Parse(totalpriceTxt.Text.ToString());
                 if (double.Parse(cashTxt.Text.ToString()) >= total)
                 {
@@ -439,14 +440,9 @@ namespace softeng1
 
                             //deduct quantity
                             quan = int.Parse(row.Cells[3].Value.ToString());
-                            string deductQuantity = "UPDATE INVENTORY SET QUANTITY = QUANTITY - '" + quan + "' WHERE INVENTORY_ID = (SELECT PRODUCT_INV_ID FROM PRODUCT WHERE PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')";
+                            string deductQuantity = "UPDATE INVENTORY SET QUANTITY = QUANTITY - '" + quan + "' WHERE INV_PRODUCT_ID = (SELECT PRODUCT_ID FROM PRODUCT WHERE PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')";
                             MySqlCommand comm2 = new MySqlCommand(deductQuantity, conn);
-                            comm2.ExecuteNonQuery();
-
-                            //update serial
-                            String updateSerial = "update product set serial_no = '" + getSer + "' where product_name = '" + productnameTxt.Text + "'";
-                            MySqlCommand updateSerialComm = new MySqlCommand(updateSerial, conn);
-                            updateSerialComm.ExecuteNonQuery();
+                            comm2.ExecuteNonQuery();                          
                         }
                     }
                     conn.Close();
@@ -503,10 +499,23 @@ namespace softeng1
                     MySqlCommand getProduct_id = new MySqlCommand("SELECT PRODUCT_ID FROM PRODUCT WHERE (PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')", conn);
                     prod_id = Convert.ToInt32(getProduct_id.ExecuteScalar());
 
+                    String querySerial = "SELECT SERIAL FROM PRODUCT WHERE (PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')";
+                    string getSerial = "";
+                    MySqlCommand querySerialcomm = new MySqlCommand(querySerial, conn);
+                    querySerialcomm.CommandText = querySerial;
+                    conn.Open();
+                    MySqlDataReader drd = comm.ExecuteReader();
+                   
+                    while (drd.Read())
+                    {
+
+                        getSerial = drd["SERIAL"].ToString();
+                    }
+
                     using (conn)
                     {
                         //insert to database
-                        using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO SALES_ORDER_DETAILS(ORDER_PRODUCT_ID, ORDER_UNIT_PRICE, ORDER_SUBTOTAL, ORDER_TOTAL, ORDER_TQUANTITY, ORDER_SUBQUANTITY, ORDER_SERIAL_NO, SO_ID) VALUES('" + prod_id + "', @Price, @Subtotal, '" + total + "', '" + totalQuanatity() + "', @Quantity, @Serial, '" + OrderIncrement + "')", conn))
+                        using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO SALES_ORDER_DETAILS(ORDER_PRODUCT_ID, ORDER_UNIT_PRICE, ORDER_SUBTOTAL, ORDER_TOTAL, ORDER_TQUANTITY, ORDER_SUBQUANTITY, ORDER_SERIAL_NO, SO_ID) VALUES('" + prod_id + "', @Price, @Subtotal, '" + total + "', '" + totalQuanatity() + "', @Quantity, '" + getSerial + "' , '" + OrderIncrement + "')", conn))
                         {
                             //Get data of price, subtotal, and quatity per row in the datagrid
                             //@Price, @Subtotal, and @Quantity are the names of the columns
@@ -548,30 +557,30 @@ namespace softeng1
         }
 
         //update the values of data from Datagrid
-        private void editOrderBtn_Click(object sender, EventArgs e)
-        {
-            if(productnameTxt.Text == "" && ppriceTxt.Text == "" && pquant.Text == "" && ptotal.Text == "")
-            {
-                MessageBox.Show("There's no data selected", "Empty textboxes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-                DataGridViewRow updRow = orderDG.Rows[rowIndex];
+        //private void editOrderBtn_Click(object sender, EventArgs e)
+        //{
+        //    if(productnameTxt.Text == "" && ppriceTxt.Text == "" && pquant.Text == "" && ptotal.Text == "")
+        //    {
+        //        MessageBox.Show("There's no data selected", "Empty textboxes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    }
+        //    else
+        //    {
+        //        DataGridViewRow updRow = orderDG.Rows[rowIndex];
 
-                updRow.Cells[0].Value = productnameTxt.Text;
-                updRow.Cells[1].Value = ppriceTxt.Text;
-                updRow.Cells[2].Value = ptotal.Text;
-                updRow.Cells[3].Value = pquant.Text;
+        //        updRow.Cells[0].Value = productnameTxt.Text;
+        //        updRow.Cells[1].Value = ppriceTxt.Text;
+        //        updRow.Cells[2].Value = ptotal.Text;
+        //        updRow.Cells[3].Value = pquant.Text;
 
-                productnameTxt.Clear();
-                ppriceTxt.Clear();
-                pquant.Clear();
-                ptotal.Clear();
-                addOrder.Enabled = true;
-                editOrderBtn.Enabled = false;
-            }
-            calcSum();
-        }
+        //        productnameTxt.Clear();
+        //        ppriceTxt.Clear();
+        //        pquant.Clear();
+        //        ptotal.Clear();
+        //        addOrder.Enabled = true;
+        //        editOrderBtn.Enabled = false;
+        //    }
+        //    calcSum();
+        //}
 
         //Add order to Datagrid
         private void addOrder_Click(object sender, EventArgs e)
@@ -591,21 +600,18 @@ namespace softeng1
                 conn.Close();
 
                 if (availableStock >= quantity)
-                {
-                    for (int i = 0; i < quantity; i++)
-                    {                        
-                        string firstColumn = productnameTxt.Text;   
-                        string secondColumn = ppriceTxt.Text;
-                        string thirdColumn = total_price.ToString();
-                        string fourthColumn = "1";
+                {                
+                    string firstColumn = productnameTxt.Text;   
+                    string secondColumn = ppriceTxt.Text;
+                    string thirdColumn = total_price.ToString();
+                    string fourthColumn = pquant.Text;
 
-                        Random rand = new Random();
+                    Random rand = new Random();
 
                             
-                        string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn};
+                    string[] row = { firstColumn, secondColumn, thirdColumn, fourthColumn};
 
-                        orderDG.Rows.Add(row);
-                    }
+                    orderDG.Rows.Add(row);
 
                     productnameTxt.Clear();
                     ppriceTxt.Clear();
@@ -613,7 +619,6 @@ namespace softeng1
                     ptotal.Clear();
                     calcSum();
 
-                    editOrderBtn.Enabled = true;
                     stockLbl.Visible = false;
                 }
                 else
