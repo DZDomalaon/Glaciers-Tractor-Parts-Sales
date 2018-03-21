@@ -38,7 +38,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.printBtn = new System.Windows.Forms.Button();
             this.dateTxt = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.empnameTxt = new System.Windows.Forms.TextBox();
@@ -88,7 +87,6 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.printBtn);
             this.panel2.Controls.Add(this.dateTxt);
             this.panel2.Controls.Add(this.label5);
             this.panel2.Controls.Add(this.empnameTxt);
@@ -99,20 +97,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(955, 50);
             this.panel2.TabIndex = 30;
-            // 
-            // printBtn
-            // 
-            this.printBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
-            this.printBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.printBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.printBtn.ForeColor = System.Drawing.Color.White;
-            this.printBtn.Location = new System.Drawing.Point(851, 6);
-            this.printBtn.Name = "printBtn";
-            this.printBtn.Size = new System.Drawing.Size(92, 37);
-            this.printBtn.TabIndex = 52;
-            this.printBtn.Text = "Print";
-            this.printBtn.UseVisualStyleBackColor = false;
-            this.printBtn.Click += new System.EventHandler(this.printBtn_Click);
             // 
             // dateTxt
             // 
@@ -325,6 +309,5 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView purchaseData;
         private System.Windows.Forms.Button backBtn;
-        private System.Windows.Forms.Button printBtn;
     }
 }

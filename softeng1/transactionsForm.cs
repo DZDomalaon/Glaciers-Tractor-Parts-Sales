@@ -145,12 +145,12 @@ namespace softeng1
             fromTransactions.Show();
         }
 
-        private void printBtn_Click(object sender, EventArgs e)
-        {
-            reportForm report = new reportForm();
-            report.Show();
-            reportForm.fromReportTransactions = this;
-        }
+        //private void printBtn_Click(object sender, EventArgs e)
+        //{
+        //    reportForm report = new reportForm();
+        //    report.Show();
+        //    reportForm.fromReportTransactions = this;
+        //}
 
         private void empnameTxt_Enter(object sender, EventArgs e)
         {
