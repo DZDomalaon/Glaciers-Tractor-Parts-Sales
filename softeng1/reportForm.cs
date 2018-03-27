@@ -25,7 +25,7 @@ namespace softeng1
 
         private void reportForm_Load(object sender, EventArgs e)
         {
-            String getSalesTransaction = "SELECT FIRSTNAME, LASTNAME, ORDER_DISCOUNT, ORDER_DATE, ORDER_STATUS, PRODUCT_NAME, ORDER_UNIT_PRICE, ORDER_TQUANTITY, ORDER_TOTAL " +
+            /*String getSalesTransaction = "SELECT FIRSTNAME, LASTNAME, ORDER_DISCOUNT, ORDER_DATE, ORDER_STATUS, PRODUCT_NAME, ORDER_UNIT_PRICE, ORDER_TQUANTITY, ORDER_TOTAL " +
                                          "FROM CUSTOMER INNER JOIN PERSON ON CUSTOMER_PERSON_ID = PERSON_ID " +
                                          "INNER JOIN SALES_ORDER ON CUSTOMER_ID = ORDER_CUSTOMER_ID " +
                                          "INNER JOIN SALES_ORDER_DETAILS ON ORDER_ID = SO_ID " +
@@ -40,7 +40,11 @@ namespace softeng1
 
             SalesReport cryRpt = new SalesReport();
             cryRpt.SetDataSource(dt);
+            crystalReportViewer1.ReportSource = cryRpt;*/
+            ReportDocument cryRpt = new ReportDocument();
+            cryRpt.Load(@"C:\Users\msilveo\Documents\GitHub\SAD - 2\SAD - 2 - master\SAD - 2\softeng1\SalesReport.rpt");
             crystalReportViewer1.ReportSource = cryRpt;
+            crystalReportViewer1.Refresh();
         }        
     }
 }
