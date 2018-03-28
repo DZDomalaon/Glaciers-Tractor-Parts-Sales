@@ -241,6 +241,8 @@ namespace softeng1
             updQuantityComm.ExecuteNonQuery();
 
             conn.Close();
+
+            
             
         }
 
