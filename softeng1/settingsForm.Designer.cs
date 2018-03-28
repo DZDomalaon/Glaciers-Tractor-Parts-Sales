@@ -59,7 +59,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(562, 47);
+            this.panel3.Size = new System.Drawing.Size(562, 57);
             this.panel3.TabIndex = 4;
             // 
             // label1
@@ -78,7 +78,7 @@
             this.unameTxt.Font = new System.Drawing.Font("Calibri", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.unameTxt.Location = new System.Drawing.Point(170, 56);
             this.unameTxt.Name = "unameTxt";
-            this.unameTxt.Size = new System.Drawing.Size(211, 26);
+            this.unameTxt.Size = new System.Drawing.Size(234, 26);
             this.unameTxt.TabIndex = 1;
             // 
             // label7
@@ -87,7 +87,7 @@
             this.label7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
             this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(12, 18);
+            this.label7.Location = new System.Drawing.Point(12, 26);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(183, 22);
             this.label7.TabIndex = 40;
@@ -103,7 +103,7 @@
             this.panel1.Controls.Add(this.unameTxt);
             this.panel1.Location = new System.Drawing.Point(0, 47);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(573, 107);
+            this.panel1.Size = new System.Drawing.Size(596, 129);
             this.panel1.TabIndex = 5;
             // 
             // label6
@@ -159,7 +159,7 @@
             this.panel2.Controls.Add(this.opsswrdTxt);
             this.panel2.Location = new System.Drawing.Point(0, 152);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(573, 177);
+            this.panel2.Size = new System.Drawing.Size(596, 199);
             this.panel2.TabIndex = 42;
             // 
             // label5
@@ -229,7 +229,7 @@
             this.cpsswrdTxt.ForeColor = System.Drawing.Color.Gray;
             this.cpsswrdTxt.Location = new System.Drawing.Point(170, 122);
             this.cpsswrdTxt.Name = "cpsswrdTxt";
-            this.cpsswrdTxt.Size = new System.Drawing.Size(211, 26);
+            this.cpsswrdTxt.Size = new System.Drawing.Size(234, 26);
             this.cpsswrdTxt.TabIndex = 6;
             // 
             // npsswrdTxt
@@ -238,7 +238,7 @@
             this.npsswrdTxt.ForeColor = System.Drawing.Color.Gray;
             this.npsswrdTxt.Location = new System.Drawing.Point(170, 90);
             this.npsswrdTxt.Name = "npsswrdTxt";
-            this.npsswrdTxt.Size = new System.Drawing.Size(211, 26);
+            this.npsswrdTxt.Size = new System.Drawing.Size(234, 26);
             this.npsswrdTxt.TabIndex = 5;
             // 
             // passBtn
@@ -273,7 +273,7 @@
             this.opsswrdTxt.ForeColor = System.Drawing.Color.Gray;
             this.opsswrdTxt.Location = new System.Drawing.Point(170, 58);
             this.opsswrdTxt.Name = "opsswrdTxt";
-            this.opsswrdTxt.Size = new System.Drawing.Size(211, 26);
+            this.opsswrdTxt.Size = new System.Drawing.Size(234, 26);
             this.opsswrdTxt.TabIndex = 3;
             // 
             // settingsForm
@@ -281,7 +281,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(562, 327);
+            this.ClientSize = new System.Drawing.Size(562, 347);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel1);

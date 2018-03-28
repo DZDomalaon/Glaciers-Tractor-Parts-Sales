@@ -29,11 +29,11 @@ namespace softeng1
         private void backBtn_Click(object sender, EventArgs e)
         {
             this.Hide();
-            fromSettings.Show();
+            //fromSettings.Show();
         }
         private void settingsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            fromSettings.Show();
+           // fromSettings.Show();
         }
         private void userBtn_Click(object sender, EventArgs e)
         {

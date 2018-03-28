@@ -215,7 +215,7 @@ namespace softeng1
         }
 
         private int selected_prod_id;
-        public int selected_inv_id;
+        public int selected_inv_id, prodQuant;
         private void prodData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             addBtn.Enabled = true;
@@ -232,6 +232,13 @@ namespace softeng1
                 variantTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_variant"].Value.ToString();
                 typeTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_type"].Value.ToString();
                 SupplierCmb.Text = prodData.Rows[e.RowIndex].Cells["supplier"].Value.ToString();
+
+                string viewQuantity = "SELECT QUANTITY FROM INVENTORY WHERE INV_PRODUCT_ID = '" + selected_prod_id + "'";
+                conn.Open();
+                MySqlCommand viewQuantitycomm = new MySqlCommand(viewQuantity, conn);
+                prodQuant = Convert.ToInt32(viewQuantitycomm.ExecuteScalar());
+                conn.Close();
+                quantityTxt.Text = prodQuant.ToString();
             }
         }
 
@@ -275,6 +282,11 @@ namespace softeng1
         dprodData.Columns["product_name"].HeaderText = "Product Name";
         dprodData.Columns["di_quantity"].HeaderText = "Quantity";
         dprodData.Columns["di_date"].HeaderText = "Date Stocked out";     
+        }
+
+        private void prodData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

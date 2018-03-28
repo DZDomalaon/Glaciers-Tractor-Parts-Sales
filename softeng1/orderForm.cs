@@ -600,7 +600,7 @@ namespace softeng1
                 {                
                     string firstColumn = productnameTxt.Text;   
                     string secondColumn = ppriceTxt.Text;
-                    string thirdColumn = ptotal.ToString();
+                    string thirdColumn = ptotal.Text;
                     string fourthColumn = pquant.Text;
 
                     Random rand = new Random();

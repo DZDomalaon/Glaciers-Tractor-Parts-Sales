@@ -28,13 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.Label label10;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.Label label10;
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -84,6 +84,17 @@
             this.confirmPanel.SuspendLayout();
             this.panel9.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label10.ForeColor = System.Drawing.Color.White;
+            label10.Location = new System.Drawing.Point(11, 9);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(137, 21);
+            label10.TabIndex = 64;
+            label10.Text = "Purchase Details";
             // 
             // panel3
             // 
@@ -351,6 +362,7 @@
             this.deliveryData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.deliveryData.Size = new System.Drawing.Size(521, 227);
             this.deliveryData.TabIndex = 100;
+            this.deliveryData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.deliveryData_CellClick);
             // 
             // succPanel
             // 
@@ -461,17 +473,6 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(521, 38);
             this.panel6.TabIndex = 7;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label10.ForeColor = System.Drawing.Color.White;
-            label10.Location = new System.Drawing.Point(11, 9);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(137, 21);
-            label10.TabIndex = 64;
-            label10.Text = "Purchase Details";
             // 
             // confirmPanel
             // 

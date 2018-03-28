@@ -71,8 +71,10 @@
             this.dprodData = new System.Windows.Forms.DataGridView();
             this.label11 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.addDmg = new System.Windows.Forms.Button();
             this.numberDmg = new System.Windows.Forms.NumericUpDown();
+            this.addDmg = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.quantityTxt = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -399,6 +401,7 @@
             this.prodData.Size = new System.Drawing.Size(521, 239);
             this.prodData.TabIndex = 99;
             this.prodData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prodData_CellClick);
+            this.prodData.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.prodData_CellContentClick);
             // 
             // typeTxt
             // 
@@ -551,6 +554,13 @@
             this.panel5.Size = new System.Drawing.Size(521, 38);
             this.panel5.TabIndex = 114;
             // 
+            // numberDmg
+            // 
+            this.numberDmg.Location = new System.Drawing.Point(410, 6);
+            this.numberDmg.Name = "numberDmg";
+            this.numberDmg.Size = new System.Drawing.Size(42, 26);
+            this.numberDmg.TabIndex = 14;
+            // 
             // addDmg
             // 
             this.addDmg.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(164)))), ((int)(((byte)(239)))));
@@ -565,12 +575,26 @@
             this.addDmg.UseVisualStyleBackColor = false;
             this.addDmg.Click += new System.EventHandler(this.addDmg_Click);
             // 
-            // numberDmg
+            // label8
             // 
-            this.numberDmg.Location = new System.Drawing.Point(410, 6);
-            this.numberDmg.Name = "numberDmg";
-            this.numberDmg.Size = new System.Drawing.Size(42, 26);
-            this.numberDmg.TabIndex = 14;
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.Black;
+            this.label8.Location = new System.Drawing.Point(24, 447);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(78, 23);
+            this.label8.TabIndex = 83;
+            this.label8.Text = "Quantity";
+            // 
+            // quantityTxt
+            // 
+            this.quantityTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.quantityTxt.Location = new System.Drawing.Point(165, 443);
+            this.quantityTxt.Name = "quantityTxt";
+            this.quantityTxt.ReadOnly = true;
+            this.quantityTxt.Size = new System.Drawing.Size(100, 27);
+            this.quantityTxt.TabIndex = 7;
+            this.quantityTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.priceTxt_KeyPress);
             // 
             // productsForm
             // 
@@ -597,6 +621,8 @@
             this.Controls.Add(this.categTxt);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
+            this.Controls.Add(this.quantityTxt);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.priceTxt);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.asd);
@@ -674,5 +700,7 @@
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.NumericUpDown numberDmg;
         private System.Windows.Forms.Button addDmg;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox quantityTxt;
     }
 }

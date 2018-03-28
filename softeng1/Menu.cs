@@ -23,6 +23,7 @@ namespace softeng1
         public static loginForm previousForm { get; set; }
         private void Form2_Load(object sender, EventArgs e)
         {
+            
             ToolTip salesOrder = new ToolTip();
             salesOrder.UseFading = true;
             salesOrder.UseAnimation = true;
@@ -226,18 +227,35 @@ namespace softeng1
 
         private void settingsBtn_Click(object sender, EventArgs e)
         {
-            settingsForm settings = new settingsForm();
-            settings.Show();
-            settingsForm.fromSettings = this;
-            this.Hide();
+            settingsForm purchase = new settingsForm();
+            purchase.Show();
         }
 
         private void logBtn_Click(object sender, EventArgs e)
         {
-            transactionsForm transactions = new transactionsForm();
-            transactions.Show();
-            transactionsForm.fromTransactions = this;
             this.Hide();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            notifPanel.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            notifPanel.Visible = true;
+            notifBtn2.Visible = true;
+        }
+
+        private void notifBtn2_Click(object sender, EventArgs e)
+        {
+            notifPanel.Visible = false;
+            notifBtn2.Visible = false;
+        }
+
+        private void homePanel_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

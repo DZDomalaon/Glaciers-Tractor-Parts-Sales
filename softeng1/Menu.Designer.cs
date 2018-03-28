@@ -34,6 +34,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.homePanel = new System.Windows.Forms.Panel();
+            this.notifPanel = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label17 = new System.Windows.Forms.Label();
             this.logBtn = new System.Windows.Forms.Button();
             this.invoiceBtn = new System.Windows.Forms.Button();
             this.purchasingBtn = new System.Windows.Forms.Button();
@@ -49,15 +52,21 @@
             this.supplierBtn = new System.Windows.Forms.Button();
             this.usersBtn = new System.Windows.Forms.Button();
             this.glacierToolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.notifBtn = new System.Windows.Forms.Button();
+            this.notifBtn2 = new System.Windows.Forms.Button();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.homePanel.SuspendLayout();
+            this.notifPanel.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.panel3.Controls.Add(this.notifBtn2);
+            this.panel3.Controls.Add(this.notifBtn);
             this.panel3.Controls.Add(this.settingsBtn);
             this.panel3.Controls.Add(this.panel1);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
@@ -72,11 +81,11 @@
             this.settingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.settingsBtn.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.settingsBtn.ForeColor = System.Drawing.SystemColors.Control;
-            this.settingsBtn.Image = global::softeng1.Properties.Resources.settings_gears;
+            this.settingsBtn.Image = global::softeng1.Properties.Resources.user_avatar_main_picture;
             this.settingsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.settingsBtn.Location = new System.Drawing.Point(862, 2);
+            this.settingsBtn.Location = new System.Drawing.Point(749, 3);
             this.settingsBtn.Name = "settingsBtn";
-            this.settingsBtn.Size = new System.Drawing.Size(91, 43);
+            this.settingsBtn.Size = new System.Drawing.Size(101, 43);
             this.settingsBtn.TabIndex = 12;
             this.settingsBtn.Text = "Settings";
             this.settingsBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -106,6 +115,7 @@
             // homePanel
             // 
             this.homePanel.BackColor = System.Drawing.Color.White;
+            this.homePanel.Controls.Add(this.notifPanel);
             this.homePanel.Controls.Add(this.logBtn);
             this.homePanel.Controls.Add(this.invoiceBtn);
             this.homePanel.Controls.Add(this.purchasingBtn);
@@ -124,13 +134,46 @@
             this.homePanel.Name = "homePanel";
             this.homePanel.Size = new System.Drawing.Size(955, 540);
             this.homePanel.TabIndex = 4;
+            this.homePanel.Paint += new System.Windows.Forms.PaintEventHandler(this.homePanel_Paint);
+            // 
+            // notifPanel
+            // 
+            this.notifPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
+            this.notifPanel.Controls.Add(this.panel9);
+            this.notifPanel.Enabled = false;
+            this.notifPanel.Location = new System.Drawing.Point(629, 0);
+            this.notifPanel.Name = "notifPanel";
+            this.notifPanel.Size = new System.Drawing.Size(326, 513);
+            this.notifPanel.TabIndex = 103;
+            this.notifPanel.Visible = false;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.panel9.Controls.Add(this.label17);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(326, 35);
+            this.panel9.TabIndex = 64;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.label17.Location = new System.Drawing.Point(129, 7);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(102, 19);
+            this.label17.TabIndex = 63;
+            this.label17.Text = "Notifications";
             // 
             // logBtn
             // 
             this.logBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(99)))), ((int)(((byte)(12)))));
             this.logBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.logBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.logBtn.Image = global::softeng1.Properties.Resources.calendar_with_a_clock_time_tools2;
+            this.logBtn.Image = global::softeng1.Properties.Resources.full_shopping_cart;
             this.logBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.logBtn.Location = new System.Drawing.Point(407, 320);
             this.logBtn.Name = "logBtn";
@@ -324,6 +367,38 @@
             this.usersBtn.UseVisualStyleBackColor = false;
             this.usersBtn.Click += new System.EventHandler(this.staffBtn_Click);
             // 
+            // notifBtn
+            // 
+            this.notifBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
+            this.notifBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.notifBtn.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notifBtn.ForeColor = System.Drawing.SystemColors.Control;
+            this.notifBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.notifBtn.Location = new System.Drawing.Point(852, 3);
+            this.notifBtn.Name = "notifBtn";
+            this.notifBtn.Size = new System.Drawing.Size(101, 43);
+            this.notifBtn.TabIndex = 13;
+            this.notifBtn.Text = "Notifications";
+            this.notifBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.notifBtn.UseVisualStyleBackColor = false;
+            this.notifBtn.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // notifBtn2
+            // 
+            this.notifBtn2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
+            this.notifBtn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.notifBtn2.Font = new System.Drawing.Font("Agency FB", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notifBtn2.ForeColor = System.Drawing.SystemColors.Control;
+            this.notifBtn2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.notifBtn2.Location = new System.Drawing.Point(852, 3);
+            this.notifBtn2.Name = "notifBtn2";
+            this.notifBtn2.Size = new System.Drawing.Size(100, 43);
+            this.notifBtn2.TabIndex = 14;
+            this.notifBtn2.Text = "Notifications";
+            this.notifBtn2.UseVisualStyleBackColor = false;
+            this.notifBtn2.Visible = false;
+            this.notifBtn2.Click += new System.EventHandler(this.notifBtn2_Click);
+            // 
             // homeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -344,6 +419,9 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.homePanel.ResumeLayout(false);
+            this.notifPanel.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -371,5 +449,10 @@
         private System.Windows.Forms.Button settingsBtn;
         private System.Windows.Forms.Button logBtn;
         private System.Windows.Forms.ToolTip glacierToolTip;
+        private System.Windows.Forms.Panel notifPanel;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button notifBtn;
+        private System.Windows.Forms.Button notifBtn2;
     }
 }

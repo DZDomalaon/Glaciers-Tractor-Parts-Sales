@@ -219,7 +219,7 @@ namespace softeng1
             confirmPanel.Enabled = false;
             succPanel.Show();
             succPanel.Enabled = true;
-            int prodID, prodQuant, updQuant;
+            int prodID, prodQuant, updQuant, newQuant = int.Parse(pquantTxt.Text.ToString());
             conn.Open();
             string insertDelivery = "INSERT INTO delivery(product_name, total_quantity, delivery_date, delivery_purchase_id) VALUES('" + pnameTxt.Text + "', '" + pquantTxt.Text + "', '" + deliveryDate.Text + "', '" + purchaseIDtxt.Text + "')";
             MySqlCommand insertDelComm = new MySqlCommand(insertDelivery, conn);
@@ -232,10 +232,11 @@ namespace softeng1
             //kuha quantity from inv
             MySqlCommand pQuant = new MySqlCommand("SELECT quantity FROM inventory where inv_product_id = '" + prodID + "'", conn);
             prodQuant = Convert.ToInt16(pQuant.ExecuteScalar());
-            updQuant = prodQuant + int.Parse(pquantTxt.Text.ToString());
+            updQuant = prodQuant + newQuant;
+            MessageBox.Show(updQuant + "= " + prodQuant + " + " +newQuant);
 
             //update quant
-            string updQuantity = "update inventory set quantity = quantity + '" + updQuant + "' where inv_product_id = '" + prodID + "'";
+            string updQuantity = "update inventory set quantity = '" + updQuant + "' where inv_product_id = '" + prodID + "'";
             MySqlCommand updQuantityComm = new MySqlCommand(updQuantity, conn);
             updQuantityComm.ExecuteNonQuery();
 
@@ -264,6 +265,19 @@ namespace softeng1
 
 
 
+        }
+
+        private void deliveryData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex > -1)
+            {
+                if (e.RowIndex > -1)
+                {
+                    purchaseIDtxt.Text = purchaseData.Rows[e.RowIndex].Cells["purchase_id"].Value.ToString();
+                    snameTxt.Text = purchaseData.Rows[e.RowIndex].Cells["supplier"].Value.ToString();
+                    pnameTxt.Text = purchaseData.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
+                }
+            }
         }
 
         private void addBtn_Click_1(object sender, EventArgs e)
