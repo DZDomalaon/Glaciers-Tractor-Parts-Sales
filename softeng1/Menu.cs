@@ -268,6 +268,9 @@ namespace softeng1
 
         private void logBtn_Click(object sender, EventArgs e)
         {
+            transactionsForm trans = new transactionsForm();
+            trans.Show();
+            transactionsForm.fromTransactions = this;
             this.Hide();
         }
 

@@ -21,7 +21,7 @@ namespace softeng1
             conn = new MySqlConnection("SERVER=localhost; DATABASE=glaciers; uid = root; pwd = root");
             InitializeComponent();
         }
-        public static transactionsForm fromReportTransactions { get; set; }
+        public static ctransactionsForm fromReportTransactions { get; set; }
 
         private void reportForm_Load(object sender, EventArgs e)
         {
