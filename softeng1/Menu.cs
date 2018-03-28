@@ -93,7 +93,29 @@ namespace softeng1
             exit.IsBalloon = true;
             exit.ShowAlways = true;
             exit.SetToolTip(exitBtn, "Logout");
-        }      
+
+            loadNotif();
+        }   
+        
+        private void loadNotif()
+        {
+            String query = "select PRODUCT_NAME, QUANTITY FROM PRODUCT, INVENTORY WHERE INV_PRODUCT_ID = PRODUCT_ID AND QUANTITY <= 10";
+
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            notifData.DataSource = dt;
+
+            notifData.Columns["product_name"].Visible = true;
+            notifData.Columns["QUANTITY"].Visible = true;
+            notifData.Columns["product_name"].HeaderText = "Product Name";
+            notifData.Columns["QUANTITY"].HeaderText = "Quantity";
+        }
+           
         private void exitBtn_Click(object sender, EventArgs e)
         {          
             this.Hide();

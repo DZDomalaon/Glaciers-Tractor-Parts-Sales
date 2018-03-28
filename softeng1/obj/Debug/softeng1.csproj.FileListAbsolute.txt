@@ -414,3 +414,6 @@ C:\Users\msilveo\Documents\GitHub\SAD-2\SAD-2-master\SAD-2\softeng1\obj\Debug\so
 C:\Users\msilveo\Documents\GitHub\SAD-2\SAD-2-master\SAD-2\softeng1\bin\Debug\Microsoft.ReportViewer.Common.dll
 C:\Users\msilveo\Documents\GitHub\SAD-2\SAD-2-master\SAD-2\softeng1\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
 C:\Users\msilveo\Documents\GitHub\SAD-2\SAD-2-master\SAD-2\softeng1\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\bin\Debug\Microsoft.ReportViewer.Common.dll
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\bin\Debug\Microsoft.ReportViewer.ProcessingObjectModel.DLL
+C:\Users\Tina\Documents\GitHub\SAD-2\softeng1\bin\Debug\Microsoft.ReportViewer.WebForms.DLL
