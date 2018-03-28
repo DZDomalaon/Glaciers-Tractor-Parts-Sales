@@ -286,7 +286,7 @@ namespace softeng1
             }
             else
             {
-                double dis = double.Parse(discountTxt.Text);
+                double dis = double.Parse(discountTxt.Text)/100;
                 double totalPrice = double.Parse(totalpriceTxt.Text);
                 double total = totalPrice * (1 - dis);
 

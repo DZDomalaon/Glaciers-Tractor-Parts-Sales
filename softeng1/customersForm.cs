@@ -131,7 +131,7 @@ namespace softeng1
                 }
                 conn.Open();
 
-                String updateCustomer = "Update PERSON, CUSTOMER SET PERSON.FIRSTNAME = '" + fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text + "', PERSON.GENDER = '" + gen + "', PERSON.CONTACT_NUM = '" + cnumTxt.Text + "', PERSON.EMAIL = '" + emailTxt.Text + "', PERSON.ADDRESS ='" + addressTxt.Text + "' WHERE CUSTOMER_ID = '" + selected_cust_id + "' AND PERSON_ID = '" + selected_person_id + "'";                
+                String updateCustomer = "Update PERSON, CUSTOMER SET PERSON.FIRSTNAME = '" + fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text + "', PERSON.CONTACT_NUM = '" + cnumTxt.Text + "', PERSON.EMAIL = '" + emailTxt.Text + "', PERSON.ADDRESS ='" + addressTxt.Text + "' WHERE CUSTOMER_ID = '" + selected_cust_id + "' AND PERSON_ID = '" + selected_person_id + "'";                
                 MySqlCommand comm = new MySqlCommand(updateCustomer, conn);
                 comm.ExecuteNonQuery();
 
@@ -179,10 +179,12 @@ namespace softeng1
                 if (gen == 1)
                 {
                     rbMale.Checked = true;
+                    rbMale.Enabled = false;
                 }
                 else
                 {
                     rbFemale.Checked = true;
+                    rbFemale.Enabled = false;
                 }
             }
             loadTransaction();
