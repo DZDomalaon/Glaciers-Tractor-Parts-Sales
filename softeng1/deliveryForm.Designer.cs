@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.Label label10;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -53,7 +53,6 @@
             this.backBtn = new System.Windows.Forms.Button();
             this.resetBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
             this.snameTxt = new System.Windows.Forms.TextBox();
             this.supLbl = new System.Windows.Forms.Label();
             this.deliveryData = new System.Windows.Forms.DataGridView();
@@ -71,6 +70,13 @@
             this.label17 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.purchaseIDtxt = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.receiverTxt = new System.Windows.Forms.TextBox();
+            this.carrierTxt = new System.Windows.Forms.TextBox();
+            this.drNumTxt = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -165,7 +171,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(12, 118);
+            this.label4.Location = new System.Drawing.Point(12, 107);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(113, 23);
             this.label4.TabIndex = 65;
@@ -174,7 +180,7 @@
             // deliveryDate
             // 
             this.deliveryDate.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.deliveryDate.Location = new System.Drawing.Point(139, 117);
+            this.deliveryDate.Location = new System.Drawing.Point(166, 107);
             this.deliveryDate.Name = "deliveryDate";
             this.deliveryDate.Size = new System.Drawing.Size(234, 27);
             this.deliveryDate.TabIndex = 66;
@@ -184,7 +190,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.Black;
-            this.label5.Location = new System.Drawing.Point(12, 174);
+            this.label5.Location = new System.Drawing.Point(12, 153);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 23);
             this.label5.TabIndex = 67;
@@ -194,7 +200,7 @@
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
             this.panel5.Controls.Add(this.label6);
-            this.panel5.Location = new System.Drawing.Point(0, 312);
+            this.panel5.Location = new System.Drawing.Point(0, 380);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(435, 38);
             this.panel5.TabIndex = 12;
@@ -215,7 +221,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(12, 396);
+            this.label7.Location = new System.Drawing.Point(12, 446);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(120, 23);
             this.label7.TabIndex = 70;
@@ -224,7 +230,7 @@
             // pnameTxt
             // 
             this.pnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pnameTxt.Location = new System.Drawing.Point(139, 396);
+            this.pnameTxt.Location = new System.Drawing.Point(155, 446);
             this.pnameTxt.Name = "pnameTxt";
             this.pnameTxt.ReadOnly = true;
             this.pnameTxt.Size = new System.Drawing.Size(234, 27);
@@ -236,7 +242,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(12, 447);
+            this.label8.Location = new System.Drawing.Point(12, 497);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(78, 23);
             this.label8.TabIndex = 72;
@@ -245,7 +251,7 @@
             // pquantTxt
             // 
             this.pquantTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pquantTxt.Location = new System.Drawing.Point(139, 447);
+            this.pquantTxt.Location = new System.Drawing.Point(155, 497);
             this.pquantTxt.Name = "pquantTxt";
             this.pquantTxt.Size = new System.Drawing.Size(60, 27);
             this.pquantTxt.TabIndex = 73;
@@ -257,7 +263,7 @@
             this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.backBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Location = new System.Drawing.Point(261, 507);
+            this.backBtn.Location = new System.Drawing.Point(264, 538);
             this.backBtn.Name = "backBtn";
             this.backBtn.Size = new System.Drawing.Size(92, 37);
             this.backBtn.TabIndex = 77;
@@ -271,7 +277,7 @@
             this.resetBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.resetBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.resetBtn.ForeColor = System.Drawing.Color.White;
-            this.resetBtn.Location = new System.Drawing.Point(163, 507);
+            this.resetBtn.Location = new System.Drawing.Point(166, 538);
             this.resetBtn.Name = "resetBtn";
             this.resetBtn.Size = new System.Drawing.Size(92, 37);
             this.resetBtn.TabIndex = 75;
@@ -285,7 +291,7 @@
             this.addBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.addBtn.ForeColor = System.Drawing.Color.White;
-            this.addBtn.Location = new System.Drawing.Point(65, 507);
+            this.addBtn.Location = new System.Drawing.Point(68, 538);
             this.addBtn.Name = "addBtn";
             this.addBtn.Size = new System.Drawing.Size(92, 37);
             this.addBtn.TabIndex = 74;
@@ -293,21 +299,10 @@
             this.addBtn.UseVisualStyleBackColor = false;
             this.addBtn.Click += new System.EventHandler(this.addBtn_Click_1);
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Black;
-            this.label9.Location = new System.Drawing.Point(12, 227);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(73, 46);
-            this.label9.TabIndex = 78;
-            this.label9.Text = "Supplier\r\nName";
-            // 
             // snameTxt
             // 
             this.snameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.snameTxt.Location = new System.Drawing.Point(139, 227);
+            this.snameTxt.Location = new System.Drawing.Point(166, 194);
             this.snameTxt.Name = "snameTxt";
             this.snameTxt.ReadOnly = true;
             this.snameTxt.Size = new System.Drawing.Size(234, 27);
@@ -318,7 +313,7 @@
             // 
             this.supLbl.AutoSize = true;
             this.supLbl.ForeColor = System.Drawing.Color.Red;
-            this.supLbl.Location = new System.Drawing.Point(141, 260);
+            this.supLbl.Location = new System.Drawing.Point(163, 224);
             this.supLbl.Name = "supLbl";
             this.supLbl.Size = new System.Drawing.Size(22, 13);
             this.supLbl.TabIndex = 80;
@@ -328,32 +323,32 @@
             // 
             this.deliveryData.AllowUserToAddRows = false;
             this.deliveryData.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
-            this.deliveryData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            this.deliveryData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.deliveryData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.deliveryData.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.deliveryData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.deliveryData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.deliveryData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.deliveryData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.deliveryData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.deliveryData.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.deliveryData.DefaultCellStyle = dataGridViewCellStyle9;
             this.deliveryData.EnableHeadersVisualStyles = false;
             this.deliveryData.Location = new System.Drawing.Point(434, 85);
             this.deliveryData.Name = "deliveryData";
@@ -371,7 +366,7 @@
             this.succPanel.Controls.Add(this.panel10);
             this.succPanel.Controls.Add(this.label15);
             this.succPanel.Enabled = false;
-            this.succPanel.Location = new System.Drawing.Point(310, 245);
+            this.succPanel.Location = new System.Drawing.Point(307, 214);
             this.succPanel.Name = "succPanel";
             this.succPanel.Size = new System.Drawing.Size(385, 145);
             this.succPanel.TabIndex = 101;
@@ -427,32 +422,32 @@
             // 
             this.purchaseData.AllowUserToAddRows = false;
             this.purchaseData.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Black;
-            this.purchaseData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Black;
+            this.purchaseData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.purchaseData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.purchaseData.BackgroundColor = System.Drawing.Color.Gainsboro;
             this.purchaseData.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.purchaseData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.purchaseData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.purchaseData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.purchaseData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.purchaseData.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.purchaseData.DefaultCellStyle = dataGridViewCellStyle12;
             this.purchaseData.EnableHeadersVisualStyles = false;
             this.purchaseData.Location = new System.Drawing.Point(434, 351);
             this.purchaseData.Name = "purchaseData";
@@ -551,12 +546,81 @@
             // purchaseIDtxt
             // 
             this.purchaseIDtxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.purchaseIDtxt.Location = new System.Drawing.Point(139, 174);
+            this.purchaseIDtxt.Location = new System.Drawing.Point(166, 153);
             this.purchaseIDtxt.Name = "purchaseIDtxt";
             this.purchaseIDtxt.ReadOnly = true;
             this.purchaseIDtxt.Size = new System.Drawing.Size(60, 27);
             this.purchaseIDtxt.TabIndex = 79;
             this.purchaseIDtxt.TextChanged += new System.EventHandler(this.snameTxt_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(12, 292);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(124, 23);
+            this.label3.TabIndex = 103;
+            this.label3.Text = "Receiver Name";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(13, 334);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(112, 23);
+            this.label11.TabIndex = 104;
+            this.label11.Text = "Carrier Name";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Black;
+            this.label9.Location = new System.Drawing.Point(12, 196);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(73, 23);
+            this.label9.TabIndex = 105;
+            this.label9.Text = "Supplier";
+            // 
+            // receiverTxt
+            // 
+            this.receiverTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.receiverTxt.Location = new System.Drawing.Point(166, 292);
+            this.receiverTxt.Name = "receiverTxt";
+            this.receiverTxt.Size = new System.Drawing.Size(234, 27);
+            this.receiverTxt.TabIndex = 106;
+            this.receiverTxt.TextChanged += new System.EventHandler(this.receiverTxt_TextChanged);
+            // 
+            // carrierTxt
+            // 
+            this.carrierTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.carrierTxt.Location = new System.Drawing.Point(166, 334);
+            this.carrierTxt.Name = "carrierTxt";
+            this.carrierTxt.Size = new System.Drawing.Size(234, 27);
+            this.carrierTxt.TabIndex = 106;
+            // 
+            // drNumTxt
+            // 
+            this.drNumTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.drNumTxt.Location = new System.Drawing.Point(166, 245);
+            this.drNumTxt.Name = "drNumTxt";
+            this.drNumTxt.Size = new System.Drawing.Size(234, 27);
+            this.drNumTxt.TabIndex = 108;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.Black;
+            this.label12.Location = new System.Drawing.Point(9, 251);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(140, 23);
+            this.label12.TabIndex = 107;
+            this.label12.Text = "Delivery Number";
             // 
             // deliveryForm
             // 
@@ -566,13 +630,19 @@
             this.ClientSize = new System.Drawing.Size(955, 587);
             this.Controls.Add(this.confirmPanel);
             this.Controls.Add(this.succPanel);
+            this.Controls.Add(this.drNumTxt);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.carrierTxt);
+            this.Controls.Add(this.receiverTxt);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.purchaseData);
             this.Controls.Add(this.deliveryData);
             this.Controls.Add(this.supLbl);
             this.Controls.Add(this.purchaseIDtxt);
             this.Controls.Add(this.snameTxt);
-            this.Controls.Add(this.label9);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.resetBtn);
             this.Controls.Add(this.addBtn);
@@ -638,7 +708,6 @@
         private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Button resetBtn;
         private System.Windows.Forms.Button addBtn;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox snameTxt;
         private System.Windows.Forms.Label supLbl;
         private System.Windows.Forms.DataGridView deliveryData;
@@ -656,5 +725,12 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox purchaseIDtxt;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox receiverTxt;
+        private System.Windows.Forms.TextBox carrierTxt;
+        private System.Windows.Forms.TextBox drNumTxt;
+        private System.Windows.Forms.Label label12;
     }
 }

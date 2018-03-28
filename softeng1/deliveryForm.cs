@@ -119,7 +119,7 @@ namespace softeng1
 
         public void loadDelivery()
         {
-            String query = "SELECT delivery_date, concat(firstname, ' ', lastname)as supplier, delivery.product_name, total_quantity, purchase_subquantity FROM delivery, purchase_details, person, purchase, supplier where  pd_purchase_id = purchase_id and supplier_id = PURCHASE_SUPPLIER_ID and PERSON_ID = SUPPLIER_PERSON_ID and delivery.product_name = purchase_details.PRODUCT_NAME";
+            String query = "SELECT delivery_date, RECEIVER, CARRIER, concat(firstname, ' ', lastname)as supplier, delivery.product_name, total_quantity, purchase_subquantity FROM delivery, purchase_details, person, purchase, supplier where  pd_purchase_id = purchase_id and supplier_id = PURCHASE_SUPPLIER_ID and PERSON_ID = SUPPLIER_PERSON_ID and delivery.product_name = purchase_details.PRODUCT_NAME";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -135,11 +135,15 @@ namespace softeng1
             deliveryData.Columns["product_name"].Visible = true;
             deliveryData.Columns["total_quantity"].Visible = true;
             deliveryData.Columns["purchase_subquantity"].Visible = true;
+            deliveryData.Columns["RECEIVER"].Visible = true;
+            deliveryData.Columns["CARRIER"].Visible = true;
             deliveryData.Columns["delivery_date"].HeaderText = "Delivery Date";
             deliveryData.Columns["supplier"].HeaderText = "Supplier";
             deliveryData.Columns["product_name"].HeaderText = "Product Name";
             deliveryData.Columns["total_quantity"].HeaderText = "Quantity Delivered";
             deliveryData.Columns["purchase_subquantity"].HeaderText = "Expected Quantity";
+            deliveryData.Columns["RECEIVER"].HeaderText = "Quantity Delivered";
+            deliveryData.Columns["CARRIER"].HeaderText = "Expected Quantity";
         }
 
         private void deliveryForm_FormClosing_1(object sender, FormClosingEventArgs e)
@@ -221,7 +225,7 @@ namespace softeng1
             succPanel.Enabled = true;
             int prodID, prodQuant, updQuant, newQuant = int.Parse(pquantTxt.Text.ToString());
             conn.Open();
-            string insertDelivery = "INSERT INTO delivery(product_name, total_quantity, delivery_date, delivery_purchase_id) VALUES('" + pnameTxt.Text + "', '" + pquantTxt.Text + "', '" + deliveryDate.Text + "', '" + purchaseIDtxt.Text + "')";
+            string insertDelivery = "INSERT INTO delivery(product_name, total_quantity, delivery_date, delivery_purchase_id, receiver, carrier, delivery_number) VALUES('" + pnameTxt.Text + "', '" + pquantTxt.Text + "', '" + deliveryDate.Text + "', '" + purchaseIDtxt.Text + "', '" + receiverTxt.Text + "', '" + carrierTxt.Text + "', '" + drNumTxt.Text + "')";
             MySqlCommand insertDelComm = new MySqlCommand(insertDelivery, conn);
             insertDelComm.ExecuteNonQuery();
 
@@ -258,6 +262,8 @@ namespace softeng1
             pnameTxt.Text = "";
             pquantTxt.Text = "";
             purchaseIDtxt.Text = "";
+            carrierTxt.Text = "";
+            receiverTxt.Text = "";
             succPanel.Hide();
             succPanel.Enabled = false;
 
@@ -280,6 +286,11 @@ namespace softeng1
                     pnameTxt.Text = purchaseData.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
                 }
             }
+        }
+
+        private void receiverTxt_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void addBtn_Click_1(object sender, EventArgs e)
