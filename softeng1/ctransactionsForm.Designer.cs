@@ -45,7 +45,7 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.transactionEmp = new System.Windows.Forms.ComboBox();
+            this.empnameTxt = new System.Windows.Forms.TextBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -85,7 +85,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.White;
-            this.panel2.Controls.Add(this.transactionEmp);
+            this.panel2.Controls.Add(this.empnameTxt);
             this.panel2.Controls.Add(this.printBtn);
             this.panel2.Controls.Add(this.dateTxt);
             this.panel2.Controls.Add(this.label5);
@@ -216,14 +216,14 @@
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
-            // transactionEmp
+            // empnameTxt
             // 
-            this.transactionEmp.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.transactionEmp.FormattingEnabled = true;
-            this.transactionEmp.Location = new System.Drawing.Point(188, 17);
-            this.transactionEmp.Name = "transactionEmp";
-            this.transactionEmp.Size = new System.Drawing.Size(188, 21);
-            this.transactionEmp.TabIndex = 53;
+            this.empnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.empnameTxt.ForeColor = System.Drawing.Color.Black;
+            this.empnameTxt.Location = new System.Drawing.Point(187, 12);
+            this.empnameTxt.Name = "empnameTxt";
+            this.empnameTxt.Size = new System.Drawing.Size(183, 27);
+            this.empnameTxt.TabIndex = 46;
             // 
             // ctransactionsForm
             // 
@@ -268,6 +268,6 @@
         private System.Windows.Forms.PrintDialog printDialog1;
         private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
         private System.Drawing.Printing.PrintDocument printDocument1;
-        private System.Windows.Forms.ComboBox transactionEmp;
+        private System.Windows.Forms.TextBox empnameTxt;
     }
 }
