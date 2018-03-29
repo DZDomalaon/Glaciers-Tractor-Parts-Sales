@@ -29,7 +29,7 @@ namespace softeng1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(orderForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -62,6 +62,8 @@ namespace softeng1
             this.totalpriceTxt = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.buyPanel = new System.Windows.Forms.Panel();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.calculateBtn = new System.Windows.Forms.Button();
             this.totalP = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -93,14 +95,12 @@ namespace softeng1
             this.stockLbl = new System.Windows.Forms.Label();
             this.buyBtn = new System.Windows.Forms.Button();
             this.custLbl = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
             this.ProdName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.orderDG = new System.Windows.Forms.DataGridView();
             this.Product_Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Product_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.label22 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -475,6 +475,28 @@ namespace softeng1
             this.buyPanel.TabIndex = 28;
             this.buyPanel.Visible = false;
             // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.ForeColor = System.Drawing.Color.DarkRed;
+            this.label24.Location = new System.Drawing.Point(180, 255);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(69, 13);
+            this.label24.TabIndex = 65;
+            this.label24.Text = "Integers Only";
+            this.label24.Visible = false;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(262, 222);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(24, 23);
+            this.label22.TabIndex = 60;
+            this.label22.Text = "%";
+            // 
             // calculateBtn
             // 
             this.calculateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(139)))), ((int)(((byte)(245)))));
@@ -545,6 +567,7 @@ namespace softeng1
             this.discountTxt.Size = new System.Drawing.Size(74, 27);
             this.discountTxt.TabIndex = 56;
             this.discountTxt.Text = "00";
+            this.discountTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.discountTxt_KeyPress);
             // 
             // label21
             // 
@@ -825,17 +848,6 @@ namespace softeng1
             this.custLbl.TabIndex = 64;
             this.custLbl.Text = "-----";
             // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.ForeColor = System.Drawing.Color.DarkRed;
-            this.label24.Location = new System.Drawing.Point(180, 255);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(69, 13);
-            this.label24.TabIndex = 65;
-            this.label24.Text = "Integers Only";
-            this.label24.Visible = false;
-            // 
             // ProdName
             // 
             this.ProdName.HeaderText = "Product";
@@ -846,8 +858,8 @@ namespace softeng1
             // 
             this.orderDG.AllowUserToAddRows = false;
             this.orderDG.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.orderDG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.orderDG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.orderDG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.orderDG.BackgroundColor = System.Drawing.Color.White;
             this.orderDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -890,17 +902,6 @@ namespace softeng1
             this.Quantity.HeaderText = "Quantity";
             this.Quantity.Name = "Quantity";
             this.Quantity.ReadOnly = true;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(262, 222);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(24, 23);
-            this.label22.TabIndex = 60;
-            this.label22.Text = "%";
             // 
             // orderForm
             // 

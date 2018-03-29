@@ -42,7 +42,7 @@ namespace softeng1
         //load supplier
         public void loadSupplierData()
         {
-            String query = "SELECT firstname, lastname FROM person, supplier where person_id = supplier_person_id";
+            String query = "SELECT ORGANIZATION FROM SUPPLIER";
 
             MySqlCommand comm = new MySqlCommand(query, conn);
             comm.CommandText = query;
@@ -53,7 +53,7 @@ namespace softeng1
             while (drd.Read())
             {
 
-                SupplierCmb.Items.Add(drd["firstname"].ToString() + " " + drd["lastname"].ToString());
+                SupplierCmb.Items.Add(drd["ORGANIZATION"].ToString());
             }
             conn.Close();
         }
@@ -66,9 +66,6 @@ namespace softeng1
                            "inner join supplier on PHS_SUPPLIER_ID = SUPPLIER_ID " +
                            "inner join person on SUPPLIER_PERSON_ID = person_id " +
                            "inner join inventory on inv_product_id = product_id";
-
-
-
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);

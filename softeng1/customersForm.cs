@@ -119,16 +119,6 @@ namespace softeng1
         {
             if (MessageBox.Show("Do you want to update the data?", "Confirm ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                int gen = 0;
-
-                if (rbMale.Checked == true)
-                {
-                    gen = 1;
-                }
-                else if (rbFemale.Checked == true)
-                {
-                    gen = 0;
-                }
                 conn.Open();
 
                 String updateCustomer = "Update PERSON, CUSTOMER SET PERSON.FIRSTNAME = '" + fnameTxt.Text + "', PERSON.LASTNAME = '" + lnameTxt.Text + "', PERSON.CONTACT_NUM = '" + cnumTxt.Text + "', PERSON.EMAIL = '" + emailTxt.Text + "', PERSON.ADDRESS ='" + addressTxt.Text + "' WHERE CUSTOMER_ID = '" + selected_cust_id + "' AND PERSON_ID = '" + selected_person_id + "'";                
