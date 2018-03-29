@@ -95,11 +95,11 @@ namespace softeng1
             empnameTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
             empnameTxt.AutoCompleteCustomSource = namesCollection;
         }
-        /*public void loadCustData()
+        public void loadCustData()
         {
             String date = dateTxt.Text;
             String query =
-                "SELECT concat(firstname,' ',lastname) as cname, order_date, order_status FROM person, customer, sales_order, employee WHERE order_date LIKE '%" + date + "%' AND order_customer_id = customer_id AND customer_person_id = person_id AND order_emp_id = (SELECT emp_id FROM employee, person WHERE person_id = emp_person_id)";
+                "SELECT concat(firstname,' ',lastname) as cname, order_date, order_status FROM person INNER JOIN customer ON customer_person_id = person_id INNER JOIN sales_order ON order_customer_id = customer_id WHERE order_date LIKE '%" + date + "%'";
 
             conn.Open();
 
@@ -116,7 +116,7 @@ namespace softeng1
             customerData.Columns["order_date"].HeaderText = "Order Date";
             customerData.Columns["cname"].HeaderText = "Customer";
             customerData.Columns["order_status"].HeaderText = "Status";
-        }*/
+        }
         private void printBtn_Click(object sender, EventArgs e)
         {
             function_print();
@@ -206,6 +206,11 @@ namespace softeng1
         {
             loadEmployee();
             loadCustomers();
+        }
+
+        private void dateTxt_ValueChanged(object sender, EventArgs e)
+        {
+            loadCustData();
         }
     }
 }
