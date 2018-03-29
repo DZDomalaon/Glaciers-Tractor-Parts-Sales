@@ -21,17 +21,18 @@ namespace softeng1
         {
 
         }
-
         private void ctransBtn_Click(object sender, EventArgs e)
         {
             ctransactionsForm cust = new ctransactionsForm();
             cust.Show();
+            this.Hide();
         }
 
         private void stransBtn_Click(object sender, EventArgs e)
         {
             ptransactionsForm purchase = new ptransactionsForm();
             purchase.Show();
+            this.Hide();
         }
 
         private void backBtn_Click(object sender, EventArgs e)
@@ -42,6 +43,7 @@ namespace softeng1
         private void transactionsForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.Hide();
+            fromTransactions.Show();
         }
     }
 }

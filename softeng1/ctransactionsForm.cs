@@ -21,20 +21,16 @@ namespace softeng1
             conn = new MySqlConnection("SERVER=localhost; DATABASE=glaciers; uid = root; pwd = root");
             InitializeComponent();
         }
-        public static homeForm fromTransactions { get; set; }
-
         private void transactionsForm_Load(object sender, EventArgs e)
         {
-            loadEmployee();
-            //loadSuppliers();
-            loadCustData();                 
+            loadEmp();               
         }
-
         private void transactionsForm_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            fromTransactions.Show();
+        {      
+            transactionsForm trans = new transactionsForm();
+            trans.Show();
+            this.Hide();
         }
-
         public void loadCustomers()
         {
             String query = "SELECT concat(firstname,' ',lastname) as cname, order_date, order_status FROM person, customer, sales_order WHERE order_customer_id = customer_id AND customer_person_id = person_id AND order_emp_id = (SELECT emp_id FROM employee, person WHERE (concat(firstname,' ',lastname) LIKE '%" + empnameTxt.Text + "%') AND emp_person_id = person_id and person_type = 'employee')";
@@ -50,36 +46,36 @@ namespace softeng1
 
             customerData.Columns["order_date"].HeaderText = "Order Date";
             customerData.Columns["cname"].HeaderText = "Customer";
-            customerData.Columns["order_status"].HeaderText = "Status"; 
+            customerData.Columns["order_status"].HeaderText = "Status";
         }
-        //public void loadSuppliers()
-        //{
-        //    String query = "SELECT concat(firstname,' ',lastname) as sname, purchase_date, status " + 
-        //                   "FROM person inner join supplier on supplier_person_id = person_id " +
-        //                   "inner join purchase on purchase_supplier_id = supplier_id " +
-        //                   "AND purchase_emp_id = (SELECT emp_id FROM employee, person " +
-        //                   "WHERE(concat(firstname, ' ', lastname) LIKE '%" + empnameTxt.Text + "%') AND emp_person_id = person_id)";
+        /*public void loadSuppliers()
+        {
+            String query = "SELECT concat(firstname,' ',lastname) as sname, purchase_date, status " +
+                           "FROM person inner join supplier on supplier_person_id = person_id " +
+                           "inner join purchase on purchase_supplier_id = supplier_id " +
+                           "AND purchase_emp_id = (SELECT emp_id FROM employee, person " +
+                           "WHERE(concat(firstname, ' ', lastname) LIKE '%" + empnameTxt.Text + "%') AND emp_person_id = person_id)";
 
-        //    conn.Open();
-        //    MySqlCommand comm = new MySqlCommand(query, conn);
-        //    MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-        //    conn.Close();
-        //    DataTable dt = new DataTable();
-        //    adp.Fill(dt);
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
 
-        //    purchaseData.DataSource = dt;
+            purchaseData.DataSource = dt;
 
-        //    purchaseData.Columns["purchase_date"].HeaderText = "Purchase Date";
-        //    purchaseData.Columns["sname"].HeaderText = "Supplier";
-        //    purchaseData.Columns["status"].HeaderText = "Status";
-        //}
+            purchaseData.Columns["purchase_date"].HeaderText = "Purchase Date";
+            purchaseData.Columns["sname"].HeaderText = "Supplier";
+            purchaseData.Columns["status"].HeaderText = "Status";
+        }*/
         public void loadEmployee()
         {
             AutoCompleteStringCollection namesCollection = new AutoCompleteStringCollection();
 
             conn.Open();
 
-            String getEmp = "SELECT firstname, lastname FROM person, employee where (lastname like '%" + empnameTxt.Text + "%' or firstname like '%" + empnameTxt.Text + "%') and person_id = emp_person_id and person_type = 'employee'";
+            String getEmp = "SELECT firstname, lastname FROM person, employee where (concat(firstname,' ',lastname) like '%" + empnameTxt.Text + "%') and person_id = emp_person_id and person_type = 'employee'";
             MySqlCommand comm = new MySqlCommand(getEmp, conn);
             comm.CommandText = getEmp;
             MySqlDataReader drd = comm.ExecuteReader();
@@ -89,7 +85,7 @@ namespace softeng1
                 while (drd.Read())
                 {
                     namesCollection.Add(drd["firstname"].ToString() + " " + drd["lastname"].ToString());
-                }                    
+                }
             }
 
             drd.Close();
@@ -99,50 +95,30 @@ namespace softeng1
             empnameTxt.AutoCompleteSource = AutoCompleteSource.CustomSource;
             empnameTxt.AutoCompleteCustomSource = namesCollection;
         }
-
-        private void empnameTxt_TextChanged(object sender, EventArgs e)
+        /*public void loadCustData()
         {
-            loadEmployee();
-        }
+            String date = dateTxt.Text;
+            String query =
+                "SELECT concat(firstname,' ',lastname) as cname, order_date, order_status FROM person, customer, sales_order, employee WHERE order_date LIKE '%" + date + "%' AND order_customer_id = customer_id AND customer_person_id = person_id AND order_emp_id = (SELECT emp_id FROM employee, person WHERE person_id = emp_person_id)";
 
-        private void backBtn_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            fromTransactions.Show();
-        }
+            conn.Open();
 
-        private void dateTxt_ValueChanged(object sender, EventArgs e)
-        {
-            //loadCustData();
-        }
-        //public void loadCustData()
-        //{
-        //    String date = dateTxt.Text;
-        //    String query =
-        //        "SELECT concat(firstname,' ',lastname) as cname, order_date, order_status FROM person, customer, sales_order, employee WHERE order_date LIKE '%" + date + "%' AND order_customer_id = customer_id AND customer_person_id = person_id AND order_emp_id = (SELECT emp_id FROM employee, person WHERE (concat(firstname,' ',lastname) like '%" + empnameTxt.Text + "%') AND person_id = emp_person_id)";
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
 
-        //    conn.Open();
+            conn.Close();
 
-        //    MySqlCommand comm = new MySqlCommand(query, conn);
-        //    MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
 
-        //    conn.Close();
+            customerData.DataSource = dt;
 
-        //    DataTable dt = new DataTable();
-        //    adp.Fill(dt);
-
-        //    customerData.DataSource = dt;
-
-        //    customerData.Columns["order_date"].HeaderText = "Order Date";
-        //    customerData.Columns["cname"].HeaderText = "Customer";
-        //    customerData.Columns["order_status"].HeaderText = "Status";
-        //}
-
+            customerData.Columns["order_date"].HeaderText = "Order Date";
+            customerData.Columns["cname"].HeaderText = "Customer";
+            customerData.Columns["order_status"].HeaderText = "Status";
+        }*/
         private void printBtn_Click(object sender, EventArgs e)
         {
-            //reportForm report = new reportForm();
-            //report.Show();
-            //reportForm.fromReportTransactions = this;
             function_print();
         }
         int printedLines = 0;
@@ -167,16 +143,10 @@ namespace softeng1
                 printPreviewDialog1.Show();
             }
         }
-        private void empnameTxt_Enter(object sender, EventArgs e)
-        {
-            loadCustomers();
-            //loadSuppliers();
-        }
-
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {
             string company = "Glacier Tractor Parts & Sales";
-            e.Graphics.DrawString(company, new Font("Arial", 35, FontStyle.Bold), Brushes.Black, 180, 10);
+            e.Graphics.DrawString(company, new Font("Arial", 35, FontStyle.Bold), Brushes.Black, 100, 10);
 
             string viewsales = "Sales Report";
             e.Graphics.DrawString(viewsales, new Font("Arial", 28, FontStyle.Bold), Brushes.Black, 320, 80);
@@ -204,17 +174,14 @@ namespace softeng1
             while (printedLines < customerData.Rows.Count)
             {
 
-                graphic.DrawString("Order Date : " + customerData.Rows[printedLines].Cells[2].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
+                graphic.DrawString("Customer Name : " + customerData.Rows[printedLines].Cells[0].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
                 offsetY += (int)fontHeight + 5;
 
-                graphic.DrawString("Customer Name : " + customerData.Rows[printedLines].Cells[3].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
+                graphic.DrawString("Order Date : " + customerData.Rows[printedLines].Cells[1].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
                 offsetY += (int)fontHeight + 5;
 
-                graphic.DrawString("Status : " + customerData.Rows[printedLines].Cells[4].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
+                graphic.DrawString("Status : " + customerData.Rows[printedLines].Cells[2].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
                 offsetY += (int)fontHeight + 5;
-
-                //graphic.DrawString("Date: " + customerData.Rows[printedLines].Cells[5].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
-                //offsetY += (int)fontHeight + 10;
 
                 e.Graphics.DrawRectangle(Pens.Black, startX, startY + offsetY, 840, 1);
 
@@ -227,7 +194,6 @@ namespace softeng1
                     return;
                 }
             }
-
         }
         public void loadEmp()
         {
@@ -235,6 +201,11 @@ namespace softeng1
                            "WHERE order_customer_id = customer_id " +
                            "AND customer_person_id = person_id " +
                            "AND order_emp_id = (SELECT emp_id FROM employee, person WHERE (concat(firstname, ' ', lastname) LIKE '%" + empnameTxt.Text + "%') AND emp_person_id = person_id and person_type = 'employee')";
+        }
+        private void empnameTxt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadEmployee();
+            loadCustomers();
         }
     }
 }
