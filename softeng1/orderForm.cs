@@ -257,6 +257,14 @@ namespace softeng1
             }
         }
 
+        private void discountTxt_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void paymentCmb_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
