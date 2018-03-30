@@ -60,7 +60,7 @@ namespace softeng1
 
         public void loadprod()
         {
-            String query = "SELECT concat(firstname, ' ', lastname) as supplier, product_id, inventory_id, product_name, description, price, pc_category , pc_variant, pc_type, serial FROM product " +
+            String query = "SELECT organization, product_id, inventory_id, product_name, description, price, pc_category , pc_variant, pc_type, serial FROM product " +
                            "inner join product_catalogue on PRODUCT_PC_ID = pc_id " +
                            "inner join product_has_supplier on product_id = PHS_PRODUCT_ID " +
                            "inner join supplier on PHS_SUPPLIER_ID = SUPPLIER_ID " +
@@ -75,7 +75,7 @@ namespace softeng1
 
             prodData.DataSource = dt;
             prodData.Columns["product_id"].Visible = false;
-            prodData.Columns["supplier"].Visible = false;
+            prodData.Columns["organization"].Visible = false;
             prodData.Columns["inventory_id"].Visible = false;
             prodData.Columns["product_name"].HeaderText = "Product Name";
             prodData.Columns["description"].HeaderText = "Description";
@@ -150,8 +150,6 @@ namespace softeng1
                 insertPhsComm.ExecuteNonQuery();
 
                 conn.Close();
-
-                loadprod();
 
                 pnameTxt.Text = "";
                 pdescTxt.Text = "";
@@ -228,7 +226,7 @@ namespace softeng1
                 categTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_category"].Value.ToString();
                 variantTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_variant"].Value.ToString();
                 typeTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_type"].Value.ToString();
-                SupplierCmb.Text = prodData.Rows[e.RowIndex].Cells["supplier"].Value.ToString();
+                SupplierCmb.Text = prodData.Rows[e.RowIndex].Cells["organization"].Value.ToString();
 
                 string viewQuantity = "SELECT QUANTITY FROM INVENTORY WHERE INV_PRODUCT_ID = '" + selected_prod_id + "'";
                 conn.Open();
