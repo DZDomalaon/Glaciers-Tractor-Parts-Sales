@@ -151,14 +151,28 @@ namespace softeng1
 
         //calculate quantity * price
         private void pquant_TextChanged(object sender, EventArgs e)
-        {
+        {            
             if (pquant.Text != "")
             {
-                quant = int.Parse(pquant.Text);
-                p = double.Parse(ppriceTxt.Text);
-                q = quant;
-                tot = q * p;
-                ptotal.Text = tot.ToString("#,0.00");
+                if(discountTxt.Text != "")
+                {
+                    double dis = double.Parse(discountTxt.Text) / 100;
+                    double totalPrice = double.Parse(ppriceTxt.Text);
+
+                    quant = int.Parse(pquant.Text);
+                    p = totalPrice * (1 - dis);
+                    q = quant;
+                    tot = q * p;
+                    ptotal.Text = tot.ToString("#,0.00");
+                }
+                else if(discountTxt.Text == "")
+                {
+                    quant = int.Parse(pquant.Text);
+                    p = double.Parse(ppriceTxt.Text);
+                    q = quant;
+                    tot = q * p;
+                    ptotal.Text = tot.ToString("#,0.00");
+                }               
             }
             else if (pquant.Text == "")
             {
@@ -275,12 +289,12 @@ namespace softeng1
             if(paymentCmb.Text == "Cash")
             {
                 cashTxt.Enabled = true;
-                termsTxt.Enabled = true;
+                termsTxt.Enabled = false;
             }
             else
             {
                 cashTxt.Enabled = false;
-                termsTxt.Enabled = false;
+                termsTxt.Enabled = true;
             }
         }
 
@@ -314,6 +328,7 @@ namespace softeng1
                 ppriceTxt.Clear();
                 pquant.Clear();
                 ptotal.Clear();
+                discountTxt.Clear();
                 stockLbl.Visible = false;
             }
             else
@@ -352,7 +367,6 @@ namespace softeng1
             try
             {
                 addOrder.Enabled = false;
-                //editOrderBtn.Enabled = true;
                 rowIndex = e.RowIndex;
                 DataGridViewRow row = orderDG.Rows[rowIndex];
 
@@ -361,8 +375,7 @@ namespace softeng1
                 ptotal.Text = row.Cells[2].Value.ToString();
                 pquant.Text = row.Cells[3].Value.ToString();
             }
-            catch { }
-            
+            catch { }            
         }
 
         //Confirm order
@@ -457,7 +470,7 @@ namespace softeng1
                         custnameTxt.Clear();
                         buyPanel.Hide();
                         cashTxt.Clear();
-                        termsTxt.Clear();
+                        termsTxt.Text = " ";
                         paymentCmb.Text = " ";
                         this.orderDG.Rows.Clear();
                         calcSum();
@@ -477,7 +490,7 @@ namespace softeng1
                     updateBalanceComm.ExecuteNonQuery();
 
                     //insert payment amount
-                    String insertToPayment = "INSERT INTO PAYMENT(PAYMENT_DATE, TYPE) VALUES('" + formatForMySql + "', 'Credit')";
+                    String insertToPayment = "INSERT INTO PAYMENT(PAYMENT_DATE, TYPE, TERM) VALUES('" + formatForMySql + "', 'Credit', '" + int.Parse(termsTxt.Text.ToString()) + "')";
                     MySqlCommand comm = new MySqlCommand(insertToPayment, conn);
                     comm.ExecuteNonQuery();
 
@@ -515,7 +528,6 @@ namespace softeng1
 
                         while (drd.Read())
                         {
-
                             getSerial = drd["SERIAL"].ToString();
                         }
                         drd.Close();
@@ -544,7 +556,7 @@ namespace softeng1
                     custnameTxt.Clear();
                     buyPanel.Hide();
                     cashTxt.Clear();
-                    termsTxt.Clear();
+                    termsTxt.Text = " ";
                     paymentCmb.Text = " ";
                     this.orderDG.Rows.Clear();
                     calcSum();
@@ -558,33 +570,7 @@ namespace softeng1
         private void buyBackBtn_Click(object sender, EventArgs e)
         {
             buyPanel.Hide();
-        }
-
-        //update the values of data from Datagrid
-        //private void editOrderBtn_Click(object sender, EventArgs e)
-        //{
-        //    if(productnameTxt.Text == "" && ppriceTxt.Text == "" && pquant.Text == "" && ptotal.Text == "")
-        //    {
-        //        MessageBox.Show("There's no data selected", "Empty textboxes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        //    }
-        //    else
-        //    {
-        //        DataGridViewRow updRow = orderDG.Rows[rowIndex];
-
-        //        updRow.Cells[0].Value = productnameTxt.Text;
-        //        updRow.Cells[1].Value = ppriceTxt.Text;
-        //        updRow.Cells[2].Value = ptotal.Text;
-        //        updRow.Cells[3].Value = pquant.Text;
-
-        //        productnameTxt.Clear();
-        //        ppriceTxt.Clear();
-        //        pquant.Clear();
-        //        ptotal.Clear();
-        //        addOrder.Enabled = true;
-        //        editOrderBtn.Enabled = false;
-        //    }
-        //    calcSum();
-        //}
+        }       
 
         //Add order to Datagrid
         private void addOrder_Click(object sender, EventArgs e)
