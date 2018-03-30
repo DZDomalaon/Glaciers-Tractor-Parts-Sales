@@ -41,8 +41,7 @@ namespace softeng1
             usernameLbl.Text = loginForm.name;
             dateLbl.Text = DateTime.Now.Date.ToString("MMMM dd, yyyy");
 
-            errorPanel.Visible = false;
-            calculateBtn.Visible = false;
+            errorPanel.Visible = false;            
             buyPanel.Visible = false;
             stockLbl.Visible = false;
             custLbl.Visible = false;
@@ -118,7 +117,7 @@ namespace softeng1
         {
             conn.Open();
 
-            String getPrice = "SELECT PRICE FROM PRODUCT WHERE PRODUCT_NAME = '" + productnameTxt.Text +"'";
+            String getPrice = "SELECT PRICE , DISCOUNT FROM PRODUCT WHERE PRODUCT_NAME = '" + productnameTxt.Text +"'";
             MySqlCommand comm = new MySqlCommand(getPrice, conn);
             comm.CommandText = getPrice;
             MySqlDataReader drd = comm.ExecuteReader();
@@ -128,6 +127,7 @@ namespace softeng1
                 while (drd.Read())
                 {
                     ppriceTxt.Text = drd["PRICE"].ToString();
+                    discountTxt.Text = drd["DISCOUNT"].ToString();
                 }                                   
             }
 
@@ -275,26 +275,24 @@ namespace softeng1
             if(paymentCmb.Text == "Cash")
             {
                 cashTxt.Enabled = true;
-                discountTxt.Enabled = true;
-                calculateBtn.Visible = true;
+                termsTxt.Enabled = true;
             }
             else
             {
                 cashTxt.Enabled = false;
-                discountTxt.Enabled = false;
-                calculateBtn.Visible = false;
+                termsTxt.Enabled = false;
             }
         }
 
         private void calculateBtn_Click(object sender, EventArgs e)
         {
-            if(discountTxt.Text == "")
+            if(termsTxt.Text == "")
             {
                 MessageBox.Show("Please input the discount rate", "Empty discount rate", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                double dis = double.Parse(discountTxt.Text)/100;
+                double dis = double.Parse(termsTxt.Text)/100;
                 double totalPrice = double.Parse(totalpriceTxt.Text);
                 double total = totalPrice * (1 - dis);
 
@@ -378,7 +376,7 @@ namespace softeng1
                 int prod_id = 0;
                 DateTime theDate = DateTime.Now;
                 string formatForMySql = theDate.ToString("yyyy-MM-dd");
-                double total = double.Parse(totalP.Text.ToString());
+                double total = double.Parse(totalpriceTxt.Text.ToString());
 
 
                 conn.Open();
@@ -403,7 +401,7 @@ namespace softeng1
                         PaymentInc = maxPaymentId;
 
                         //Insert data to sales_order                    
-                        string insertToSO = "INSERT INTO sales_order(ORDER_DISCOUNT, ORDER_DATE, ORDER_STATUS, PAYMENT_CHANGE, order_customer_id, order_emp_id, order_payment_id) VALUES('" + double.Parse(discountTxt.Text.ToString()) + "','" + formatForMySql + "', 'Paid', '" + change + "', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "')";
+                        string insertToSO = "INSERT INTO sales_order(ORDER_DISCOUNT, ORDER_DATE, ORDER_STATUS, PAYMENT_CHANGE, order_customer_id, order_emp_id, order_payment_id) VALUES('" + double.Parse(termsTxt.Text.ToString()) + "','" + formatForMySql + "', 'Paid', '" + change + "', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "')";
                         MySqlCommand insertToSOComm = new MySqlCommand(insertToSO, conn);
                         insertToSOComm.ExecuteNonQuery();
 
@@ -459,7 +457,7 @@ namespace softeng1
                         custnameTxt.Clear();
                         buyPanel.Hide();
                         cashTxt.Clear();
-                        discountTxt.Clear();
+                        termsTxt.Clear();
                         paymentCmb.Text = " ";
                         this.orderDG.Rows.Clear();
                         calcSum();
@@ -546,7 +544,7 @@ namespace softeng1
                     custnameTxt.Clear();
                     buyPanel.Hide();
                     cashTxt.Clear();
-                    discountTxt.Clear();
+                    termsTxt.Clear();
                     paymentCmb.Text = " ";
                     this.orderDG.Rows.Clear();
                     calcSum();

@@ -29,7 +29,7 @@ namespace softeng1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(orderForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -64,12 +64,11 @@ namespace softeng1
             this.buyPanel = new System.Windows.Forms.Panel();
             this.label24 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
-            this.calculateBtn = new System.Windows.Forms.Button();
             this.totalP = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.buyBackBtn = new System.Windows.Forms.Button();
             this.confirmBtn = new System.Windows.Forms.Button();
-            this.discountTxt = new System.Windows.Forms.TextBox();
+            this.termsTxt = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.cashTxt = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -101,6 +100,9 @@ namespace softeng1
             this.Product_Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Quantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label26 = new System.Windows.Forms.Label();
+            this.discountTxt = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -196,7 +198,7 @@ namespace softeng1
             // custnameTxt
             // 
             this.custnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.custnameTxt.Location = new System.Drawing.Point(139, 108);
+            this.custnameTxt.Location = new System.Drawing.Point(113, 107);
             this.custnameTxt.Name = "custnameTxt";
             this.custnameTxt.Size = new System.Drawing.Size(183, 27);
             this.custnameTxt.TabIndex = 1;
@@ -241,16 +243,16 @@ namespace softeng1
             this.label6.ForeColor = System.Drawing.Color.Black;
             this.label6.Location = new System.Drawing.Point(12, 205);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(120, 23);
+            this.label6.Size = new System.Drawing.Size(71, 23);
             this.label6.TabIndex = 12;
-            this.label6.Text = "Product Name";
+            this.label6.Text = "Product";
             // 
             // productnameTxt
             // 
             this.productnameTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.productnameTxt.Location = new System.Drawing.Point(139, 205);
+            this.productnameTxt.Location = new System.Drawing.Point(113, 205);
             this.productnameTxt.Name = "productnameTxt";
-            this.productnameTxt.Size = new System.Drawing.Size(183, 27);
+            this.productnameTxt.Size = new System.Drawing.Size(227, 27);
             this.productnameTxt.TabIndex = 2;
             this.productnameTxt.TextChanged += new System.EventHandler(this.productnameTxt_TextChanged);
             this.productnameTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.productnameTxt_KeyPress);
@@ -262,16 +264,16 @@ namespace softeng1
             this.label7.ForeColor = System.Drawing.Color.Black;
             this.label7.Location = new System.Drawing.Point(12, 257);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(113, 23);
+            this.label7.Size = new System.Drawing.Size(48, 23);
             this.label7.TabIndex = 15;
-            this.label7.Text = "Product Price";
+            this.label7.Text = "Price";
             // 
             // ppriceTxt
             // 
             this.ppriceTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ppriceTxt.Location = new System.Drawing.Point(139, 253);
+            this.ppriceTxt.Location = new System.Drawing.Point(113, 253);
             this.ppriceTxt.Name = "ppriceTxt";
-            this.ppriceTxt.Size = new System.Drawing.Size(183, 27);
+            this.ppriceTxt.Size = new System.Drawing.Size(68, 27);
             this.ppriceTxt.TabIndex = 3;
             this.ppriceTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ppriceTxt_KeyPress);
             // 
@@ -337,7 +339,7 @@ namespace softeng1
             this.addOrder.Location = new System.Drawing.Point(64, 490);
             this.addOrder.Name = "addOrder";
             this.addOrder.Size = new System.Drawing.Size(92, 37);
-            this.addOrder.TabIndex = 6;
+            this.addOrder.TabIndex = 7;
             this.addOrder.Text = "Add";
             this.addOrder.UseVisualStyleBackColor = false;
             this.addOrder.Click += new System.EventHandler(this.addOrder_Click);
@@ -351,7 +353,7 @@ namespace softeng1
             this.removeOrder.Location = new System.Drawing.Point(162, 490);
             this.removeOrder.Name = "removeOrder";
             this.removeOrder.Size = new System.Drawing.Size(92, 37);
-            this.removeOrder.TabIndex = 7;
+            this.removeOrder.TabIndex = 8;
             this.removeOrder.Text = "Remove";
             this.removeOrder.UseVisualStyleBackColor = false;
             this.removeOrder.Click += new System.EventHandler(this.removeOrder_Click);
@@ -373,27 +375,28 @@ namespace softeng1
             // pquant
             // 
             this.pquant.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pquant.Location = new System.Drawing.Point(139, 299);
+            this.pquant.Location = new System.Drawing.Point(113, 299);
             this.pquant.Name = "pquant";
-            this.pquant.Size = new System.Drawing.Size(53, 27);
-            this.pquant.TabIndex = 4;
+            this.pquant.Size = new System.Drawing.Size(68, 27);
+            this.pquant.TabIndex = 5;
             this.pquant.TextChanged += new System.EventHandler(this.pquant_TextChanged);
             this.pquant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.pquant_KeyPress);
             // 
             // ptotal
             // 
             this.ptotal.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ptotal.Location = new System.Drawing.Point(250, 299);
+            this.ptotal.Location = new System.Drawing.Point(239, 296);
             this.ptotal.Name = "ptotal";
-            this.ptotal.Size = new System.Drawing.Size(72, 27);
-            this.ptotal.TabIndex = 5;
+            this.ptotal.ReadOnly = true;
+            this.ptotal.Size = new System.Drawing.Size(101, 27);
+            this.ptotal.TabIndex = 6;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.Black;
-            this.label12.Location = new System.Drawing.Point(198, 303);
+            this.label12.Location = new System.Drawing.Point(187, 300);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(46, 23);
             this.label12.TabIndex = 21;
@@ -455,12 +458,11 @@ namespace softeng1
             // 
             this.buyPanel.Controls.Add(this.label24);
             this.buyPanel.Controls.Add(this.label22);
-            this.buyPanel.Controls.Add(this.calculateBtn);
             this.buyPanel.Controls.Add(this.totalP);
             this.buyPanel.Controls.Add(this.label25);
             this.buyPanel.Controls.Add(this.buyBackBtn);
             this.buyPanel.Controls.Add(this.confirmBtn);
-            this.buyPanel.Controls.Add(this.discountTxt);
+            this.buyPanel.Controls.Add(this.termsTxt);
             this.buyPanel.Controls.Add(this.label21);
             this.buyPanel.Controls.Add(this.cashTxt);
             this.buyPanel.Controls.Add(this.label20);
@@ -497,20 +499,6 @@ namespace softeng1
             this.label22.TabIndex = 60;
             this.label22.Text = "%";
             // 
-            // calculateBtn
-            // 
-            this.calculateBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(76)))), ((int)(((byte)(139)))), ((int)(((byte)(245)))));
-            this.calculateBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.calculateBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.calculateBtn.ForeColor = System.Drawing.Color.White;
-            this.calculateBtn.Location = new System.Drawing.Point(29, 315);
-            this.calculateBtn.Name = "calculateBtn";
-            this.calculateBtn.Size = new System.Drawing.Size(113, 37);
-            this.calculateBtn.TabIndex = 59;
-            this.calculateBtn.Text = "Calculate";
-            this.calculateBtn.UseVisualStyleBackColor = false;
-            this.calculateBtn.Click += new System.EventHandler(this.calculateBtn_Click);
-            // 
             // totalP
             // 
             this.totalP.AutoSize = true;
@@ -537,10 +525,10 @@ namespace softeng1
             this.buyBackBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buyBackBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buyBackBtn.ForeColor = System.Drawing.Color.White;
-            this.buyBackBtn.Location = new System.Drawing.Point(274, 315);
+            this.buyBackBtn.Location = new System.Drawing.Point(228, 315);
             this.buyBackBtn.Name = "buyBackBtn";
             this.buyBackBtn.Size = new System.Drawing.Size(120, 37);
-            this.buyBackBtn.TabIndex = 56;
+            this.buyBackBtn.TabIndex = 15;
             this.buyBackBtn.Text = "Back";
             this.buyBackBtn.UseVisualStyleBackColor = false;
             this.buyBackBtn.Click += new System.EventHandler(this.buyBackBtn_Click);
@@ -551,23 +539,23 @@ namespace softeng1
             this.confirmBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.confirmBtn.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.confirmBtn.ForeColor = System.Drawing.Color.White;
-            this.confirmBtn.Location = new System.Drawing.Point(148, 315);
+            this.confirmBtn.Location = new System.Drawing.Point(102, 315);
             this.confirmBtn.Name = "confirmBtn";
             this.confirmBtn.Size = new System.Drawing.Size(120, 37);
-            this.confirmBtn.TabIndex = 56;
+            this.confirmBtn.TabIndex = 14;
             this.confirmBtn.Text = "Confirm";
             this.confirmBtn.UseVisualStyleBackColor = false;
             this.confirmBtn.Click += new System.EventHandler(this.confirmBtn_Click);
             // 
-            // discountTxt
+            // termsTxt
             // 
-            this.discountTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.discountTxt.Location = new System.Drawing.Point(182, 222);
-            this.discountTxt.Name = "discountTxt";
-            this.discountTxt.Size = new System.Drawing.Size(74, 27);
-            this.discountTxt.TabIndex = 56;
-            this.discountTxt.Text = "00";
-            this.discountTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.discountTxt_KeyPress);
+            this.termsTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.termsTxt.Location = new System.Drawing.Point(182, 222);
+            this.termsTxt.Name = "termsTxt";
+            this.termsTxt.Size = new System.Drawing.Size(74, 27);
+            this.termsTxt.TabIndex = 12;
+            this.termsTxt.Text = "00";
+            this.termsTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.discountTxt_KeyPress);
             // 
             // label21
             // 
@@ -586,7 +574,7 @@ namespace softeng1
             this.cashTxt.Location = new System.Drawing.Point(182, 180);
             this.cashTxt.Name = "cashTxt";
             this.cashTxt.Size = new System.Drawing.Size(183, 27);
-            this.cashTxt.TabIndex = 54;
+            this.cashTxt.TabIndex = 11;
             // 
             // label20
             // 
@@ -609,7 +597,7 @@ namespace softeng1
             this.paymentCmb.Location = new System.Drawing.Point(182, 138);
             this.paymentCmb.Name = "paymentCmb";
             this.paymentCmb.Size = new System.Drawing.Size(183, 27);
-            this.paymentCmb.TabIndex = 48;
+            this.paymentCmb.TabIndex = 10;
             this.paymentCmb.TextChanged += new System.EventHandler(this.paymentCmb_TextChanged);
             this.paymentCmb.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.paymentCmb_KeyPress);
             // 
@@ -858,8 +846,8 @@ namespace softeng1
             // 
             this.orderDG.AllowUserToAddRows = false;
             this.orderDG.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.orderDG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.orderDG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.orderDG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.orderDG.BackgroundColor = System.Drawing.Color.White;
             this.orderDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -903,6 +891,37 @@ namespace softeng1
             this.Quantity.Name = "Quantity";
             this.Quantity.ReadOnly = true;
             // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label26.ForeColor = System.Drawing.Color.Black;
+            this.label26.Location = new System.Drawing.Point(187, 253);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(78, 23);
+            this.label26.TabIndex = 65;
+            this.label26.Text = "Discount";
+            // 
+            // discountTxt
+            // 
+            this.discountTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.discountTxt.Location = new System.Drawing.Point(269, 250);
+            this.discountTxt.Name = "discountTxt";
+            this.discountTxt.ReadOnly = true;
+            this.discountTxt.Size = new System.Drawing.Size(40, 27);
+            this.discountTxt.TabIndex = 4;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label27.ForeColor = System.Drawing.Color.Black;
+            this.label27.Location = new System.Drawing.Point(316, 254);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(24, 23);
+            this.label27.TabIndex = 66;
+            this.label27.Text = "%";
+            // 
             // orderForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -925,6 +944,8 @@ namespace softeng1
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dateTxt);
             this.Controls.Add(this.label9);
+            this.Controls.Add(this.label27);
+            this.Controls.Add(this.discountTxt);
             this.Controls.Add(this.panel6);
             this.Controls.Add(this.pquant);
             this.Controls.Add(this.ppriceTxt);
@@ -938,6 +959,7 @@ namespace softeng1
             this.Controls.Add(this.panel7);
             this.Controls.Add(this.orderDG);
             this.Controls.Add(this.stockLbl);
+            this.Controls.Add(this.label26);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -1031,7 +1053,7 @@ namespace softeng1
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button buyBackBtn;
         private System.Windows.Forms.Button confirmBtn;
-        private System.Windows.Forms.TextBox discountTxt;
+        private System.Windows.Forms.TextBox termsTxt;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox cashTxt;
         private System.Windows.Forms.Label label20;
@@ -1048,7 +1070,6 @@ namespace softeng1
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProdName;
         private System.Windows.Forms.DataGridView orderDG;
-        private System.Windows.Forms.Button calculateBtn;
         private System.Windows.Forms.Label totalP;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.DataGridViewTextBoxColumn Product_Name;
@@ -1056,5 +1077,8 @@ namespace softeng1
         private System.Windows.Forms.DataGridViewTextBoxColumn SubTotal;
         private System.Windows.Forms.DataGridViewTextBoxColumn Quantity;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox discountTxt;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label label27;
     }
 }

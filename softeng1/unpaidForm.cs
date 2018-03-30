@@ -58,21 +58,7 @@ namespace softeng1
             unpaidData.Columns["DATE(ORDER_DATE)"].HeaderText = "Date";
             unpaidData.Columns["BALANCE"].HeaderText = "Balance";
 
-        }
-        public static int getOrderId;
-        public static int getCustomerId;
-        public static int getPayment;
-        private void unpaidData_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            getOrderId = int.Parse(unpaidData.Rows[e.RowIndex].Cells["ORDER_ID"].Value.ToString());
-            getCustomerId = int.Parse(unpaidData.Rows[e.RowIndex].Cells["CUSTOMER_ID"].Value.ToString());
-            getPayment = int.Parse(unpaidData.Rows[e.RowIndex].Cells["ORDER_PAYMENT_ID"].Value.ToString());
-            custnameTxt.Text = unpaidData.Rows[e.RowIndex].Cells["CONCAT(FIRSTNAME , ' ', LASTNAME)"].Value.ToString();
-            balanceTxt.Text = unpaidData.Rows[e.RowIndex].Cells["BALANCE"].Value.ToString();
-            ordernumTxt.Text = unpaidData.Rows[e.RowIndex].Cells["ORDER_ID"].Value.ToString();
-            totalTxt.Text = unpaidData.Rows[e.RowIndex].Cells["ORDER_TOTAL"].Value.ToString();
-            remainingTxt.Text = unpaidData.Rows[e.RowIndex].Cells["ORDER_BALANCE"].Value.ToString();            
-        }
+        }       
         
         private void amountTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -94,7 +80,10 @@ namespace softeng1
                 e.Handled = true;
             }
         }
-        
+
+        public static int getOrderId;
+        public static int getCustomerId;
+        public static int getPayment;
         private void paymentBtn_Click(object sender, EventArgs e)
         {
             double payment = double.Parse(amountTxt.Text.ToString());
@@ -135,6 +124,18 @@ namespace softeng1
             loadUnpaidCustomer();
 
             MessageBox.Show("Transaction Complete");
+        }
+
+        private void unpaidData_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            getOrderId = int.Parse(unpaidData.Rows[e.RowIndex].Cells["ORDER_ID"].Value.ToString());
+            getCustomerId = int.Parse(unpaidData.Rows[e.RowIndex].Cells["CUSTOMER_ID"].Value.ToString());
+            getPayment = int.Parse(unpaidData.Rows[e.RowIndex].Cells["ORDER_PAYMENT_ID"].Value.ToString());
+            custnameTxt.Text = unpaidData.Rows[e.RowIndex].Cells["CONCAT(FIRSTNAME , ' ', LASTNAME)"].Value.ToString();
+            balanceTxt.Text = unpaidData.Rows[e.RowIndex].Cells["BALANCE"].Value.ToString();
+            ordernumTxt.Text = unpaidData.Rows[e.RowIndex].Cells["ORDER_ID"].Value.ToString();
+            totalTxt.Text = unpaidData.Rows[e.RowIndex].Cells["ORDER_TOTAL"].Value.ToString();
+            remainingTxt.Text = unpaidData.Rows[e.RowIndex].Cells["ORDER_BALANCE"].Value.ToString();
         }
     }
 }

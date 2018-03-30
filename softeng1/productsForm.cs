@@ -60,7 +60,7 @@ namespace softeng1
 
         public void loadprod()
         {
-            String query = "SELECT organization, product_id, inventory_id, product_name, description, price, pc_category , pc_variant, pc_type, serial FROM product " +
+            String query = "SELECT organization, product_id, inventory_id, product_name, description, price, discount, pc_category , pc_variant, pc_type, serial FROM product " +
                            "inner join product_catalogue on PRODUCT_PC_ID = pc_id " +
                            "inner join product_has_supplier on product_id = PHS_PRODUCT_ID " +
                            "inner join supplier on PHS_SUPPLIER_ID = SUPPLIER_ID " +
@@ -77,6 +77,7 @@ namespace softeng1
             prodData.Columns["product_id"].Visible = false;
             prodData.Columns["organization"].Visible = false;
             prodData.Columns["inventory_id"].Visible = false;
+            prodData.Columns["discount"].Visible = false;
             prodData.Columns["product_name"].HeaderText = "Product Name";
             prodData.Columns["description"].HeaderText = "Description";
             prodData.Columns["price"].HeaderText = "Price";
@@ -90,7 +91,7 @@ namespace softeng1
         {
             if (MessageBox.Show("Do you want to update the data ?", "Confirm ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                String query = "Update product, product_catalogue SET product_name = '" + pnameTxt.Text + "', description = '" + pdescTxt.Text + "', serial = '" + serialTxt.Text + "', product_catalogue.pc_category = '" + categTxt.Text + "', product_catalogue.pc_variant = '" + variantTxt.Text + "', price = '" + priceTxt.Text + "' WHERE product_id = '" + selected_prod_id + "'";
+                String query = "Update product, product_catalogue SET product_name = '" + pnameTxt.Text + "', description = '" + pdescTxt.Text + "', serial = '" + serialTxt.Text + "', pc_category = '" + categTxt.Text + "', pc_variant = '" + variantTxt.Text + "', pc_type = '" + typeTxt.Text + "', price = '" + priceTxt.Text + "' WHERE product_id = '" + selected_prod_id + "'";
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
@@ -115,7 +116,7 @@ namespace softeng1
                 conn.Open();
 
                 //SuppID
-                string selectSupplier = "SELECT SUPPLIER_ID FROM SUPPLIER, PERSON WHERE CONCAT(FIRSTNAME, ' ', LASTNAME) = '" + SupplierCmb.Text + "'";
+                string selectSupplier = "SELECT SUPPLIER_ID FROM SUPPLIER WHERE ORGANIZATION = '" + SupplierCmb.Text + "'";
                 MySqlCommand selectSuppliercomm = new MySqlCommand(selectSupplier, conn);
                 supId = Convert.ToInt32(selectSuppliercomm.ExecuteScalar());
 
@@ -226,6 +227,7 @@ namespace softeng1
                 categTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_category"].Value.ToString();
                 variantTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_variant"].Value.ToString();
                 typeTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_type"].Value.ToString();
+                discountTxt.Text = prodData.Rows[e.RowIndex].Cells["discount"].Value.ToString();
                 SupplierCmb.Text = prodData.Rows[e.RowIndex].Cells["organization"].Value.ToString();
 
                 string viewQuantity = "SELECT QUANTITY FROM INVENTORY WHERE INV_PRODUCT_ID = '" + selected_prod_id + "'";
@@ -277,11 +279,6 @@ namespace softeng1
         dprodData.Columns["product_name"].HeaderText = "Product Name";
         dprodData.Columns["di_quantity"].HeaderText = "Quantity";
         dprodData.Columns["di_date"].HeaderText = "Date Stocked out";     
-        }
-
-        private void prodData_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

@@ -361,6 +361,7 @@
             this.unpaidData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.unpaidData.Size = new System.Drawing.Size(521, 502);
             this.unpaidData.TabIndex = 101;
+            this.unpaidData.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.unpaidData_CellClick);
             // 
             // unpaidForm
             // 
