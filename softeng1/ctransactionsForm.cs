@@ -48,27 +48,6 @@ namespace softeng1
             customerData.Columns["cname"].HeaderText = "Customer";
             customerData.Columns["order_status"].HeaderText = "Status";
         }
-        /*public void loadSuppliers()
-        {
-            String query = "SELECT concat(firstname,' ',lastname) as sname, purchase_date, status " +
-                           "FROM person inner join supplier on supplier_person_id = person_id " +
-                           "inner join purchase on purchase_supplier_id = supplier_id " +
-                           "AND purchase_emp_id = (SELECT emp_id FROM employee, person " +
-                           "WHERE(concat(firstname, ' ', lastname) LIKE '%" + empnameTxt.Text + "%') AND emp_person_id = person_id)";
-
-            conn.Open();
-            MySqlCommand comm = new MySqlCommand(query, conn);
-            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
-            conn.Close();
-            DataTable dt = new DataTable();
-            adp.Fill(dt);
-
-            purchaseData.DataSource = dt;
-
-            purchaseData.Columns["purchase_date"].HeaderText = "Purchase Date";
-            purchaseData.Columns["sname"].HeaderText = "Supplier";
-            purchaseData.Columns["status"].HeaderText = "Status";
-        }*/
         public void loadEmployee()
         {
             AutoCompleteStringCollection namesCollection = new AutoCompleteStringCollection();

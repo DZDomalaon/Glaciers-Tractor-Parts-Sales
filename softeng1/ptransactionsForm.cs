@@ -22,8 +22,7 @@ namespace softeng1
 
         private void ptransactionsForm_Load(object sender, EventArgs e)
         {
-            loadSuppliers();
-            loadEmployee();
+            loadEmp();
         }
         public void loadSuppliers()
         {
@@ -84,11 +83,17 @@ namespace softeng1
         {
             loadSuppData();
         }
+        private void ptransactionsForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            transactionsForm trans = new transactionsForm();
+            trans.Show();
+            this.Hide();
+        }
         public void loadSuppData()
         {
             String date = dateTxt.Text;
             String query =
-                "SELECT purchase_date, organization, status FROM person, supplier, purchase, employee WHERE purchase_date LIKE '%" + date + "%' AND purchase_supplier_id = supplier_id AND supplier_person_id = person_id AND purchase_emp_id = (SELECT emp_id FROM employee, person WHERE (concat(firstname,' ',lastname) like '%" + empnameTxt.Text + "%') AND person_id = emp_person_id)";
+                "SELECT purchase_date, organization, status FROM person INNER JOIN supplier ON supplier_person_id = person_id INNER JOIN purchase ON purchase_supplier_id = supplier_id WHERE purchase_date LIKE '%" + date + "%'";
 
             conn.Open();
 
@@ -102,9 +107,22 @@ namespace softeng1
 
             purchaseData.DataSource = dt;
 
-            purchaseData.Columns["order_date"].HeaderText = "Order Date";
-            purchaseData.Columns["cname"].HeaderText = "Customer";
-            purchaseData.Columns["order_status"].HeaderText = "Status";
+            purchaseData.Columns["purchase_date"].HeaderText = "Order Date";
+            purchaseData.Columns["organization"].HeaderText = "Organization";
+            purchaseData.Columns["status"].HeaderText = "Status";
+        }
+        public void loadEmp()
+        {
+            string query = "SELECT organization, purchase_date, status FROM person, supplier, purchase " +
+                           "WHERE supplier_person_id = person_id " +
+                           "AND customer_person_id = person_id " +
+                           "AND purchase_emp_id = (SELECT supplier_id FROM supplier, person WHERE emp_person_id = person_id and person_type = 'employee')";
+        }
+
+        private void empnameTxt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            loadEmployee();
+            loadSuppliers();
         }
     }
 }
