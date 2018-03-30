@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using MySql.Data.MySqlClient;
+using System.Drawing.Printing;
 
 namespace softeng1
 {
@@ -136,6 +137,89 @@ namespace softeng1
             ordernumTxt.Text = unpaidData.Rows[e.RowIndex].Cells["ORDER_ID"].Value.ToString();
             totalTxt.Text = unpaidData.Rows[e.RowIndex].Cells["ORDER_TOTAL"].Value.ToString();
             remainingTxt.Text = unpaidData.Rows[e.RowIndex].Cells["ORDER_BALANCE"].Value.ToString();
+        }
+
+        private void printBtn_Click(object sender, EventArgs e)
+        {
+            function_print();
+        }
+        int printedLines = 0;
+        public void function_print()
+        {
+            unpaidData.ClearSelection();
+            printedLines = 0;
+
+
+            printDocument1.DefaultPageSettings.PaperSize = new System.Drawing.Printing.PaperSize("A4", 850, 1100);
+
+            PrintPreviewDialog printPreviewDialog1 = new PrintPreviewDialog();
+            printPreviewDialog1.Document = printDocument1;
+            //printPreviewDialog1.Show();
+
+            if (printDialog1.ShowDialog() == DialogResult.OK)
+            {
+                printDocument1.Print();
+            }
+            else
+            {
+                printPreviewDialog1.Show();
+            }
+        }
+
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            string company = "Glacier Tractor Parts & Sales";
+            e.Graphics.DrawString(company, new Font("Arial", 35, FontStyle.Bold), Brushes.Black, 100, 10);
+
+            string viewsales = "Unpaid Invoices";
+            e.Graphics.DrawString(viewsales, new Font("Arial", 28, FontStyle.Bold), Brushes.Black, 250, 80);
+
+            e.HasMorePages = false;
+
+            Graphics graphic = e.Graphics;
+            SolidBrush brush = new SolidBrush(Color.Black);
+
+            Font font = new Font("Arial", 13);
+
+            e.PageSettings.PaperSize = new PaperSize("A4", 850, 1100);
+
+            float pageWidth = e.PageSettings.PrintableArea.Width;
+            float pageHeight = e.PageSettings.PrintableArea.Height;
+
+            float fontHeight = font.GetHeight();
+
+            int startY = 160;
+            int offsetY = 0;
+
+            int startX = 1;
+
+
+            while (printedLines < unpaidData.Rows.Count)
+            {
+
+                graphic.DrawString("Customer Name : " + unpaidData.Rows[printedLines].Cells[0].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
+                offsetY += (int)fontHeight + 5;
+
+                graphic.DrawString("Total Price : " + unpaidData.Rows[printedLines].Cells[1].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
+                offsetY += (int)fontHeight + 5;
+
+                graphic.DrawString("Order Date : " + unpaidData.Rows[printedLines].Cells[2].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
+                offsetY += (int)fontHeight + 5;
+
+                graphic.DrawString("Order Balance : " + unpaidData.Rows[printedLines].Cells[3].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
+                offsetY += (int)fontHeight + 5;
+
+                e.Graphics.DrawRectangle(Pens.Black, startX, startY + offsetY, 840, 1);
+
+                ++printedLines;
+
+                if (offsetY >= 700)
+                {
+                    e.HasMorePages = true;
+                    offsetY = 0;
+                    return;
+                }
+            }
         }
     }
 }
