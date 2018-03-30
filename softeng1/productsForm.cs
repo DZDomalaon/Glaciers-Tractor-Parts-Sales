@@ -61,7 +61,7 @@ namespace softeng1
 
         public void loadprod()
         {
-            String query = "SELECT organization, product_id, inventory_id, product_name, description, price, discount, pc_category , pc_variant, pc_type, serial FROM product " +
+            String query = "SELECT organization, product_id, inventory_id, product_name, description, price, discount, pc_category , pc_variant, pc_type, serial, quantity FROM product " +
                            "inner join product_catalogue on PRODUCT_PC_ID = pc_id " +
                            "inner join product_has_supplier on product_id = PHS_PRODUCT_ID " +
                            "inner join supplier on PHS_SUPPLIER_ID = SUPPLIER_ID " +
@@ -86,13 +86,14 @@ namespace softeng1
             prodData.Columns["pc_category"].HeaderText = "Category";
             prodData.Columns["pc_variant"].HeaderText = "Variant";
             prodData.Columns["pc_type"].HeaderText = "Type";
+            prodData.Columns["quantity"].HeaderText = "Quantity";
         }
 
         private void editBtn_Click(object sender, EventArgs e)
         {
             if (MessageBox.Show("Do you want to update the data ?", "Confirm ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                String query = "Update product, product_catalogue SET product_name = '" + pnameTxt.Text + "', description = '" + pdescTxt.Text + "', serial = '" + serialTxt.Text + "', pc_category = '" + categTxt.Text + "', pc_variant = '" + variantTxt.Text + "', pc_type = '" + typeTxt.Text + "', price = '" + priceTxt.Text + "' WHERE product_id = '" + selected_prod_id + "'";
+                String query = "Update product, product_catalogue SET product_name = '" + pnameTxt.Text + "', description = '" + pdescTxt.Text + "', serial = '" + serialTxt.Text + "', pc_category = '" + categTxt.Text + "', pc_variant = '" + variantTxt.Text + "', pc_type = '" + typeTxt.Text + "', price = '" + priceTxt.Text + "', quantity = '" + quantityTxt.Text + "' WHERE product_id = '" + selected_prod_id + "'";
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
@@ -230,6 +231,7 @@ namespace softeng1
                 typeTxt.Text = prodData.Rows[e.RowIndex].Cells["pc_type"].Value.ToString();
                 discountTxt.Text = prodData.Rows[e.RowIndex].Cells["discount"].Value.ToString();
                 SupplierCmb.Text = prodData.Rows[e.RowIndex].Cells["organization"].Value.ToString();
+                quantityTxt.Text = prodData.Rows[e.RowIndex].Cells["quantity"].Value.ToString();
 
                 string viewQuantity = "SELECT QUANTITY FROM INVENTORY WHERE INV_PRODUCT_ID = '" + selected_prod_id + "'";
                 conn.Open();
@@ -322,17 +324,18 @@ namespace softeng1
                 graphic.DrawString("Product Name : " + prodData.Rows[printedLines].Cells[0].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
                 offsetY += (int)fontHeight + 5;
 
-                graphic.DrawString("Category : " + prodData.Rows[printedLines].Cells[1].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
+                graphic.DrawString("Category : " + prodData.Rows[printedLines].Cells[3].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
                 offsetY += (int)fontHeight + 5;
 
-                graphic.DrawString("Variant : " + prodData.Rows[printedLines].Cells[2].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
+                graphic.DrawString("Variant : " + prodData.Rows[printedLines].Cells[4].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
                 offsetY += (int)fontHeight + 5;
 
-                graphic.DrawString("Type : " + prodData.Rows[printedLines].Cells[3].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
+                graphic.DrawString("Type : " + prodData.Rows[printedLines].Cells[5].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
                 offsetY += (int)fontHeight + 5;
 
-                graphic.DrawString("Quantity : " + prodData.Rows[printedLines].Cells[3].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
+                graphic.DrawString("Quantity : " + prodData.Rows[printedLines].Cells[7].FormattedValue.ToString(), font, brush, startX, startY + offsetY);
                 offsetY += (int)fontHeight + 5;
+
                 e.Graphics.DrawRectangle(Pens.Black, startX, startY + offsetY, 840, 1);
 
                 ++printedLines;
@@ -351,8 +354,6 @@ namespace softeng1
         String query = "SELECT product_name, di_quantity, di_date FROM product " +
                         "inner join damaged_items on PRODUCT_PRODUCT_ID = PRODUCT_ID " +
                         "inner join product_has_supplier on phs_product_id = product_id";
-
-
 
         conn.Open();
         MySqlCommand comm = new MySqlCommand(query, conn);
