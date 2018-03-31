@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.exclamation = new System.Windows.Forms.Label();
             this.notifBtn2 = new System.Windows.Forms.Button();
             this.notifBtn = new System.Windows.Forms.Button();
             this.settingsBtn = new System.Windows.Forms.Button();
@@ -40,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.homePanel = new System.Windows.Forms.Panel();
             this.notifPanel = new System.Windows.Forms.Panel();
+            this.notifData = new System.Windows.Forms.DataGridView();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label17 = new System.Windows.Forms.Label();
             this.logBtn = new System.Windows.Forms.Button();
@@ -57,15 +59,13 @@
             this.supplierBtn = new System.Windows.Forms.Button();
             this.usersBtn = new System.Windows.Forms.Button();
             this.glacierToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.notifData = new System.Windows.Forms.DataGridView();
-            this.exclamation = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.homePanel.SuspendLayout();
             this.notifPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.notifData)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.notifData)).BeginInit();
             this.SuspendLayout();
             // 
             // panel3
@@ -81,6 +81,18 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(955, 47);
             this.panel3.TabIndex = 3;
+            // 
+            // exclamation
+            // 
+            this.exclamation.AutoSize = true;
+            this.exclamation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
+            this.exclamation.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exclamation.ForeColor = System.Drawing.Color.Red;
+            this.exclamation.Location = new System.Drawing.Point(855, 15);
+            this.exclamation.Name = "exclamation";
+            this.exclamation.Size = new System.Drawing.Size(16, 21);
+            this.exclamation.TabIndex = 15;
+            this.exclamation.Text = "!";
             // 
             // notifBtn2
             // 
@@ -188,6 +200,45 @@
             this.notifPanel.TabIndex = 103;
             this.notifPanel.Visible = false;
             // 
+            // notifData
+            // 
+            this.notifData.AllowUserToAddRows = false;
+            this.notifData.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Black;
+            this.notifData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.notifData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.notifData.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.notifData.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.notifData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.notifData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.notifData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.notifData.DefaultCellStyle = dataGridViewCellStyle9;
+            this.notifData.EnableHeadersVisualStyles = false;
+            this.notifData.Location = new System.Drawing.Point(3, 41);
+            this.notifData.Name = "notifData";
+            this.notifData.ReadOnly = true;
+            this.notifData.RowHeadersVisible = false;
+            this.notifData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.notifData.Size = new System.Drawing.Size(301, 465);
+            this.notifData.TabIndex = 101;
+            // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
@@ -203,7 +254,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.label17.Location = new System.Drawing.Point(129, 7);
+            this.label17.Location = new System.Drawing.Point(107, 9);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(102, 19);
             this.label17.TabIndex = 63;
@@ -407,57 +458,6 @@
             this.usersBtn.UseVisualStyleBackColor = false;
             this.usersBtn.Click += new System.EventHandler(this.staffBtn_Click);
             // 
-            // notifData
-            // 
-            this.notifData.AllowUserToAddRows = false;
-            this.notifData.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.Black;
-            this.notifData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
-            this.notifData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.notifData.BackgroundColor = System.Drawing.Color.Gainsboro;
-            this.notifData.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.notifData.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(41)))), ((int)(((byte)(46)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.notifData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
-            this.notifData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.notifData.DefaultCellStyle = dataGridViewCellStyle21;
-            this.notifData.EnableHeadersVisualStyles = false;
-            this.notifData.Location = new System.Drawing.Point(3, 41);
-            this.notifData.Name = "notifData";
-            this.notifData.ReadOnly = true;
-            this.notifData.RowHeadersVisible = false;
-            this.notifData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.notifData.Size = new System.Drawing.Size(301, 465);
-            this.notifData.TabIndex = 101;
-            // 
-            // exclamation
-            // 
-            this.exclamation.AutoSize = true;
-            this.exclamation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(36)))), ((int)(((byte)(57)))), ((int)(((byte)(64)))));
-            this.exclamation.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exclamation.ForeColor = System.Drawing.Color.Red;
-            this.exclamation.Location = new System.Drawing.Point(855, 15);
-            this.exclamation.Name = "exclamation";
-            this.exclamation.Size = new System.Drawing.Size(16, 21);
-            this.exclamation.TabIndex = 15;
-            this.exclamation.Text = "!";
-            // 
             // homeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -480,11 +480,11 @@
             this.panel1.PerformLayout();
             this.homePanel.ResumeLayout(false);
             this.notifPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.notifData)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel9.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.notifData)).EndInit();
             this.ResumeLayout(false);
 
         }

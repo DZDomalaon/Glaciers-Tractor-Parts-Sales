@@ -72,7 +72,7 @@ namespace softeng1
 
             conn.Open();
 
-            String getCustomer = "SELECT firstname, lastname FROM person, supplier where (lastname like '%" + snameTxt.Text + "%' or firstname like '%" + snameTxt.Text + "%') and person_type = 'supplier' and person_id = supplier_person_id ";
+            String getCustomer = "SELECT ORGANIZATION FROM supplier";
             MySqlCommand comm = new MySqlCommand(getCustomer, conn);
             comm.CommandText = getCustomer;
             MySqlDataReader drd = comm.ExecuteReader();
@@ -80,7 +80,7 @@ namespace softeng1
             if (drd.HasRows == true)
             {
                 while (drd.Read())
-                    namesCollection.Add(drd["firstname"].ToString() + " " + drd["lastname"].ToString());
+                    namesCollection.Add(drd["ORGANIZATION"].ToString());
             }
 
             drd.Close();

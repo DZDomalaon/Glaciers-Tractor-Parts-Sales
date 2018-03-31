@@ -490,13 +490,17 @@ namespace softeng1
             }
             else if (paymentCmb.Text == "Credit")
             {
+                int noTerm = int.Parse(termsTxt.Text.ToString());
+                DateTime termDate = DateTime.Now;
+                var addMonths = termDate.AddMonths(noTerm).AddDays(-1);
+                string date = addMonths.ToString("yyyy-MM-dd");
                 //Insert total to balance
                 string updateBalance = "UPDATE CUSTOMER SET BALANCE = BALANCE + '" + total + "' where CUSTOMER_ID = '" + customer_id + "'";
                 MySqlCommand updateBalanceComm = new MySqlCommand(updateBalance, conn);
                 updateBalanceComm.ExecuteNonQuery();
 
                 //insert payment amount
-                String insertToPayment = "INSERT INTO PAYMENT(AMOUNT, PAYMENT_DATE, TYPE, TERM) VALUES('0', '" + formatForMySql + "', 'Credit', '" + int.Parse(termsTxt.Text.ToString()) + "')";
+                String insertToPayment = "INSERT INTO PAYMENT(AMOUNT, PAYMENT_DATE, TYPE, TERM) VALUES('0', '" + formatForMySql + "', 'Credit', '" + date + "')";
                 MySqlCommand comm = new MySqlCommand(insertToPayment, conn);
                 comm.ExecuteNonQuery();
 
