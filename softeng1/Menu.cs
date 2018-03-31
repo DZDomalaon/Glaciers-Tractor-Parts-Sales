@@ -147,14 +147,6 @@ namespace softeng1
             this.Hide();
         }
 
-        private void salesBtn_Click(object sender, EventArgs e)
-        {
-            salesForm sale = new salesForm();
-            sale.Show();
-            salesForm.fromSales = this;
-            this.Hide();
-        }
-
         private void invoiceBtn_Click(object sender, EventArgs e)
         {
             orderForm order = new orderForm();

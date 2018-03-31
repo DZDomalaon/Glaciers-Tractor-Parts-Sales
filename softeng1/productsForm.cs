@@ -61,7 +61,7 @@ namespace softeng1
 
         public void loadprod()
         {
-            String query = "SELECT organization, product_id, inventory_id, product_name, description, price, discount, pc_category , pc_variant, pc_type, serial, quantity FROM product " +
+            String query = "SELECT product_name, organization, product_id, pc_category , pc_variant, pc_type, description, quantity, inventory_id, price, discount, serial FROM product " +
                            "inner join product_catalogue on PRODUCT_PC_ID = pc_id " +
                            "inner join product_has_supplier on product_id = PHS_PRODUCT_ID " +
                            "inner join supplier on PHS_SUPPLIER_ID = SUPPLIER_ID " +

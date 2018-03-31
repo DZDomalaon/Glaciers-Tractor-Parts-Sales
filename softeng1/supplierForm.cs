@@ -144,7 +144,7 @@ namespace softeng1
                 emailTxt.Clear();
                 cnumTxt.Clear();
                 addressTxt.Clear();
-                organizationTxt.Clear();
+                organizationTxt.Text = " ";
                 rbMale.Checked = false;
                 rbFemale.Checked = false;
             }

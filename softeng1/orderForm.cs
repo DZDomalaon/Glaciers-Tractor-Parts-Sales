@@ -381,116 +381,30 @@ namespace softeng1
         //Confirm order
         private void confirmBtn_Click(object sender, EventArgs e)
         {
-            try{
-                int maxOrderId = 0;
-                int OrderIncrement = 0;
-                int maxPaymentId = 0;
-                int PaymentInc = 0;
-                int prod_id = 0;
-                DateTime theDate = DateTime.Now;
-                string formatForMySql = theDate.ToString("yyyy-MM-dd");
-                double total = double.Parse(totalpriceTxt.Text.ToString());
+            
+            int maxOrderId = 0;
+            int OrderIncrement = 0;
+            int maxPaymentId = 0;
+            int PaymentInc = 0;
+            int prod_id = 0;
+            DateTime theDate = DateTime.Now;
+            string formatForMySql = theDate.ToString("yyyy-MM-dd");
+            double total = double.Parse(totalpriceTxt.Text.ToString());
 
 
-                conn.Open();
+            conn.Open();
 
-                //Get the id of selected customer
-                MySqlCommand getCustomerID = new MySqlCommand("SELECT customer_id FROM customer, person where (CONCAT(FIRSTNAME, ' ', LASTNAME) LIKE '%" + custnameTxt.Text + "%') and person_type = 'customer' and person_id = customer_person_id ", conn);
-                customer_id = Convert.ToInt16(getCustomerID.ExecuteScalar());
+            //Get the id of selected customer
+            MySqlCommand getCustomerID = new MySqlCommand("SELECT customer_id FROM customer, person where (CONCAT(FIRSTNAME, ' ', LASTNAME) LIKE '%" + custnameTxt.Text + "%') and person_type = 'customer' and person_id = customer_person_id ", conn);
+            customer_id = Convert.ToInt32(getCustomerID.ExecuteScalar());
 
-                if (paymentCmb.Text == "Cash")
+            if (paymentCmb.Text == "Cash")
+            {
+                double change = double.Parse(cashTxt.Text.ToString()) - double.Parse(totalpriceTxt.Text.ToString());
+                if (double.Parse(cashTxt.Text.ToString()) >= total)
                 {
-                    double change = double.Parse(cashTxt.Text.ToString()) - double.Parse(totalpriceTxt.Text.ToString());
-                    if (double.Parse(cashTxt.Text.ToString()) >= total)
-                    {
-                        //insert payment amount
-                        String insertToPayment = "INSERT INTO PAYMENT(AMOUNT, PAYMENT_DATE, TYPE) VALUES('" + double.Parse(cashTxt.Text.ToString()) + "', '" + formatForMySql + "', 'Cash')";
-                        MySqlCommand comm = new MySqlCommand(insertToPayment, conn);
-                        comm.ExecuteNonQuery();
-
-                        //Get max id fron payment
-                        MySqlCommand maxIDPayment = new MySqlCommand("SELECT MAX(payment_id) FROM payment", conn);
-                        maxPaymentId = Convert.ToInt16(maxIDPayment.ExecuteScalar());
-                        PaymentInc = maxPaymentId;
-
-                        //Insert data to sales_order                    
-                        string insertToSO = "INSERT INTO sales_order(ORDER_DISCOUNT, ORDER_DATE, ORDER_STATUS, PAYMENT_CHANGE, order_customer_id, order_emp_id, order_payment_id) VALUES('" + double.Parse(termsTxt.Text.ToString()) + "','" + formatForMySql + "', 'Paid', '" + change + "', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "')";
-                        MySqlCommand insertToSOComm = new MySqlCommand(insertToSO, conn);
-                        insertToSOComm.ExecuteNonQuery();
-
-                        //Get max id from sales_order
-                        MySqlCommand maxIDOrder = new MySqlCommand("SELECT MAX(order_id) FROM SALES_ORDER", conn);
-                        maxOrderId = Convert.ToInt16(maxIDOrder.ExecuteScalar());
-                        OrderIncrement = maxOrderId;
-
-                        conn.Close();
-
-                        foreach (DataGridViewRow row in orderDG.Rows)
-                        {
-                            conn.Open();
-                            //Get all product id
-                            MySqlCommand getProduct_id = new MySqlCommand("SELECT PRODUCT_ID FROM PRODUCT WHERE (PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')", conn);
-                            prod_id = Convert.ToInt32(getProduct_id.ExecuteScalar());
-
-                            string serial = "";
-                            String getSerial = "SELECT SERIAL FROM PRODUCT WHERE (PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')";
-                            MySqlCommand getSerialcomm = new MySqlCommand(getSerial, conn);
-                            comm.CommandText = getSerial;
-                            MySqlDataReader drd = comm.ExecuteReader();
-
-                            if (drd.HasRows == true)
-                            {
-                                while (drd.Read())
-                                    serial = drd["SERIAL"].ToString();
-                            }
-                            drd.Close();
-
-                            using (conn)
-                            {
-                                //insert to database
-                                using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO SALES_ORDER_DETAILS(ORDER_PRODUCT_ID, ORDER_UNIT_PRICE, ORDER_SUBTOTAL, ORDER_TOTAL, ORDER_TQUANTITY, ORDER_SUBQUANTITY, ORDER_SERIAL_NO, SO_ID) VALUES('" + prod_id + "', @Price, @Subtotal, '" + total + "', '" + totalQuanatity() + "', @Quantity, '" + serial + "', '" + OrderIncrement + "')", conn))
-                                {
-                                    //Get data of price, subtotal, and quatity per row in the datagrid
-                                    //@Price, @Subtotal, and @Quantity are the names of the columns
-                                    addToSales.Parameters.AddWithValue("@Price", double.Parse(row.Cells[1].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
-                                    addToSales.Parameters.AddWithValue("@Subtotal", double.Parse(row.Cells[2].Value.ToString()));
-                                    addToSales.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[3].Value.ToString()));
-                                    addToSales.ExecuteNonQuery();
-                                }
-
-                                //deduct quantity
-                                quan = int.Parse(row.Cells[3].Value.ToString());
-                                string deductQuantity = "UPDATE INVENTORY SET QUANTITY = QUANTITY - '" + quan + "' WHERE INV_PRODUCT_ID = (SELECT PRODUCT_ID FROM PRODUCT WHERE PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')";
-                                MySqlCommand comm2 = new MySqlCommand(deductQuantity, conn);
-                                comm2.ExecuteNonQuery();
-                            }
-                        }
-                        conn.Close();
-
-                        custnameTxt.Clear();
-                        buyPanel.Hide();
-                        cashTxt.Clear();
-                        termsTxt.Text = " ";
-                        paymentCmb.Text = " ";
-                        this.orderDG.Rows.Clear();
-                        calcSum();
-                        //PANEL GUROW
-                        MessageBox.Show("Trasaction complete");
-                    }
-                    else if (double.Parse(cashTxt.Text.ToString()) < total)
-                    {
-                        MessageBox.Show("Cash amount is not enough", "Insufficient Funds", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
-                }
-                else if (paymentCmb.Text == "Credit")
-                {
-                    //Insert total to balance
-                    string updateBalance = "UPDATE CUSTOMER SET BALANCE = BALANCE + '" + total + "' where CUSTOMER_ID = '" + customer_id + "'";
-                    MySqlCommand updateBalanceComm = new MySqlCommand(updateBalance, conn);
-                    updateBalanceComm.ExecuteNonQuery();
-
                     //insert payment amount
-                    String insertToPayment = "INSERT INTO PAYMENT(PAYMENT_DATE, TYPE, TERM) VALUES('" + formatForMySql + "', 'Credit', '" + int.Parse(termsTxt.Text.ToString()) + "')";
+                    String insertToPayment = "INSERT INTO PAYMENT(AMOUNT, PAYMENT_DATE, TYPE) VALUES('" + double.Parse(cashTxt.Text.ToString()) + "', '" + formatForMySql + "', 'Cash')";
                     MySqlCommand comm = new MySqlCommand(insertToPayment, conn);
                     comm.ExecuteNonQuery();
 
@@ -500,7 +414,7 @@ namespace softeng1
                     PaymentInc = maxPaymentId;
 
                     //Insert data to sales_order                    
-                    string insertToSO = "INSERT INTO sales_order(ORDER_DATE, ORDER_STATUS, ORDER_BALANCE, order_customer_id, order_emp_id, order_payment_id) VALUES('" + formatForMySql + "', 'Unpaid', '" + total + "', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "')";
+                    string insertToSO = "INSERT INTO sales_order(ORDER_TQUANTITY, ORDER_TOTAL, ORDER_DATE, ORDER_STATUS, PAYMENT_CHANGE, order_customer_id, order_emp_id, order_payment_id) VALUES('" + totalQuanatity() + "', '" + total + "','" + formatForMySql + "', 'Paid', '" + change + "', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "')";
                     MySqlCommand insertToSOComm = new MySqlCommand(insertToSO, conn);
                     insertToSOComm.ExecuteNonQuery();
 
@@ -514,31 +428,37 @@ namespace softeng1
                     foreach (DataGridViewRow row in orderDG.Rows)
                     {
                         conn.Open();
-
                         //Get all product id
                         MySqlCommand getProduct_id = new MySqlCommand("SELECT PRODUCT_ID FROM PRODUCT WHERE (PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')", conn);
                         prod_id = Convert.ToInt32(getProduct_id.ExecuteScalar());
 
-                        String querySerial = "SELECT SERIAL FROM PRODUCT WHERE (PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')";
-                        string getSerial = "";
-                        MySqlCommand querySerialcomm = new MySqlCommand(querySerial, conn);
-                        querySerialcomm.CommandText = querySerial;
+                        string serial = "";
+                        string discount = " ";
+                        String getSerial = "SELECT SERIAL, DISCOUNT FROM PRODUCT WHERE (PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')";
+                        MySqlCommand getSerialcomm = new MySqlCommand(getSerial, conn);
+                        getSerialcomm.CommandText = getSerial;
+                        MySqlDataReader drd = getSerialcomm.ExecuteReader();
 
-                        MySqlDataReader drd = comm.ExecuteReader();
-
-                        while (drd.Read())
+                        if (drd.HasRows == true)
                         {
-                            getSerial = drd["SERIAL"].ToString();
+                            while (drd.Read())
+                                serial = drd["SERIAL"].ToString();
+                                discount = drd["DISCOUNT"].ToString();
+                        }
+                        if (discount == "")
+                        {
+                            discount = "0";
                         }
                         drd.Close();
+
                         using (conn)
                         {
                             //insert to database
-                            using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO SALES_ORDER_DETAILS(ORDER_PRODUCT_ID, ORDER_UNIT_PRICE, ORDER_SUBTOTAL, ORDER_TOTAL, ORDER_TQUANTITY, ORDER_SUBQUANTITY, ORDER_SERIAL_NO, SO_ID) VALUES('" + prod_id + "', @Price, @Subtotal, '" + total + "', '" + totalQuanatity() + "', @Quantity, '" + getSerial + "' , '" + OrderIncrement + "')", conn))
+                            using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO SALES_ORDER_DETAILS(ORDER_PRODUCT_ID, ORDER_UNIT_PRICE, ORDER_SUBTOTAL, PRODUCT_DISCOUNT, ORDER_SUBQUANTITY, ORDER_SERIAL_NO, SO_ID) VALUES('" + prod_id + "', @Price, @Subtotal, '" + discount + "', @Quantity, '" + serial + "', '" + OrderIncrement + "')", conn))
                             {
                                 //Get data of price, subtotal, and quatity per row in the datagrid
                                 //@Price, @Subtotal, and @Quantity are the names of the columns
-                                addToSales.Parameters.AddWithValue("@Price", double.Parse(row.Cells[1].Value.ToString()));
+                                addToSales.Parameters.AddWithValue("@Price", double.Parse(row.Cells[1].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
                                 addToSales.Parameters.AddWithValue("@Subtotal", double.Parse(row.Cells[2].Value.ToString()));
                                 addToSales.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[3].Value.ToString()));
                                 addToSales.ExecuteNonQuery();
@@ -560,10 +480,102 @@ namespace softeng1
                     paymentCmb.Text = " ";
                     this.orderDG.Rows.Clear();
                     calcSum();
+                    //PANEL GUROW
                     MessageBox.Show("Trasaction complete");
                 }
+                else if (double.Parse(cashTxt.Text.ToString()) < total)
+                {
+                    MessageBox.Show("Cash amount is not enough", "Insufficient Funds", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            else if (paymentCmb.Text == "Credit")
+            {
+                //Insert total to balance
+                string updateBalance = "UPDATE CUSTOMER SET BALANCE = BALANCE + '" + total + "' where CUSTOMER_ID = '" + customer_id + "'";
+                MySqlCommand updateBalanceComm = new MySqlCommand(updateBalance, conn);
+                updateBalanceComm.ExecuteNonQuery();
+
+                //insert payment amount
+                String insertToPayment = "INSERT INTO PAYMENT(AMOUNT, PAYMENT_DATE, TYPE, TERM) VALUES('0', '" + formatForMySql + "', 'Credit', '" + int.Parse(termsTxt.Text.ToString()) + "')";
+                MySqlCommand comm = new MySqlCommand(insertToPayment, conn);
+                comm.ExecuteNonQuery();
+
+                //Get max id fron payment
+                MySqlCommand maxIDPayment = new MySqlCommand("SELECT MAX(payment_id) FROM payment", conn);
+                maxPaymentId = Convert.ToInt16(maxIDPayment.ExecuteScalar());
+                PaymentInc = maxPaymentId;
+
+                //Insert data to sales_order                    
+                string insertToSO = "INSERT INTO sales_order(ORDER_TOTAL, ORDER_TQUANTITY, ORDER_DATE, ORDER_STATUS, ORDER_BALANCE, order_customer_id, order_emp_id, order_payment_id) VALUES('" + total + "', '" + totalQuanatity() + "', '" + formatForMySql + "', 'Unpaid', '" + total + "', '" + customer_id + "', '" + loginForm.user_id + "', '" + PaymentInc + "')";
+                MySqlCommand insertToSOComm = new MySqlCommand(insertToSO, conn);
+                insertToSOComm.ExecuteNonQuery();
+
+                //Get max id from sales_order
+                MySqlCommand maxIDOrder = new MySqlCommand("SELECT MAX(order_id) FROM SALES_ORDER", conn);
+                maxOrderId = Convert.ToInt16(maxIDOrder.ExecuteScalar());
+                OrderIncrement = maxOrderId;
+
                 conn.Close();
-            } catch { }
+
+                foreach (DataGridViewRow row in orderDG.Rows)
+                {
+                    conn.Open();
+
+                    //Get all product id
+                    MySqlCommand getProduct_id = new MySqlCommand("SELECT PRODUCT_ID FROM PRODUCT WHERE (PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')", conn);
+                    prod_id = Convert.ToInt32(getProduct_id.ExecuteScalar());
+
+
+                    string getSerial = "";
+                    string getDiscount = " ";
+                    String selectSerial = "SELECT SERIAL, DISCOUNT FROM PRODUCT WHERE (PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')";
+                    MySqlCommand getSerialcomm = new MySqlCommand(selectSerial, conn);
+                    getSerialcomm.CommandText = selectSerial;
+                    MySqlDataReader drd = getSerialcomm.ExecuteReader();
+
+                    while (drd.Read())
+                    {
+                        getSerial = drd["SERIAL"].ToString();
+                        getDiscount = drd["DISCOUNT"].ToString();
+                    }
+                    if (getDiscount == "")
+                    {
+                        getDiscount = "0";
+                    }
+                    drd.Close();
+                                        
+                    using (conn)
+                    {                        
+                        //insert to database
+                        using (MySqlCommand addToSales = new MySqlCommand("INSERT INTO SALES_ORDER_DETAILS(ORDER_PRODUCT_ID, ORDER_UNIT_PRICE, ORDER_SUBTOTAL, PRODUCT_DISCOUNT, ORDER_SUBQUANTITY, ORDER_SERIAL_NO, SO_ID) VALUES('" + prod_id + "', @Price, @Subtotal, '" + int.Parse(getDiscount.ToString()) + "', @Quantity, '" + getSerial + "', '" + OrderIncrement + "')", conn))
+                        {
+                            //Get data of price, subtotal, and quatity per row in the datagrid
+                            //@Price, @Subtotal, and @Quantity are the names of the columns
+                            addToSales.Parameters.AddWithValue("@Price", double.Parse(row.Cells[1].Value.ToString()));
+                            addToSales.Parameters.AddWithValue("@Subtotal", double.Parse(row.Cells[2].Value.ToString()));
+                            addToSales.Parameters.AddWithValue("@Quantity", int.Parse(row.Cells[3].Value.ToString()));
+                            addToSales.ExecuteNonQuery();
+                        }
+
+                        //deduct quantity
+                        quan = int.Parse(row.Cells[3].Value.ToString());
+                        string deductQuantity = "UPDATE INVENTORY SET QUANTITY = QUANTITY - '" + quan + "' WHERE INV_PRODUCT_ID = (SELECT PRODUCT_ID FROM PRODUCT WHERE PRODUCT_NAME LIKE'%" + row.Cells[0].Value + "%' AND PRICE LIKE '%" + row.Cells[1].Value + "%')";
+                        MySqlCommand comm2 = new MySqlCommand(deductQuantity, conn);
+                        comm2.ExecuteNonQuery();
+                    }
+                }
+                conn.Close();
+
+                custnameTxt.Clear();
+                buyPanel.Hide();
+                cashTxt.Clear();
+                termsTxt.Text = " ";
+                paymentCmb.Text = " ";
+                this.orderDG.Rows.Clear();
+                calcSum();
+                MessageBox.Show("Trasaction complete");
+            }
+            conn.Close();
             
         }
 

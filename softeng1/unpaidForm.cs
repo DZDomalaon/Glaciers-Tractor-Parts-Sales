@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using MySql.Data.MySqlClient;
 using System.Drawing.Printing;
+using Microsoft.VisualBasic;
 
 namespace softeng1
 {
@@ -88,6 +89,8 @@ namespace softeng1
         private void paymentBtn_Click(object sender, EventArgs e)
         {
             double payment = double.Parse(amountTxt.Text.ToString());
+            DateTime theDate = DateTime.Now;
+            string date = theDate.ToString("yyyy-MM-dd");
 
             conn.Open();
             string updateCustBal = "UPDATE CUSTOMER SET BALANCE = BALANCE - '" + payment + "' WHERE CUSTOMER_ID = '" + getCustomerId +"'";
@@ -98,7 +101,7 @@ namespace softeng1
             MySqlCommand updateOrderBalcomm = new MySqlCommand(updateOrderBal, conn);
             updateOrderBalcomm.ExecuteNonQuery();
 
-            string updatePayment = "UPDATE PAYMENT SET AMOUNT = AMOUNT + '" + payment + "' WHERE PAYMENT_ID = '" + getPayment+ "'";
+            string updatePayment = "UPDATE PAYMENT SET AMOUNT = AMOUNT + '" + payment + "', PAYMENT_DATE = '" + date + "' WHERE PAYMENT_ID = '" + getPayment+ "'";
             MySqlCommand updatePaymentcomm = new MySqlCommand(updatePayment, conn);
             updatePaymentcomm.ExecuteNonQuery();
 
