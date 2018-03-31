@@ -1,8 +1,11 @@
--- MySQL dump 10.13  Distrib 5.7.17, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 5.7.19, for Win64 (x86_64)
 --
 -- Host: localhost    Database: glaciers
 -- ------------------------------------------------------
 -- Server version	5.7.19-log
+
+create database glaciers;
+use glaciers;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -30,7 +33,7 @@ CREATE TABLE `customer` (
   PRIMARY KEY (`CUSTOMER_ID`),
   KEY `fk_customer_person_idx` (`CUSTOMER_PERSON_ID`),
   CONSTRAINT `fk_customer_person` FOREIGN KEY (`CUSTOMER_PERSON_ID`) REFERENCES `person` (`PERSON_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,7 +42,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (1,NULL,NULL,2);
+INSERT INTO `customer` VALUES (1,700,NULL,2),(2,200,5000,8);
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -51,7 +54,7 @@ DROP TABLE IF EXISTS `damaged_items`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `damaged_items` (
-  `DI_ID` int(11) NOT NULL,
+  `DI_ID` int(11) NOT NULL AUTO_INCREMENT,
   `DI_QUANTITY` int(11) DEFAULT NULL,
   `DI_DATE` varchar(45) DEFAULT NULL,
   `product_PRODUCT_ID` int(11) NOT NULL,
@@ -61,7 +64,7 @@ CREATE TABLE `damaged_items` (
   KEY `fk_damaged_items_inventory1_idx` (`inventory_INVENTORY_ID`),
   CONSTRAINT `fk_damaged_items_inventory1` FOREIGN KEY (`inventory_INVENTORY_ID`) REFERENCES `inventory` (`INVENTORY_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_damaged_items_product1` FOREIGN KEY (`product_PRODUCT_ID`) REFERENCES `product` (`PRODUCT_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -70,6 +73,7 @@ CREATE TABLE `damaged_items` (
 
 LOCK TABLES `damaged_items` WRITE;
 /*!40000 ALTER TABLE `damaged_items` DISABLE KEYS */;
+INSERT INTO `damaged_items` VALUES (1,4,'2018-03-21',3,2),(3,3,'2018-03-21',2,1),(4,5,'2018-03-21',3,2),(5,4,'2018-03-21',2,1),(6,4,'2018-03-21',3,2),(7,4,'2018-03-21',2,1),(8,4,'2018-03-21',3,2);
 /*!40000 ALTER TABLE `damaged_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -85,6 +89,8 @@ CREATE TABLE `delivery` (
   `PRODUCT_NAME` varchar(45) DEFAULT NULL,
   `TOTAL_QUANTITY` int(11) DEFAULT NULL,
   `DELIVERY_DATE` varchar(45) DEFAULT NULL,
+  `RECEIVER` varchar(45) DEFAULT NULL,
+  `CARRIER` varchar(45) DEFAULT NULL,
   `DELIVERY_PURCHASE_ID` int(11) NOT NULL,
   PRIMARY KEY (`DELIVERY_ID`),
   KEY `fk_Delivery_purchase1_idx` (`DELIVERY_PURCHASE_ID`),
@@ -119,7 +125,7 @@ CREATE TABLE `employee` (
   PRIMARY KEY (`EMP_ID`),
   KEY `fk_staff_person1_idx` (`EMP_PERSON_ID`),
   CONSTRAINT `fk_staff_person1` FOREIGN KEY (`EMP_PERSON_ID`) REFERENCES `person` (`PERSON_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -128,7 +134,7 @@ CREATE TABLE `employee` (
 
 LOCK TABLES `employee` WRITE;
 /*!40000 ALTER TABLE `employee` DISABLE KEYS */;
-INSERT INTO `employee` VALUES (1,'2018-03-19','Admin','Active','admin','admin',1);
+INSERT INTO `employee` VALUES (1,'2018-03-19','Admin','Active','admin','admin',1),(2,'2018-03-21','Employee','Active','ayabyuso@addu.edu.ph','ayabyuso@addu.edu.ph',6);
 /*!40000 ALTER TABLE `employee` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -146,7 +152,7 @@ CREATE TABLE `inventory` (
   PRIMARY KEY (`INVENTORY_ID`),
   KEY `fk_inventory_product1_idx` (`INV_PRODUCT_ID`),
   CONSTRAINT `fk_inventory_product1` FOREIGN KEY (`INV_PRODUCT_ID`) REFERENCES `product` (`PRODUCT_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,7 +161,7 @@ CREATE TABLE `inventory` (
 
 LOCK TABLES `inventory` WRITE;
 /*!40000 ALTER TABLE `inventory` DISABLE KEYS */;
-INSERT INTO `inventory` VALUES (1,10,2),(2,20,3);
+INSERT INTO `inventory` VALUES (1,2,2),(2,3,3),(3,5,4),(4,5,5);
 /*!40000 ALTER TABLE `inventory` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -171,9 +177,9 @@ CREATE TABLE `payment` (
   `AMOUNT` double DEFAULT NULL,
   `PAYMENT_DATE` date DEFAULT NULL,
   `TYPE` varchar(45) DEFAULT NULL,
-  `TERM` int(11) DEFAULT NULL,
+  `TERM` date DEFAULT NULL,
   PRIMARY KEY (`PAYMENT_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -182,7 +188,7 @@ CREATE TABLE `payment` (
 
 LOCK TABLES `payment` WRITE;
 /*!40000 ALTER TABLE `payment` DISABLE KEYS */;
-INSERT INTO `payment` VALUES (1,1000,'2018-03-19','Cash',NULL);
+INSERT INTO `payment` VALUES (2,400,'2018-03-31','Cash',NULL),(3,400,'2018-03-31','Credit','2018-04-30'),(4,200,'2018-03-31','Credit','2018-04-30'),(5,300,'2018-03-31','Credit','2018-04-30'),(6,1000,'2018-04-01','Cash',NULL),(7,0,'2018-04-01','Credit','2018-05-31'),(8,0,'2018-04-01','Credit','2018-05-31');
 /*!40000 ALTER TABLE `payment` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -203,7 +209,7 @@ CREATE TABLE `person` (
   `GENDER` int(11) DEFAULT NULL,
   `PERSON_TYPE` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`PERSON_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -212,7 +218,7 @@ CREATE TABLE `person` (
 
 LOCK TABLES `person` WRITE;
 /*!40000 ALTER TABLE `person` DISABLE KEYS */;
-INSERT INTO `person` VALUES (1,'Darell','Domalaon',' 915-484-3947','dzdomalaon@addu.edu.ph','SA PUSO NG PATO',1,'EMPLOYEE'),(2,'Kristina','Pitoy','09154843947','mkopitoy@addu.edu.ph','SA PUSO NI RJ',0,'CUSTOMER'),(3,'Jusane','Bellezas','09154843947','jtsbellezas@addu.edu.ph','SA PUSO NG JOLLIBEE',0,'SUPPLIER');
+INSERT INTO `person` VALUES (1,'Darell','Domalaon',' 915-484-3947','dzdomalaon@addu.edu.ph','SA PUSO NG ECOLAND',1,'EMPLOYEE'),(2,'Kristina','Pitoy',' 915-484-3947','mkopitoy@addu.edu.ph','SA PUSO NI RJ',0,'CUSTOMER'),(3,'Jusane','Bellezas','09154843947','jtsbellezas@addu.edu.ph','SA PUSO NG JOLLIBEE',0,'SUPPLIER'),(4,'Susan','Salutan',' 915-484-3947','ssalutan@addu.edu.ph','Guererro, Buhangin',0,'Supplier'),(5,'Artemio','Bellezas',' 915-484-3947','artbellezas@addu.edu.ph','NHA, BUHANGIN',1,'Supplier'),(6,'Ira','Ybiernas',' 915-484-3947','ayabyuso@addu.edu.ph','Mintal',1,'Employee'),(7,'Regee','Bellezas',' 915-484-3947','rsbellezas@addu.edu.ph','Guererro, Buhangin',1,'Supplier'),(8,'Robert Joseph','Mahinay',' 915-484-3947','rjmahinay@addu.edu.ph','Puan, Davao City',1,'Customer');
 /*!40000 ALTER TABLE `person` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -228,6 +234,7 @@ CREATE TABLE `product` (
   `PRODUCT_NAME` varchar(45) NOT NULL,
   `DESCRIPTION` varchar(45) DEFAULT NULL,
   `PRICE` decimal(5,2) DEFAULT NULL,
+  `DISCOUNT` varchar(45) DEFAULT NULL,
   `SERIAL` varchar(45) DEFAULT NULL,
   `PRODUCT_PC_ID` int(11) NOT NULL,
   PRIMARY KEY (`PRODUCT_ID`),
@@ -242,7 +249,7 @@ CREATE TABLE `product` (
 
 LOCK TABLES `product` WRITE;
 /*!40000 ALTER TABLE `product` DISABLE KEYS */;
-INSERT INTO `product` VALUES (2,'ligid','gamay',100.00,'4140989123571',2),(3,'ligid1','dako',200.00,NULL,3),(4,'bearing','blue',500.00,NULL,2),(5,'wrench','pula',120.00,NULL,3);
+INSERT INTO `product` VALUES (2,'ligid','gamay',100.00,NULL,'4140989123571',2),(3,'ligid1','dako',200.00,NULL,'7412471929044',3),(4,'bearing','blue',500.00,'50','8084028400245',2),(5,'wrench','pula',120.00,'20','5346346342425',3);
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -268,7 +275,7 @@ CREATE TABLE `product_catalogue` (
 
 LOCK TABLES `product_catalogue` WRITE;
 /*!40000 ALTER TABLE `product_catalogue` DISABLE KEYS */;
-INSERT INTO `product_catalogue` VALUES (2,'wheel','color','red'),(3,'wheel','color','buak');
+INSERT INTO `product_catalogue` VALUES (2,'wheel','color','black'),(3,'wheel','color','black');
 /*!40000 ALTER TABLE `product_catalogue` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -295,6 +302,7 @@ CREATE TABLE `product_has_supplier` (
 
 LOCK TABLES `product_has_supplier` WRITE;
 /*!40000 ALTER TABLE `product_has_supplier` DISABLE KEYS */;
+INSERT INTO `product_has_supplier` VALUES (2,1),(3,1),(4,2),(5,3);
 /*!40000 ALTER TABLE `product_has_supplier` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -369,9 +377,10 @@ DROP TABLE IF EXISTS `sales_order`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sales_order` (
   `ORDER_ID` int(11) NOT NULL AUTO_INCREMENT,
-  `ORDER_DISCOUNT` double DEFAULT NULL,
   `PAYMENT_CHANGE` double DEFAULT NULL,
   `ORDER_DATE` varchar(45) DEFAULT NULL,
+  `ORDER_TQUANTITY` int(11) DEFAULT NULL,
+  `ORDER_TOTAL` double DEFAULT NULL,
   `ORDER_STATUS` varchar(45) DEFAULT NULL,
   `ORDER_BALANCE` double DEFAULT NULL,
   `ORDER_CUSTOMER_ID` int(11) NOT NULL,
@@ -384,7 +393,7 @@ CREATE TABLE `sales_order` (
   CONSTRAINT `fk_order_customer1` FOREIGN KEY (`ORDER_CUSTOMER_ID`) REFERENCES `customer` (`CUSTOMER_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_order_payment1` FOREIGN KEY (`ORDER_PAYMENT_ID`) REFERENCES `payment` (`PAYMENT_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   CONSTRAINT `fk_order_staff1` FOREIGN KEY (`ORDER_EMP_ID`) REFERENCES `employee` (`EMP_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -393,7 +402,7 @@ CREATE TABLE `sales_order` (
 
 LOCK TABLES `sales_order` WRITE;
 /*!40000 ALTER TABLE `sales_order` DISABLE KEYS */;
-INSERT INTO `sales_order` VALUES (1,NULL,NULL,'2018-03-19','Paid',NULL,1,1,1);
+INSERT INTO `sales_order` VALUES (2,0,'2018-03-31',2,400,'Paid',NULL,1,1,2),(3,NULL,'2018-03-31',3,600,'Unpaid',200,2,1,3),(4,NULL,'2018-03-31',2,200,'Paid',0,2,1,4),(5,NULL,'2018-03-31',3,300,'Paid',0,1,1,5),(6,154,'2018-04-01',4,846,'Paid',NULL,2,1,6),(7,NULL,'2018-04-01',2,400,'Unpaid',400,1,1,7),(8,NULL,'2018-04-01',3,300,'Unpaid',300,1,1,8);
 /*!40000 ALTER TABLE `sales_order` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -407,12 +416,11 @@ DROP TABLE IF EXISTS `sales_order_details`;
 CREATE TABLE `sales_order_details` (
   `ORDER_PRODUCT_ID` int(11) NOT NULL,
   `ORDER_UNIT_PRICE` double NOT NULL,
+  `PRODUCT_DISCOUNT` int(11) DEFAULT NULL,
   `ORDER_SUBTOTAL` double DEFAULT NULL,
-  `ORDER_TOTAL` double DEFAULT NULL,
-  `ORDER_TQUANTITY` int(11) DEFAULT NULL,
   `ORDER_SUBQUANTITY` int(11) DEFAULT NULL,
-  `SO_ID` int(11) NOT NULL,
   `ORDER_SERIAL_NO` varchar(45) DEFAULT NULL,
+  `SO_ID` int(11) NOT NULL,
   KEY `fk_sales_order_details_product1_idx` (`ORDER_PRODUCT_ID`),
   KEY `fk_sales_order_details_sales_order1_idx` (`SO_ID`),
   CONSTRAINT `fk_sales_order_details_product1` FOREIGN KEY (`ORDER_PRODUCT_ID`) REFERENCES `product` (`PRODUCT_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
@@ -426,7 +434,7 @@ CREATE TABLE `sales_order_details` (
 
 LOCK TABLES `sales_order_details` WRITE;
 /*!40000 ALTER TABLE `sales_order_details` DISABLE KEYS */;
-INSERT INTO `sales_order_details` VALUES (4,500,500,1000,2,1,1,'4005401158547'),(4,500,500,1000,2,1,1,'4012940909109');
+INSERT INTO `sales_order_details` VALUES (3,200,0,400,2,'7412471929044',2),(3,200,0,600,3,'7412471929044',3),(2,100,0,200,2,'4140989123571',4),(2,100,0,300,3,'4140989123571',5),(5,120,20,96,1,'5346346342425',6),(4,500,50,750,3,'8084028400245',6),(3,200,0,400,2,'7412471929044',7),(2,100,0,300,3,'4140989123571',8);
 /*!40000 ALTER TABLE `sales_order_details` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -474,7 +482,7 @@ CREATE TABLE `supplier` (
   PRIMARY KEY (`SUPPLIER_ID`),
   KEY `fk_supplier_person1_idx` (`SUPPLIER_PERSON_ID`),
   CONSTRAINT `fk_supplier_person1` FOREIGN KEY (`SUPPLIER_PERSON_ID`) REFERENCES `person` (`PERSON_ID`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -483,9 +491,31 @@ CREATE TABLE `supplier` (
 
 LOCK TABLES `supplier` WRITE;
 /*!40000 ALTER TABLE `supplier` DISABLE KEYS */;
-INSERT INTO `supplier` VALUES (1,NULL,3);
+INSERT INTO `supplier` VALUES (1,'Hino',3),(2,'Toyota',4),(3,'Fuso',5),(4,'Nissan',7);
 /*!40000 ALTER TABLE `supplier` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+DELIMITER $$
+USE `glaciers`$$
+CREATE
+DEFINER=`root`@`localhost`
+TRIGGER `glaciers`.`insertToProfile`
+AFTER INSERT ON `glaciers`.`person`
+FOR EACH ROW
+BEGIN
+	IF new.PERSON_TYPE = 'EMPLOYEE' then
+		INSERT INTO EMPLOYEE(DATE_HIRED, STATUS, USERNAME, PASSWORD, EMP_PERSON_ID) 
+        VALUES (CONCAT(YEAR(NOW()),'-',MONTH(NOW()),'-',DAY(NOW())), 'ACTIVE',NEW.EMAIL, NEW.EMAIL, NEW.PERSON_ID);
+	ELSEIF new.PERSON_TYPE = 'CUSTOMER' then
+		INSERT INTO CUSTOMER(BALANCE, CUSTOMER_PERSON_ID) VALUES (0, NEW.PERSON_ID);
+	ELSEIF new.PERSON_TYPE = 'SUPPLIER' then
+		INSERT INTO SUPPLIER(SUPPLIER_PERSON_ID) VALUES (NEW.PERSON_ID);
+	END IF;
+END$$
+
+
+DELIMITER ;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -496,4 +526,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-03-19 13:47:35
+-- Dump completed on 2018-04-01  6:18:25
