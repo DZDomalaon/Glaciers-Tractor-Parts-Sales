@@ -289,24 +289,24 @@ namespace softeng1
             if(paymentCmb.Text == "Cash")
             {
                 cashTxt.Enabled = true;
-                termsTxt.Enabled = false;
+                termTxt.Enabled = false;
             }
             else
             {
                 cashTxt.Enabled = false;
-                termsTxt.Enabled = true;
+                termTxt.Enabled = true;
             }
         }
 
         private void calculateBtn_Click(object sender, EventArgs e)
         {
-            if(termsTxt.Text == "")
+            if(termTxt.Text == "")
             {
                 MessageBox.Show("Please input the discount rate", "Empty discount rate", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
-                double dis = double.Parse(termsTxt.Text)/100;
+                double dis = double.Parse(termTxt.Text)/100;
                 double totalPrice = double.Parse(totalpriceTxt.Text);
                 double total = totalPrice * (1 - dis);
 
@@ -476,7 +476,7 @@ namespace softeng1
                     custnameTxt.Clear();
                     buyPanel.Hide();
                     cashTxt.Clear();
-                    termsTxt.Text = " ";
+                    termTxt.Text = " ";
                     paymentCmb.Text = " ";
                     this.orderDG.Rows.Clear();
                     calcSum();
@@ -490,7 +490,7 @@ namespace softeng1
             }
             else if (paymentCmb.Text == "Credit")
             {
-                int noTerm = int.Parse(termsTxt.Text.ToString());
+                int noTerm = int.Parse(termTxt.Text.ToString());
                 DateTime termDate = DateTime.Now;
                 var addMonths = termDate.AddMonths(noTerm).AddDays(-1);
                 string date = addMonths.ToString("yyyy-MM-dd");
@@ -573,7 +573,7 @@ namespace softeng1
                 custnameTxt.Clear();
                 buyPanel.Hide();
                 cashTxt.Clear();
-                termsTxt.Text = " ";
+                termTxt.Text = " ";
                 paymentCmb.Text = " ";
                 this.orderDG.Rows.Clear();
                 calcSum();

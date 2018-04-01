@@ -29,7 +29,7 @@ namespace softeng1
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(orderForm));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -70,6 +70,7 @@ namespace softeng1
             this.label21 = new System.Windows.Forms.Label();
             this.cashTxt = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
+            this.termTxt = new System.Windows.Forms.ComboBox();
             this.paymentCmb = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.panel12 = new System.Windows.Forms.Panel();
@@ -101,7 +102,6 @@ namespace softeng1
             this.label26 = new System.Windows.Forms.Label();
             this.discountTxt = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.termsTxt = new System.Windows.Forms.ComboBox();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -463,7 +463,7 @@ namespace softeng1
             this.buyPanel.Controls.Add(this.label21);
             this.buyPanel.Controls.Add(this.cashTxt);
             this.buyPanel.Controls.Add(this.label20);
-            this.buyPanel.Controls.Add(this.termsTxt);
+            this.buyPanel.Controls.Add(this.termTxt);
             this.buyPanel.Controls.Add(this.paymentCmb);
             this.buyPanel.Controls.Add(this.label19);
             this.buyPanel.Controls.Add(this.panel12);
@@ -563,6 +563,25 @@ namespace softeng1
             this.label20.Size = new System.Drawing.Size(113, 23);
             this.label20.TabIndex = 49;
             this.label20.Text = "Cash Amount";
+            // 
+            // termTxt
+            // 
+            this.termTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.termTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.termTxt.FormattingEnabled = true;
+            this.termTxt.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6"});
+            this.termTxt.Location = new System.Drawing.Point(182, 218);
+            this.termTxt.Name = "termTxt";
+            this.termTxt.Size = new System.Drawing.Size(100, 27);
+            this.termTxt.TabIndex = 10;
+            this.termTxt.TextChanged += new System.EventHandler(this.paymentCmb_TextChanged);
+            this.termTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.paymentCmb_KeyPress);
             // 
             // paymentCmb
             // 
@@ -823,8 +842,8 @@ namespace softeng1
             // 
             this.orderDG.AllowUserToAddRows = false;
             this.orderDG.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
-            this.orderDG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
+            this.orderDG.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.orderDG.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.orderDG.BackgroundColor = System.Drawing.Color.White;
             this.orderDG.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -898,25 +917,6 @@ namespace softeng1
             this.label27.Size = new System.Drawing.Size(24, 23);
             this.label27.TabIndex = 66;
             this.label27.Text = "%";
-            // 
-            // termsTxt
-            // 
-            this.termsTxt.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.termsTxt.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.termsTxt.FormattingEnabled = true;
-            this.termsTxt.Items.AddRange(new object[] {
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6"});
-            this.termsTxt.Location = new System.Drawing.Point(182, 218);
-            this.termsTxt.Name = "termsTxt";
-            this.termsTxt.Size = new System.Drawing.Size(100, 27);
-            this.termsTxt.TabIndex = 10;
-            this.termsTxt.TextChanged += new System.EventHandler(this.paymentCmb_TextChanged);
-            this.termsTxt.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.paymentCmb_KeyPress);
             // 
             // orderForm
             // 
@@ -1074,6 +1074,6 @@ namespace softeng1
         private System.Windows.Forms.TextBox discountTxt;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.ComboBox termsTxt;
+        private System.Windows.Forms.ComboBox termTxt;
     }
 }

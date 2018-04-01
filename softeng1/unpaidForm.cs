@@ -41,7 +41,12 @@ namespace softeng1
         }
         public void loadUnpaidCustomer()
         {
-            String query = "SELECT CONCAT(FIRSTNAME , ' ', LASTNAME), ORDER_TOTAL, DATE(ORDER_DATE), BALANCE, ORDER_ID, ORDER_BALANCE, ORDER_PAYMENT_ID, CUSTOMER_ID from sales_order, sales_order_details, person, customer where order_status = 'Unpaid' and (person_id = customer_person_id and person_type = 'customer') and order_customer_id = customer_id and order_id = so_id GROUP BY ORDER_TOTAL";
+            String query = "SELECT CONCAT(FIRSTNAME , ' ', LASTNAME), ORDER_TOTAL, DATE(ORDER_DATE), BALANCE, ORDER_ID, ORDER_BALANCE, CREDIT_LIMIT, ORDER_PAYMENT_ID, CUSTOMER_ID from person " +
+                           "INNER JOIN CUSTOMER ON PERSON_ID = CUSTOMER_PERSON_ID " +
+                           "INNER JOIN SALES_ORDER ON ORDER_CUSTOMER_ID = CUSTOMER_ID " +
+                           "INNER JOIN sales_order_details ON ORDER_ID = SO_ID " +
+                           "where order_status = 'Unpaid' " +
+                           "and(person_id = customer_person_id and person_type = 'customer'); ";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -57,6 +62,7 @@ namespace softeng1
             unpaidData.Columns["CONCAT(FIRSTNAME , ' ', LASTNAME)"].HeaderText = "Customer";
             unpaidData.Columns["ORDER_TOTAL"].HeaderText = "Total";
             unpaidData.Columns["ORDER_BALANCE"].HeaderText = "Order Balance";
+            unpaidData.Columns["CREDIT_LIMIT"].HeaderText = "Credit Limit";
             unpaidData.Columns["DATE(ORDER_DATE)"].HeaderText = "Date";
             unpaidData.Columns["BALANCE"].HeaderText = "Balance";
 
