@@ -230,5 +230,44 @@ namespace softeng1
                 }
             }
         }
+
+        private void notifBtn2_Click(object sender, EventArgs e)
+        {
+            notifPanel.Visible = false;
+            notifBtn2.Visible = false;
+        }
+        private void notifBtn_Click(object sender, EventArgs e)
+        {
+            notifPanel.Visible = true;
+            notifBtn2.Visible = true;
+            loadNotif();
+        }
+        private void loadNotif()
+        {
+            String query = "select concat(firstname,' ',lastname) as cname, order_total, order_balance, term FROM person, customer, sales_order_details, sales_order, payment";
+
+            conn.Open();
+            MySqlCommand comm = new MySqlCommand(query, conn);
+            MySqlDataAdapter adp = new MySqlDataAdapter(comm);
+            conn.Close();
+            DataTable dt = new DataTable();
+            adp.Fill(dt);
+
+            notifData.DataSource = dt;
+
+            notifData.Columns["cname"].HeaderText = "Customer";
+            notifData.Columns["order_total"].HeaderText = "Total";
+            notifData.Columns["order_balance"].HeaderText = "Balance";
+            notifData.Columns["term"].HeaderText = "Terms";
+
+            if (notifData.Rows.Count > 0)
+            {
+                exclamation.Visible = true;
+            }
+            else
+            {
+                exclamation.Visible = false;
+            }
+        }
     }
 }

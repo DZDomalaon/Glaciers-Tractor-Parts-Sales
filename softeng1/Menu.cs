@@ -276,7 +276,6 @@ namespace softeng1
             notifPanel.Visible = true;
             notifBtn2.Visible = true;
             loadNotif();
-
         }
 
         private void notifBtn2_Click(object sender, EventArgs e)
