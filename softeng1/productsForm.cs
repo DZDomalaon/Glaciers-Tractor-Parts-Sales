@@ -26,6 +26,7 @@ namespace softeng1
 
         private void productsForm_Load(object sender, EventArgs e)
         {
+            addSupplier.Visible = false;
             loadprod();
             loadSupplierData();
             loadDamadeg();
@@ -61,12 +62,13 @@ namespace softeng1
 
         public void loadprod()
         {
-            String query = "SELECT product_name, organization, product_id, pc_category , pc_variant, pc_type, description, quantity, inventory_id, price, discount, serial FROM product " +
+            String query = "SELECT product_name, organization, product_id, product_pc_id, pc_category , pc_variant, pc_type, description, quantity, inventory_id, price, discount, serial FROM product " +
                            "inner join product_catalogue on PRODUCT_PC_ID = pc_id " +
                            "inner join product_has_supplier on product_id = PHS_PRODUCT_ID " +
                            "inner join supplier on PHS_SUPPLIER_ID = SUPPLIER_ID " +
                            "inner join person on SUPPLIER_PERSON_ID = person_id " +
-                           "inner join inventory on inv_product_id = product_id";
+                           "inner join inventory on inv_product_id = product_id " +
+                           "group by product_name";
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
             MySqlDataAdapter adp = new MySqlDataAdapter(comm);
@@ -78,6 +80,7 @@ namespace softeng1
             prodData.Columns["product_id"].Visible = false;
             prodData.Columns["organization"].Visible = false;
             prodData.Columns["inventory_id"].Visible = false;
+            prodData.Columns["product_pc_id"].Visible = false;
             prodData.Columns["discount"].Visible = false;
             prodData.Columns["product_name"].HeaderText = "Product Name";
             prodData.Columns["description"].HeaderText = "Description";
@@ -93,7 +96,7 @@ namespace softeng1
         {
             if (MessageBox.Show("Do you want to update the data ?", "Confirm ", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
-                String query = "Update product, product_catalogue SET product_name = '" + pnameTxt.Text + "', description = '" + pdescTxt.Text + "', serial = '" + serialTxt.Text + "', pc_category = '" + categTxt.Text + "', pc_variant = '" + variantTxt.Text + "', pc_type = '" + typeTxt.Text + "', price = '" + priceTxt.Text + "', quantity = '" + quantityTxt.Text + "' WHERE product_id = '" + selected_prod_id + "'";
+                String query = "Update product, product_catalogue SET product_name = '" + pnameTxt.Text + "', description = '" + pdescTxt.Text + "', serial = '" + serialTxt.Text + "', pc_category = '" + categTxt.Text + "', pc_variant = '" + variantTxt.Text + "', pc_type = '" + typeTxt.Text + "', price = '" + priceTxt.Text + "' WHERE product_id = '" + selected_prod_id + "' and pc_id = '" + selected_pc_id + "'";
 
                 conn.Open();
                 MySqlCommand comm = new MySqlCommand(query, conn);
@@ -177,6 +180,7 @@ namespace softeng1
             variantTxt.Text = "";
             typeTxt.Text = "";
             SupplierCmb.Text = "";
+            addSupplier.Visible = false;
         }
         private void priceTxt_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -213,15 +217,18 @@ namespace softeng1
         }
 
         private int selected_prod_id;
+        private int selected_pc_id;
         public int selected_inv_id, prodQuant;
         private void prodData_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             addBtn.Enabled = true;
             editBtn.Enabled = true;
+            addSupplier.Visible = true;
             if (e.RowIndex > -1)
             {
                 selected_prod_id = int.Parse(prodData.Rows[e.RowIndex].Cells["product_id"].Value.ToString());
                 selected_inv_id = int.Parse(prodData.Rows[e.RowIndex].Cells["inventory_id"].Value.ToString());
+                selected_pc_id = int.Parse(prodData.Rows[e.RowIndex].Cells["product_pc_id"].Value.ToString());
                 pnameTxt.Text = prodData.Rows[e.RowIndex].Cells["product_name"].Value.ToString();
                 pdescTxt.Text = prodData.Rows[e.RowIndex].Cells["description"].Value.ToString();
                 priceTxt.Text = prodData.Rows[e.RowIndex].Cells["price"].Value.ToString();
@@ -348,6 +355,40 @@ namespace softeng1
                 }
             }
         }
+
+        private void addSupplier_Click(object sender, EventArgs e)
+        {
+            int supplierId = 0;
+            int getSupplierId = 0;
+
+            int PHSresult = 0;
+            int getPHSCount = 0;
+
+            conn.Open();
+            MySqlCommand selectSupplier = new MySqlCommand("SELECT SUPPLIER_ID FROM SUPPLIER WHERE ORGANIZATION = '" + SupplierCmb.Text + "'", conn);
+            supplierId = Convert.ToInt32(selectSupplier.ExecuteScalar());
+            getSupplierId = supplierId;
+
+            MySqlCommand countPHS = new MySqlCommand("SELECT COUNT(*) FROM PRODUCT_HAS_SUPPLIER WHERE PHS_PRODUCT_ID = '" + selected_prod_id + "' AND PHS_SUPPLIER_ID = '" + getSupplierId + "'", conn);
+            PHSresult = Convert.ToInt32(countPHS.ExecuteScalar());
+            getPHSCount = PHSresult;
+
+            if(getPHSCount > 0)
+            {
+                MessageBox.Show("This supplier is already assigned to the selected product");
+            }
+            else
+            {
+                String insertToPHS = "INSERT INTO PRODUCT_HAS_SUPPLIER(PHS_PRODUCT_ID, PHS_SUPPLIER_ID) VALUES('" + selected_prod_id + "', '" + getSupplierId + "')";
+                MySqlCommand insertToPHSComm = new MySqlCommand(insertToPHS, conn);
+                insertToPHSComm.ExecuteNonQuery();
+
+                MessageBox.Show(SupplierCmb.Text + " is the new supplier of " + pnameTxt.Text);
+            }
+
+            conn.Close();
+        }
+
         public void loadDamadeg()
         {
         

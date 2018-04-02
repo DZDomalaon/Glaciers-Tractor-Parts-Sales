@@ -40,7 +40,10 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.exclamation = new System.Windows.Forms.Label();
+            this.notifBtn2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.notifBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.custnameTxt = new System.Windows.Forms.TextBox();
@@ -65,13 +68,10 @@
             this.printDialog1 = new System.Windows.Forms.PrintDialog();
             this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.printDocument1 = new System.Drawing.Printing.PrintDocument();
-            this.notifBtn2 = new System.Windows.Forms.Button();
-            this.exclamation = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
             this.notifPanel = new System.Windows.Forms.Panel();
             this.notifData = new System.Windows.Forms.DataGridView();
-            this.notifBtn = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -140,6 +140,32 @@
             this.panel4.Size = new System.Drawing.Size(521, 38);
             this.panel4.TabIndex = 6;
             // 
+            // exclamation
+            // 
+            this.exclamation.AutoSize = true;
+            this.exclamation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.exclamation.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.exclamation.ForeColor = System.Drawing.Color.Red;
+            this.exclamation.Location = new System.Drawing.Point(407, 8);
+            this.exclamation.Name = "exclamation";
+            this.exclamation.Size = new System.Drawing.Size(16, 21);
+            this.exclamation.TabIndex = 16;
+            this.exclamation.Text = "!";
+            // 
+            // notifBtn2
+            // 
+            this.notifBtn2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.notifBtn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.notifBtn2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notifBtn2.Location = new System.Drawing.Point(402, 3);
+            this.notifBtn2.Name = "notifBtn2";
+            this.notifBtn2.Size = new System.Drawing.Size(116, 32);
+            this.notifBtn2.TabIndex = 1;
+            this.notifBtn2.Text = "Notifications";
+            this.notifBtn2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.notifBtn2.UseVisualStyleBackColor = false;
+            this.notifBtn2.Click += new System.EventHandler(this.notifBtn2_Click);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -149,6 +175,20 @@
             this.label3.Size = new System.Drawing.Size(300, 22);
             this.label3.TabIndex = 0;
             this.label3.Text = "Customers with Unpaid Invoices";
+            // 
+            // notifBtn
+            // 
+            this.notifBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
+            this.notifBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.notifBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.notifBtn.Location = new System.Drawing.Point(402, 3);
+            this.notifBtn.Name = "notifBtn";
+            this.notifBtn.Size = new System.Drawing.Size(116, 32);
+            this.notifBtn.TabIndex = 17;
+            this.notifBtn.Text = "Notifications";
+            this.notifBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.notifBtn.UseVisualStyleBackColor = false;
+            this.notifBtn.Click += new System.EventHandler(this.notifBtn_Click);
             // 
             // label2
             // 
@@ -348,6 +388,8 @@
             // 
             this.unpaidData.AllowUserToAddRows = false;
             this.unpaidData.AllowUserToDeleteRows = false;
+            this.unpaidData.AllowUserToResizeColumns = false;
+            this.unpaidData.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(246)))), ((int)(((byte)(248)))), ((int)(((byte)(250)))));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(238)))), ((int)(((byte)(241)))));
@@ -416,32 +458,6 @@
             // 
             this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
-            // notifBtn2
-            // 
-            this.notifBtn2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
-            this.notifBtn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.notifBtn2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notifBtn2.Location = new System.Drawing.Point(402, 3);
-            this.notifBtn2.Name = "notifBtn2";
-            this.notifBtn2.Size = new System.Drawing.Size(116, 32);
-            this.notifBtn2.TabIndex = 1;
-            this.notifBtn2.Text = "Notifications";
-            this.notifBtn2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.notifBtn2.UseVisualStyleBackColor = false;
-            this.notifBtn2.Click += new System.EventHandler(this.notifBtn2_Click);
-            // 
-            // exclamation
-            // 
-            this.exclamation.AutoSize = true;
-            this.exclamation.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
-            this.exclamation.Font = new System.Drawing.Font("Elephant", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.exclamation.ForeColor = System.Drawing.Color.Red;
-            this.exclamation.Location = new System.Drawing.Point(407, 8);
-            this.exclamation.Name = "exclamation";
-            this.exclamation.Size = new System.Drawing.Size(16, 21);
-            this.exclamation.TabIndex = 16;
-            this.exclamation.Text = "!";
-            // 
             // panel9
             // 
             this.panel9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
@@ -449,8 +465,20 @@
             this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel9.Location = new System.Drawing.Point(0, 0);
             this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(307, 32);
+            this.panel9.Size = new System.Drawing.Size(357, 32);
             this.panel9.TabIndex = 64;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.White;
+            this.label11.Location = new System.Drawing.Point(122, 3);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(121, 26);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Notifications";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // notifPanel
             // 
@@ -458,9 +486,9 @@
             this.notifPanel.Controls.Add(this.notifData);
             this.notifPanel.Controls.Add(this.panel9);
             this.notifPanel.Enabled = false;
-            this.notifPanel.Location = new System.Drawing.Point(648, 85);
+            this.notifPanel.Location = new System.Drawing.Point(598, 85);
             this.notifPanel.Name = "notifPanel";
-            this.notifPanel.Size = new System.Drawing.Size(307, 502);
+            this.notifPanel.Size = new System.Drawing.Size(357, 502);
             this.notifPanel.TabIndex = 104;
             this.notifPanel.Visible = false;
             // 
@@ -502,34 +530,8 @@
             this.notifData.ReadOnly = true;
             this.notifData.RowHeadersVisible = false;
             this.notifData.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.notifData.Size = new System.Drawing.Size(301, 458);
+            this.notifData.Size = new System.Drawing.Size(351, 458);
             this.notifData.TabIndex = 101;
-            // 
-            // notifBtn
-            // 
-            this.notifBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(49)))), ((int)(((byte)(55)))));
-            this.notifBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.notifBtn.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.notifBtn.Location = new System.Drawing.Point(402, 3);
-            this.notifBtn.Name = "notifBtn";
-            this.notifBtn.Size = new System.Drawing.Size(116, 32);
-            this.notifBtn.TabIndex = 17;
-            this.notifBtn.Text = "Notifications";
-            this.notifBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.notifBtn.UseVisualStyleBackColor = false;
-            this.notifBtn.Click += new System.EventHandler(this.notifBtn_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(103, 3);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(121, 26);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Notifications";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // unpaidForm
             // 
@@ -539,7 +541,6 @@
             this.ClientSize = new System.Drawing.Size(955, 587);
             this.Controls.Add(this.notifPanel);
             this.Controls.Add(this.printBtn);
-            this.Controls.Add(this.unpaidData);
             this.Controls.Add(this.remainingTxt);
             this.Controls.Add(this.remainingLbl);
             this.Controls.Add(this.panel6);
@@ -558,6 +559,7 @@
             this.Controls.Add(this.custnameTxt);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.unpaidData);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

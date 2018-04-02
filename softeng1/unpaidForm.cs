@@ -27,6 +27,7 @@ namespace softeng1
         private void unpaidForm_Load(object sender, EventArgs e)
         {
             loadUnpaidCustomer();
+            checkCreditLimit();
         }
 
         private void unpaidForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -244,7 +245,15 @@ namespace softeng1
         }
         private void loadNotif()
         {
-            String query = "select concat(firstname,' ',lastname) as cname, order_total, order_balance, term FROM person, customer, sales_order_details, sales_order, payment";
+            DateTime theDate = DateTime.Now;
+            string date = theDate.ToString("yyyy-MM-dd");
+
+            String query = "select concat(firstname,' ',lastname) as cname, order_total, order_balance, term FROM person " +
+                           "inner join customer on person_id = customer_person_id " +
+                           "inner join sales_order on order_customer_id = customer_id " +
+                           "inner join sales_order_details on order_id = so_id " +
+                           "inner join payment on order_payment_id = payment_id " +
+                           "where term = '" + date + "' and order_balance != 0";
 
             conn.Open();
             MySqlCommand comm = new MySqlCommand(query, conn);
@@ -267,6 +276,17 @@ namespace softeng1
             else
             {
                 exclamation.Visible = false;
+            }
+        }
+        public void checkCreditLimit()
+        {
+            for (int i = 0; i < unpaidData.Rows.Count; i++)
+            {
+                if (int.Parse(unpaidData.Rows[i].Cells["CREDIT_LIMIT"].Value.ToString()) < int.Parse(unpaidData.Rows[i].Cells["BALANCE"].Value.ToString()))
+                {
+                    unpaidData.Rows[i].DefaultCellStyle.BackColor = Color.LightCoral;
+                    unpaidData.Rows[i].DefaultCellStyle.ForeColor = Color.White;
+                }
             }
         }
     }
